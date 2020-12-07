@@ -4,6 +4,8 @@
 library(raster)
 library(rgdal)
 library(tidyverse)
+library(maps)
+library(spocc)
 
 # Loading the dsm data - elevation of top physical points
 # Data captured by lidar flyover
@@ -136,8 +138,6 @@ head(plots_canopy_height)
 
 # Mapping points data, kind of species occurrence ----
 
-library(maps)
-
 us_map <- map_data("usa")
 
 ggplot() +
@@ -155,7 +155,6 @@ ggplot() +
 
 # Adding species occurrence data on the map
 
-library(spocc)
 species_gbif <- occ(query = "Dipodomys ordii",
                     from = "gbif",
                     limit = 1000,
