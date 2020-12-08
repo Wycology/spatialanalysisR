@@ -73,7 +73,7 @@ ggplot(data = canopy_height_harvard_df,
        aes(layer)) +
   geom_histogram(col = "red", fill = "cyan") +
   labs(title = "Distribution of tree heights in Harbard",
-       x = "Tree height (m)",
+       x = "Tree heights (m)",
        y = "Frequency") +
   theme_classic()
 
@@ -185,12 +185,3 @@ ggplot() +
                  y = Dipodomys_ordii.latitude),
              col = "red") +
   coord_quickmap()
-
-
-
-
-
-
-
-
-
