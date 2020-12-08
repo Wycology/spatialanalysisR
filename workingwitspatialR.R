@@ -69,6 +69,16 @@ ggplot() +
 max(canopy_height_harvard_df$layer, na.rm = TRUE)
 
 quantile(canopy_height_harvard_df$layer, 0.25, na.rm = TRUE)
+ggplot(data = canopy_height_harvard_df,
+       aes(layer)) +
+  geom_histogram(col = "red", fill = "cyan") +
+  labs(title = "Distribution of tree heights in Harbard",
+       x = "Tree height (m)",
+       y = "Frequency") +
+  theme_classic()
+
+
+
 hist(canopy_height_harvard_df$layer, col = "purple")
 
 # Working with Vector data----
