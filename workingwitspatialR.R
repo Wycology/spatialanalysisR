@@ -1,4 +1,4 @@
-# Working with raster data ----
+# Working with raster data in R----
 # Calculating vegetation canopy height across NEON sites
 
 library(raster)
@@ -8,8 +8,8 @@ library(maps)
 library(spocc)
 
 # Loading the dsm data - elevation of top physical points
-# Data captured by lidar flyover
-# Typically trees but could be anything else
+# Data were captured by lidar flyover in Harvard
+# Typically trees but could be anything else projecting above the surface
 
 dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif")
 
@@ -69,7 +69,7 @@ ggplot() +
 max(canopy_height_harvard_df$layer, na.rm = TRUE)
 
 quantile(canopy_height_harvard_df$layer, 0.25, na.rm = TRUE)
-hist(canopy_height_harvard_df$layer)
+hist(canopy_height_harvard_df$layer, col = "purple")
 
 # Working with Vector data----
 # Loading the points data of the plots in Harvard
@@ -132,7 +132,8 @@ head(plots_canopy_height_df)
 # buffer argument
 
 plots_canopy_height <- raster::extract(canopy_height_harvard, 
-                                       plots_harvard_utm, buffer = 5, fun = mean)
+                                       plots_harvard_utm, buffer = 5, 
+                                       fun = mean)
 
 head(plots_canopy_height)
 
@@ -171,7 +172,8 @@ ggplot() +
                fill = 'grey') +
   geom_point(data = species_gbif_df,
              aes(x = Dipodomys_ordii.longitude,
-                 y = Dipodomys_ordii.latitude)) +
+                 y = Dipodomys_ordii.latitude),
+             col = "red") +
   coord_quickmap()
 
 
