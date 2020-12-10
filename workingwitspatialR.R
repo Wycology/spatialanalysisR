@@ -1,5 +1,5 @@
 # Working with raster data in R----
-# Calculating vegetation canopy height across NEON sites
+# Calculating vegetation canopy height across NEON sites in Harvard
 
 library(raster)
 library(rgdal)
@@ -7,13 +7,13 @@ library(tidyverse)
 library(maps)
 library(spocc)
 
-# Loading the dsm data - elevation of top physical points
+# Loading the dsm (digital surface model) data - elevation of top physical points
 # Data were captured by lidar flyover in Harvard
 # Typically trees but could be anything else projecting above the surface
 
 dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif")
 
-# Have a look at the raster
+# Have a quick look at the raster
 
 plot(dsm_harvard)
 
@@ -21,15 +21,22 @@ plot(dsm_harvard)
 
 dsm_harvard
 
-# Convert the raster to dataframe to plot using ggplot2 package
+# Convert the dsm raster to dataframe to plot using ggplot2 package
 
-dsm_harvard_df <- as.data.frame(dsm_harvard, xy = TRUE)
-
+dsm_harvard_df <- as.data.frame(dsm_harvard, 
+                                xy = TRUE) # xy true ensures that coordinates
+                                          # are also stored in the created dataframe
+?as.data.frame
 # Check the head of the dataframe created
 
-head(dsm_harvard_df)
+head(dsm_harvard_df) # In deed the coordinates are also stored.
 
-# This is a very lenthy dataframe, check the lenth of one column
+# Let me create another one with xy set to FALSE.
+
+no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
+head(the_xy_df) # This is only givin back the values without xy coordinates.
+
+# This is a very lengthy dataframe, check the length of one column
 
 length(dsm_harvard_df$x)
 
@@ -68,22 +75,24 @@ ggplot() +
 
 max(canopy_height_harvard_df$layer, na.rm = TRUE)
 
-quantile(canopy_height_harvard_df$layer, 0.25, na.rm = TRUE)
+quantile(canopy_height_harvard_df$layer, 0.25, na.rm = TRUE) # Checking the 
+# heights of trees at the 25th percentile.
+
 ggplot(data = canopy_height_harvard_df,
        aes(layer)) +
   geom_histogram(col = "red", fill = "cyan") +
-  labs(title = "Distribution of tree heights in Harbard",
+  labs(title = "Distribution of tree heights in Harvard",
        x = "Tree heights (m)",
        y = "Frequency") +
-  theme_classic()
+  theme_classic() # Generating histogram to show the distribution of tree heights
 
 
 
-hist(canopy_height_harvard_df$layer, col = "purple")
+hist(canopy_height_harvard_df$layer, col = "purple") # Assigning my favorite color
 
 # Working with Vector data----
-# Loading the points data of the plots in Harvard
-# You do not need to specify the file extension .shp
+# Loading the points data of some plots in Harvard
+# You do not need to specify the file extension .shp in the readOGR function
 plots_harvard <- readOGR("NEON-airborne/plot_locations", 
                          "HARV_plots")
 class(plots_harvard) # This is a SpatialPointsDataFrame class object
@@ -107,7 +116,7 @@ plots_harvard_utm <- spTransform(plots_harvard,
 crs(canopy_height_harvard)
 crs(plots_harvard_utm)
 
-# Now they have the same crs, this means they can now be overlaid precicely
+# Now they have the same crs, this means they can now be overlaid precisely
 
 # The next step is to convert the plots_harvard_utm to dataframe
 
