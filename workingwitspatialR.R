@@ -1,23 +1,25 @@
 # Working with raster data in R----
-# Calculating vegetation canopy height across NEON sites in Harvard
+# Calculating vegetation canopy heights across NEON sites in Harvard
+# The following libraries need to be loaded:
 
-library(raster)
-library(rgdal)
-library(tidyverse)
-library(maps)
-library(spocc)
+library(raster) # Reading and working with raster files (e.g. dsm and dtm)
+library(rgdal)  # Reading and manipulating vector data (points)
+library(tidyverse) # Wrangling and plotting (visualizing) the data
+library(maps) # Loading us map and having it as dataframe
+library(spocc) # for gathering species records from gbif
 
-# Loading the dsm (digital surface model) data - elevation of top physical points
+# Loading the dsm (digital surface model) data - height of top physical points
 # Data were captured by lidar flyover in Harvard
 # Typically trees but could be anything else projecting above the surface
+# When I checked the study area using Google Earth, it is a forested site
 
-dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif")
+dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif") # Reads the raster data
 
-# Have a quick look at the raster
+# Have a quick visual appeal of the data (raster).
 
-plot(dsm_harvard)
+raster::plot(dsm_harvard)
 
-# Check the metadata of the dsm
+# Check the metadata of the dsm. Done by running the raster object
 
 dsm_harvard
 
@@ -26,7 +28,7 @@ dsm_harvard
 dsm_harvard_df <- as.data.frame(dsm_harvard, 
                                 xy = TRUE) # xy true ensures that coordinates
                                           # are also stored in the created dataframe
-?as.data.frame
+
 # Check the head of the dataframe created
 
 head(dsm_harvard_df) # In deed the coordinates are also stored.
@@ -34,17 +36,23 @@ head(dsm_harvard_df) # In deed the coordinates are also stored.
 # Let me create another one with xy set to FALSE.
 
 no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
-head(the_xy_df) # This is only givin back the values without xy coordinates.
+head(no_xy_df) # This is only givin back the values without xy coordinates.
 
 # This is a very lengthy dataframe, check the length of one column
 
-length(dsm_harvard_df$x)
+length(dsm_harvard_df$x) # This is the same value as ncell shown by
+
+dsm_harvard
 
 # Create the ggplot "HARV_dsmCrop" isthe name of the column with cell values
 
-ggplot()+
-  geom_raster(data = dsm_harvard_df, 
-              aes(x = x, y = y, fill = HARV_dsmCrop))
+ggplot(data = dsm_harvard_df, 
+       aes(x = x, y = y,
+           fill = HARV_dsmCrop))+
+  geom_raster() +
+  labs(x = "Longitude (m)", 
+       y = "Latitude (m)",
+       title = "NEON-dsm of Harvard") 
 
 # Importing the dtm data
 
@@ -194,3 +202,4 @@ ggplot() +
                  y = Dipodomys_ordii.latitude),
              col = "red") +
   coord_quickmap()
+devtools::install_github("babaknaimi/sdm")
