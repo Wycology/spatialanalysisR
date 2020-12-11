@@ -11,7 +11,9 @@ library(spocc) # for gathering species records from gbif
 # Loading the dsm (digital surface model) data - height of top physical points
 # Data were captured by lidar flyover in Harvard
 # Typically trees but could be anything else projecting above the surface
-# When I checked the study area using Google Earth, it is a forested site
+# When I checked the study area using Google Earth (42.536910°, -72.17265°) 
+# (https://www.neonscience.org/field-sites/harv), it is a forested site 
+# and the sensor is visible!!!
 
 dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif") # Reads the raster data
 
@@ -73,11 +75,15 @@ head(canopy_height_harvard_df)
 
 # Generating the plot of the canopy data
 
-ggplot() +
-  geom_raster(data = canopy_height_harvard_df,
-              aes(x = x, y = y, fill = layer ))
+ggplot(data = canopy_height_harvard_df,
+              aes(x = x, y = y, 
+                  fill = layer )) +
+  geom_raster() +
+  labs(x = "Longitude (m)", 
+       y = "Latitude (m)",
+       title = "NEON-canopy height of Harvard")
 
-# Interesting some of the trees grow above 30 m
+# It is interesting that some of the trees grow above 30 m
 
 # Checking the height of the tallest tree (38.16998 m). Wow!
 
