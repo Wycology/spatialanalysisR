@@ -208,4 +208,5 @@ ggplot() +
                  y = Dipodomys_ordii.latitude),
              col = "red") +
   coord_quickmap()
-devtools::install_github("babaknaimi/sdm")
+
+
