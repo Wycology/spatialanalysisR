@@ -123,11 +123,14 @@ crs(canopy_height_harvard) # Checking the crs of the canopy height raster
 crs(plots_harvard) # Checking the crs of the points layer
 
 # I have realized that they are different and I want the crs of canopy height
-# to be the one I use because it has units in m.
+# to be the one I use because it is a projected utm and has units in m.
+# That is better for small localized mapping as is in this case.
 # I use spTransform function to accomplish the transformation
 
 plots_harvard_utm <- spTransform(plots_harvard, 
                                  crs(canopy_height_harvard))
+
+# The spTransform function is just too powerful. Can't imagine doing that in QGIS
 
 crs(canopy_height_harvard)
 crs(plots_harvard_utm)
@@ -136,7 +139,10 @@ crs(plots_harvard_utm)
 
 # The next step is to convert the plots_harvard_utm to dataframe
 
-plots_harvard_utm_df <- as.data.frame(plots_harvard_utm)
+plots_harvard_utm_df <- as.data.frame(plots_harvard_utm) # Here we don't add xy = TRUE
+# because the data is point shapefile and coordinates are included by default 
+# (they are what is being converted to dataframe).
+
 head(plots_harvard_utm_df) # Checking the first 6 rows of the dataframe
 
 # Finally drawing the plots of both raster and points
@@ -147,7 +153,7 @@ ggplot() +
               aes(x = x, y = y, fill = layer)) +
   geom_point(data = plots_harvard_utm_df,
               aes(x = coords.x1, y = coords.x2),
-              col = "yellow", cex = 3)
+              col = "yellow", cex = 4)
   
 # Extracting raster values at point locations ----
 
