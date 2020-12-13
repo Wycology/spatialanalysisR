@@ -6,7 +6,7 @@ library(raster) # Reading and working with raster files (e.g. dsm and dtm)
 library(rgdal)  # Reading and manipulating vector data (points)
 library(tidyverse) # Wrangling and plotting (visualizing) the data
 library(maps) # Loading us map and having it as dataframe
-library(spocc) # for gathering species records from gbif
+library(spocc) # for gathering species records from gbif (https://www.gbif.org/)
 
 # Loading the dsm (digital surface model) data - height of top physical points
 # Data were captured by lidar flyover in Harvard
@@ -21,12 +21,12 @@ dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif") # Reads the raster data
 
 raster::plot(dsm_harvard)
 
-# Check the metadata of the dsm. Done by running the raster object
+# Check the metadata of the dsm. Done by running the raster object itself
 
-dsm_harvard
+dsm_harvard # Looking closely at the source indicates it is a .tif file.
 
-# Convert the dsm raster to dataframe to plot using ggplot2 package
-
+# Convert the dsm raster (GeoTiff) to dataframe to plot using ggplot2 package
+# This can be a very big file depending on size of the raster.
 dsm_harvard_df <- as.data.frame(dsm_harvard, 
                                 xy = TRUE) # xy true ensures that coordinates
                                           # are also stored in the created dataframe
@@ -38,27 +38,29 @@ head(dsm_harvard_df) # In deed the coordinates are also stored.
 # Let me create another one with xy set to FALSE.
 
 no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
-head(no_xy_df) # This is only givin back the values without xy coordinates.
+
+head(no_xy_df) # This is only giving back the values without xy coordinates.
 
 # This is a very lengthy dataframe, check the length of one column
 
-length(dsm_harvard_df$x) # This is the same value as ncell shown by
+length(dsm_harvard_df$x) # This (2319799) is the same value as ncell shown by
 
 dsm_harvard
 
-# Create the ggplot "HARV_dsmCrop" isthe name of the column with cell values
+# Create the ggplot "HARV_dsmCrop" is the name of the column with cell values
 
 ggplot(data = dsm_harvard_df, 
        aes(x = x, y = y,
            fill = HARV_dsmCrop))+
-  geom_raster() +
+  geom_raster() + # This use of geom_raster is important to note
   labs(x = "Longitude (m)", 
-       y = "Latitude (m)",
+       y = "Latitude (m)", # Checking the axes, the values are projected utm meters
        title = "NEON-dsm of Harvard") 
 
-# Importing the dtm data
+# Importing dtm data, note that this is d t m, not d s m.
 
-dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif")
+dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif") # Note the difference in 
+# the name of the file as dtm not dsm, I repeat.
 
 # Subtracting dtm from dsm to get the true canopy height. 
 # Simple raster subtraction
