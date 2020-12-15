@@ -199,7 +199,9 @@ head(plots_canopy_height) # The second point showed a big change
 
 # Mapping points data, kind of species occurrence ----
 
-us_map <- map_data("usa")
+us_map <- ggplot2::map_data(map = "usa") # map_data is a function within ggplot2.
+
+# The name "usa" is provided by the maps package.
 
 ggplot() +
   geom_polygon(data = us_map,
@@ -214,12 +216,12 @@ ggplot() +
                fill = 'grey') +
   coord_quickmap() # Quickmap is helping to better project the map
 
-# Adding species occurrence data on the map
+# Adding species occurrence data on the map.
 
-species_gbif <- occ(query = "Dipodomys ordii",
+species_gbif <- spocc::occ(query = "Dipodomys ordii",
                     from = "gbif",
                     limit = 1000,
-                    has_coords = TRUE)
+                    has_coords = TRUE) # Returns a max of 1k records with coords.
 
 species_gbif_df <- data.frame(species_gbif$gbif$data)
 head(species_gbif_df$Dipodomys_ordii.longitude)
@@ -229,11 +231,11 @@ ggplot() +
   geom_polygon(data = us_map,
                aes(x = long, y = lat,
                    group = group),
-               fill = 'grey') +
+               fill = 'orange') +
   geom_point(data = species_gbif_df,
              aes(x = Dipodomys_ordii.longitude,
                  y = Dipodomys_ordii.latitude),
-             col = "red") +
+             col = "purple") +
   coord_quickmap()
 
 
