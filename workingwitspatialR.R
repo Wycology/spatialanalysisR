@@ -1,4 +1,4 @@
-# Working with raster data in R----
+# Working with raster and vector data in R----
 # Calculating vegetation canopy heights across NEON sites in Harvard
 # The following libraries need to be loaded:
 
