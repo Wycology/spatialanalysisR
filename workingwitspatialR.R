@@ -106,24 +106,24 @@ summary(canopy_height_harvard_df$layer, na.rm = TRUE) # Simple and clear.
 
 ggplot(data = canopy_height_harvard_df,
        aes(layer)) +
-  geom_histogram(col = "red", fill = "cyan") +
+  geom_histogram(col = "blue", fill = "purple") +
   labs(title = "Distribution of tree heights in Harvard",
        x = "Tree heights (m)",
        y = "Frequency") +
   theme_classic() # Generating histogram to show the distribution of tree heights
-
-
 
 hist(canopy_height_harvard_df$layer, col = "purple") # Assigning my favorite color
 
 # Working with Vector data----
 # Loading the points data of some plots in Harvard
 # You do not need to specify the file extension .shp in the readOGR function
-plots_harvard <- readOGR("NEON-airborne/plot_locations", 
-                         "HARV_plots")
+plots_harvard <- readOGR(dsn = "NEON-airborne/plot_locations", 
+                         layer = "HARV_plots")
 class(plots_harvard) # This is a SpatialPointsDataFrame class object
 
 plot(plots_harvard) # Plots the five points 
+
+head(plots_harvard) # The coordinates are hidden but plot ids displayed.
 
 # It is time to plot the points on top of the canopy height layer.
 
@@ -137,10 +137,10 @@ crs(plots_harvard) # Checking the crs of the points layer
 # That is better for small localized mapping as is in this case.
 # I use spTransform function to accomplish the transformation
 
-plots_harvard_utm <- spTransform(plots_harvard, 
-                                 crs(canopy_height_harvard))
+plots_harvard_utm <- spTransform(x = plots_harvard, 
+                                 CRSobj = crs(canopy_height_harvard))
 
-# The spTransform function is just too powerful. Can't imagine doing that in QGIS
+# The spTransform() is just too powerful. Can't imagine doing that in QGIS
 
 crs(canopy_height_harvard)
 crs(plots_harvard_utm)
@@ -160,17 +160,20 @@ head(plots_harvard_utm_df) # Checking the first 6 rows of the dataframe
 
 ggplot() +
   geom_raster(data = canopy_height_harvard_df,
-              aes(x = x, y = y, fill = layer)) +
+              aes(x = x, y = y, fill = layer)) + # For the raster layer
   geom_point(data = plots_harvard_utm_df,
-              aes(x = coords.x1, y = coords.x2),
+              aes(x = coords.x1, y = coords.x2), # For the points layer
               col = "yellow", cex = 4)
   
 # Extracting raster values at point locations ----
 
-plots_canopy_height <- raster::extract(canopy_height_harvard, 
-                               plots_harvard_utm)
-# Extracted points are in the same order as the id of the plots
+plots_canopy_height <- raster::extract(x = canopy_height_harvard, 
+                               plots_harvard_utm) # could also provide buffer and 
+# fun as mean to get values at some pixels around the points. But for now the 
+# extraction is done at the exact points.
 
+# Extracted points are in the same order as the id of the plots
+?raster::extract
 head(plots_canopy_height)
 plots_harvard_utm$plot_id # Checking the presence of plot_id
 
