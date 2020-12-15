@@ -8,42 +8,45 @@ library(tidyverse) # Wrangling and plotting (visualizing) the data
 library(maps) # Loading us map and having it as dataframe
 library(spocc) # for gathering species records from gbif (https://www.gbif.org/)
 
-# Loading the dsm (digital surface model) data - height of top physical points
+# Loading the dsm (digital surface model) data - heights of top physical points
 # Data were captured by lidar flyover in Harvard
 # Typically trees but could be anything else projecting above the surface
 # When I checked the study area using Google Earth (42.536910°, -72.17265°) 
 # (https://www.neonscience.org/field-sites/harv), it is a forested site 
-# and the sensor is visible!!!
+# and the sensor is clearly visible!!!
 
 dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif") # Reads the raster data
 
 # Have a quick visual appeal of the data (raster).
 
-raster::plot(dsm_harvard)
+raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot.
 
 # Check the metadata of the dsm. Done by running the raster object itself
 
 dsm_harvard # Looking closely at the source indicates it is a .tif file.
-
+# The resolution is 1 by 1 meaning 1m by 1m very high spatial resolution!!
+# Am sure the unit is m because it is indicated under the crs:....+units=m
 # Convert the dsm raster (GeoTiff) to dataframe to plot using ggplot2 package
 # This can be a very big file depending on size of the raster.
+
 dsm_harvard_df <- as.data.frame(dsm_harvard, 
                                 xy = TRUE) # xy true ensures that coordinates
-                                          # are also stored in the created dataframe
+                                           # are also stored in the created 
+                                           # dataframe
 
 # Check the head of the dataframe created
 
 head(dsm_harvard_df) # In deed the coordinates are also stored.
 
-# Let me create another one with xy set to FALSE.
+# We can create another one with xy set to FALSE.
 
 no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
 
-head(no_xy_df) # This is only giving back the values without xy coordinates.
+head(no_xy_df) # This is only giving back the dsm values without xy coordinates.
 
 # This is a very lengthy dataframe, check the length of one column
 
-length(dsm_harvard_df$x) # This (2319799) is the same value as ncell shown by
+length(dsm_harvard_df$x) # This (2319799) is the same value as ncell shown by:
 
 dsm_harvard
 
@@ -52,7 +55,7 @@ dsm_harvard
 ggplot(data = dsm_harvard_df, 
        aes(x = x, y = y,
            fill = HARV_dsmCrop))+
-  geom_raster() + # This use of geom_raster is important to note
+  geom_raster() + # This use of geom_raster() is important to note
   labs(x = "Longitude (m)", 
        y = "Latitude (m)", # Checking the axes, the values are projected utm meters
        title = "NEON-dsm of Harvard") 
@@ -60,20 +63,22 @@ ggplot(data = dsm_harvard_df,
 # Importing dtm data, note that this is d t m, not d s m.
 
 dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif") # Note the difference in 
+
 # the name of the file as dtm not dsm, I repeat.
 
-# Subtracting dtm from dsm to get the true canopy height. 
-# Simple raster subtraction
+# Subtracting dtm from dsm to get the true canopy height. Difference in the 
+# heights of the two layers.
 
-canopy_height_harvard <- dsm_harvard - dtm_harvard
+canopy_height_harvard <- dsm_harvard - dtm_harvard # Simple raster subtraction
 
 # Convert canopy height raster to dataframe for plotting
 
 canopy_height_harvard_df <- as.data.frame(canopy_height_harvard, 
                                           xy = TRUE)
-# Checking the head of the canopy dataframe
+# Checking the head of the canopy dataframe.
 
-head(canopy_height_harvard_df)
+head(canopy_height_harvard_df) # x, y, and layer well displayed. Layer here 
+# indicates the values for the heights (m) of the trees within Harvard.
 
 # Generating the plot of the canopy data
 
@@ -85,14 +90,19 @@ ggplot(data = canopy_height_harvard_df,
        y = "Latitude (m)",
        title = "NEON-canopy height of Harvard")
 
-# It is interesting that some of the trees grow above 30 m
+# It is interesting that some of the trees grow above 30 m, quite tall!!
 
 # Checking the height of the tallest tree (38.16998 m). Wow!
 
+# Some few summaries of the data. 
 max(canopy_height_harvard_df$layer, na.rm = TRUE)
-
+min(canopy_height_harvard_df$layer, na.rm = TRUE)
+mean(canopy_height_harvard_df$layer, na.rm = TRUE)
+median(canopy_height_harvard_df$layer, na.rm = TRUE)
 quantile(canopy_height_harvard_df$layer, 0.25, na.rm = TRUE) # Checking the 
 # heights of trees at the 25th percentile.
+
+summary(canopy_height_harvard_df$layer, na.rm = TRUE) # Simple and clear.
 
 ggplot(data = canopy_height_harvard_df,
        aes(layer)) +
