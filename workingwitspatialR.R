@@ -173,9 +173,13 @@ plots_canopy_height <- raster::extract(x = canopy_height_harvard,
 # extraction is done at the exact points.
 
 # Extracted points are in the same order as the id of the plots
-?raster::extract
-head(plots_canopy_height)
+
+head(plots_canopy_height) # Provides a list of extracted values for the five 
+                          # points
+
 plots_harvard_utm$plot_id # Checking the presence of plot_id
+
+# To build a dataframe for the extracted heights.
 
 plots_canopy_height_df <- data.frame(plot_num = plots_harvard_utm$plot_id,
                                      plot_value = plots_canopy_height)
@@ -185,11 +189,13 @@ head(plots_canopy_height_df)
 # In order to get average of cells around a point as the extracted value we use
 # buffer argument
 
-plots_canopy_height <- raster::extract(canopy_height_harvard, 
-                                       plots_harvard_utm, buffer = 5, 
+plots_canopy_height <- raster::extract(canopy_height_harvard, plots_harvard_utm, 
+                                       buffer = 5, 
                                        fun = mean)
 
-head(plots_canopy_height)
+head(plots_canopy_height) # The second point showed a big change 
+# from 15.94 to 9.93 when buffer is used. Probably it was a lonely tree 
+# in a rather bare background.
 
 # Mapping points data, kind of species occurrence ----
 
