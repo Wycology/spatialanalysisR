@@ -34,9 +34,10 @@ dsm_harvard_df <- as.data.frame(dsm_harvard,
                                            # are also stored in the created 
                                            # dataframe
 
-# Check the head of the dataframe created
+# Check the head of the dataframe created to confirm the data is as expected
 
-head(dsm_harvard_df) # In deed the coordinates are also stored.
+head(dsm_harvard_df) # In deed the coordinates are also stored in the
+# newly created dataframe.
 
 # We can create another one with xy set to FALSE.
 
@@ -48,7 +49,7 @@ head(no_xy_df) # This is only giving back the dsm values without xy coordinates.
 
 length(dsm_harvard_df$x) # This (2319799) is the same value as ncell shown by:
 
-dsm_harvard
+dsm_harvard # Weare now quite sure about how long the dataset is.
 
 # Create the ggplot "HARV_dsmCrop" is the name of the column with cell values
 
