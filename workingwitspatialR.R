@@ -108,24 +108,24 @@ ggplot(data = canopy_height_harvard_df,
 
 canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and then.
   select(layer) %>%  # Picking the layer column, and then.
-  filter(layer >= 30) %>%  # Selecting those not less than 30 m, and then,
+  filter(layer >= 30) %>%  # Filtering rows with layer not less than 30 m, and then,
   nrow() # Counting their row numbers, actually the number of cells.
 
 # Checking the height of the tallest tree (38.16998 m). Wow!
 
-canopy_height_harvard_df %>% # Picks the dataframe.
-  select(layer) %>%  # Picks the layer column to check values from.
+canopy_height_harvard_df %>% # Picks the dataframe, and then.
+  select(layer) %>%  # Picks the layer column to check values from, and then.
   summarize(maximum = max(layer, na.rm = TRUE)) # Returns the max of the value.
 
-# Checking for the shortest tree () in the dataset.
+# Checking for the shortest tree in the dataset.
 
-canopy_height_harvard_df %>% # Picks the dataframe.
-  select(layer) %>%  # Picks the layer column to check values from.
-  summarize(minimum = min(layer, na.rm = TRUE)) # Returns the min of the value.
+canopy_height_harvard_df %>% # Picks the dataframe, and then.
+  select(layer) %>%  # Picks the layer column to check values from, and then.
+  summarize(minimum = min(layer, na.rm = TRUE)) # Returns the min of the values.
 
 # Interesting the minimum value/shortest tree is 0 m. This is where both dsm
 # and dtm have same value. Being a forested area, we can say these are flat zones
-# which need planting of trees.The question is, how many cells are "bare"?
+# which may need planting of trees.The question is, how many cells are "bare"?
 
 canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and then.
   select(layer) %>%  # Picking the layer column, and then.
@@ -133,33 +133,35 @@ canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and th
   nrow() # Counting their row numbers, actually the number of cells.
 
 # Since each cell is 1m by 1m, we can say bare ground is 51,135 m^2 which is 
-# equivalent to 0.51135 ha of the region being bare. Please plant for raising
-# seedling to cover the bare area :).
+# equivalent to 0.51135 ha of the region being bare. Please plan for raising
+# seedlings to cover the bare area :).
 
 # On average, we can estimate the mean canopy height at the site;
 
-canopy_height_harvard_df %>% # Picks the dataframe.
-  select(layer) %>%  # Picks the layer column to check values from.
+canopy_height_harvard_df %>% # Picks the dataframe, and then.
+  select(layer) %>%  # Picks the layer column to check values from, and then.
   summarize(average = mean(layer, na.rm = TRUE)) # Returns the mean canopy height.
 
 # Still we can get the median height of the trees
 
-canopy_height_harvard_df %>% # Picks the dataframe.
-  select(layer) %>%  # Picks the layer column to check values from.
-  summarize(median = median(layer, na.rm = TRUE)) # Returns the min of the value.
+canopy_height_harvard_df %>% # Picks the dataframe, and then.
+  select(layer) %>%  # Picks the layer column to check values from, and then.
+  summarize(median = median(layer, na.rm = TRUE)) # Returns the median value.
 
 # To calculate quantiles of the dataframe: Better summary with named rows.
+
 library(magrittr)
 canopy_height_harvard_df %>% # Picks the dataframe.
   select(layer) %>%  # Picks the layer column to check values from.
   summarize(quantiles = quantile(layer, na.rm = TRUE)) %>% 
   `row.names<-`(c("min", "lower quartile", "median", "upper quartile", "max"))
 
-quantile(canopy_height_harvard_df$layer, 0.25, na.rm = TRUE) # Checking the 
-# heights of trees at the 25th percentile.
+# Trying to have a summary of the cells
 
-summary(canopy_height_harvard_df$layer, na.rm = TRUE) # Simple and clear.
-
+canopy_height_harvard_df %>% # A cool way to get the values as opposed to earlier.
+  select(layer) %>% 
+  summary() %>% 
+ 
 ggplot(data = canopy_height_harvard_df,
        aes(layer)) +
   geom_histogram(col = "blue", fill = "purple") +
