@@ -225,7 +225,7 @@ ggplot() +
 species_gbif <- spocc::occ(query = "Dipodomys ordii",
                     from = "gbif",
                     limit = 1000,
-                    has_coords = TRUE) # Returns a max of 1k records with coords.
+                    has_coords = TRUE) # Returns a maximum of 1k records with coords.
 
 species_gbif_df <- data.frame(species_gbif$gbif$data)
 head(species_gbif_df$Dipodomys_ordii.longitude)
