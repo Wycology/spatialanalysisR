@@ -1,6 +1,9 @@
 # Working with raster and vector data in R----
-# Calculating vegetation canopy heights across NEON sites in Harvard
-# The following libraries need to be loaded:
+# Calculating plant canopy heights across NEON sites in Harvard.
+# The following libraries need to be loaded first:
+
+# In case none them is already installed then use install.packages() function
+# to do so. 
 
 library(raster) # Reading and working with raster files (e.g. dsm and dtm)
 library(rgdal)  # Reading and manipulating vector data (points)
@@ -238,5 +241,11 @@ ggplot() +
                  y = Dipodomys_ordii.latitude),
              col = "purple") +
   coord_quickmap()
+
+
+
+
+
+
 
 
