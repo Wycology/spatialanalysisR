@@ -59,14 +59,14 @@ dsm_harvard_df %>% # pick the dataset, and then
 
 # This (2319799) is the same value as ncell shown by:
 
-dsm_harvard # Wen are now quite sure about how long the dataset is.
+dsm_harvard # We are now sure about how long (number of rows) the dataset is.
 
-# Create the ggplot "HARV_dsmCrop" is the name of the column with cell values
+# Create the ggplot; "HARV_dsmCrop" is the name of the column with cell values.
 
 ggplot(data = dsm_harvard_df, 
        aes(x = x, y = y,
-           fill = HARV_dsmCrop))+
-  geom_raster() + # This use of geom_raster() is important to note
+           fill = HARV_dsmCrop))+ # fill takes the extracted cell values.
+  geom_raster() + # This use of geom_raster() is important to note.
   labs(x = "Longitude (m)", 
        y = "Latitude (m)", # Checking the axes, the values are projected utm meters
        title = "NEON-dsm of Harvard") 
@@ -75,33 +75,41 @@ ggplot(data = dsm_harvard_df,
 
 dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif") # Note the difference in 
 
-# the name of the file as dtm not dsm, I repeat.
+# the name of the file as dtm not dsm, I repeat, unfortunately.
 
 # Subtracting dtm from dsm to get the true canopy height. Difference in the 
-# heights of the two layers.
+# heights of the two layers. It is dtm being subtracted FROM dsm.
 
-canopy_height_harvard <- dsm_harvard - dtm_harvard # Simple raster subtraction
+canopy_height_harvard <- dsm_harvard - dtm_harvard # Simple raster subtraction.
 
-# Convert canopy height raster to dataframe for plotting
+# The subtraction is being done cell by cell hence ease of subtraction.
+# Convert canopy height raster to dataframe for plotting.
 
 canopy_height_harvard_df <- as.data.frame(canopy_height_harvard, 
-                                          xy = TRUE)
+                                          xy = TRUE) # Again returning xy.
 # Checking the head of the canopy dataframe.
 
 head(canopy_height_harvard_df) # x, y, and layer well displayed. Layer here 
-# indicates the values for the heights (m) of the trees within Harvard.
+# indicates the values of the heights (m) of the trees within Harvard.
+# Here the values are saved under column called layer.
 
-# Generating the plot of the canopy data
+# Generating the plot of the canopy data.
 
 ggplot(data = canopy_height_harvard_df,
               aes(x = x, y = y, 
-                  fill = layer )) +
+                  fill = layer )) + # Here we use layer column for fill.
   geom_raster() +
   labs(x = "Longitude (m)", 
        y = "Latitude (m)",
        title = "NEON-canopy height of Harvard")
 
 # It is interesting that some of the trees grow above 30 m, quite tall!!
+# Let me see how many cells have values not less than 30 m tall.
+
+canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and then.
+  select(layer) %>%  # Picking the layer column, and then.
+  filter(layer >= 30) %>%  # Selecting those not less than 30 m, and then,
+  nrow() # Counting their row numbers, actually the number of cells.
 
 # Checking the height of the tallest tree (38.16998 m). Wow!
 
