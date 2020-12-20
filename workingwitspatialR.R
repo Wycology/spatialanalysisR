@@ -113,8 +113,29 @@ canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and th
 
 # Checking the height of the tallest tree (38.16998 m). Wow!
 
-# Some few summaries of the data. 
-max(canopy_height_harvard_df$layer, na.rm = TRUE)
+canopy_height_harvard_df %>% # Picks the dataframe.
+  select(layer) %>%  # Picks the layer column to check values from.
+  summarize(maximum = max(layer, na.rm = TRUE)) # Returns the max of the value.
+
+# Checking for the shortest tree () in the dataset.
+
+canopy_height_harvard_df %>% # Picks the dataframe.
+  select(layer) %>%  # Picks the layer column to check values from.
+  summarize(minimum = min(layer, na.rm = TRUE)) # Returns the min of the value.
+
+# Interesting the minimum value/shortest tree is 0 m. This is where both dsm
+# and dtm have same value. Being a forested area, we can say these are flat zones
+# which need planting of trees.The question is, how many cells are "bare"?
+
+canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and then.
+  select(layer) %>%  # Picking the layer column, and then.
+  filter(layer == 0) %>%  # Selecting those cells which are 0 m, and then,
+  nrow() # Counting their row numbers, actually the number of cells.
+
+# Since each cell is 1m by 1m, we can say bare ground is 51,135 m^2 which is 
+# equivalent to 0.51135 ha of the region being bare. Please plant for raising
+# seedling to cover the bare area :).
+
 min(canopy_height_harvard_df$layer, na.rm = TRUE)
 mean(canopy_height_harvard_df$layer, na.rm = TRUE)
 median(canopy_height_harvard_df$layer, na.rm = TRUE)
