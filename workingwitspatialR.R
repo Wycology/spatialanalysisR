@@ -5,54 +5,61 @@
 # In case none them is already installed then use install.packages() function
 # to do so. 
 
-library(raster) # Reading and working with raster files (e.g. dsm and dtm)
-library(rgdal)  # Reading and manipulating vector data (points)
-library(tidyverse) # Wrangling and plotting (visualizing) the data
-library(maps) # Loading us map and having it as dataframe
+library(raster) # Reading and wrangling raster files (e.g. dsm and dtm)
+library(rgdal)  # Reading and manipulating vector data (points, lines, polygins)
+library(tidyverse) # Wrangling and visualizing especially tabular data
+library(maps) # Loading required maps as SpatialDataframe
 library(spocc) # for gathering species records from gbif (https://www.gbif.org/)
 
-# Loading the dsm (digital surface model) data - heights of top physical points
-# Data were captured by lidar flyover in Harvard
-# Typically trees but could be anything else projecting above the surface
+# Loading the dsm (digital surface model) data - heights of top physical points.
+# The data were captured by lidar flyover in Harvard NEON site.
+# Typically trees but could be anything else projecting above the surface.
 # When I checked the study area using Google Earth (42.536910°, -72.17265°) 
 # (https://www.neonscience.org/field-sites/harv), it is a forested site 
-# and the sensor is clearly visible!!!
+# and the NEON sensor pylon is clearly visible at the site!!!
 
-dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif") # Reads the raster data
+dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif") # Reads the raster data.
 
-# Have a quick visual appeal of the data (raster).
+# Have a quick visual appeal of the loaded raster data.
 
-raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot.
+raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot().
 
-# Check the metadata of the dsm. Done by running the raster object itself
+# Check the metadata of the dsm. Done by running the raster object itself.
 
-dsm_harvard # Looking closely at the source indicates it is a .tif file.
-# The resolution is 1 by 1 meaning 1m by 1m very high spatial resolution!!
-# Am sure the unit is m because it is indicated under the crs:....+units=m
+dsm_harvard 
+
+# Looking closely at the source indicates it is a .tif file.
+# The resolution is 1 by 1 meaning 1m by 1m, very high spatial resolution!!
+# Am sure the unit is m because it is indicated under the crs:....+units=m.
 # Convert the dsm raster (GeoTiff) to dataframe to plot using ggplot2 package
 # This can be a very big file depending on size of the raster.
 
 dsm_harvard_df <- as.data.frame(dsm_harvard, 
-                                xy = TRUE) # xy true ensures that coordinates
+                                xy = TRUE) # xy = TRUE ensures that coordinates
                                            # are also stored in the created 
-                                           # dataframe
+                                           # dataframe.
 
-# Check the head of the dataframe created to confirm the data is as expected
+# Check the head of the dataframe created to confirm the data is as expected.
 
-head(dsm_harvard_df) # In deed the coordinates are also stored in the
-# newly created dataframe.
+head(dsm_harvard_df) # Indeed the coordinates are also stored in the newly 
+# created dataframe.
 
-# We can create another one with xy set to FALSE.
+# We can create another one with xy set to FALSE, just for fun.
 
 no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
 
 head(no_xy_df) # This is only giving back the dsm values without xy coordinates.
 
-# This is a very lengthy dataframe, check the length of one column
+# This is a very lengthy dataframe, check the length of one column to confirm.
 
-length(dsm_harvard_df$x) # This (2319799) is the same value as ncell shown by:
+dsm_harvard_df %>% # pick the dataset, and then
+  select(y) %>% # pick the column called y, and then
+  nrow() # Give the number of rows here. This can also be x or HARV_dsmCrop if
+# they are accordingly included in the select() too.
 
-dsm_harvard # Weare now quite sure about how long the dataset is.
+# This (2319799) is the same value as ncell shown by:
+
+dsm_harvard # Wen are now quite sure about how long the dataset is.
 
 # Create the ggplot "HARV_dsmCrop" is the name of the column with cell values
 
