@@ -136,9 +136,25 @@ canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and th
 # equivalent to 0.51135 ha of the region being bare. Please plant for raising
 # seedling to cover the bare area :).
 
-min(canopy_height_harvard_df$layer, na.rm = TRUE)
-mean(canopy_height_harvard_df$layer, na.rm = TRUE)
-median(canopy_height_harvard_df$layer, na.rm = TRUE)
+# On average, we can estimate the mean canopy height at the site;
+
+canopy_height_harvard_df %>% # Picks the dataframe.
+  select(layer) %>%  # Picks the layer column to check values from.
+  summarize(average = mean(layer, na.rm = TRUE)) # Returns the mean canopy height.
+
+# Still we can get the median height of the trees
+
+canopy_height_harvard_df %>% # Picks the dataframe.
+  select(layer) %>%  # Picks the layer column to check values from.
+  summarize(median = median(layer, na.rm = TRUE)) # Returns the min of the value.
+
+# To calculate quantiles of the dataframe: Better summary with named rows.
+library(magrittr)
+canopy_height_harvard_df %>% # Picks the dataframe.
+  select(layer) %>%  # Picks the layer column to check values from.
+  summarize(quantiles = quantile(layer, na.rm = TRUE)) %>% 
+  `row.names<-`(c("min", "lower quartile", "median", "upper quartile", "max"))
+
 quantile(canopy_height_harvard_df$layer, 0.25, na.rm = TRUE) # Checking the 
 # heights of trees at the 25th percentile.
 
