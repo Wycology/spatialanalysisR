@@ -1,4 +1,4 @@
-# Working with raster and vector data in R----
+# Working with raster data in R----
 # Calculating plant canopy heights across NEON sites in Harvard.
 # The following libraries need to be loaded first:
 
@@ -182,33 +182,35 @@ ggplot(data = canopy_height_harvard_df,
        y = "Frequency") +
   theme_classic() # Generating histogram to show the distribution of tree heights
 
-# Working with Vector data----
-# Loading the points data of some plots in Harvard
+# Working with Vector data in R----
+# Loading the points data of some plots in Harvard where dtm and dsm came from.
 # You do not need to specify the file extension .shp in the readOGR function
+
 plots_harvard <- readOGR(dsn = "NEON-airborne/plot_locations", 
                          layer = "HARV_plots")
-class(plots_harvard) # This is a SpatialPointsDataFrame class object
 
-plot(plots_harvard) # Plots the five points 
+class(plots_harvard) # This is a SpatialPointsDataFrame class object.
+
+plot(plots_harvard) # Plots the five points. 
 
 head(plots_harvard) # The coordinates are hidden but plot ids displayed.
 
 # It is time to plot the points on top of the canopy height layer.
 
-# Both layers must be in the same coordinate reference system
+# Both layers must be in the same coordinate reference system.
 
-crs(canopy_height_harvard) # Checking the crs of the canopy height raster
-crs(plots_harvard) # Checking the crs of the points layer
+crs(canopy_height_harvard) # Checking the crs of the canopy height raster.
+crs(plots_harvard) # Checking the crs of the points layer.
 
 # I have realized that they are different and I want the crs of canopy height
 # to be the one I use because it is a projected utm and has units in m.
 # That is better for small localized mapping as is in this case.
-# I use spTransform function to accomplish the transformation
+# I use spTransform function to accomplish the transformation.
 
 plots_harvard_utm <- spTransform(x = plots_harvard, 
                                  CRSobj = crs(canopy_height_harvard))
 
-# The spTransform() is just too powerful. Can't imagine doing that in QGIS
+# The spTransform() is just too powerful. Can't imagine doing that in QGIS.
 
 crs(canopy_height_harvard)
 crs(plots_harvard_utm)
@@ -255,15 +257,17 @@ plots_canopy_height_df <- data.frame(plot_num = plots_harvard_utm$plot_id,
 head(plots_canopy_height_df)
 
 # In order to get average of cells around a point as the extracted value we use
-# buffer argument
+# buffer argument.
 
-plots_canopy_height <- raster::extract(canopy_height_harvard, plots_harvard_utm, 
-                                       buffer = 5, 
-                                       fun = mean)
+plots_canopy_height_buffer <- raster::extract(canopy_height_harvard, 
+                                              plots_harvard_utm, 
+                                              buffer = 9,
+                                              fun = mean)
 
-head(plots_canopy_height) # The second point showed a big change 
-# from 15.94 to 9.93 when buffer is used. Probably it was a lonely tree 
-# in a rather bare background.
+head(plots_canopy_height_buffer) # The second point showed a big change 
+# from 15.94 to 10.22 when buffer is used. Probably it was a lonely tree 
+# in a rather bare background. Buffer of 9 computes mean height of 9 pixels
+# around the central point.
 
 # Mapping points data, kind of species occurrence ----
 
