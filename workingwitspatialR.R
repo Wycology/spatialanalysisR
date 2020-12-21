@@ -11,6 +11,17 @@ library(tidyverse) # Wrangling and visualizing especially tabular data
 library(maps) # Loading required maps as SpatialDataframe
 library(spocc) # for gathering species records from gbif (https://www.gbif.org/)
 
+# Versions used:
+
+# R         = 4.0.3 "Bunny-Wunnies Freak Out", just run the word version
+# RStudio   = 1.3.1093 (Go to Help ==> About RStudio)
+# raster    = 3.4.5  Run packageVersion("raster")
+# rgdal     = 1.5.18 Run packageVersion("rgdal")
+# tidyverse = 1.3.0  Run packageVersion("tidyverse")
+# maps      = 3.3.0  Run packageVersion("maps")
+# spocc     = 1.1.0  Run packageVersion("spocc")
+
+
 # Loading the dsm (digital surface model) data - heights of top physical points.
 # The data were captured by lidar flyover in Harvard NEON site.
 # Typically trees but could be anything else projecting above the surface.
@@ -297,8 +308,8 @@ ggplot() +
   coord_quickmap()
 
 
-
-
+library(tidyverse)
+packageVersion("tidyverse")
 
 
 
