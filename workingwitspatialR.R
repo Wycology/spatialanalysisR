@@ -265,7 +265,7 @@ plots_canopy_height_buffer <- raster::extract(canopy_height_harvard,
                                               fun = mean)
 
 head(plots_canopy_height_buffer) # The second point showed a big change 
-# from 15.94 to 10.22 when buffer is used. Probably it was a lonely tree 
+# from 15.94m to 10.22m when buffer of 9 is used. Probably it was a lonely tree 
 # in a rather bare background. Buffer of 9 computes mean height of 9 pixels
 # around the central point.
 
@@ -301,19 +301,13 @@ head(species_gbif_df$Dipodomys_ordii.longitude)
 
 ggplot() +
   geom_polygon(data = us_map,
-               aes(x = long, y = lat,
+               aes(x = long, y = lat, # Plotting the USA map
                    group = group),
                fill = 'orange') +
   geom_point(data = species_gbif_df,
-             aes(x = Dipodomys_ordii.longitude,
+             aes(x = Dipodomys_ordii.longitude, # Plotting the species points
                  y = Dipodomys_ordii.latitude),
              col = "purple") +
-  coord_quickmap()
+  coord_quickmap() # Supporting better projection
 
-
-library(tidyverse)
-packageVersion("tidyverse")
-
-
-
-
+# This is the end of the cool show of playing around with spatial data in R.
