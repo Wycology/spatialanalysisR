@@ -7,9 +7,9 @@
 
 library(raster) # Reading and wrangling raster files (e.g. dsm and dtm)
 library(rgdal)  # Reading and manipulating vector data (points, lines, polygins)
-library(tidyverse) # Wrangling and visualizing especially tabular data
 library(maps) # Loading required maps as SpatialDataframe
 library(spocc) # for gathering species records from gbif (https://www.gbif.org/)
+library(tidyverse) # Wrangling and visualizing especially tabular data
 
 # Versions used:
 
@@ -20,7 +20,6 @@ library(spocc) # for gathering species records from gbif (https://www.gbif.org/)
 # tidyverse = 1.3.0  Run packageVersion("tidyverse")
 # maps      = 3.3.0  Run packageVersion("maps")
 # spocc     = 1.1.0  Run packageVersion("spocc")
-
 
 # Loading the dsm (digital surface model) data - heights of top physical points.
 # The data were captured by lidar flyover in Harvard NEON site.
@@ -39,7 +38,7 @@ raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot().
 
 dsm_harvard 
 
-# Looking closely at the source indicates it is a .tif file.
+# Looking at the source indicates it is a .tif file.
 # The resolution is 1 by 1 meaning 1m by 1m, very high spatial resolution!!
 # Am sure the unit is m because it is indicated under the crs:....+units=m.
 # Convert the dsm raster (GeoTiff) to dataframe to plot using ggplot2 package
@@ -61,10 +60,10 @@ no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
 
 head(no_xy_df) # This is only giving back the dsm values without xy coordinates.
 
-# This is a very lengthy dataframe, check the length of one column to confirm.
+# This is a very lengthy dataframe, check the rows of one column to confirm.
 
-dsm_harvard_df %>% # pick the dataset, and then
-  select(y) %>% # pick the column called y, and then
+dsm_harvard_df %>% # pick the dataset, and then.
+  dplyr::select(y) %>% # pick the column called y, and then
   nrow() # Give the number of rows here. This can also be x or HARV_dsmCrop if
 # they are accordingly included in the select() too.
 
@@ -118,20 +117,21 @@ ggplot(data = canopy_height_harvard_df,
 # Let me see how many cells have values not less than 30 m tall.
 
 canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and then.
-  select(layer) %>%  # Picking the layer column, and then.
+  dplyr::select(layer) %>%  # Picking the layer column, and then.
   filter(layer >= 30) %>%  # Filtering rows with layer not less than 30 m, and then,
   nrow() # Counting their row numbers, actually the number of cells.
-
+# It is unfortunate that my select in dplyr has been masked by select in raster.
+# So I have to call it all through.
 # Checking the height of the tallest tree (38.16998 m). Wow!
 
 canopy_height_harvard_df %>% # Picks the dataframe, and then.
-  select(layer) %>%  # Picks the layer column to check values from, and then.
+  dplyr::select(layer) %>%  # Picks the layer column to check values from, and then.
   summarize(maximum = max(layer, na.rm = TRUE)) # Returns the max of the value.
 
 # Checking for the shortest tree in the dataset.
 
 canopy_height_harvard_df %>% # Picks the dataframe, and then.
-  select(layer) %>%  # Picks the layer column to check values from, and then.
+  dplyr::select(layer) %>%  # Picks the layer column to check values from, and then.
   summarize(minimum = min(layer, na.rm = TRUE)) # Returns the min of the values.
 
 # Interesting the minimum value/shortest tree is 0 m. This is where both dsm
@@ -139,7 +139,7 @@ canopy_height_harvard_df %>% # Picks the dataframe, and then.
 # which may need planting of trees.The question is, how many cells are "bare"?
 
 canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and then.
-  select(layer) %>%  # Picking the layer column, and then.
+  dplyr::select(layer) %>%  # Picking the layer column, and then.
   filter(layer == 0) %>%  # Selecting those cells which are 0 m, and then,
   nrow() # Counting their row numbers, actually the number of cells.
 
@@ -150,29 +150,30 @@ canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and th
 # On average, we can estimate the mean canopy height at the site;
 
 canopy_height_harvard_df %>% # Picks the dataframe, and then.
-  select(layer) %>%  # Picks the layer column to check values from, and then.
+  dplyr::select(layer) %>%  # Picks the layer column to check values from, and then.
   summarize(average = mean(layer, na.rm = TRUE)) # Returns the mean canopy height.
 
-# Still we can get the median height of the trees
+# Still we can get the median height of the trees;
 
 canopy_height_harvard_df %>% # Picks the dataframe, and then.
-  select(layer) %>%  # Picks the layer column to check values from, and then.
+  dplyr::select(layer) %>%  # Picks the layer column to check values from, and then.
   summarize(median = median(layer, na.rm = TRUE)) # Returns the median value.
 
-# To calculate quantiles of the dataframe: Better summary with named rows.
+# To calculate quantiles of the dataframe: Better summary with named rows;
 
-library(magrittr)
-canopy_height_harvard_df %>% # Picks the dataframe.
-  select(layer) %>%  # Picks the layer column to check values from.
+canopy_height_harvard_df %>% # Picks the dataframe, and then.
+  dplyr::select(layer) %>%  # Picks the layer column to check values from, and then.
   summarize(quantiles = quantile(layer, na.rm = TRUE)) %>% 
   `row.names<-`(c("min", "lower quartile", "median", "upper quartile", "max"))
 
 # Trying to have a summary of the cells
 
 canopy_height_harvard_df %>% # A cool way to get the values as opposed to earlier.
-  select(layer) %>% 
-  summary() %>% 
- 
+  dplyr::select(layer) %>% 
+  summary()
+
+# Let us have a cool representation of the distribution of the canopy height values.
+
 ggplot(data = canopy_height_harvard_df,
        aes(layer)) +
   geom_histogram(col = "blue", fill = "purple") +
@@ -180,8 +181,6 @@ ggplot(data = canopy_height_harvard_df,
        x = "Tree heights (m)",
        y = "Frequency") +
   theme_classic() # Generating histogram to show the distribution of tree heights
-
-hist(canopy_height_harvard_df$layer, col = "purple") # Assigning my favorite color
 
 # Working with Vector data----
 # Loading the points data of some plots in Harvard
