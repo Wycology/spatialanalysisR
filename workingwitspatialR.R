@@ -90,6 +90,13 @@ dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif") # Note the difference in
 # Subtracting dtm from dsm to get the true canopy height. Difference in the 
 # heights of the two layers. It is dtm being subtracted FROM dsm.
 
+# However, before subtration is done, we shall check whether the two rasters
+# are of same extent, resolution and projection
+
+compareRaster(dtm_harvard, dsm_harvard) # This has returned TRUE, meaning they
+# are of the same extent, resolution and projection. Otherwise it would return
+# a self-explanatory error message.
+
 canopy_height_harvard <- dsm_harvard - dtm_harvard # Simple raster subtraction.
 
 # The subtraction is being done cell by cell hence ease of subtraction.
