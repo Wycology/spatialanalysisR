@@ -318,3 +318,7 @@ ggplot() +
   coord_quickmap() # Supporting better projection
 
 # This is the end of the cool show of playing around with spatial data in R.
+
+
+# In order to have everything in html, just click Ctrl + Shift + K
+# Cool!!!
