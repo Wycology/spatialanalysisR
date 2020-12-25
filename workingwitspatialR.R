@@ -323,4 +323,4 @@ ggplot() +
 # In order to have everything in html, just click Ctrl + Shift + K
 # Cool!!!
 
-
+# Just learned how to mosaick my Sentinel data in SAGA when QGIS failed.
