@@ -324,3 +324,5 @@ ggplot() +
 # Cool!!!
 
 # Just learned how to mosaick my Sentinel data in SAGA when QGIS failed.
+# Working around the bug in QGIS when masking or clipping is to save the masked
+# or clipped image to file and not temporary folder. It worked after some struggles.
