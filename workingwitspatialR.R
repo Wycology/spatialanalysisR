@@ -72,8 +72,6 @@ no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
 
 head(no_xy_df) # This is only giving back the dsm values without xy coordinates.
 
-# This is a very lengthy dataframe, check the rows of one column to confirm.
-
 dsm_harvard_df %>% # pick the dataset, and then.
   dplyr::select(y) %>% # pick the column called y, and then
   nrow() # Give the number of rows here. This can also be x or HARV_dsmCrop if
@@ -97,7 +95,7 @@ ggplot(data = dsm_harvard_df,
 
 dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif") # Note the difference in 
 
-# the name of the file as dtm not dsm, I repeat, unfortunately.
+# The name of the file as dtm not dsm, I repeat, unfortunately.
 
 # Subtracting dtm from dsm to get the true canopy height. Difference in the 
 # heights of the two layers. It is dtm being subtracted FROM dsm.
