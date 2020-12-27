@@ -11,7 +11,7 @@ library(maps) # Loading required maps as SpatialDataframe
 library(spocc) # for gathering species records from gbif (https://www.gbif.org/)
 library(tidyverse) # Wrangling and visualizing especially tabular data
 
-# Versions used:
+# Versions of packages Rstudio and R used in this project:
 
 # R         = 4.0.3 "Bunny-Wunnies Freak Out", just run the word version
 # RStudio   = 1.3.1093 (Go to Help ==> About RStudio)
@@ -323,6 +323,6 @@ ggplot() +
 # In order to have everything in html, just click Ctrl + Shift + K
 # Cool!!!
 
-# Just learned how to mosaick my Sentinel data in SAGA when QGIS failed.
+# Just learned how to mosaic my Sentinel data in SAGA when QGIS failed.
 # Working around the bug in QGIS when masking or clipping is to save the masked
 # or clipped image to file and not temporary folder. It worked after some struggles.
