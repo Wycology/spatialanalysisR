@@ -8,10 +8,11 @@
 # Created on 27th December 2020        #
 # Last modified on 27th December 2020  #
 ########################################
-# Calculating plant canopy heights across NEON sites in Harvard.
-# The following libraries need to be loaded first:
 
-# In case none them is already installed then use install.packages() function
+# Calculating plant canopy heights across NEON sites in Harvard using dsm & dtm.
+# The following libraries need to be loaded first to aid the work:
+
+# In case none of them is already installed then use install.packages() function
 # to do so. 
 
 library(raster) # Reading and wrangling raster files (e.g. dsm and dtm)
