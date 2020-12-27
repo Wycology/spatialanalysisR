@@ -15,15 +15,15 @@
 # In case none of them is already installed then use install.packages() function
 # to do so. 
 
-library(raster) # Reading and wrangling raster files (e.g. dsm and dtm)
+library(raster) # Reading and wrangling raster data files (e.g. dsm and dtm)
 library(rgdal)  # Reading and manipulating vector data (points, lines, polygins)
 library(maps) # Loading required maps as SpatialDataframe
-library(spocc) # for gathering species records from gbif (https://www.gbif.org/)
+library(spocc) # Gathering species records from gbif (https://www.gbif.org/)
 library(tidyverse) # Wrangling and visualizing especially tabular data
 
 # Versions of packages Rstudio and R used in this project:
 
-# R         = 4.0.3 "Bunny-Wunnies Freak Out", just run the word version
+# R         = 4.0.3 "Bunny-Wunnies Freak Out", run the word version 
 # RStudio   = 1.3.1093 (Go to Help ==> About RStudio)
 # raster    = 3.4.5  Run packageVersion("raster")
 # rgdal     = 1.5.18 Run packageVersion("rgdal")
@@ -48,11 +48,13 @@ raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot().
 
 dsm_harvard 
 
-# Looking at the source indicates that it is a .tif file.
+# Looking at the 'source' indicates that it is a .tif file.
 # The resolution is 1 by 1 meaning 1m by 1m, very high spatial resolution!!
 # Am sure the unit is m because it is indicated under the crs:....+units=m.
 # Convert the dsm raster (GeoTiff) to dataframe to plot using ggplot2 package
-# This can be a very big file depending on size of the raster.
+# This can be a very big file depending on size of the raster. So only do it if
+# the raster is small enough to allow and/or the processing capacity of your
+# machine.
 
 dsm_harvard_df <- as.data.frame(dsm_harvard, 
                                 xy = TRUE) # xy = TRUE ensures that coordinates
