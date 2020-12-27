@@ -1,7 +1,10 @@
 # Working with raster data in R----
 # Created by Wyclife Agumba Oluoch
+# Contacts: wyclifeoluoch@gmail.com
+# +254729371248
 # Created on 27th December 2020
 # Last modified on 27th December 2020
+
 
 # Calculating plant canopy heights across NEON sites in Harvard.
 # The following libraries need to be loaded first:
