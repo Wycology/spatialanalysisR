@@ -194,7 +194,7 @@ canopy_height_harvard_df %>% # A cool way to get the values as opposed to earlie
 ggplot(data = canopy_height_harvard_df,
        aes(layer)) +
   geom_histogram(col = "blue", fill = "purple") +
-  labs(title = "Distribution of tree heights in Harvard",
+  labs(title = "Distribution of tree heights in Harvard", # Adds title to the plot.
        x = "Tree heights (m)",
        y = "Frequency") +
   theme_classic() # Generating histogram to show the distribution of tree heights
