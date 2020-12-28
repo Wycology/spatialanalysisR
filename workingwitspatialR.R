@@ -46,7 +46,7 @@ raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot().
 
 # Check the metadata of the dsm. Done by running the raster object itself.
 
-dsm_harvard 
+dsm_harvard # Displays the key attributes or metadata of the raster dsm
 
 # Looking at the 'source' indicates that it is a .tif file.
 # The resolution is 1 by 1 meaning 1m by 1m, very high spatial resolution!!
@@ -76,7 +76,7 @@ dsm_harvard_df %>% # pick the dataset, and then.
   dplyr::select(y) %>% # pick the column called y, and then
   nrow() # Give the number of rows here. This can also be x or HARV_dsmCrop if
 # they are accordingly included in the select() too.
-
+View(dsm_harvard_df)
 # This (2319799) is the same value as ncell shown by:
 
 dsm_harvard # We are now sure about how long (number of rows) the dataset is.
