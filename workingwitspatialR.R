@@ -126,7 +126,7 @@ ggplot(data = canopy_height_harvard_df,
               aes(x = x, y = y, 
                   fill = layer )) + # Here we use layer column for fill.
   geom_raster() +
-  labs(x = "Longitude (m)", 
+  labs(x = "Longitude (m)", # Adding the labels on the plot for easy interpretation.
        y = "Latitude (m)",
        title = "NEON-canopy height of Harvard")
 
