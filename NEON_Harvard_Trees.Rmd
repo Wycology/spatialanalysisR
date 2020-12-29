@@ -67,23 +67,22 @@ I then ran dsm_harvard object to know more about the metadata including object c
 dsm_harvard
 ```
 
-It has a `r nrow(dsm_harvard)` rows  and `r ncol(dsm_harvard)` columns giving `r ncell(dsm_harvard)` cells. Since the resolution is 1m by 1m, I can get the area of the site in hectares by dividing number of cells by 10,000 thus `r ncell(dsm_harvard)/10000` ha.
+It had `r nrow(dsm_harvard)` rows  and `r ncol(dsm_harvard)` columns giving a total of `r ncell(dsm_harvard)` cells. Since the resolution was 1m by 1m, I could get the area of the site in hectares by dividing the number of cells by 10,000 thus `r ncell(dsm_harvard)/10000` ha.
 
 # Preparing data for plotting
 
-Here I use `tidyverse` package. In preparing the data, I will start by 
-doing simple operation which involves subtracting dtm from dsm in order to get canopy layer. This is done cell by cell hence I end up with a layer with similar properties as our two layers, of course with different cell values. I can plot the layer.
+I used `tidyverse` package. In preparing the data, I started by 
+doing simple operation which involved subtracting dtm from dsm in order to get canopy layer. That is done cell by cell hence I ended up with a layer with similar properties as my two 'mother' layers, of course with different cell values. I could then make a simple plot of the canopy layer.
 
 ```{r canopy_layer}
 canopy_height_harvard <- dsm_harvard - dtm_harvard
 plot(canopy_height_harvard, main = 'Tree Canopy Heights (m) at NEON Harvard Site')
 ```
 
-A look at the plot reveals that I now have legend values ranging from 0 
-to barely above 35. These are heights of 'trees'. Am putting trees in 
-quotation marks because the projection above the surface can be any other thing
-apart from trees. Visual inspection of the study site using Google Earth Pro
-using coordinates provided at the [site link](https://www.neonscience.org/field-sites/harv) shows me that it is a forested area ().
+A look at the plot revealed that I had legend values ranging from 0 
+to just above 35. These were heights of 'trees'. Am putting trees in 
+quotation marks because the projections above the surface could be any other thing apart from trees (including the pylon of NEON sensor platform). Visual inspection of the study site using Google Earth Pro
+and coordinates provided at the [site link](https://www.neonscience.org/field-sites/harv) showed me that it was a forested site.
 
 Now I need to have the canopy layer, which is currently a raster, as a dataframe so that
 I can play around with it in `tidyverse`. Here I use `as.data.frame()` to accomplish this.
@@ -93,13 +92,12 @@ canopy_height_harvard_df <- as.data.frame(canopy_height_harvard, xy = TRUE)
 head(canopy_height_harvard_df)
 ```
 
-The dataframe stores canopy height value at each of the x and y coordinates in the layer. Hence our dataframe has three columns.
+The dataframe stored canopy height values at each of the x and y coordinates in the layer. Hence my dataframe had `r ncol(canopy_height_harvard_df)` variables and `r nrow(canopy_height_harvard_df)` rows.
 
 # Estimating bare ground area
 
-Now, I want to assume that where both dsm and dtm have same value is a bare ground
-,that is, there is no object projecting above the ground to create a difference. So, let me know how many cells are in this category. This information can be important if there is need
-to know how many seedlings to budget for in reforestation/afforestation efforts at the site. Or how much area was affected by some catastrophic event(s) in the near past at the site.
+I assumed that where both dsm and dtm had same value was a bare ground
+,that is, there was no object projecting above the ground to create a difference. So, I went ahead to find the number of cells in that category. That information could be important if there was need to know how many seedlings to budget for in reforestation/afforestation efforts at the site. Or how much area was affected by some catastrophic event(s) in the near past at the site.
 
 ```{r bare_ground}
 canopy_height_harvard_df %>% 
@@ -107,11 +105,8 @@ canopy_height_harvard_df %>%
   count()
 ```
 
-The code returns `r canopy_height_harvard_df %>% filter(layer == 0) %>% count()` 
-number of cells which is equal to `r canopy_height_harvard_df %>% filter(layer == 0) %>% count()/10000` ha of bare ground. Now relevant authorities can go ahead and plan
-for enhancing vegetation cover in the bare ground area. Further investigations
-may be necessary to ascertain whether these are rock outcrops or water bodies
-where planting of vegetation may not be possible. Again, if images with high spectral resolutions within visible and NIR regions of the electromagnetic spectrum can help
+The code returned `r canopy_height_harvard_df %>% filter(layer == 0) %>% count()` 
+number of cells which is equal to `r canopy_height_harvard_df %>% filter(layer == 0) %>% count()/10000` ha of bare ground. Now relevant authorities could go ahead and plan for enhancing vegetation cover in the bare ground area, if necessary. Further investigations was necessary to ascertain whether these are rock outcrops or water bodies where planting of vegetation might not be possible. To accomplish that, images with high spectral resolutions within visible and NIR regions of the electromagnetic spectrum could help
 classify these 'bare grounds'.
 
 # Plotting areas covered by different vegetation classes
