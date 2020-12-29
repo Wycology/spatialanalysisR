@@ -16,17 +16,16 @@ knitr::opts_chunk$set(echo = FALSE)
 # Introduction
 
 I used two raster layers from [NEON](https://www.neonscience.org/field-sites/harv), which I accessed from [Biodiversity Data Science](https://www.youtube.com/channel/UCAxw75f8aIKi-ciS5PM_qmg) YouTube channel. The layers are digital surface model (DSM) which contains elevation at the 
-top of physical features on the surface of the earth, most probably trees in this case and digital terrain model (DTM) which is the elevation values at the surface of the earth. Now the difference between these two heights can tell us the heights of trees and the units are in meters (m).
+top of physical features on the surface of the earth, basically trees in this case and digital terrain model (DTM) which is the elevation values at the surface of the earth. Now the difference between these two heights can tell us the heights of trees, and the units are in meters (m).
 
 # My Contribution
 
-I am interested in knowing the area of land with bare ground within the site.
-This information can help in budgeting for replanting or if replanting had been 
+I am interested in showing the area bare ground within the site. This information can help in budgeting for replanting or if replanting had been 
 done, then it can help to know where seedlings died. I am also interested in knowing distribution of different vegetation life-forms within the study area. This I base on the differences in heights of vegetation at the site.
 
 # Loading necessary libraries
 
-I will use `raster` and `tidyverse` libraries. They can be installed by `install.packages('')` accordingly. The versions of all my tools were:
+I used `raster` and `tidyverse` libraries. They can be installed by `install.packages('')` accordingly. The versions of all my tools were:
 
 >a. `R`         = 4.0.3 "Bunny-Wunnies Freak Out", run the word version to know yours
 b. `RStudio`   = 1.3.1093 (Go to Help ==> About RStudio)
@@ -38,9 +37,9 @@ library(raster) # Reading and wrangling raster data files (e.g. dsm and dtm).
 library(tidyverse) # Wrangling and visualizing especially tabular data.
 ```
 
-# Loading dsm and dtm data into `R`
+# Loading dsm and dtm datasets into `R`
 
-I will use the loaded `raster()` package to load the dsm and dtm layers as follows:
+I used the loaded `raster()` package to load the dsm and dtm layers as follows:
 
 ```{r data, echo=FALSE}
 dsm_harvard <- raster('NEON-airborne/HARV_dsmCrop.tif')
