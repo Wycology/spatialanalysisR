@@ -1,5 +1,5 @@
 ---
-title: <center><h1>__Analysis of vegetation canopy for NEON Harvard site__</h1></center>
+title: <center><h1>__DSM and DTM for vegetation canopy at NEON Harvard site__</h1></center>
 author: <center>Wyclife Agumba Oluoch</center>
 date: <center>`r Sys.Date()`<center>
 output:
