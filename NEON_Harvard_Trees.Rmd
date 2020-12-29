@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-For `R` code, rmd, data, and html files visit my [**gitHub**](https://github.com/Wycology/spatialanalysisR) account repository.
+For `R` code, rmd, data, and html files visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.
 
 # Introduction
 
