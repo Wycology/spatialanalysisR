@@ -16,7 +16,7 @@
 # to do so. 
 
 library(raster) # Reading and wrangling raster data files (e.g. dsm and dtm)
-library(rgdal)  # Reading and manipulating vector data (points, lines, polygins)
+library(rgdal)  # Reading and manipulating vector data (points, lines, polygons)
 library(maps) # Loading required maps as SpatialDataframe
 library(spocc) # Gathering species records from gbif (https://www.gbif.org/)
 library(tidyverse) # Wrangling and visualizing especially tabular data
@@ -47,6 +47,7 @@ raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot().
 # Check the metadata of the dsm. Done by running the raster object itself.
 
 dsm_harvard # Displays the key attributes or metadata of the raster dsm
+ncol(dsm_harvard)
 
 # Looking at the 'source' indicates that it is a .tif file.
 # The resolution is 1 by 1 meaning 1m by 1m, very high spatial resolution!!
@@ -122,13 +123,24 @@ head(canopy_height_harvard_df) # x, y, and layer well displayed. Layer here
 
 # Generating the plot of the canopy data.
 
-ggplot(data = canopy_height_harvard_df,
+summary(canopy_height_harvard_df)
+
+newcanopy <- canopy_height_harvard_df %>% 
+  mutate(heights = case_when(layer == 0 ~ 'Bare',
+                             layer < 10.64 ~ 'Grass',
+                             layer < 16.65 ~ 'Shrubs',
+                             layer >= 16.65 ~ 'Trees'))
+
+ggplot(data = newcanopy,
               aes(x = x, y = y, 
                   fill = layer )) + # Here we use layer column for fill.
-  geom_raster() +
+  geom_raster(aes(fill = heights)) +
   labs(x = "Longitude (m)", # Adding the labels on the plot for easy interpretation.
        y = "Latitude (m)",
        title = "NEON-canopy height of Harvard")
+
+ggplot(data = newcanopy, mapping = aes(x = heights, y = layer, fill = heights)) +
+  geom_boxplot()
 
 # It is interesting that some of the trees grow above 30 m, quite tall!!
 # Let me see how many cells have values not less than 30 m tall.
