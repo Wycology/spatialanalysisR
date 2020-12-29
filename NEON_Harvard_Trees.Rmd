@@ -119,15 +119,13 @@ Relevant authorities may need to know a number of things about the area, such as
 4. Did introduced herbivores affect vegetation at specific site?
 5. How did pests, fire, drought, tornado affect trees at specific site(s)?
 
-The questions are endless. However, to answer the first one, I want to make two
+The questions are endless. However, to answer the first one, I made two
 assumptions:
 
-a. Different vegetation life-forms have different heights.
-b. Quartiles of the canopy heights values can be used as proxy for such height classes. 
+a. Different vegetation life-forms had different height classes.
+b. Quartiles of the canopy heights values could be used as proxy for such height classes. 
 
-Now, I will classify vegetation lifeforms in the site based on quartiles of the 
-heights as Bare, Grass, Shrubs, and Trees. Then I will mutate (add) the classes 
-to the dataframe using `case_when` in `mutate`.
+I then generated vegetation lifeforms classes for the site based on quartiles of their heights as Bare, Grass, Shrubs, and Trees. Then I used `mutate` to add the life-form classes to the dataframe using `case_when` within `mutate`.
 
 ```{r summary_df}
 summary(canopy_height_harvard_df)
@@ -143,9 +141,7 @@ canopy_height_harvard_classed_df <- canopy_height_harvard_df %>%
 head(canopy_height_harvard_classed_df)
 ```
 
-That code is quite powerful. It will help us to visualize the canopy
-layer using our new variable in the dataframe called life_forms. Ideally, foresters
-at NEON would suggest different values to assign to each lifeform category. I bet they only agree with me in the Bare class.
+Ideally, foresters at NEON or globally would obviously suggest different values to assign to each life-form category. I bet they only agree with me in the Bare class.
 
 ```{r lifeforms_plot}
 ggplot(data = canopy_height_harvard_classed_df,
@@ -157,34 +153,18 @@ ggplot(data = canopy_height_harvard_classed_df,
        title = "NEON-Vegetataion Life_forms at Harvard site")
 ```
 
-Now it is clear where within the site the relevant authorities should pay
-attention in terms of bare grounds management. 
-
 To answer some of the questions I raised earlier:
 
-1. Bare grounds are predominant in North Eastern end of the site. Some parts of
-the center and north has grassy lands. Shrubs and trees are however distributed
-rather throughout the site, with more trees than shrubs. 
-2. If we assume dtm was initial dsm of the site, then we can divide this
-canopy layer by period of time it took between the two layers to know growth rate
-of the trees. For example, we can divide it by 5 if it took five years and we will
-have growth rate layer of the whole site. Important questions like why different
-growth rates were witnessed across the site could then be presented to agronomists
-and foresters for scrutiny.
-3. This third question relates to the second. If a patch which was bare and planted
-still remained bare in the subsequent lidar captures then it shall be evident and 
-appropriate actions taken.
-4. This is for rangers and ranchers. If a section of the site was allocated to 
-large herbivores like elephants, then it can be deduced how vegetation heights
-have changed at that particular site.
-5. All these biotic and abiotic factors affecting forest growth can be shown 
-especially if they alter growth of the vegetation. Some like humus application
-could also positively affect vegetation growth. Again multiband images could give
-more information if spectrl signatures are distinct.
+1. Bare grounds were predominant in north eastern end of the site. Some parts at
+the center and towards north had grassy lands. Shrubs and trees were, however, distributed rather throughout the site, with more trees than shrubs. 
+2. If I assumed dtm was initial dsm of the site, then I could divide this
+canopy layer by period of time it took between the two layers to know growth rate of the trees. For example, I could divide it by 5 if it took five years and I would have growth rate layer of the whole site. Important questions like why different growth rates could be witnessed across the site could then be presented to agronomists and foresters for further scrutiny.
+3. This third question related to the second. If a patch which was bare and planted still remained bare in the subsequent lidar captures then it shall be evident and appropriate actions would be taken.
+4. This was for rangers and ranchers. If a section of the site was allocated to 
+large herbivores like elephants, then it could be deduced how vegetation heights changed at that particular site.
+5. All these biotic and abiotic factors affecting vegetation growth could be shown especially if they altered growth of the vegetation. Some like humus application could also positively affect vegetation growth. Again multiband images could give more information if spectral signatures were distinct enough.
 
-Now one may ask, how different vegetation classes are distributed in terms of area. Here a simple bar for counts of cells within each category. The counts equate to area in square meters. 
-
-Then we can go ahead and do the plotting.
+One may ask, how different vegetation classes were distributed in terms of area. A simple bar for counts of cells within each category provided the answer. The counts equaled area in square meters. 
 
 ```{r bargraph}
 ggplot(data = canopy_height_harvard_classed_df, 
@@ -203,9 +183,7 @@ ggplot(data = canopy_height_harvard_classed_df,
 # Conclusions
 
 From dsm and dtm data we can get a plethora of information about a place. I have
-just scratched the top two powerful packages; `raster` and `tidyverse` in `R`. Many more can
-be done especially if these were multispectral bands.
+just scratched the top two powerful packages; `raster` and `tidyverse` in `R`. Many more can be done especially if these were multispectral bands.
 
->Note: My classification of vegetation lifeforms is very far from what foresters
-will accept. Anyway, mine was to give idea. Once the classes are clear, the same
-concept can be applied by simple modification. Good luck!
+>Note: My classification of vegetation lifeforms is very far from reality. Anyway, mine was to present idea. Once the classes are clear, the same
+concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards!
