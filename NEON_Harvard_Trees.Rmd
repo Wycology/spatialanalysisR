@@ -46,23 +46,22 @@ dsm_harvard <- raster('NEON-airborne/HARV_dsmCrop.tif')
 dtm_harvard <- raster('NEON-airborne/HARV_dtmCrop.tif')
 ```
 
-A simple plot of dsm layer indicates success in loading:
+A simple plot of dsm layer indicated success in loading:
 
 ```{r dsm_plot}
 plot(dsm_harvard, main = 'Digital Surface Model (m) at NEON Harvard Site')
 ```
 
-I then use `compareRaster()` to check whether dsm are dtm match extent, crs, and
-spatial resolution. This is important for subsequent analyses.
+I then used `compareRaster()` to check whether the dsm and dtm match in extent, crs, and spatial resolution. This was important step for subsequent analyses.
 
 ```{r compare, echo=FALSE}
 compareRaster(dsm_harvard, dtm_harvard)
 ```
 
-This is returning TRUE which indicates that we are good to go, otherwise it would 
-return an error with information on what does not match.
+This returned TRUE which indicated that I was good to go on, otherwise it would 
+return an error with information on what did not match.
 
-I then run dsm_harvard object to know more about the metadata including object class, dimensions, resolution, extent, coordinate reference system (crs), source, name and range of the values in the pixels.
+I then ran dsm_harvard object to know more about the metadata including object class, dimensions, resolution, extent, coordinate reference system (crs), source, name, and range of the values in the pixels.
 
 ```{r dsm_harvard_attributes}
 dsm_harvard
