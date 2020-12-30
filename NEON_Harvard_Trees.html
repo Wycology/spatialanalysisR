@@ -508,7 +508,7 @@ Wyclife Agumba Oluoch
 <h1><span class="header-section-number">8</span> Conclusions</h1>
 <p>From dsm and dtm data we can get a plethora of information about a place. I have just scratched the top two powerful packages; <code>raster</code> and <code>tidyverse</code> in <code>R</code>. Many more can be done especially if these were multispectral bands.</p>
 <blockquote>
-<p>Note: My classification of vegetation lifeforms is very far from reality. Anyway, mine was to present idea. Once the classes are clear, the same concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards!</p>
+<p><strong>Note</strong>: Only convert raster to dataframe if it has manageable number of cells, otherwise you might end up with hundreds of millions of rows. For example, I am currently working on a site with four Sentinel layers each with about 394 million cells; I can’t think of having that as a dataframe in my machine even though R can handle up to 2.147483610^{9} rows. My classification of vegetation lifeforms using quartiles is very far from reality. Anyway, mine was to present some basic idea. Once the classes are clear, the same concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards! Me<code>RR</code>y Ch<code>R</code>istmas %&gt;% <code>R</code>ospe<code>R</code>ous New Yea<code>R</code>!</p>
 </blockquote>
 </div>
 

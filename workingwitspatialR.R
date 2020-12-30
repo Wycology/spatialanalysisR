@@ -81,6 +81,14 @@ View(dsm_harvard_df)
 # This (2319799) is the same value as ncell shown by:
 
 dsm_harvard # We are now sure about how long (number of rows) the dataset is.
+# @ symbol can be used to extract only specific attribute of the layer e.g
+dsm_harvard@crs # coordinate reference system
+dsm_harvard@extent # extent of the layer
+dsm_harvard@ncols
+dsm_harvard@nrows
+
+# However, for the number of cells, I use:
+
 
 # Create the ggplot; "HARV_dsmCrop" is the name of the column with cell values.
 
@@ -348,3 +356,6 @@ ggplot() +
 # Just learned how to mosaic my Sentinel data in SAGA when QGIS failed.
 # Working around the bug in QGIS when masking or clipping is to save the masked
 # or clipped image to file and not temporary folder. It worked after some struggles.
+
+
+leaflet() %>% addTiles() %>% setView(35.348978,-0.372071,12)

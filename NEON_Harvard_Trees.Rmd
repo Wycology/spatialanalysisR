@@ -186,5 +186,5 @@ ggplot(data = canopy_height_harvard_classed_df,
 From dsm and dtm data we can get a plethora of information about a place. I have
 just scratched the top two powerful packages; `raster` and `tidyverse` in `R`. Many more can be done especially if these were multispectral bands.
 
->Note: My classification of vegetation lifeforms is very far from reality. Anyway, mine was to present idea. Once the classes are clear, the same
-concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards!
+>**Note**: Only convert raster to dataframe if it has manageable number of cells, otherwise you might end up with hundreds of millions of rows. For example, I am currently working on a site with four Sentinel layers each with about 394 million cells; I can't think of having that as a dataframe in my machine even though R can handle up to `r 2^31 - 1` rows. My classification of vegetation lifeforms using quartiles is very far from reality. Anyway, mine was to present some basic idea. Once the classes are clear, the same
+concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards! Me`RR`y Ch`R`istmas %>% \nP`R`ospe`R`ous New Yea`R`!
