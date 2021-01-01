@@ -12,25 +12,25 @@ output:
 knitr::opts_chunk$set(cache = FALSE)
 ```
 
-For `R` code, rmd, data, and html files visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.
+<font size="5">For `R` code, rmd, data, and html files visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.</font>
 
 # Abstract
 
-<font size="5">Foresters need to know distribution of different vegetation life-forms at extent of bare land at a given forest stand or site. Remote sensing technologies have aided such assessments a great deal. In this short article I used DTM and DSM, captured by LIDAR platform, to demonstrate vegetation life-form and deforestation assessment at NEON Harvard sitetext </font>. 
+<font size="5">Foresters need to know distribution of different vegetation life-forms at extent of bare land at a given forest stand or site. Remote sensing technologies have aided such assessments a great deal. In this short article I used DTM and DSM, captured by LIDAR platform, to demonstrate vegetation life-form and deforestation assessment at NEON Harvard site.</font> 
 
 # Introduction
 
-I used two raster layers from [NEON](https://www.neonscience.org/field-sites/harv), which I accessed from [Biodiversity Data Science](https://www.youtube.com/channel/UCAxw75f8aIKi-ciS5PM_qmg) YouTube channel. The layers are digital surface model (DSM) which contains elevation at the 
-top of physical features on the surface of the earth, basically trees in this case and digital terrain model (DTM) which is the elevation values at the surface of the earth. Now the difference between these two heights can tell us the heights of trees, and the units are in meters (m).
+<font size = '5'>I used two raster layers from [NEON](https://www.neonscience.org/field-sites/harv), which I accessed from [Biodiversity Data Science](https://www.youtube.com/channel/UCAxw75f8aIKi-ciS5PM_qmg) YouTube channel. The layers are digital surface model (DSM) which contains elevation at the 
+top of physical features on the surface of the earth, basically trees in this case and digital terrain model (DTM) which is the elevation values at the surface of the earth. Now the difference between these two heights can tell us the heights of trees, and the units are in meters (m).</font>
 
 # My Contribution
 
-I am interested in showing the area bare ground within the site. This information can help in budgeting for replanting or if replanting had been 
-done, then it can help to know where seedlings died. I am also interested in knowing distribution of different vegetation life-forms within the study area. This I base on the differences in heights of vegetation at the site.
+<font size = '5'>I am interested in showing the area bare ground within the site. This information can help in budgeting for replanting or if replanting had been 
+done, then it can help to know where seedlings died. I am also interested in knowing distribution of different vegetation life-forms within the study area. This I base on the differences in heights of vegetation at the site.</font>
 
 # Loading necessary libraries
 
-I used `raster` and `tidyverse` libraries. They can be installed by `install.packages('')` accordingly. The versions of all my tools were:
+<font size = '5'>I used `raster` and `tidyverse` libraries. They can be installed by `install.packages('')` accordingly. The versions of all my tools were:</font>
 
 >a. `R`         = 4.0.3 "Bunny-Wunnies Freak Out", run the word version to know yours
 b. `RStudio`   = 1.3.1093 (Go to Help ==> About RStudio)
@@ -44,65 +44,65 @@ library(tidyverse) # Wrangling and visualizing especially tabular data.
 
 # Loading dsm and dtm datasets into `R`
 
-I used the loaded `raster()` package to load the dsm and dtm layers as follows:
+<font size = '5'>I used the loaded `raster()` package to load the dsm and dtm layers as follows:</font>
 
 ```{r data, echo=FALSE}
 dsm_harvard <- raster('NEON-airborne/HARV_dsmCrop.tif')
 dtm_harvard <- raster('NEON-airborne/HARV_dtmCrop.tif')
 ```
 
-A simple plot of dsm layer indicated success in loading:
+<font size = '5'>A simple plot of dsm layer indicated success in loading:</font>
 
 ```{r dsm_plot, fig.height = 8, fig.width = 10, fig.align = "center"}
 plot(dsm_harvard, main = 'Digital Surface Model (m) at NEON Harvard Site')
 ```
 
-I then used `compareRaster()` to check whether the dsm and dtm match in extent, crs, and spatial resolution. This was important step for subsequent analyses.
+<font size = '5'>I then used `compareRaster()` to check whether the dsm and dtm match in extent, crs, and spatial resolution. This was important step for subsequent analyses.</font>
 
 ```{r compare, echo=FALSE}
 compareRaster(dsm_harvard, dtm_harvard)
 ```
 
-This returned TRUE which indicated that I was good to go on, otherwise it would 
+<font size = '5'>This returned TRUE which indicated that I was good to go on, otherwise it would 
 return an error with information on what did not match.
 
-I then ran dsm_harvard object to know more about the metadata including object class, dimensions, resolution, extent, coordinate reference system (crs), source, name, and range of the values in the pixels.
+I then ran dsm_harvard object to know more about the metadata including object class, dimensions, resolution, extent, coordinate reference system (crs), source, name, and range of the values in the pixels.</font>
 
 ```{r dsm_harvard_attributes}
 dsm_harvard
 ```
 
-It had `r nrow(dsm_harvard)` rows  and `r ncol(dsm_harvard)` columns giving a total of `r ncell(dsm_harvard)` cells. Since the resolution was 1m by 1m, I could get the area of the site in hectares by dividing the number of cells by 10,000 thus `r ncell(dsm_harvard)/10000` ha.
+<font size = '5'>It had `r nrow(dsm_harvard)` rows  and `r ncol(dsm_harvard)` columns giving a total of `r ncell(dsm_harvard)` cells. Since the resolution was 1m by 1m, I could get the area of the site in hectares by dividing the number of cells by 10,000 thus `r ncell(dsm_harvard)/10000` ha.</font>
 
 # Preparing data for plotting
 
-I used `tidyverse` package. In preparing the data, I started by 
-doing simple operation which involved subtracting dtm from dsm in order to get canopy layer. That is done cell by cell hence I ended up with a layer with similar properties as my two 'mother' layers, of course with different cell values. I could then make a simple plot of the canopy layer.
+<font size = '5'>I used `tidyverse` package. In preparing the data, I started by 
+doing simple operation which involved subtracting dtm from dsm in order to get canopy layer. That is done cell by cell hence I ended up with a layer with similar properties as my two 'mother' layers, of course with different cell values. I could then make a simple plot of the canopy layer.</font>
 
 ```{r canopy_layer, fig.height = 8, fig.width = 10, fig.align = "center"}
 canopy_height_harvard <- dsm_harvard - dtm_harvard
 plot(canopy_height_harvard, main = 'Tree Canopy Heights (m) at NEON Harvard Site')
 ```
 
-A look at the plot revealed that I had legend values ranging from 0 
+<font size = '5'>A look at the plot revealed that I had legend values ranging from 0 
 to just above 35. These were heights of 'trees'. Am putting trees in 
 quotation marks because the projections above the surface could be any other thing apart from trees (including the pylon of NEON sensor platform). Visual inspection of the study site using Google Earth Pro
 and coordinates provided at the [site link](https://www.neonscience.org/field-sites/harv) showed me that it was a forested site.
 
 Now I need to have the canopy layer, which is currently a raster, as a dataframe so that
-I can play around with it in `tidyverse`. Here I use `as.data.frame()` to accomplish this.
+I can play around with it in `tidyverse`. Here I use `as.data.frame()` to accomplish this.</font>
 
 ```{r canopy_df}
 canopy_height_harvard_df <- as.data.frame(canopy_height_harvard, xy = TRUE)
 head(canopy_height_harvard_df)
 ```
 
-The dataframe stored canopy height values at each of the x and y coordinates in the layer. Hence my dataframe had `r ncol(canopy_height_harvard_df)` variables and `r nrow(canopy_height_harvard_df)` rows.
+<font size = '5'>The dataframe stored canopy height values at each of the x and y coordinates in the layer. Hence my dataframe had `r ncol(canopy_height_harvard_df)` variables and `r nrow(canopy_height_harvard_df)` rows.</font>
 
 # Estimating bare ground area
 
-I assumed that where both dsm and dtm had same value was a bare ground
-,that is, there was no object projecting above the ground to create a difference. So, I went ahead to find the number of cells in that category. That information could be important if there was need to know how many seedlings to budget for in reforestation/afforestation efforts at the site. Or how much area was affected by some catastrophic event(s) in the near past at the site.
+<font size = '5'>I assumed that where both dsm and dtm had same value was a bare ground
+,that is, there was no object projecting above the ground to create a difference. So, I went ahead to find the number of cells in that category. That information could be important if there was need to know how many seedlings to budget for in reforestation/afforestation efforts at the site. Or how much area was affected by some catastrophic event(s) in the near past at the site.</font>
 
 ```{r bare_ground}
 canopy_height_harvard_df %>% 
@@ -110,13 +110,13 @@ canopy_height_harvard_df %>%
   count()
 ```
 
-The code returned `r canopy_height_harvard_df %>% filter(layer == 0) %>% count()` 
+<font size = '5'>The code returned `r canopy_height_harvard_df %>% filter(layer == 0) %>% count()` 
 number of cells which is equal to `r canopy_height_harvard_df %>% filter(layer == 0) %>% count()/10000` ha of bare ground. Now relevant authorities could go ahead and plan for enhancing vegetation cover in the bare ground area, if necessary. Further investigations was necessary to ascertain whether these are rock outcrops or water bodies where planting of vegetation might not be possible. To accomplish that, images with high spectral resolutions within visible and NIR regions of the electromagnetic spectrum could help
-classify these 'bare grounds'.
+classify these 'bare grounds'.</font>
 
-# Plotting areas covered by different vegetation classes
+# Plotting vegetation classes
 
-Relevant authorities may need to know a number of things about the area, such as:
+<font size = '5'>Relevant authorities may need to know a number of things about the area, such as:
 
 1. Where do we have bare ground, grass, shrubs, and  tall trees?
 2. What is the growth rate of trees at specific replanted site(s)?
@@ -130,7 +130,7 @@ assumptions:
 a. Different vegetation life-forms had different height classes.
 b. Quartiles of the canopy heights values could be used as proxy for such height classes. 
 
-I then generated vegetation lifeforms classes for the site based on quartiles of their heights as Bare, Grass, Shrubs, and Trees. Then I used `mutate` to add the life-form classes to the dataframe using `case_when` within `mutate`.
+I then generated vegetation lifeforms classes for the site based on quartiles of their heights as Bare, Grass, Shrubs, and Trees. Then I used `mutate` to add the life-form classes to the dataframe using `case_when` within `mutate`.</font>
 
 ```{r summary_df}
 summary(canopy_height_harvard_df)
@@ -146,7 +146,7 @@ canopy_height_harvard_classed_df <- canopy_height_harvard_df %>%
 head(canopy_height_harvard_classed_df)
 ```
 
-Ideally, foresters at NEON or globally would obviously suggest different values to assign to each life-form category. I bet they only agree with me in the Bare class.
+<font size = '5'>Ideally, foresters at NEON or globally would obviously suggest different values to assign to each life-form category. I bet they only agree with me in the Bare class.</font>
 
 ```{r lifeforms_plot, fig.height = 8, fig.width = 10, fig.align = "center"}
 ggplot(data = canopy_height_harvard_classed_df,
@@ -158,7 +158,7 @@ ggplot(data = canopy_height_harvard_classed_df,
        title = "NEON-Vegetataion Life_forms at Harvard site")
 ```
 
-To answer some of the questions I raised earlier:
+<font size = '5'>To answer some of the questions I raised earlier:
 
 1. Bare grounds were predominant in north eastern end of the site. Some parts at
 the center and towards north had grassy lands. Shrubs and trees were, however, distributed rather throughout the site, with more trees than shrubs. 
@@ -169,7 +169,7 @@ canopy layer by period of time it took between the two layers to know growth rat
 large herbivores like elephants, then it could be deduced how vegetation heights changed at that particular site.
 5. All these biotic and abiotic factors affecting vegetation growth could be shown especially if they altered growth of the vegetation. Some like humus application could also positively affect vegetation growth. Again multiband images could give more information if spectral signatures were distinct enough.
 
-One may ask, how different vegetation classes were distributed in terms of area. A simple bar for counts of cells within each category provided the answer. The counts equaled area in square meters. 
+One may ask, how different vegetation classes were distributed in terms of area. A simple bar for counts of cells within each category provided the answer. The counts equaled area in square meters.</font> 
 
 ```{r bargraph, fig.height = 8, fig.width = 10, fig.align = "center"}
 ggplot(data = canopy_height_harvard_classed_df, 
@@ -187,8 +187,8 @@ ggplot(data = canopy_height_harvard_classed_df,
 
 # Conclusions
 
-From dsm and dtm data we can get a plethora of information about a place. I have
+<font size = '5'>From dsm and dtm data we can get a plethora of information about a place. I have
 just scratched the top two powerful packages; `raster` and `tidyverse` in `R`. Many more can be done especially if these were multispectral bands.
 
 >**Note**: Only convert raster to dataframe if it has manageable number of cells, otherwise you might end up with hundreds of millions of rows. For example, I am currently working on a site with four Sentinel layers each with about 394 million cells; I can't think of having that as a dataframe in my machine even though R can handle up to `r 2^31 - 1` rows. My classification of vegetation lifeforms using quartiles is very far from reality. Anyway, mine was to present some basic idea. Once the classes are clear, the same
-concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards! Me`RR`y Ch`R`istmas %>% \nP`R`ospe`R`ous New Yea`R`!
+concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards! Me`RR`y Ch`R`istmas %>% \nP`R`ospe`R`ous New Yea`R`!</font>
