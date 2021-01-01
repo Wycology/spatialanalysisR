@@ -14,6 +14,10 @@ knitr::opts_chunk$set(cache = FALSE)
 
 For `R` code, rmd, data, and html files visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.
 
+# Abstract
+
+<font size="5">Foresters need to know distribution of different vegetation life-forms at extent of bare land at a given forest stand or site. Remote sensing technologies have aided such assessments a great deal. In this short article I used DTM and DSM, captured by LIDAR platform, to demonstrate vegetation life-form and deforestation assessment at NEON Harvard sitetext </font>. 
+
 # Introduction
 
 I used two raster layers from [NEON](https://www.neonscience.org/field-sites/harv), which I accessed from [Biodiversity Data Science](https://www.youtube.com/channel/UCAxw75f8aIKi-ciS5PM_qmg) YouTube channel. The layers are digital surface model (DSM) which contains elevation at the 
