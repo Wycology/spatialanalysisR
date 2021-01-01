@@ -8,15 +8,20 @@ output:
     number_sections: true
 ---
 
+<style>
+body {
+text-align: justify}
+</style>
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE)
 ```
 
-<font size="5">For `R` code, rmd, data, and html files visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.</font>
+<font size = "5">For `R` code, rmd, data, and html files visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.</font>
 
 # Abstract
 
-<font size="5">Foresters need to know distribution of different vegetation life-forms at extent of bare land at a given forest stand or site. Remote sensing technologies have aided such assessments a great deal. In this short article I used DTM and DSM, captured by LIDAR platform, to demonstrate vegetation life-form and deforestation assessment at NEON Harvard site.</font> 
+<font size = "5">Foresters may need to know distribution of different vegetation life-forms and/or size of bare land at a given forest stand or site. Such information could help in forest classification and/or management like tree planting or herbivores population control among others. Remote sensing technologies have aided such assessments a great deal. In this short article I used digital surface model (DSM) and digital terrain model (DTM), captured by light detection and ranging (LIDAR) platform, to demonstrate vegetation life-form and bare land extent assessment at NEON Harvard site.</font> 
 
 # Introduction
 
@@ -25,12 +30,12 @@ top of physical features on the surface of the earth, basically trees in this ca
 
 # My Contribution
 
-<font size = '5'>I am interested in showing the area bare ground within the site. This information can help in budgeting for replanting or if replanting had been 
-done, then it can help to know where seedlings died. I am also interested in knowing distribution of different vegetation life-forms within the study area. This I base on the differences in heights of vegetation at the site.</font>
+<font size = '5'>I was interested in showing the size of bare ground within the forest site. This information could help in budgeting for replanting or if replanting had been 
+done, then it could help to know where seedlings died. I was also interested in knowing distribution of different vegetation life-forms within the site. That I based on the differences in heights of vegetation.</font>
 
-# Loading necessary libraries
+# Loading necessary `R` libraries
 
-<font size = '5'>I used `raster` and `tidyverse` libraries. They can be installed by `install.packages('')` accordingly. The versions of all my tools were:</font>
+<font size = '5'>I used `raster` and `tidyverse` libraries. One can use `install.packages('')` to have them installed in their `R`. The versions of all my tools were:</font>
 
 >a. `R`         = 4.0.3 "Bunny-Wunnies Freak Out", run the word version to know yours
 b. `RStudio`   = 1.3.1093 (Go to Help ==> About RStudio)
@@ -53,7 +58,7 @@ dtm_harvard <- raster('NEON-airborne/HARV_dtmCrop.tif')
 
 <font size = '5'>A simple plot of dsm layer indicated success in loading:</font>
 
-```{r dsm_plot, fig.height = 8, fig.width = 10, fig.align = "center"}
+```{r dsm_plot, echo = FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
 plot(dsm_harvard, main = 'Digital Surface Model (m) at NEON Harvard Site')
 ```
 
@@ -79,14 +84,14 @@ dsm_harvard
 <font size = '5'>I used `tidyverse` package. In preparing the data, I started by 
 doing simple operation which involved subtracting dtm from dsm in order to get canopy layer. That is done cell by cell hence I ended up with a layer with similar properties as my two 'mother' layers, of course with different cell values. I could then make a simple plot of the canopy layer.</font>
 
-```{r canopy_layer, fig.height = 8, fig.width = 10, fig.align = "center"}
+```{r canopy_layer, echo = FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
 canopy_height_harvard <- dsm_harvard - dtm_harvard
 plot(canopy_height_harvard, main = 'Tree Canopy Heights (m) at NEON Harvard Site')
 ```
 
 <font size = '5'>A look at the plot revealed that I had legend values ranging from 0 
 to just above 35. These were heights of 'trees'. Am putting trees in 
-quotation marks because the projections above the surface could be any other thing apart from trees (including the pylon of NEON sensor platform). Visual inspection of the study site using Google Earth Pro
+quotation marks because the projections above the surface could be any other thing apart from trees (including the pylon of NEON sensor platform). Visual inspection of the site using Google Earth Pro
 and coordinates provided at the [site link](https://www.neonscience.org/field-sites/harv) showed me that it was a forested site.
 
 Now I need to have the canopy layer, which is currently a raster, as a dataframe so that
@@ -148,14 +153,20 @@ head(canopy_height_harvard_classed_df)
 
 <font size = '5'>Ideally, foresters at NEON or globally would obviously suggest different values to assign to each life-form category. I bet they only agree with me in the Bare class.</font>
 
-```{r lifeforms_plot, fig.height = 8, fig.width = 10, fig.align = "center"}
+```{r lifeforms_plot, echo = FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
 ggplot(data = canopy_height_harvard_classed_df,
               aes(x = x, y = y, 
                   fill = layer )) + # Here we use layer column for fill.
   geom_raster(aes(fill = life_forms)) +
   labs(x = "Longitude (m)", # Adding the labels on the plot for easy interpretation.
        y = "Latitude (m)",
-       title = "NEON-Vegetataion Life_forms at Harvard site")
+       title = "NEON-Vegetataion Life_forms at Harvard site",
+       subtitle = 'Classified using quartiles',
+       caption = 'Data source: NEON') +
+   theme(text = element_text(size=20),
+         plot.title = element_text(color = 'purple'),
+         plot.subtitle = element_text(color = 'blue', face = 'italic'),
+         plot.caption = element_text(color = 'blue', face = 'italic')) 
 ```
 
 <font size = '5'>To answer some of the questions I raised earlier:
@@ -171,7 +182,7 @@ large herbivores like elephants, then it could be deduced how vegetation heights
 
 One may ask, how different vegetation classes were distributed in terms of area. A simple bar for counts of cells within each category provided the answer. The counts equaled area in square meters.</font> 
 
-```{r bargraph, fig.height = 8, fig.width = 10, fig.align = "center"}
+```{r bargraph, echo = FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
 ggplot(data = canopy_height_harvard_classed_df, 
        mapping = aes(x = life_forms, fill = life_forms)) +
   geom_bar(stat = 'count') +
@@ -180,9 +191,15 @@ ggplot(data = canopy_height_harvard_classed_df,
              size = 3.5,
              aes(label = ..count..),
              position=position_stack(vjust=0.5)) +
-  labs(title = 'Vegetation Lifeforms at NEON Harvard site',
+  labs(title = "Area (m^2) of the Vegetation Life_forms",
        x = 'Life forms',
-       y = 'Area (m^2)')
+       y = 'Area (m^2)',
+       subtitle = 'Classed by quartiles',
+       caption = 'Data source: NEON') +
+  theme(text = element_text(size=20),
+        plot.title = element_text(color = 'red', face = 'bold'),
+        plot.subtitle = element_text(color = 'green', face = 'italic'),
+        plot.caption = element_text(color = 'blue', face = 'italic'))
 ```
 
 # Conclusions
@@ -190,5 +207,5 @@ ggplot(data = canopy_height_harvard_classed_df,
 <font size = '5'>From dsm and dtm data we can get a plethora of information about a place. I have
 just scratched the top two powerful packages; `raster` and `tidyverse` in `R`. Many more can be done especially if these were multispectral bands.
 
->**Note**: Only convert raster to dataframe if it has manageable number of cells, otherwise you might end up with hundreds of millions of rows. For example, I am currently working on a site with four Sentinel layers each with about 394 million cells; I can't think of having that as a dataframe in my machine even though R can handle up to `r 2^31 - 1` rows. My classification of vegetation lifeforms using quartiles is very far from reality. Anyway, mine was to present some basic idea. Once the classes are clear, the same
-concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards! Me`RR`y Ch`R`istmas %>% \nP`R`ospe`R`ous New Yea`R`!</font>
+>**Note**: _Only convert raster to dataframe if it has manageable number of cells, otherwise you might end up with hundreds of millions of rows. For example, I am currently working on a site with four Sentinel layers each with about 394 million cells; I can't think of having that as a dataframe in my machine even though R can handle up to `r 2^31 - 1` rows. My classification of vegetation lifeforms using quartiles is very far from reality. Anyway, mine was to present some basic idea. Once the classes are clear, the same
+concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards! Me`RR`y Ch`R`istmas %>% \nP`R`ospe`R`ous New Yea`R`!_</font>
