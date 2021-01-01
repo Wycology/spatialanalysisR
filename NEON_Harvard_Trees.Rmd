@@ -49,7 +49,7 @@ dtm_harvard <- raster('NEON-airborne/HARV_dtmCrop.tif')
 
 A simple plot of dsm layer indicated success in loading:
 
-```{r dsm_plot}
+```{r dsm_plot, fig.height = 8, fig.width = 10, fig.align = "center"}
 plot(dsm_harvard, main = 'Digital Surface Model (m) at NEON Harvard Site')
 ```
 
@@ -75,7 +75,7 @@ It had `r nrow(dsm_harvard)` rows  and `r ncol(dsm_harvard)` columns giving a to
 I used `tidyverse` package. In preparing the data, I started by 
 doing simple operation which involved subtracting dtm from dsm in order to get canopy layer. That is done cell by cell hence I ended up with a layer with similar properties as my two 'mother' layers, of course with different cell values. I could then make a simple plot of the canopy layer.
 
-```{r canopy_layer}
+```{r canopy_layer, fig.height = 8, fig.width = 10, fig.align = "center"}
 canopy_height_harvard <- dsm_harvard - dtm_harvard
 plot(canopy_height_harvard, main = 'Tree Canopy Heights (m) at NEON Harvard Site')
 ```
@@ -144,7 +144,7 @@ head(canopy_height_harvard_classed_df)
 
 Ideally, foresters at NEON or globally would obviously suggest different values to assign to each life-form category. I bet they only agree with me in the Bare class.
 
-```{r lifeforms_plot}
+```{r lifeforms_plot, fig.height = 8, fig.width = 10, fig.align = "center"}
 ggplot(data = canopy_height_harvard_classed_df,
               aes(x = x, y = y, 
                   fill = layer )) + # Here we use layer column for fill.
@@ -167,7 +167,7 @@ large herbivores like elephants, then it could be deduced how vegetation heights
 
 One may ask, how different vegetation classes were distributed in terms of area. A simple bar for counts of cells within each category provided the answer. The counts equaled area in square meters. 
 
-```{r bargraph}
+```{r bargraph, fig.height = 8, fig.width = 10, fig.align = "center"}
 ggplot(data = canopy_height_harvard_classed_df, 
        mapping = aes(x = life_forms, fill = life_forms)) +
   geom_bar(stat = 'count') +
