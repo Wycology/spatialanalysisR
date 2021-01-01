@@ -188,7 +188,7 @@ ggplot(data = canopy_height_harvard_classed_df,
   geom_bar(stat = 'count') +
   stat_count(geom = "text", 
              colour = "white", 
-             size = 3.5,
+             size = 4.5,
              aes(label = ..count..),
              position=position_stack(vjust=0.5)) +
   labs(title = "Area (m^2) of the Vegetation Life_forms",
