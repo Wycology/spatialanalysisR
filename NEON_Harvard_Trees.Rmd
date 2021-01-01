@@ -1,6 +1,6 @@
 ---
 title: <center><h1>__DSM and DTM for vegetation canopy at NEON Harvard site__</h1></center>
-author: <center>Wyclife Agumba Oluoch</center>
+author: <center>_Wyclife Agumba Oluoch_</center>
 date: <center>`r Sys.Date()`<center>
 output:
   html_document:
@@ -10,6 +10,8 @@ output:
 
 <style>
 body {
+font-family: times, serif;
+font-size: 18pt;
 text-align: justify}
 </style>
 
@@ -59,7 +61,12 @@ dtm_harvard <- raster('NEON-airborne/HARV_dtmCrop.tif')
 <font size = '5'>A simple plot of dsm layer indicated success in loading:</font>
 
 ```{r dsm_plot, echo = FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
-plot(dsm_harvard, main = 'Digital Surface Model (m) at NEON Harvard Site')
+plot(dsm_harvard, main = 'Digital Surface Model (m) at NEON Harvard Site',
+     xlab = 'Longitude (UTM m)',
+     ylab = 'Latitude (UTM m)',
+     cex.main = 2,
+     cex.axis = 1.5,
+     cex.lab = 2)
 ```
 
 <font size = '5'>I then used `compareRaster()` to check whether the dsm and dtm match in extent, crs, and spatial resolution. This was important step for subsequent analyses.</font>
@@ -86,7 +93,12 @@ doing simple operation which involved subtracting dtm from dsm in order to get c
 
 ```{r canopy_layer, echo = FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
 canopy_height_harvard <- dsm_harvard - dtm_harvard
-plot(canopy_height_harvard, main = 'Tree Canopy Heights (m) at NEON Harvard Site')
+plot(canopy_height_harvard, main = 'Tree Canopy Heights (m) at NEON Harvard Site',
+     xlab = 'Longitude (UTM m)',
+     ylab = 'Latitude (UTM m)',
+     cex.main = 2,
+     cex.axis = 1.5,
+     cex.lab = 2)
 ```
 
 <font size = '5'>A look at the plot revealed that I had legend values ranging from 0 
@@ -135,7 +147,7 @@ assumptions:
 a. Different vegetation life-forms had different height classes.
 b. Quartiles of the canopy heights values could be used as proxy for such height classes. 
 
-I then generated vegetation lifeforms classes for the site based on quartiles of their heights as Bare, Grass, Shrubs, and Trees. Then I used `mutate` to add the life-form classes to the dataframe using `case_when` within `mutate`.</font>
+I then generated vegetation life-forms classes for the site based on quartiles of their heights as Bare, Grass, Shrubs, and Trees. Then I used `mutate` to add the life-form classes to the dataframe using `case_when` within `mutate`.</font>
 
 ```{r summary_df}
 summary(canopy_height_harvard_df)
@@ -153,7 +165,7 @@ head(canopy_height_harvard_classed_df)
 
 <font size = '5'>Ideally, foresters at NEON or globally would obviously suggest different values to assign to each life-form category. I bet they only agree with me in the Bare class.</font>
 
-```{r lifeforms_plot, echo = FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
+```{r life-forms_plot, echo = FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
 ggplot(data = canopy_height_harvard_classed_df,
               aes(x = x, y = y, 
                   fill = layer )) + # Here we use layer column for fill.
@@ -162,11 +174,14 @@ ggplot(data = canopy_height_harvard_classed_df,
        y = "Latitude (m)",
        title = "NEON-Vegetataion Life_forms at Harvard site",
        subtitle = 'Classified using quartiles',
-       caption = 'Data source: NEON') +
+       caption = 'Data source: NEON',
+       fill = 'Life-forms:   ') +
    theme(text = element_text(size=20),
          plot.title = element_text(color = 'purple'),
          plot.subtitle = element_text(color = 'blue', face = 'italic'),
-         plot.caption = element_text(color = 'blue', face = 'italic')) 
+         plot.caption = element_text(color = 'blue', face = 'italic'),
+         legend.background = element_rect(fill = "lightgray"),
+         legend.position = 'bottom') 
 ```
 
 <font size = '5'>To answer some of the questions I raised earlier:
@@ -192,20 +207,21 @@ ggplot(data = canopy_height_harvard_classed_df,
              aes(label = ..count..),
              position=position_stack(vjust=0.5)) +
   labs(title = "Area (m^2) of the Vegetation Life_forms",
-       x = 'Life forms',
+       x = 'Vegetation Life-forms',
        y = 'Area (m^2)',
        subtitle = 'Classed by quartiles',
        caption = 'Data source: NEON') +
   theme(text = element_text(size=20),
         plot.title = element_text(color = 'red', face = 'bold'),
         plot.subtitle = element_text(color = 'green', face = 'italic'),
-        plot.caption = element_text(color = 'blue', face = 'italic'))
+        plot.caption = element_text(color = 'blue', face = 'italic'),
+        legend.position = 'none')
 ```
 
 # Conclusions
 
 <font size = '5'>From dsm and dtm data we can get a plethora of information about a place. I have
-just scratched the top two powerful packages; `raster` and `tidyverse` in `R`. Many more can be done especially if these were multispectral bands.
+just scratched the top two powerful packages; `raster` and `tidyverse` in `R`. Many more can be done especially if these were multi-spectral bands.
 
->**Note**: _Only convert raster to dataframe if it has manageable number of cells, otherwise you might end up with hundreds of millions of rows. For example, I am currently working on a site with four Sentinel layers each with about 394 million cells; I can't think of having that as a dataframe in my machine even though R can handle up to `r 2^31 - 1` rows. My classification of vegetation lifeforms using quartiles is very far from reality. Anyway, mine was to present some basic idea. Once the classes are clear, the same
+>**Note**: _Only convert raster to dataframe if it has manageable number of cells, otherwise you might end up with hundreds of millions of rows. For example, I am currently working on a site with four Sentinel layers each with about 394 million cells; I can't think of having that as a dataframe in my machine even though R can handle up to `r 2^31 - 1` rows. My classification of vegetation life-forms using quartiles is very far from reality. Anyway, mine was to present some basic idea. Once the classes are clear, the same
 concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards! Me`RR`y Ch`R`istmas %>% \nP`R`ospe`R`ous New Yea`R`!_</font>
