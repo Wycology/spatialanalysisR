@@ -183,18 +183,18 @@ ggplot(data = canopy_height_harvard_classed_df,
          legend.position = 'bottom') 
 ```
 
-To answer some of the questions I raised earlier:
+To respond to the questions I raised earlier:
 
 1. Bare grounds were predominant in north eastern end of the site. Some parts at
 the center and towards north had grassy lands. Shrubs and trees were, however, distributed rather throughout the site, with more trees than shrubs. 
 2. If I assumed dtm was initial dsm of the site, then I could divide this
 canopy layer by period of time it took between the two layers to know growth rate of the trees. For example, I could divide it by 5 if it took five years and I would have growth rate layer of the whole site. Important questions like why different growth rates could be witnessed across the site could then be presented to agronomists and foresters for further scrutiny.
-3. This third question related to the second. If a patch which was bare and planted still remained bare in the subsequent lidar captures then it shall be evident and appropriate actions would be taken.
+3. This third question was related to the second. If a patch which was bare and then planted with some woody species still remained bare in the subsequent lidar captures then it shall be evident and appropriate actions would be taken.
 4. This was for rangers and ranchers. If a section of the site was allocated to 
 large herbivores like elephants, then it could be deduced how vegetation heights changed at that particular site.
-5. All these biotic and abiotic factors affecting vegetation growth could be shown especially if they altered growth of the vegetation. Some like humus application could also positively affect vegetation growth. Again multiband images could give more information if spectral signatures were distinct enough.
+5. All these biotic and abiotic factors affecting vegetation growth could be shown especially if they altered growth of the vegetation. Some management practices like humus application could also positively affect vegetation growth. Again multiband images could give more information if spectral signatures were distinct enough.
 
-One may ask, how different vegetation classes were distributed in terms of area. A simple bar for counts of cells within each category provided the answer. The counts equaled area in square meters. 
+One may ask, how different vegetation classes were distributed in terms of coverage. A simple bar plot for counts of cells within each category provided the answer. The counts equaled area in square meters. 
 
 ```{r bargraph, echo = FALSE, fig.height = 8, fig.width = 10, fig.align = "center"}
 ggplot(data = canopy_height_harvard_classed_df, 
