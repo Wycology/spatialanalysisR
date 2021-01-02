@@ -10,7 +10,6 @@ output:
 
 <style>
 body {
-font-family: times, serif;
 font-size: 18pt;
 text-align: justify}
 </style>
