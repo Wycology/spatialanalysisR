@@ -18,7 +18,7 @@ text-align: justify}
 knitr::opts_chunk$set(cache = FALSE)
 ```
 
-<font size = "5">For the `R` code, rmd, data, and html files behind this article visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.</font>
+For the `R` code, .rmd, datasets, and html files behind this article visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.
 
 # Abstract
 
@@ -26,8 +26,8 @@ knitr::opts_chunk$set(cache = FALSE)
 
 # Introduction
 
-<font size = '5'>I used two raster layers from [NEON](https://www.neonscience.org/field-sites/harv), which I accessed from [Biodiversity Data Science](https://www.youtube.com/channel/UCAxw75f8aIKi-ciS5PM_qmg) YouTube channel. The layers are digital surface model (DSM) which contains elevation at the 
-top of physical features on the surface of the earth, basically trees in this case and digital terrain model (DTM) which is the elevation values at the surface of the earth. Now the difference between these two heights can tell us the heights of trees, and the units are in meters (m).</font>
+<font size = '5'>I used two raster layers from [NEON](https://www.neonscience.org/field-sites/harv), which I accessed from [Biodiversity Data Science](https://www.youtube.com/channel/UCAxw75f8aIKi-ciS5PM_qmg) YouTube channel. The layers are digital surface model (DSM) which contains elevation of the 
+top of physical points above the surface of the earth, basically top of trees in this case and digital terrain model (DTM) which is the elevation values at the surface of the earth. Now the difference between these two heights can tell us the heights of trees, and the units are in meters (m).</font>
 
 # My Contribution
 
