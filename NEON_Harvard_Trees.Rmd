@@ -18,11 +18,11 @@ text-align: justify}
 knitr::opts_chunk$set(cache = FALSE)
 ```
 
-<font size = "5">For `R` code, rmd, data, and html files visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.</font>
+<font size = "5">For the `R` code, rmd, data, and html files behind this article visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.</font>
 
 # Abstract
 
-<font size = "5">Foresters may need to know distribution of different vegetation life-forms and/or size of bare land at a given forest stand or site. Such information could help in forest classification and/or management like tree planting or herbivores population control among others. Remote sensing technologies have aided such assessments a great deal. In this short article I used digital surface model (DSM) and digital terrain model (DTM), captured by light detection and ranging (LIDAR) platform, to demonstrate vegetation life-form and bare land extent assessment at NEON Harvard site.</font> 
+<font size = "5">Foresters may need to know distribution of different vegetation life-forms and/or area of bare land at a given forest stand or site. Such information could help in forest classification and/or management like planting of more trees or herbivores population control among others. Remote sensing technologies have aided such assessments a great deal. In this short article I used digital surface model (DSM) and digital terrain model (DTM), captured by light detection and ranging (LIDAR) platform, to demonstrate vegetation life-form and bare land extent assessment at NEON Harvard site.</font> 
 
 # Introduction
 
