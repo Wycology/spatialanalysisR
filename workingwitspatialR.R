@@ -225,7 +225,9 @@ mapview(dsm_harvard)
 mapview(plots_harvard) # The points can be added to the mapview too.
 mapview(dsm_harvard) + mapview(plots_harvard_utm)
 
+dsm_harvard_latlong <- projectRaster(dsm_harvard, crs = 4326)
 
+mapview(dsm_harvard_latlong) + mapview(plots_harvard)
 
 
 # Working with Vector data in R----
