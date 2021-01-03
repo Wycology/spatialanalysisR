@@ -227,7 +227,11 @@ mapview(dsm_harvard) + mapview(plots_harvard_utm)
 
 dsm_harvard_latlong <- projectRaster(dsm_harvard, crs = 4326)
 
-mapview(dsm_harvard_latlong) + mapview(plots_harvard)
+m <- mapview(dsm_harvard_latlong) 
+m1 <- mapview(plots_harvard)
+install.packages('leaflet.extras2')
+library(leaflet.extras2)
+m | m1
 
 
 # Working with Vector data in R----
