@@ -20,7 +20,7 @@ library(rgdal)  # Reading and manipulating vector data (points, lines, polygons)
 library(maps) # Loading required maps as SpatialDataframe
 library(spocc) # Gathering species records from gbif (https://www.gbif.org/)
 library(tidyverse) # Wrangling and visualizing especially tabular data
-
+library(mapview)
 # Versions of packages Rstudio and R used in this project:
 
 # R         = 4.0.3 "Bunny-Wunnies Freak Out", run the word version 
@@ -218,6 +218,10 @@ ggplot(data = canopy_height_harvard_df,
        x = "Tree heights (m)",
        y = "Frequency") +
   theme_classic() # Generating histogram to show the distribution of tree heights
+
+# Trying out mapview
+
+mapview(dsm_harvard)
 
 # Working with Vector data in R----
 # Loading the points data of some plots in Harvard where dtm and dsm came from.
