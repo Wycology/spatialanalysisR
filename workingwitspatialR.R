@@ -223,6 +223,10 @@ ggplot(data = canopy_height_harvard_df,
 
 mapview(dsm_harvard)
 mapview(plots_harvard) # The points can be added to the mapview too.
+mapview(dsm_harvard) + mapview(plots_harvard_utm)
+
+
+
 
 # Working with Vector data in R----
 # Loading the points data of some plots in Harvard where dtm and dsm came from.
