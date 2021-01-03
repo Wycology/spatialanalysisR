@@ -233,6 +233,7 @@ install.packages('leaflet.extras2')
 library(leaflet.extras2)
 m | m1
 
+# I must get this up and running before sleeping tonight.
 
 # Working with Vector data in R----
 # Loading the points data of some plots in Harvard where dtm and dsm came from.
