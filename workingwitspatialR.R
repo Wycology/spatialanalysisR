@@ -21,6 +21,7 @@ library(maps) # Loading required maps as SpatialDataframe
 library(spocc) # Gathering species records from gbif (https://www.gbif.org/)
 library(tidyverse) # Wrangling and visualizing especially tabular data
 library(mapview)
+library(leaflet)
 # Versions of packages Rstudio and R used in this project:
 
 # R         = 4.0.3 "Bunny-Wunnies Freak Out", run the word version 
