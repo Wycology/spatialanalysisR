@@ -235,7 +235,9 @@ length(unique(cat_raster)) # Ooh, they are 14 classes
 
 # Now we can reproject this raster of land cover classes to WGS84 using ngb method.
 # ngb is nearest neighbor so that the program will look for neighboring cells to 
-# assign cell values in the new file. By the way, reprojecting a raster leads
+# assign cell values in the new file. It is good for catgorical raster like this\
+# case. Otherwise for numeric we would use billinear which is averaging values of
+# four neighboring cells. By the way, reprojecting a raster leads
 # to creation of a new raster which can have different extents, number of cells and 
 # resolution as the original one.
 
@@ -253,13 +255,38 @@ cat_raster_wgs84       # Checking the new raster attributes
 
 # There are notable differences in number of rows and columns.
 
-length(unique(cat_raster_wgs84))
-length(unique(cat_raster))
+# Let me try reprojecting using the tweaking +init blah blah method
 
+cat_raster_wgs84_init <- projectRaster(cat_raster, crs = '+init=epsg:4326', method = 'ngb')
+cat_raster_wgs84_init # Running this raster returns attributes of the raster quite
+# similar to those of cat_raster_wgs84
 
+# To compare the two rasters we can use compareRaster function as follows
 
+compareRaster(cat_raster_wgs84_init, cat_raster_wgs84) # This returns TRUE, so the
+# tweaking works fine.
 
+# Now let us finish the job by reprojecting numeric raster. That is raster with
+# double numbers (e.g. 12.3526) as opposed to categorical one which only had the
+# categories as integers in the cell values. This will be an SRTM raster
 
+con_raster <- raster(system.file('raster/srtm.tif', package = 'spDataLarge')) 
+# con here means continuous and the cat in the former meant ctegorical
 
+crs(con_raster)    # Again Cool
+st_crs(con_raster) # Cooler
+con_raster         # Coolest
 
+# Here we will reproject the GEOCRS to PROJCRS called equalarea
 
+equalarea <- '+proj=laea +lat_0=37.32 +lon_0=-113.04'
+con_raster_ea <- projectRaster(con_raster, crs = equalarea, method = 'bilinear')
+
+crs(con_raster_ea)
+st_crs(con_raster_ea)
+con_raster_ea
+
+# Again I can clearly see that the rasters have different number of rows and columns
+# Even the minimum and maximum cell values changed.
+
+# Okay, that is enough for the day.
