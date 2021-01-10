@@ -179,12 +179,58 @@ crs_lnd$proj4string # This is giving the lengthy format of the code
 cycle_hire_osm_projected <- st_transform(cycle_hire_osm, 27700)
 
 # We can check this and confirm the change
-st_crs(cycle_hire_osm_projected)$proj4string
-
-# which is the same as
+st_crs(cycle_hire_osm_projected)$proj4string # Good. To know the name of the crs
+# Just google it. Something like EPSG 27700 or seek from https://epsg.io/27700
+# The website is cool even for https://epsg.io/32736 which was for tri
+# which is the same as:
 st_crs(cycle_hire_osm_projected)$epsg
 
-# Cool, that is done and dusted.
+# Cool, even just printing the spatial object in the console alone is enough to
+# reveal the crs.
+
+print(cycle_hire_osm_projected) # Projected CRS: OSGB 1936 / Britich National Grid
+
+world_mollweide <- st_transform(world, crs = '+proj=moll') # Leaving space on
+# either sides of equal sign will throw an error.
+
+plot(world_mollweide) # Plotting all the variables in the dataset
+
+plot(world_mollweide['type'], main = 'Mollweide Projection') # Plot only the type column in the dataset
+
+# There is a projection called Winkel triple projection which can be very useful 
+# when trying to get the best in plotting the whole world to preserve area, direction
+# and distance
+
+world_wintri <- lwgeom::st_transform_proj(world, crs = '+proj=wintri')
+plot(world_wintri['type'], main = 'Wintri Projection')
+
+# Another interesting one is to transform the a projection to meet one's need
+world_laea1 <- st_transform(world, crs = '+proj=laea +x_0=0 +y_0=0 +lat_0=0')
+plot(world_laea1['type'], main = 'Lambert Azimuthal Equal Area')
+
+# I can enjoy centering the map on New York City using the +lon_0 and +lat_0 parameters
+
+world_laea2 <- st_transform(world, crs = '+proj=laea +x_0=0 +y_0=0 +lon_0=-74 +lat_0=40')
+plot(world_laea2['type'], main = 'Lambert Azimuthal Equal Area, New York City')
+
+# Why not center it on Lodwar, cool and interesting, at least to me.
+world_laea3 <- st_transform(world, crs = '+proj=laea +x_0=0 +y_0=0 +lon_0=35.597456 +lat_0=3.118122')
+plot(world_laea3['type'], graticule = TRUE, key.pos = NULL, axes = TRUE,
+     main = 'Lambert Azimuthal Equal Area, Lodwar')
+
+# Reprojecting raster files is a bit tricky. Many things can change including 
+# number of rows and columns and cell values. Therefore, care must be taken
+
+# Lets load some raster data which contains land use classes
+
+cat_raster <- raster(system.file('raster/nlcd2011.tif', package = 'spDataLarge'))
+crs(cat_raster)     # Cool
+st_crs(cat_raster)  # Cooler
+cat_raster          # Coolest
+
+
+
+
 
 
 
