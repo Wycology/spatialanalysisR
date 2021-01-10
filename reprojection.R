@@ -9,7 +9,11 @@
 
 # Loading the necessary libraries 
 
-library(sf); library(raster); library(dplyr); library(spData); library(spDataLarge)
+library(sf)
+library(raster)
+library(dplyr)
+library(spData)
+library(spDataLarge)
 
 # I need to install the last two packages in the list
 
@@ -21,7 +25,7 @@ library(sf); library(raster); library(dplyr); library(spData); library(spDataLar
 # Here we start by a dummy dataframe and check for crs using the function
 
 london <- data.frame(lon = -0.1,
-                     lat = 51.5) %>% # Creating a dataframe 
+                     lat = 51.5) %>% # Creating a dataframe
   st_as_sf(coords = c('lon', 'lat')) # Setting the variables lon and lat as coords
 
 st_is_longlat(london) # Returns NA
@@ -39,7 +43,7 @@ london_geo <- london %>% # Feeding in the above information
 
 london_geo <- data.frame(lon = -0.1,
                          lat = 51.5) %>%
-  st_as_sf(coords = c('lon', 'lat')) %>% 
+  st_as_sf(coords = c('lon', 'lat')) %>%
   st_set_crs(4326)
 
 st_is_longlat(london_geo) # This is now returning TRUE because we have set crs
@@ -48,19 +52,20 @@ st_is_longlat(london_geo) # This is now returning TRUE because we have set crs
 # trying to create buffer around the point we created for londin and london_geo
 
 london_buff_nocrs <- st_buffer(london, dist = 1)
-london_buff <- st_buffer(london_geo, dist = 1) # Returns a warning, the warning 
+london_buff <-
+  st_buffer(london_geo, dist = 1) # Returns a warning, the warning
 # implies that we should reproject the point to a projected coordinate system not 
 # the longlat geographic datum.
 
-geosphere::distGeo(c(0,0), c(1,0)) # Returns distance between two longitudes
+geosphere::distGeo(c(0, 0), c(1, 0)) # Returns distance between two longitudes
 
-geosphere::distGeo(c(-0.1,51.5), c(0.9,51.5))/1000 # Cool, distance between two 
+geosphere::distGeo(c(-0.1, 51.5), c(0.9, 51.5)) / 1000 # Cool, distance between two
 # meridians in London is slightly below 70kms (69.43998).
 
 # So here we do the reprojection of our london_geo to a projected CRS 
 
 london_proj <- data.frame(x = 530000,
-                          y = 180000) %>% 
+                          y = 180000) %>%
   st_as_sf(coords = 1:2, crs = 27700) # Setting projection to OSGB 1936 British
                                       # National Grid
 
@@ -90,13 +95,13 @@ plot(london_proj, col = 'yellow', add = TRUE)
 # I know the distance between Kisumu and Kericho on google map to be 64.89 kms
 
 kisumu <- data.frame(lon = 34.767439,
-                     lat =  -0.090972) %>% 
-  st_as_sf(coords = c('lon', 'lat')) %>% 
+                     lat =  -0.090972) %>%
+  st_as_sf(coords = c('lon', 'lat')) %>%
   st_set_crs(4326)
 
 kericho <- data.frame(lon = 35.286047,
-                      lat = -0.370453) %>% 
-  st_as_sf(coords = c('lon', 'lat')) %>% 
+                      lat = -0.370453) %>%
+  st_as_sf(coords = c('lon', 'lat')) %>%
   st_set_crs(4326)
 
 st_distance(kisumu, kericho)/1000 # This is returning 65.48168 kms. Cool. Even 
@@ -196,35 +201,46 @@ world_mollweide <- st_transform(world, crs = '+proj=moll') # Leaving space on
 
 plot(world_mollweide) # Plotting all the variables in the dataset
 
-plot(world_mollweide['type'], main = 'Mollweide Projection') # Plot only the type column in the dataset
+plot(world_mollweide['type'], main = 'Mollweide Projection') # Plot only the 
+# type column in the dataset
 
 # There is a projection called Winkel triple projection which can be very useful 
 # when trying to get the best in plotting the whole world to preserve area, direction
 # and distance
 
-world_wintri <- lwgeom::st_transform_proj(world, crs = '+proj=wintri')
+world_wintri <-
+  lwgeom::st_transform_proj(world, crs = '+proj=wintri')
 plot(world_wintri['type'], main = 'Wintri Projection')
 
 # Another interesting one is to transform the a projection to meet one's need
-world_laea1 <- st_transform(world, crs = '+proj=laea +x_0=0 +y_0=0 +lat_0=0')
+world_laea1 <-
+  st_transform(world, crs = '+proj=laea +x_0=0 +y_0=0 +lat_0=0')
 plot(world_laea1['type'], main = 'Lambert Azimuthal Equal Area')
 
 # I can enjoy centering the map on New York City using the +lon_0 and +lat_0 parameters
 
-world_laea2 <- st_transform(world, crs = '+proj=laea +x_0=0 +y_0=0 +lon_0=-74 +lat_0=40')
+world_laea2 <-
+  st_transform(world, crs = '+proj=laea +x_0=0 +y_0=0 +lon_0=-74 +lat_0=40')
 plot(world_laea2['type'], main = 'Lambert Azimuthal Equal Area, New York City')
 
 # Why not center it on Lodwar, cool and interesting, at least to me.
-world_laea3 <- st_transform(world, crs = '+proj=laea +x_0=0 +y_0=0 +lon_0=35.597456 +lat_0=3.118122')
-plot(world_laea3['type'], graticule = TRUE, key.pos = NULL, axes = TRUE,
-     main = 'Lambert Azimuthal Equal Area, Lodwar')
+world_laea3 <- st_transform(
+  world, crs = '+proj=laea +x_0=0 +y_0=0 +lon_0=35.597456 +lat_0=3.118122')
+plot(
+  world_laea3['type'],
+  graticule = TRUE,
+  key.pos = NULL,
+  axes = TRUE,
+  main = 'Lambert Azimuthal Equal Area, Lodwar'
+)
 
 # Reprojecting raster files is a bit tricky. Many things can change including 
 # number of rows and columns and cell values. Therefore, care must be taken
 
 # Lets load some raster data which contains land use classes
 
-cat_raster <- raster(system.file('raster/nlcd2011.tif', package = 'spDataLarge'))
+cat_raster <-
+  raster(system.file('raster/nlcd2011.tif', package = 'spDataLarge'))
 crs(cat_raster)     # Cool
 st_crs(cat_raster)  # Cooler
 cat_raster          # Coolest
@@ -246,7 +262,8 @@ length(unique(cat_raster)) # Ooh, they are 14 classes
 
 wgs84 <- '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'
 
-cat_raster_wgs84 <- projectRaster(cat_raster, crs = wgs84, method = 'ngb')
+cat_raster_wgs84 <-
+  projectRaster(cat_raster, crs = wgs84, method = 'ngb')
 plot(cat_raster)       # Clear
 plot(cat_raster_wgs84) # Difference noted
 
@@ -257,7 +274,9 @@ cat_raster_wgs84       # Checking the new raster attributes
 
 # Let me try reprojecting using the tweaking +init blah blah method
 
-cat_raster_wgs84_init <- projectRaster(cat_raster, crs = '+init=epsg:4326', method = 'ngb')
+cat_raster_wgs84_init <-
+  projectRaster(cat_raster, crs = '+init=epsg:4326',
+                method = 'ngb')
 cat_raster_wgs84_init # Running this raster returns attributes of the raster quite
 # similar to those of cat_raster_wgs84
 
@@ -270,7 +289,8 @@ compareRaster(cat_raster_wgs84_init, cat_raster_wgs84) # This returns TRUE, so t
 # double numbers (e.g. 12.3526) as opposed to categorical one which only had the
 # categories as integers in the cell values. This will be an SRTM raster
 
-con_raster <- raster(system.file('raster/srtm.tif', package = 'spDataLarge')) 
+con_raster <-
+  raster(system.file('raster/srtm.tif', package = 'spDataLarge'))
 # con here means continuous and the cat in the former meant ctegorical
 
 crs(con_raster)    # Again Cool
@@ -280,7 +300,8 @@ con_raster         # Coolest
 # Here we will reproject the GEOCRS to PROJCRS called equalarea
 
 equalarea <- '+proj=laea +lat_0=37.32 +lon_0=-113.04'
-con_raster_ea <- projectRaster(con_raster, crs = equalarea, method = 'bilinear')
+con_raster_ea <-
+  projectRaster(con_raster, crs = equalarea, method = 'bilinear')
 
 crs(con_raster_ea)
 st_crs(con_raster_ea)
