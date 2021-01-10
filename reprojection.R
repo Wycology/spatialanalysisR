@@ -182,6 +182,7 @@ cycle_hire_osm_projected <- st_transform(cycle_hire_osm, 27700)
 st_crs(cycle_hire_osm_projected)$proj4string # Good. To know the name of the crs
 # Just google it. Something like EPSG 27700 or seek from https://epsg.io/27700
 # The website is cool even for https://epsg.io/32736 which was for tri
+# There is also http://spatialreference.org to check
 # which is the same as:
 st_crs(cycle_hire_osm_projected)$epsg
 
@@ -227,6 +228,34 @@ cat_raster <- raster(system.file('raster/nlcd2011.tif', package = 'spDataLarge')
 crs(cat_raster)     # Cool
 st_crs(cat_raster)  # Cooler
 cat_raster          # Coolest
+
+# To know the number of land cover classes in the dataset, we can have a look at:
+unique(cat_raster) # Good
+length(unique(cat_raster)) # Ooh, they are 14 classes
+
+# Now we can reproject this raster of land cover classes to WGS84 using ngb method.
+# ngb is nearest neighbor so that the program will look for neighboring cells to 
+# assign cell values in the new file. By the way, reprojecting a raster leads
+# to creation of a new raster which can have different extents, number of cells and 
+# resolution as the original one.
+
+# It normally requires that we give the full text name of the crs not the epsg code
+# However, epsg code can be used by tweaking as "+init=epsg:MY_NUMBER", let me try both
+
+wgs84 <- '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'
+
+cat_raster_wgs84 <- projectRaster(cat_raster, crs = wgs84, method = 'ngb')
+plot(cat_raster)       # Clear
+plot(cat_raster_wgs84) # Difference noted
+
+cat_raster             # Checking the original raster attributes
+cat_raster_wgs84       # Checking the new raster attributes
+
+# There are notable differences in number of rows and columns.
+
+length(unique(cat_raster_wgs84))
+length(unique(cat_raster))
+
 
 
 
