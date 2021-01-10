@@ -164,9 +164,27 @@ st_crs(epsg_utm_lodwar)$proj4string # Zone 36 and the units are in m
 st_crs(epsg_utm_honduras)$proj4string # Zone 16 and the units are in m
 
 # Cool, can go on and on and on and on and on and on...
+# Reprojecting vectors
 
+crs_lnd <- st_crs(cycle_hire_osm)
+class(crs_lnd)
 
+crs_lnd$epsg # To get the epsg code for the object
 
+crs_lnd$proj4string # This is giving the lengthy format of the code
+
+# Now we know that the crs of our dataset is in GEOCRS, we can change this to
+# PROJCRS as follows
+
+cycle_hire_osm_projected <- st_transform(cycle_hire_osm, 27700)
+
+# We can check this and confirm the change
+st_crs(cycle_hire_osm_projected)$proj4string
+
+# which is the same as
+st_crs(cycle_hire_osm_projected)$epsg
+
+# Cool, that is done and dusted.
 
 
 
