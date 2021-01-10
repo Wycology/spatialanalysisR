@@ -99,6 +99,42 @@ kericho <- data.frame(lon = 35.286047,
   st_as_sf(coords = c('lon', 'lat')) %>% 
   st_set_crs(4326)
 
-st_distance(kisumu, kericho)/1000 # This is returning 65.48168 kms. Cool
+st_distance(kisumu, kericho)/1000 # This is returning 65.48168 kms. Cool. Even 
+# though it is saying Units: [m], I know very well that it is kms due to division
+# by 1000
+st_distance(london_geo,london_proj) # Very informative error, both objects have 
+# different crs.
+
+# Let me transform the one in GEOCRS to PROJCRS
+
+london2 <- st_transform(london_geo, 27700)
+# Now this is cool, let me try calculating the distance again
+
+st_distance(london2, london_proj) # Good, the two are about kms apart.
+
+# This is an interesting one, getting length of met station at TRI. Manually in 
+# Google Earth, I got it as 30.86 m.
+
+north <- data.frame(lon = 35.349008,     # Upper corner near sunshine recorder
+                    lat =  -0.371926) %>% 
+  st_as_sf(coords = c('lon', 'lat')) %>% 
+  st_set_crs(4326) # The GEOCRS since I have longitude and latitude
+
+south <- data.frame(lon = 761462.23,     # Upper southern corner. Coords from 
+                    lat = 9958825.90) %>% # Google Earth after changing display
+  st_as_sf(coords = c('lon', 'lat')) %>%  # to UTM under Tools ==> Options
+  st_set_crs(32736) # This is the EPSG code for UTM Zone 36 S. Google it.
+
+st_distance(north, south) # Error, the two have different crs, EPSG 4326 and 
+                          # EPSG 32736
+
+north2 <- st_transform(north, 32736) # setting the GEOCRS to PROJCRS
+st_distance(north2, south) # Super cool 31.37634 m, so close to what I got
+
+
+
+
+
+
 
 
