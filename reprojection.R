@@ -156,6 +156,13 @@ epsg_utm_tri <- lonlat2UTM(c(35.348981, -0.372091)) # Returns 32736
 epsg_utm_lodwar <- lonlat2UTM(c(35.597457, 3.118125)) # Returns 32636
 epsg_utm_tannenbusch <- lonlat2UTM(c(7.043103, 50.749732)) # Returns 32632
 epsg_utm_honduras <- lonlat2UTM(c(-86.241367, 15.200515)) # Returns 32616
+
+# Now, to know the zones associated with the above, it is simple just extract it
+# with $ accessor symbol
+
+st_crs(epsg_utm_lodwar)$proj4string # Zone 36 and the units are in m
+st_crs(epsg_utm_honduras)$proj4string # Zone 16 and the units are in m
+
 # Cool, can go on and on and on and on and on and on...
 
 
