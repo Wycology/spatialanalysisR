@@ -364,9 +364,35 @@ tri_station <- nearest_stations(LAT = -0.36667, LON = 35.35, distance = 1)
 tri_climate <- get_GSOD(years = 2010, station = "637100-99999")# Takes too long
 # I escaped this to stop running it before completion.
 
-object.size(tri_climate)
+# I will use three of the packages listed above:
 
+# 1. rnaturalearth
 
+library(rnaturalearth)
+usa <- ne_countries(country = 'United States of America')
+class(usa)
+
+# By default, this is a Spatial feature. To convert to sf is simple.
+
+usa_sf <- st_as_sf(usa)
+class(usa_sf)
+head(usa_sf) # This is now better.
+
+# Why not run one for my beloved country
+kenya <- ne_countries(country = 'Kenya')
+class(kenya)
+
+kenya_sf <- st_as_sf(kenya)
+class(kenya_sf)
+head(kenya)
+plot(kenya_sf) # Of course this maps every attribute in Kenyan dataset
+plot(kenya_sf['type']) # Picks only one of the attributes
+plot(kenya_sf[c('type', 'adm0_dif')]) # Picks more than one attribute to map
+
+#2. raster
+
+library(raster)
+worldclim_prec <- getData(name = 'worldclim', var = 'prec', res = 10)
 
 
 
