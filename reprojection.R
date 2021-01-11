@@ -429,6 +429,7 @@ world2 <- spData::world
 # or
 world3 <- st_read(system.file('shapes/world.gpkg', package = 'spData'))
 
+# File formats ----
 
 
 
