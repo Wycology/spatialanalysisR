@@ -393,11 +393,41 @@ plot(kenya_sf[c('type', 'adm0_dif')]) # Picks more than one attribute to map
 
 library(raster)
 worldclim_prec <- getData(name = 'worldclim', var = 'prec', res = 10)
+class(worldclim_prec) # This is a RasterStack class object.
+
+plot(worldclim_prec) # Plots the 12 months data
+plot(worldclim_prec[[1]]) # Plots only the first layer.
+plot(worldclim_prec[[1:2]]) # Plots two of the layers
+plot(worldclim_prec[[c(1,4,6)]]) # Plots selected layers in the stack
 
 
+#3. osmdata
 
+library(osmdata) # Loading the library
 
+parks <- opq(bbox = 'leeds uk') %>% 
+  add_osm_feature(key = 'leisure', value = 'park') %>% 
+  osmdata_sf()
 
+plot(parks$osm_polygons) # There are 57 attributes, only first nine are plotted
+plot(parks$osm_polygons['osm_id']) # This is the same as indexing by number
+plot(parks$osm_polygons[1]) # Exactly
+
+#plotting more
+
+plot(parks$osm_polygons[1:4]) # Only four
+plot(parks$osm_polygons[3:6]) # Picking third to sixth
+plot(parks$osm_polygons[c(8,3,40,57)]) # Picking random across the attributes
+
+dim(parks$osm_polygons) # So here we have 745 rows and 58 columns
+
+# Data which come with packages can be accessed by attaching the dataset, by 
+# running data(dataset), by calling the data from package name pkg::dataset, or 
+# with system.file(). We can ccess data which come with spData by:
+
+world2 <- spData::world
+# or
+world3 <- st_read(system.file('shapes/world.gpkg', package = 'spData'))
 
 
 
