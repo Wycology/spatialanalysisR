@@ -459,6 +459,53 @@ st_drivers() # Quite a long list. Almost every format you can think of
  
 # For example:
 
+vector_file_path <- system.file('shapes/world.gpkg', package = 'spData')
+world <- st_read(vector_file_path) # Simple way to specify path and read vector data
+
+# Adding layer argument can be good if there are many layers in the destination 
+
+# Reading in csv data with x and y coordinates columns
+
+cycle_hire.txt <- system.file('misc/cycle_hire_xy.csv', package = 'spData')
+cycle_hire.xy <- st_read(cycle_hire.txt, options = c('X_POSSIBLE_NAMES=X',
+                                                     'Y_POSSIBLE_NAMES=Y'))
+cycle_hire.xy # Will imported but no crs yet.
+
+testingcrs <- st_set_crs(cycle_hire.xy, 4326) # Joking with assignment here
+crs(testingcrs) # Confirming the crs set
+plot(testingcrs) # Plotting every attribute of the dataset
+plot(testingcrs['nbikes']) # Picking what to plot
+
+# In some instances, for example with polygons, several coordinates can be stored
+# in a single cell just like geometry column of sf package. These are well known
+# text or binaries. These can be read as follows:
+
+world_txt <- system.file('misc/world_wkt.csv', package = 'spData')
+world_wkt <- read_sf(world_txt, options = 'GEOM_POSSIBLE_NAMES=WKT')
+
+# This will do the same thing as the one which follows:
+
+world_wkt2 <- st_read(world_txt, options = 'GEOM_POSSIBLE_NAMES=WKT',
+                     quiet = TRUE, stringsAsFactors = FALSE, as_tibble = TRUE)
+world_wkt == world_wkt2 # Everything TRUE...
+
+plot(world_wkt2) # Now 10 are plotted
+plot(world_wkt2[5]) # The same applies as has been with the other vectors with 
+# very many attributes
+
+# The next is to get KML file and read it
+
+u <- 'https://developers.google.com/kml/documentation/KML_Samples.kml'
+download.file(u, 'KML_Samples.kml')
+st_layers('KML_Samples.kml') # Checking the number of layers in the file downloaded
+
+kml <- read_sf('KML_Samples.kml', layer = 'Placemarks')
+plot(kml$geometry) #Plots the three points
+
+# For reading geojson files, one better goes for the package geojsonsf
+
+# Raster Data ----
+
 
 
 
