@@ -540,11 +540,51 @@ st_write(obj = world, dsn = 'world.gpkg', append = TRUE) # This works fine.
 # set to TRUE by default. This is therefore overwriting the older layers whenever
 # additional layers of same name are added.
 
+write_sf(obj = world, dsn = 'world.gpkg') # OOooh, this takes longer time.
 
+# In order to write the vector data out to text file such as csv or txt then 
+# layer_options argument can be used as follows. This drops the geometry column
 
+st_write(cycle_hire.xy, 'cycle_hire_xy.csv', layer_options = 'GEOMETRY=AS_XY')
+st_write(world_wkt, 'world.wkt.csv', layer_options = 'GEOMETRY=AS_WKT')
 
+# Raster data
+# Adding desired extension is important. By default, writeRaster() will store .grd
+writeRaster(single_layer, filename = "my_raster.tif", datatype = "INT2U")
 
+# To know the supported formats just run:
+writeFormats() # Quite a long list
 
+# Other parameters can be included accordingly
+writeRaster(x = single_layer,
+            filename = "my_raster.tif",
+            datatype = "INT2U",
+            options = c("COMPRESS=DEFLATE"),
+            overwrite = TRUE) # overwrite here works quite similar to append = TRUE
 
+# Visual outputs ----
+# Static graphics
+# This should start by opening graphic device, then create plot, lastly close it.
 
+png(filename = 'lifeExp.png', width = 500, height = 350) # Open graphic device
+plot(world['lifeExp'])                                   # The plot
+dev.off()                                                # Closes
+
+# Apart from png, one can use pdf(), bmp(), jpeg(), and tiff()
+# width, height, and resolution can be specified
+
+# In case of tmap package, tmap_save() can be used.
+
+library(tmap) # Just to run an example
+tmap_obj <- tm_shape(world) + tm_polygons(col = 'lifeExp')
+tmap_save(tm = tmap_obj, filename = 'lifeExp_tmap.png')
+
+# Interactive maps using mapview 
+library(mapview)
+mapview_obj <- mapview(world, zcol = 'lifeExp', legend = TRUE)
+mapshot(mapview_obj, file = 'my_interactive_map.html') # This threw an eror
+
+mapview(world, zcol = 'lifeExp', legend = TRUE) # This worked pretty fine
+
+# Great enough for today, tomorrow it will be Chapter 8.
 
