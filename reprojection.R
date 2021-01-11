@@ -322,5 +322,24 @@ con_raster_ea
 
 # There are so many geographic data formats with pros and cons
 
+# Retrieving open data from a number of geoportals such as:
+# GEOS Portal http://www.geoportal.org/
+# Copernicus Open Access Hub: https://scihub.copernicus.eu/
+# NASA SEDAC Portal: http://sedac.ciesin.columbia.edu/
+# INSPIRE: http://inspire-geoportal.ec.europa.eu/
+# USGS EarthExplorer: https://earthexplorer.usgs.gov/
 
+# It is rewarding to explore these data on the web to know what is available. 
+# However, downloading data should be done by code to enable reproducibility.
 
+# Data hosted online can be downloaded via url (download.file()) or specific 
+# API such as Sentinel API: 
+# https://scihub.copernicus.eu/twiki/do/view/SciHubWebPortal/APIHubDescription
+
+# A simple code to access US National Parks from https://catalog.data.gov/dataset/national-parks
+# is
+
+download.file(url = "http://nrdata.nps.gov/programs/lands/nps_boundary.zip",
+              destfile = "nps_boundary.zip") # Unfortunately couldn't open.
+unzip(zipfile = "nps_boundary.zip")
+usa_parks = st_read(dsn = "nps_boundary.shp")
