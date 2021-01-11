@@ -431,6 +431,44 @@ world3 <- st_read(system.file('shapes/world.gpkg', package = 'spData'))
 
 # File formats ----
 
+# So many formats exist, am falling in love with geopackage, and GeoTiff .tif/.tiff
+
+# I did not know limitations of shapefile before: has multifiles, at least 3; 
+# no more than 255 columns; no more than 10 characters on column names; 
+# maximum file size of 2GB and does not distinguish between polygons and 
+# multipolygons (it therefore does not support all possible geometries).
+
+# Nothing feels better than geopackage... such a cool format burrying shapefile
+
+# Data input ----
+
+# Reading vector ==> sf::st_read()
+# Reading raster ==> raster::raster()
+# Reading csv ==> dplyr::read_csv()
+
+# These help to assign objects to your workspace, stored in RAM accessible from 
+# the GlobalEnvironment of the R session
+
+# Vector data
+# sf supports so many vector file formats. These can be assigned by st_read() 
+# To know the whole list:
+st_drivers() # Quite a long list. Almost every format you can think of
+
+# In reading files using st_read(), there is no need to provide driver name since
+# the function can tell the driver to use based on the extension on the file name
+ 
+# For example:
+
+
+
+
+
+
+
+
+
+
+
 
 
 
