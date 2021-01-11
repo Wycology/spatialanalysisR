@@ -343,3 +343,21 @@ download.file(url = "http://nrdata.nps.gov/programs/lands/nps_boundary.zip",
               destfile = "nps_boundary.zip") # Unfortunately couldn't open.
 unzip(zipfile = "nps_boundary.zip")
 usa_parks = st_read(dsn = "nps_boundary.shp")
+
+# Some of the packages which can help with accessing geodata include:
+
+# getlandsat ==> Accessing Landsat 8 data
+# osmdata ==> Download and import of OpenStreetMap data
+# raster ==> getData() imports administrative, elevation, and WorldClim data
+# rnaturalearth ==> Access to Natural Earth vector and raster data
+# rnoaa ==> imports National Oceanographic and Atmospheric Administration climate data
+# rWBclimate ==> Access World Bank climate data
+
+
+
+
+
+
+
+
+
