@@ -506,10 +506,39 @@ plot(kml$geometry) #Plots the three points
 
 # Raster Data ----
 
+raster_filepath = system.file("raster/srtm.tif", package = "spDataLarge")
+single_layer = raster(raster_filepath)
 
+# In case the raster is multiband and only specific band is need, use band
 
+multilayer_filepath = system.file("raster/landsat.tif", package = "spDataLarge")
+band3 = raster(multilayer_filepath, band = 3)
 
+# However, in case of reading all the available bands one can use stack or brick
 
+multilayer_brick = brick(multilayer_filepath)
+multilayer_stack = stack(multilayer_filepath)
+
+# Working almost in similar manner.
+
+# Data Output ----
+# Vector data ==> To write vector, use st_write(object, dsn)
+
+st_write(obj = world, dsn = 'world.gpkg') # As simple as such
+
+# Writing to the same file is not possible, throws an error
+
+st_write(obj = world, dsn = 'world.gpkg') # Error
+
+# Since we are writing gpkg, it can contain many layers. To achieve this, we set
+# append = TRUE
+st_write(obj = world, dsn = 'world.gpkg', append = TRUE) # This works fine.
+
+# To overwrite the former layer, just set append to FALSE, simple.
+
+# Instead of st_write, there is write_sf which has append set to FALSE and quiet 
+# set to TRUE by default. This is therefore overwriting the older layers whenever
+# additional layers of same name are added.
 
 
 
