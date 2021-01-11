@@ -311,3 +311,16 @@ con_raster_ea
 # Even the minimum and maximum cell values changed.
 
 # Okay, that is enough for the day.
+
+
+# Chapter Seven Geographic data I/O----
+ 
+# Here, we will use same libraries loaded at the beginning of Chapter 6 above
+
+# Learning to import and export data into R. It is good to know both so that 
+# you can load data from others and share out data which others can also utilize
+
+# There are so many geographic data formats with pros and cons
+
+
+
