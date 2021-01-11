@@ -344,7 +344,7 @@ download.file(url = "http://nrdata.nps.gov/programs/lands/nps_boundary.zip",
 unzip(zipfile = "nps_boundary.zip")
 usa_parks = st_read(dsn = "nps_boundary.shp")
 
-# Some of the packages which can help with accessing geodata include:
+# Some (few) of the packages which can help with accessing geodata include:
 
 # getlandsat ==> Accessing Landsat 8 data
 # osmdata ==> Download and import of OpenStreetMap data
@@ -352,6 +352,22 @@ usa_parks = st_read(dsn = "nps_boundary.shp")
 # rnaturalearth ==> Access to Natural Earth vector and raster data
 # rnoaa ==> imports National Oceanographic and Atmospheric Administration climate data
 # rWBclimate ==> Access World Bank climate data
+# GSODR ==> Accessing climate data for given stations
+
+# I will use the package GSODR to play around with the data. Here is how to access
+# data for the region around Tea Research Institute, Kericho Kenya
+
+tri_station <- nearest_stations(LAT = -0.36667, LON = 35.35, distance = 1)
+# This can help to return a station code which is applicable in accessing data
+# Returned a code of 637100-99999 hence used as follows 
+
+tri_climate <- get_GSOD(years = 2010, station = "637100-99999")# Takes too long
+# I escaped this to stop running it before completion.
+
+object.size(tri_climate)
+
+
+
 
 
 
