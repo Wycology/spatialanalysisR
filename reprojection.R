@@ -854,7 +854,7 @@ tmap_animation(urb_anim, filename = "urb_anim.gif", delay = 25) # Builds animati
 tmap_mode('view') # Setting mode for interactivity
 map_nz # Cool
 
-# Can also be done via tmap_leaflet()
+# Can also be done via tmap_leaflet(), which is cool
 
 map_nz + 
   tm_basemap(server = 'OpenTopoMap') # Cool
