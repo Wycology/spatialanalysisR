@@ -917,7 +917,7 @@ plot(nz_water, graticule = g, axes = TRUE, col = "blue")
 raster::plot(nz_elev / 1000, add = TRUE)
 plot(st_geometry(nz), add = TRUE)
 
-# ggplot2
+# Using ggplot2 package to generate plots. Quite commong and used by many people
 
 g1 <-  ggplot() + geom_sf(data = nz, aes(fill = Median_income)) +
   geom_sf(data = nz_height) +
