@@ -713,10 +713,41 @@ map_nza <- tm_shape(nz) +
 
 map_nza # Returns better map
 
+# Color settings
+
+tm_shape(nz) +
+  tm_polygons(col = 'Median_income')
+
+breaks <- c(0, 3, 4, 5)*10000
+
+tm_shape(nz) +
+  tm_polygons(col = 'Median_income', breaks = breaks)
+
+tm_shape(nz) +
+  tm_polygons(col = 'Median_income', n = 10)
+tm_shape(nz) +
+  tm_polygons(col = 'Median_income', palette = 'BuGn')
+
+# I can nest the above plots into one tmap_arrange()
+
+# Breaks need not be specified manually as above. There are many algorithms which
+# can help including pretty, equal, quantile, jenks, cont and cat
+
+tm_shape(nz) +
+  tm_polygons(col = 'Median_income', style = 'pretty')
+tm_shape(nz) +
+  tm_polygons(col = 'Median_income', style = 'equal')
+tm_shape(nz) +
+  tm_polygons(col = 'Median_income', style = 'quantile')
+tm_shape(nz) +
+  tm_polygons(col = 'Median_income', style = 'jenks')
+tm_shape(nz_elev) +
+  tm_raster(style = 'cont')
+tm_shape(nz) +
+  tm_polygons(col = 'Island', style = 'cat')
 
 
-
-
+# Super cool maps especially when wrapped inside tmap_arrange().
 
 
 
