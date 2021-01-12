@@ -934,3 +934,4 @@ us_states2163_dorling <-  cartogram_dorling(us_states2163, "total_pop_15")
 
 tm_shape(us_states2163_dorling) +
   tm_polygons() # For example
+# Enough for the day, This was too much information.
