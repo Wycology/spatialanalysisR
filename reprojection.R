@@ -897,7 +897,7 @@ leaflet(data = cycle_hire) %>%
   addMiniMap()
 
 
-
+# shiny package for rendering good maps for the web. Cool :)
 ui <-  fluidPage(
   sliderInput(inputId = "life", "Life expectancy", 49, 84, value = 80),
   leafletOutput(outputId = "map")
