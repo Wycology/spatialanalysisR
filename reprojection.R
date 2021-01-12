@@ -646,16 +646,55 @@ map_nz1 <- map_nz +    # The original map object
 
 map_nz1 # Returns the new object on the plot
 
+# Creating a new layer
+nz_water <- st_union(nz) %>%  
+  st_buffer(22200) %>% 
+  st_cast(to = 'LINESTRING')
 
+# Adding new layer to the former
+map_nz2 <- map_nz1 +
+  tm_shape(nz_water) +
+  tm_lines()
+map_nz2
 
+map_nz3 <- map_nz2 +
+  tm_shape(nz_height) +
+  tm_dots()
+map_nz3
 
+# We can have all the map objects so far created in one plot view
 
+tmap_arrange(map_nz, map_nz1, map_nz2, map_nz3) # This is cool
 
+# Aesthetics
 
+# Common aesthetics to consider include col, alpha, lwd, lty
 
+ma1 <- tm_shape(nz) +
+  tm_fill(col = 'red')
+ma1 # Returns red filled plot
 
+ma2 <- tm_shape(nz) +
+  tm_fill(col = 'red', alpha = 0.3) # Changes transparency of the red fill color
+ma2 # Returns rather transparent fill of the red color
 
+ma3 <- tm_shape(nz) +
+  tm_borders(col = 'blue')
 
+ma4 <- tm_shape(nz) +
+  tm_borders(lwd = 4)
+
+ma5 <- tm_shape(nz) +
+  tm_borders(lty = 2)
+
+ma6 <- tm_shape(nz) +
+  tm_fill(col = 'red',
+          alpha = 0.3) +
+  tm_borders(col = 'blue',
+             lwd = 3,
+             lty = 2)
+
+tmap_arrange(ma1, ma2, ma3, ma4, ma5, ma6)
 
 
 
