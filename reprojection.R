@@ -672,7 +672,7 @@ tmap_arrange(map_nz, map_nz1, map_nz2, map_nz3) # This is cool
 
 ma1 <- tm_shape(nz) +
   tm_fill(col = 'red')
-ma1 # Returns red filled plot
+print(ma1) # Returns red filled plot
 
 ma2 <- tm_shape(nz) +
   tm_fill(col = 'red', alpha = 0.3) # Changes transparency of the red fill color
@@ -694,7 +694,41 @@ ma6 <- tm_shape(nz) +
              lwd = 3,
              lty = 2)
 
-tmap_arrange(ma1, ma2, ma3, ma4, ma5, ma6)
+tmap_arrange(ma1, ma2, ma3, ma4, ma5, ma6) # Cool, all the six layers well 
+# displayed
+
+plot(st_geometry(nz), col = nz$Land_area) # Works fine
+tm_shape(nz) +
+  tm_fill(col = nz$Land_area) # Throws an error. tm_fill does not accept numeric 
+# values to render color.
+tm_shape(nz) +
+  tm_fill(col = 'Land_area') # Works fine because just name character is given
+# The title of the legend is not pleasant at all. We can improve it by specifying 
+# the units used in measuring area
+
+legend_title <- expression('Area (km'^2*')')
+map_nza <- tm_shape(nz) +
+  tm_fill(col = 'Land_area', title = legend_title) + # Picks the legend object created
+  tm_borders() 
+
+map_nza # Returns better map
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
