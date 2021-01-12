@@ -6,7 +6,7 @@
 # Created on 9th January 2021           #
 # Last modified on 9th January 2021     #
 #########################################
-
+# Chapter Six Reprojecting Geographic Data----
 # Loading the necessary libraries 
 
 library(sf)
@@ -587,4 +587,75 @@ mapshot(mapview_obj, file = 'my_interactive_map.html') # This threw an eror
 mapview(world, zcol = 'lifeExp', legend = TRUE) # This worked pretty fine
 
 # Great enough for today, tomorrow it will be Chapter 8.
+
+# Chapter 8: Making maps with R ----
+# This is one of the most loved chapters of the technology
+# It will also rely on the packages loaded at Chapter Six as well as:
+library(tmap)
+library(leaflet)
+library(ggplot2)
+library(shiny)
+
+# Map making - the art of cartography - is an ancient skill that involves 
+# communication, intuition, and an element of creativity.
+# Static maps
+# By large, tmap package will be used
+
+# Add fill layer to nz shape
+tm_shape(nz) + 
+  tm_fill()   # Gray plot of the map with bounding box
+
+# Add border layer to nz map
+
+tm_shape(nz) +
+  tm_borders() # Draws the borders of the polygon
+
+# Combine the above two
+
+tm_shape(nz) +
+  tm_fill() +  # Fills the shape
+  tm_borders() # Adds border lines to the filled plot
+
+# Apart from tm_fill and tm_borders, there are also others like
+help('tmap-element') # tm_polygons, tm_symbols, tm_raster etc, for example:
+
+tm_shape(nz) +
+  tm_polygons() # This achieves the fill and borders in one
+
+# Rapid one would be to use qtm (quick thematic maps)
+
+qtm(nz) # Also achieves the same result as above, can also be added to 
+
+qtm(nz) +
+  qtm(nz_height) # Adding this layer on the earlier
+
+# Storing map in a tmap object 
+map_nz <- tm_shape(nz) +
+  tm_polygons()
+
+class(map_nz) # Confirms the class of the object created.
+
+print(map_nz) # Plots the map
+map_nz # Also plots the map    
+
+# Additional map layers can be added on this map object in a simple manner
+
+map_nz1 <- map_nz +    # The original map object 
+  tm_shape(nz_elev) +  # Adding the raster elevation object on top
+  tm_raster()          # For plotting the raster
+
+map_nz1 # Returns the new object on the plot
+
+
+
+
+
+
+
+
+
+
+
+
+
 
