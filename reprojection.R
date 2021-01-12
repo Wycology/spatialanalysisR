@@ -595,6 +595,8 @@ library(tmap)
 library(leaflet)
 library(ggplot2)
 library(shiny)
+library(grid)
+library(cartogram)
 
 # Map making - the art of cartography - is an ancient skill that involves 
 # communication, intuition, and an element of creativity.
@@ -726,7 +728,12 @@ tm_shape(nz) +
 tm_shape(nz) +
   tm_polygons(col = 'Median_income', n = 10)
 tm_shape(nz) +
-  tm_polygons(col = 'Median_income', palette = 'BuGn')
+  tm_polygons(col = 'Median_income', palette = 'BuGn')# Putting - just before
+# BuGn reverses the colors.
+
+tmaptools::palette_explorer() # Generates amazing shiny color palette to pick code from
+
+# Take note of categorical, sequential and diverging colors
 
 # I can nest the above plots into one tmap_arrange()
 
@@ -749,17 +756,181 @@ tm_shape(nz) +
 
 # Super cool maps especially when wrapped inside tmap_arrange().
 
+# Sequential coloring is shown
+tm_shape(nz) +
+  tm_polygons('Population', palette = 'Blues')
+tm_shape(nz) +
+  tm_polygons('Population', palette = 'YlOrBr')
+
+# Map Layouts
+
+map_nz +
+  tm_compass(type = '8star', position = c('left', 'top')) +
+  tm_scale_bar(breaks = c(0, 100, 200), text.size = 1) # Cool
+
+map_nz +
+  tm_layout(title = 'New Zealand')
+
+map_nz +
+  tm_layout(scale = 5)
+map_nz +
+  tm_layout(bg.color = 'lightblue')
+map_nz +
+  tm_layout(frame = FALSE)
+args(tm_layout) # To see additional possible arguments in tm_layout
+
+map_nza +
+  tm_style('bw')
+map_nza +
+  tm_style('classic')
+map_nza +
+  tm_style('cobalt')
+map_nza +
+  tm_style('col_blind')
+
+# Faceted maps ----
+urb_1970_2030 <- urban_agglomerations %>% 
+  filter(year %in% c(1970, 1990, 2010, 2030))
+
+tm_shape(world) +
+  tm_polygons() +
+  tm_shape(urb_1970_2030) +
+  tm_symbols(col = 'black', border.col = 'white', size = 'population_millions') +
+  tm_facets(by = 'year', nrow = 2, free.coords = FALSE)
+
+# Inset maps
+
+nz_region <- st_bbox(c(xmin = 1340000, xmax = 1450000,
+                     ymin = 5130000, ymax = 5210000),
+                     crs = st_crs(nz_height)) %>% 
+  st_as_sfc()
+
+
+nz_height_map <- tm_shape(nz_elev, bbox = nz_region) +
+  tm_raster(style = 'cont', palette = 'YlGn', legend.show = TRUE) +
+  tm_shape(nz_height) +
+  tm_symbols(shape = 2, col = 'red', size = 1) +
+  tm_scale_bar(position = c('left', 'bottom'))
+
+nz_map <- tm_shape(nz) +
+  tm_polygons() +
+  tm_shape(nz_height) +
+  tm_symbols(shape = 2, col = 'red', size = 0.1) +
+  tm_shape(nz_region) +
+  tm_borders(lwd = 3) +
+  tm_layout(bg.color = 'lightblue')
+
+nz_height_map
+print(nz_map, vp = viewport(0.85, 0.3, width = 0.5, height = 0.5))
+
+us_states_map <- tm_shape(us_states, projection = 2163) +
+  tm_polygons() +
+  tm_layout(frame = FALSE)
+
+hawaii_map <- tm_shape(hawaii) +
+  tm_polygons() +
+  tm_layout(title = 'Hawaii', frame = FALSE, bg.color = NA,
+            title.position = c('LEFT', 'BOTTOM'))
+
+alaska_map <- tm_shape(alaska) +
+  tm_polygons() +
+  tm_layout(title = 'Alaska', frame = FALSE, bg.color = NA)
+
+# To have USA map, Hawaii map and Alaska map
+
+us_states_map
+print(hawaii_map, vp = grid::viewport(0.35, 0.1, width = 0.2, height = 0.1))
+print(alaska_map, vp = grid::viewport(0.15, 0.15, width = 0.3, height = 0.3))
+
+# Animated maps ----
+urb_anim <-  tm_shape(world) + tm_polygons() + 
+  tm_shape(urban_agglomerations) + tm_dots(size = "population_millions") +
+  tm_facets(along = "year", free.coords = FALSE) # Creates the layers to be animated
+
+tmap_animation(urb_anim, filename = "urb_anim.gif", delay = 25) # Builds animation
+
+
+# Interactive maps ----
+tmap_mode('view') # Setting mode for interactivity
+map_nz # Cool
+
+# Can also be done via tmap_leaflet()
+
+map_nz + 
+  tm_basemap(server = 'OpenTopoMap') # Cool
+
+world_coffee <-  left_join(world, coffee_data, by = "name_long")
+facets <-  c("coffee_production_2016", "coffee_production_2017")
+
+tm_shape(world_coffee) + tm_polygons(facets) + 
+  tm_facets(nrow = 1, sync = TRUE) # synchronizes two maps
+
+tmap_mode("plot") # Switches back from view mode
+
+mapview::mapview(nz)
+
+trails %>%
+  st_transform(st_crs(franconia)) %>%
+  st_intersection(franconia[franconia$district == "Oberfranken", ]) %>%
+  st_collection_extract("LINE") %>%
+  mapview(color = "red", lwd = 3, layer.name = "trails") +
+  mapview(franconia, zcol = "district", burst = TRUE) +
+  breweries
+
+library(mapdeck)
+set_token(Sys.getenv("MAPBOX"))
+crash_data <-  read.csv("https://git.io/geocompr-mapdeck")
+crash_data <-  na.omit(crash_data)
+ms <-  mapdeck_style("dark")
+mapdeck(style = ms, pitch = 45, location = c(0, 52), zoom = 4) %>%
+  add_grid(data = crash_data, lat = "lat", lon = "lng", cell_size = 1000,
+           elevation_scale = 50, layer_id = "grid_layer",
+           colour_range = viridisLite::plasma(6))
+
+pal <-  colorNumeric("RdYlBu", domain = cycle_hire$nbikes)
+leaflet(data = cycle_hire) %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>%
+  addCircles(col = ~pal(nbikes), opacity = 0.9) %>% 
+  addPolygons(data = lnd, fill = FALSE) %>% 
+  addLegend(pal = pal, values = ~nbikes) %>% 
+  setView(lng = -0.1, 51.5, zoom = 12) %>% 
+  addMiniMap()
 
 
 
+ui <-  fluidPage(
+  sliderInput(inputId = "life", "Life expectancy", 49, 84, value = 80),
+  leafletOutput(outputId = "map")
+)
+server <-  function(input, output) {
+  output$map = renderLeaflet({
+    leaflet() %>% 
+      # addProviderTiles("OpenStreetMap.BlackAndWhite") %>%
+      addPolygons(data = world[world$lifeExp < input$life, ])})
+}
+shinyApp(ui, server)
 
+# Other mapping packages ----
 
+g <-  st_graticule(nz, lon = c(170, 175), lat = c(-45, -40, -35))
+plot(nz_water, graticule = g, axes = TRUE, col = "blue")
+raster::plot(nz_elev / 1000, add = TRUE)
+plot(st_geometry(nz), add = TRUE)
 
+# ggplot2
 
+g1 <-  ggplot() + geom_sf(data = nz, aes(fill = Median_income)) +
+  geom_sf(data = nz_height) +
+  scale_x_continuous(breaks = c(170, 175))
+g1
 
+# Using cartogram
+nz_carto <-  cartogram_cont(nz, "Median_income", itermax = 5)
+tm_shape(nz_carto) + tm_polygons("Median_income")
 
+us_states2163 <-  st_transform(us_states, 2163)
+us_states2163_ncont <-  cartogram_ncont(us_states2163, "total_pop_15")
+us_states2163_dorling <-  cartogram_dorling(us_states2163, "total_pop_15")
 
-
-
-
-
+tm_shape(us_states2163_dorling) +
+  tm_polygons() # For example
