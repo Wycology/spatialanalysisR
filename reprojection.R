@@ -942,22 +942,9 @@ library(sf)
 library(raster)
 library(RSAGA)
 library(rgrass7)
-library(RQGIS3)
-set_env(dev = FALSE) # Looks QGIS in your system
-open_app() # Sets up all paths necessary to run QGIS in R
-
-data('incongruent', 'aggregating_zones', package = 'spData')
-
-
-
-
-
-
-
-
-
-
-
+library(RQGIS3) # This failed to work. I don't need help now, I will just read 
+# the book and move on with other possibilities, I don't think it is an 
+# emergency
 
 
 
