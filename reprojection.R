@@ -946,6 +946,10 @@ library(RQGIS3) # This failed to work. I don't need help now, I will just read
 # the book and move on with other possibilities, I don't think it is an 
 # emergency
 
+# Let me try RSAGA
+
+# We look at SAGA wetness index computation, by the way SAGA likes rasters
+# This one also failed terribly
 
 
 
