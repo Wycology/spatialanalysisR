@@ -969,8 +969,11 @@ london_streets <-  dplyr::select(london_streets, osm_id)
 
 # data("london_streets", package = "spDataLarge") could also help to load the data
 
+library(link2GI)
+link = findGRASS() 
 
-
+# This one looks like is possibly working fine. Nonetheless I lack interest in 
+# going further with this, maybe because of the earlier two failures.
 
 
 
