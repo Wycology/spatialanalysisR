@@ -946,4 +946,32 @@ library(RQGIS3)
 set_env(dev = FALSE) # Looks QGIS in your system
 open_app() # Sets up all paths necessary to run QGIS in R
 
+data('incongruent', 'aggregating_zones', package = 'spData')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
