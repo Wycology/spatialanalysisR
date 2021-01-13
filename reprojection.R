@@ -935,3 +935,15 @@ us_states2163_dorling <-  cartogram_dorling(us_states2163, "total_pop_15")
 tm_shape(us_states2163_dorling) +
   tm_polygons() # For example
 # Enough for the day, This was too much information.
+# Chapter 9 Bridges to GIS Software ----
+# This is a chapter which is linking other GIS software with R
+# These include QGIS, GRASS and SAGA
+library(sf)
+library(raster)
+library(RSAGA)
+library(rgrass7)
+library(RQGIS3)
+set_env(dev = FALSE) # Looks QGIS in your system
+open_app() # Sets up all paths necessary to run QGIS in R
+
+
