@@ -975,6 +975,8 @@ link = findGRASS()
 # This one looks like is possibly working fine. Nonetheless I lack interest in 
 # going further with this, maybe because of the earlier two failures.
 
+# I think for my case, the book is beneficial up to Chapter 8. Beyond that is a 
+# waste of time to me.
 
 
 
