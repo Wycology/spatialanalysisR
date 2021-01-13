@@ -978,6 +978,13 @@ link = findGRASS()
 # I think for my case, the book is beneficial up to Chapter 8. Beyond that is a 
 # waste of time to me.
 
+# So I think I will jump some chapters and go to Ecology. 
+# Chapter 9: Bridges to GIS software, I dont need now
+# Chapter 10: Scripts. functions and algorithms may be relevant
+# Chapter 11: Statistical learning, may be necessary
+# Chapter 12: Transportation: I dont need this skill, I have no hope of working 
+# with trasport sector at all.
+
 
 
 
