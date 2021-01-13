@@ -954,9 +954,20 @@ library(RQGIS3) # This failed to work. I don't need help now, I will just read
 
 # Let me throw the last die of rgrass7
 
+data('cycle_hire', package = 'spData')
+points <- cycle_hire[1:25, ]
 
+library(osmdata)
 
+b_box <-  st_bbox(points)
+london_streets <- opq(b_box) %>%
+  add_osm_feature(key = "highway") %>%
+  osmdata_sf() %>%
+  `[[`("osm_lines")
 
+london_streets <-  dplyr::select(london_streets, osm_id)
+
+# data("london_streets", package = "spDataLarge") could also help to load the data
 
 
 
