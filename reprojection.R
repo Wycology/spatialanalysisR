@@ -670,22 +670,28 @@ atema2 <- tm_shape(nz) + # Defines the shape
 atema + atema2 # I think this is more informative as we can see borders on the 
 # raster so we know which regions are having higher altitudes 
 
-map_nz1 # Returns the new object on the plot which is having both map objects
+map_nz1 # Returns the new object on the plot which is having both map objects 
+# fused together as one. This is eliminating the mismatch normally witnessed 
+# when using the plot function in the base R when overlaying a raster with a 
+# polygon and zooming around or changing the size of the plotting pane.
 
 # Creating a new layer
-nz_water <- st_union(nz) %>%  
-  st_buffer(22200) %>% 
-  st_cast(to = 'LINESTRING')
+nz_water <- st_union(nz) %>% # Haves nz as a single huge polygon 
+  st_buffer(22200) %>% # Buffer in the ocean demarcating territorial waters of nz
+  st_cast(to = 'LINESTRING') # Renders the buffer as line
+
+?st_buffer # Just to know more about the functions of the st_buffer function
 
 # Adding new layer to the former
-map_nz2 <- map_nz1 +
-  tm_shape(nz_water) +
-  tm_lines()
+
+map_nz2 <- map_nz1 +   # The original map created above
+  tm_shape(nz_water) + # Adding rivers layer
+  tm_lines()           # Rivers are represented by tm_lines
 map_nz2
 
 map_nz3 <- map_nz2 +
   tm_shape(nz_height) +
-  tm_dots()
+  tm_dots(size = 0.4) # Increasing the size of the dots a bit
 map_nz3
 
 # We can have all the map objects so far created in one plot view
@@ -706,12 +712,15 @@ ma2 # Returns rather transparent fill of the red color
 
 ma3 <- tm_shape(nz) +
   tm_borders(col = 'blue')
+ma3
 
 ma4 <- tm_shape(nz) +
   tm_borders(lwd = 4)
+ma4
 
 ma5 <- tm_shape(nz) +
   tm_borders(lty = 2)
+ma5
 
 ma6 <- tm_shape(nz) +
   tm_fill(col = 'red',
@@ -719,6 +728,7 @@ ma6 <- tm_shape(nz) +
   tm_borders(col = 'blue',
              lwd = 3,
              lty = 2)
+ma6
 
 tmap_arrange(ma1, ma2, ma3, ma4, ma5, ma6) # Cool, all the six layers well 
 # displayed
@@ -755,9 +765,8 @@ tm_shape(nz) +
   tm_polygons(col = 'Median_income', palette = 'BuGn')# Putting - just before
 # BuGn reverses the colors.
 
-tmaptools::palette_explorer() # Generates amazing shiny color palette to pick code from
-
-# Take note of categorical, sequential and diverging colors
+tmaptools::palette_explorer() # Generates amazing shiny color palette to pick 
+# code from. Take note of categorical, sequential and diverging colors
 
 # I can nest the above plots into one tmap_arrange()
 
@@ -811,6 +820,18 @@ map_nza +
   tm_style('cobalt')
 map_nza +
   tm_style('col_blind')
+
+# Almost complete map for presentation, NOT PUBLICATION
+map_nza +
+  tm_style('cobalt') +
+  tm_compass(type = '8star', position = c('right', 'top'), size = 4) +
+  tm_scale_bar(breaks = c(0, 100, 200), text.size = 1) +
+  tm_graticules(alpha = 0.2) +
+  tm_layout(title = "Map of New Zealand",
+            frame = FALSE, 
+            legend.position = c('right', 'bottom')) 
+  
+
 
 # Faceted maps ----
 urb_1970_2030 <- urban_agglomerations %>% 
