@@ -1015,7 +1015,8 @@ ep = run_qgis(alg = "saga:sagawetnessindex",
               load_output = TRUE,
               show_output_paths = FALSE)
 
-
+ep = stack(c(dem, ndvi, ep))
+names(ep) = c("dem", "ndvi", "carea", "cslope") # ERRRROOOORRRRRRRSSSSSSSSS
 
 
 
