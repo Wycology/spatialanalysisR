@@ -980,11 +980,14 @@ link = findGRASS()
 
 # So I think I will jump some chapters and go to Ecology. 
 # Chapter 9: Bridges to GIS software, I dont need now
-# Chapter 10: Scripts. functions and algorithms may be relevant
-# Chapter 11: Statistical learning, may be necessary
+# Chapter 10: Scripts. functions and algorithms may be relevant, looks shallow
+# Chapter 11: Statistical learning, may be necessary but not now
 # Chapter 12: Transportation: I dont need this skill, I have no hope of working 
 # with trasport sector at all.
+# Chapter 13: Geomarketing, this is another hell of a topic nowhere in my blood
+# Chapter 14: Ecology, this is my territory now where I can come back to daily.
 
+# So tomorrow I will be on Chapter 14: Ecology
 
 
 
