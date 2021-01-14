@@ -11,9 +11,14 @@
 
 library(sf)
 library(raster)
-library(dplyr)
+library(tmap)
+library(tidyverse)
+library(shiny)
 library(spData)
 library(spDataLarge)
+library(leaflet)
+library(grid)
+library(cartogram)
 
 # I need to install the last two packages in the list
 
@@ -591,20 +596,13 @@ mapview(world, zcol = 'lifeExp', legend = TRUE) # This worked pretty fine
 # Chapter 8: Making maps with R ----
 # This is one of the most loved chapters of the technology
 # It will also rely on the packages loaded at Chapter Six as well as:
-library(tmap)
-library(leaflet)
-library(ggplot2)
-library(shiny)
-library(grid)
-library(cartogram)
-
 # Map making - the art of cartography - is an ancient skill that involves 
 # communication, intuition, and an element of creativity.
 # Static maps
 # By large, tmap package will be used in making maps in this section, there 
 # are many others which can be used such as ggplot2.
 
-# Add fill layer to nz shape
+# Add fill layer to nz shape. nz data is in the spData package
 tm_shape(nz) + 
   tm_fill()   # Gray plot of the map with bounding box
 
