@@ -601,7 +601,8 @@ library(cartogram)
 # Map making - the art of cartography - is an ancient skill that involves 
 # communication, intuition, and an element of creativity.
 # Static maps
-# By large, tmap package will be used
+# By large, tmap package will be used in making maps in this section, there 
+# are many others which can be used such as ggplot2.
 
 # Add fill layer to nz shape
 tm_shape(nz) + 
