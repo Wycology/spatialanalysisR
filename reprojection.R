@@ -988,6 +988,41 @@ link = findGRASS()
 # Chapter 14: Ecology, this is my territory now where I can come back to daily.
 
 # So tomorrow I will be on Chapter 14: Ecology
+library(sf)
+library(raster)
+library(RQGIS3)
+library(mlr)
+library(dplyr)
+library(vegan)
+library(tmap)
+data("study_area", "random_points", "comm", "dem", "ndvi", package = "spDataLarge")
+
+comm[35:40, 1:5]
+
+tm_shape(dem) +
+  tm_raster() +  
+  tm_shape(study_area) +
+  tm_borders() +
+  tm_shape(random_points) +
+  tm_dots() 
+get_usage("saga:sagawetnessindex")
+
+ep = run_qgis(alg = "saga:sagawetnessindex",
+              DEM = dem,
+              SLOPE_TYPE = 1, 
+              SLOPE = tempfile(fileext = ".sdat"),
+              AREA = tempfile(fileext = ".sdat"),
+              load_output = TRUE,
+              show_output_paths = FALSE)
+
+
+
+
+
+
+
+
+
 
 
 
