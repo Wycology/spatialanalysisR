@@ -604,40 +604,45 @@ mapview(world, zcol = 'lifeExp', legend = TRUE) # This worked pretty fine
 
 # Add fill layer to nz shape. nz data is in the spData package
 tm_shape(nz) + 
-  tm_fill()   # Gray plot of the map with bounding box
+  tm_fill()   # Gray plot of the map with frame as default
 
-# Add border layer to nz map
-
-tm_shape(nz) +
-  tm_borders() # Draws the borders of the polygon
-
-# Combine the above two
+# Add border layer to nz map so we can see some lines around the plot
 
 tm_shape(nz) +
-  tm_fill() +  # Fills the shape
+  tm_borders() # Draws the borders of the polygon, These could be districts etc
+# However, it does not have the gray fill as before. We can bring that back:
+
+# Combine the above two functions tm_fill and tm_borders
+
+tm_shape(nz) +
+  tm_fill() +  # Fills the shape with gray color by default
   tm_borders() # Adds border lines to the filled plot
 
-# Apart from tm_fill and tm_borders, there are also others like
-help('tmap-element') # tm_polygons, tm_symbols, tm_raster etc, for example:
+# Apart from tm_fill and tm_borders, there are also others like:
+# tm_polygons, tm_symbols, tm_raster etc, for example:
+
+help('tmap-element') # List of possible elements or functions
 
 tm_shape(nz) +
-  tm_polygons() # This achieves the fill and borders in one
+  tm_polygons() # This achieves the fill and borders in one go. Could be 
+# preferable
 
 # Rapid one would be to use qtm (quick thematic maps)
 
-qtm(nz) # Also achieves the same result as above, can also be added to 
+qtm(nz) # Achieves the same result as above. Looks like tidy code by master
 
 qtm(nz) +
   qtm(nz_height) # Adding this layer on the earlier
 
-# Storing map in a tmap object 
-map_nz <- tm_shape(nz) +
-  tm_polygons()
+# Just like in ggplot2, maps can be stored in tmap objects, for example
+
+map_nz <- tm_shape(nz) + # Defines the shape
+  tm_polygons()   # Adds gray fill and borders around the administrative units
 
 class(map_nz) # Confirms the class of the object created.
 
-print(map_nz) # Plots the map
-map_nz # Also plots the map    
+print(map_nz) # Plots the map since the object has been created and it is a tmap
+map_nz # Also plots the map instead of giving attributes since it is a tmap object   
 
 # Additional map layers can be added on this map object in a simple manner
 
