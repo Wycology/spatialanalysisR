@@ -644,13 +644,33 @@ class(map_nz) # Confirms the class of the object created.
 print(map_nz) # Plots the map since the object has been created and it is a tmap
 map_nz # Also plots the map instead of giving attributes since it is a tmap object   
 
+# Let us now plot a raster layer called nz_elev. Alsmost the same process
+
+tm_shape(nz_elev) + # Setting the raster layer nz_elev as the shape
+  tm_raster()       # Adding kind of geom :) to plot the layer
+
+
 # Additional map layers can be added on this map object in a simple manner
 
 map_nz1 <- map_nz +    # The original map object 
   tm_shape(nz_elev) +  # Adding the raster elevation object on top
-  tm_raster()          # For plotting the raster
+  tm_raster()          # For plotting the raster object nz_elev
 
-map_nz1 # Returns the new object on the plot
+# Let me put the raster into an object too and see what happens when I add them
+
+atema <- tm_shape(nz_elev) +
+  tm_raster()
+
+atema + map_nz # Wow, this is working but the elevation layer is hidden behind
+map_nz + atema # Now it pops in front as I would want it to be.
+
+atema2 <- tm_shape(nz) + # Defines the shape
+  tm_borders()
+
+atema + atema2 # I think this is more informative as we can see borders on the 
+# raster so we know which regions are having higher altitudes 
+
+map_nz1 # Returns the new object on the plot which is having both map objects
 
 # Creating a new layer
 nz_water <- st_union(nz) %>%  
