@@ -16,6 +16,7 @@ library(tidyverse)
 library(shiny)
 library(spData)
 library(spDataLarge)
+library(mapview)
 library(leaflet)
 library(grid)
 library(cartogram)
@@ -1062,14 +1063,3 @@ ep = run_qgis(alg = "saga:sagawetnessindex",
 
 ep = stack(c(dem, ndvi, ep))
 names(ep) = c("dem", "ndvi", "carea", "cslope") # ERRRROOOORRRRRRRSSSSSSSSS
-
-
-
-
-
-
-
-
-
-
-
