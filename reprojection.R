@@ -13,7 +13,7 @@ library(sf)         # Working with the sf datasets
 library(raster)     # Manipulating and writing raster data as  
 library(tmap)       # Generating good maps using st_functions
 library(tidyverse)  # Wrangling data 
-library(shiny)      # Will generate cool shiny app map 
+library(shiny)      # Will generate cool shiny app map (webmap) 
 library(spData)     # Has data for use in this document analysis
 library(spDataLarge)# Has larger data than spData above
 library(mapview)    # Rendering html maps
