@@ -33,7 +33,7 @@ london <- data.frame(lon = -0.1,
                      lat = 51.5) %>% # Creating a dataframe
   st_as_sf(coords = c('lon', 'lat')) # Setting the variables lon and lat as coords
 
-st_is_longlat(london) # Returns NA
+st_is_longlat(london) # Returns NA because it is not yet set to any projection
 
 # Knowledge gained from the above failure is that one cannot just pick a some
 # variables and set them as coordinates and that is enough. Setting coordinates
