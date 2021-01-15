@@ -9,13 +9,13 @@
 # Chapter Six Reprojecting Geographic Data----
 # Loading the necessary libraries 
 
-library(sf)           # Working with the sf datasets
-library(raster)       # Manipulating and writing raster data as  
-library(tmap)         # Generating good maps using st_functions
-library(tidyverse)    # 
-library(shiny)
-library(spData)
-library(spDataLarge)
+library(sf)         # Working with the sf datasets
+library(raster)     # Manipulating and writing raster data as  
+library(tmap)       # Generating good maps using st_functions
+library(tidyverse)  # Wrangling data 
+library(shiny)      # Will generate cool shiny app map 
+library(spData)     # Has data for use in this document analysis
+library(spDataLarge)# Has larger data than spData above
 library(mapview)
 library(leaflet)
 library(grid)
