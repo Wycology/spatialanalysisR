@@ -21,7 +21,7 @@ library(leaflet)
 library(grid)
 library(cartogram)
 
-# I need to install the last two packages in the list
+# Install any missing data with the install.packages()
 
 # install.packages("spData") # Done seamlessly
 # remotes::install_github("Nowosad/spDataLarge") # Took some time, then done
