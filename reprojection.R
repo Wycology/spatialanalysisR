@@ -9,10 +9,10 @@
 # Chapter Six Reprojecting Geographic Data----
 # Loading the necessary libraries 
 
-library(sf)
-library(raster)
-library(tmap)
-library(tidyverse)
+library(sf)           # Working with the sf datasets
+library(raster)       # Manipulating and writing raster data as  
+library(tmap)         # Generating good maps using st_functions
+library(tidyverse)    # 
 library(shiny)
 library(spData)
 library(spDataLarge)
@@ -23,7 +23,6 @@ library(cartogram)
 
 # Install any missing data with the install.packages() function.
 
-# install.packages("spData") # Done seamlessly
 # remotes::install_github("Nowosad/spDataLarge") # Took some time, then done
 
 # st_is_longlat is one great function for checking if geographic CRS is in use
