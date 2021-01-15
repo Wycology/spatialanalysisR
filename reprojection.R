@@ -16,10 +16,10 @@ library(tidyverse)  # Wrangling data
 library(shiny)      # Will generate cool shiny app map 
 library(spData)     # Has data for use in this document analysis
 library(spDataLarge)# Has larger data than spData above
-library(mapview)
-library(leaflet)
-library(grid)
-library(cartogram)
+library(mapview)    # Rendering html maps
+library(leaflet)    # Rendering html maps too    
+library(grid)       # Did something
+library(cartogram)  # Another map making package
 
 # Install any missing data with the install.packages() function.
 
