@@ -120,8 +120,8 @@ kericho <- data.frame(lon = 35.286047,     # Longitude of Kericho
   st_set_crs(4326)                         # Assigns them to projection 
 
 st_distance(kisumu, kericho)/1000 # This is returning 65.48168 kms. Cool. Even 
-# though it is saying Units: [m], I know very well that it is kms due to division
-# by 1000
+# though it is saying Units: [m], I know very well that it is kms due to my 
+# division by 1000
 st_distance(london_geo,london_proj) # Very informative error, both objects have 
 # different crs.
 
