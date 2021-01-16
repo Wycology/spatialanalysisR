@@ -114,10 +114,10 @@ kisumu <- data.frame(lon = 34.767439,      # Longitude of Kisumu
   st_as_sf(coords = c('lon', 'lat')) %>%   # Sets above as coordinates
   st_set_crs(4326)                         # Projects above to WGS 84
 
-kericho <- data.frame(lon = 35.286047,
-                      lat = -0.370453) %>%
-  st_as_sf(coords = c('lon', 'lat')) %>%
-  st_set_crs(4326)
+kericho <- data.frame(lon = 35.286047,     # Longitude of Kericho
+                      lat = -0.370453) %>% # Latitude of Kericho
+  st_as_sf(coords = c('lon', 'lat')) %>%   # Sets long and lat as coordinates
+  st_set_crs(4326)                         # Assigns them to projection 
 
 st_distance(kisumu, kericho)/1000 # This is returning 65.48168 kms. Cool. Even 
 # though it is saying Units: [m], I know very well that it is kms due to division
