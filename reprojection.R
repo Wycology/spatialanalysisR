@@ -150,7 +150,7 @@ st_distance(north, south) # Error, the two have different crs, EPSG 4326 and
 
 north2 <- st_transform(north, 32736) # setting the GEOCRS to PROJCRS
 st_distance(north2, south) # Super cool 31.37634 m, so close to what I got (30.86 m)
-# I actually missed by half a metre.
+# I actually missed by half a meter.
 
 31.37634 - 30.86
 
@@ -166,8 +166,8 @@ lonlat2UTM <- function(lonlat){
   }
 }
 
-# We can now get the utm zone and associated EPSG code for Auckland, London,
-# Nairobi, TRI, and Lodwar
+# We can now get the utm zones and associated EPSG codes for Auckland, London,
+# Nairobi, TRI, and Lodwar among many other places you may need
 
 epsg_utm_aukland <- lonlat2UTM(c(174.7, -36.9)) # Returns 32760
 epsg_utm_london <- lonlat2UTM(c(st_coordinates(london))) # Returns 32630
