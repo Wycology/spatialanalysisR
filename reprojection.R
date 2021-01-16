@@ -111,8 +111,8 @@ plot(london_proj, col = 'yellow', cex = 8, pch = 19, add = TRUE) # Adds the poin
 
 kisumu <- data.frame(lon = 34.767439,      # Longitude of Kisumu
                      lat =  -0.090972) %>% # Latitude of Kisumu
-  st_as_sf(coords = c('lon', 'lat')) %>%
-  st_set_crs(4326)
+  st_as_sf(coords = c('lon', 'lat')) %>%   # Sets above as coordinates
+  st_set_crs(4326)                         # Projects above to WGS 84
 
 kericho <- data.frame(lon = 35.286047,
                       lat = -0.370453) %>%
