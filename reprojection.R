@@ -182,7 +182,7 @@ epsg_utm_honduras <- lonlat2UTM(c(-86.241367, 15.200515)) # Returns 32616
 
 st_crs(epsg_utm_lodwar)$proj4string # Zone 36 and the units are in m
 st_crs(epsg_utm_honduras)$proj4string # Zone 16 and the units are in m
-
+# and so on and so forth
 # Cool, can go on and on and on and on and on and on...
 # Reprojecting vectors
 
