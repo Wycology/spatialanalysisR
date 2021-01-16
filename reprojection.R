@@ -109,8 +109,8 @@ plot(london_proj, col = 'yellow', cex = 8, pch = 19, add = TRUE) # Adds the poin
 
 # I know the distance between Kisumu and Kericho on google map to be 64.89 kms
 
-kisumu <- data.frame(lon = 34.767439,
-                     lat =  -0.090972) %>%
+kisumu <- data.frame(lon = 34.767439,      # Longitude of Kisumu
+                     lat =  -0.090972) %>% # Latitude of Kisumu
   st_as_sf(coords = c('lon', 'lat')) %>%
   st_set_crs(4326)
 
