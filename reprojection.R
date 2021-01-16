@@ -130,7 +130,7 @@ st_distance(london_geo,london_proj) # Very informative error, both objects have
 london2 <- st_transform(london_geo, 27700)
 # Now this is cool, let me try calculating the distance again
 
-st_distance(london2, london_proj) # Good, the two are about kms apart.
+st_distance(london2, london_proj) # Good, the two are about 2 kms apart.
 
 # This is an interesting one, getting length of met station at TRI. Manually in 
 # Google Earth, I got it as 30.86 m.
