@@ -33,23 +33,25 @@ london <- data.frame(lon = -0.1,
                      lat = 51.5) %>% # Creating a dataframe
   st_as_sf(coords = c('lon', 'lat')) # Setting the variables lon and lat as coords
 
+london # Running this confirms that CRS is NA. An sf object without crs
+
 st_is_longlat(london) # Returns NA because it is not yet set to any projection
 
-# Knowledge gained from the above failure is that one cannot just pick a some
+# Knowledge gained from the above failure is that one cannot just pick some
 # variables and set them as coordinates and that is enough. Setting coordinates
-# in sf package needs the use of st_set_crs whereby epsg code is also given. That
-# is when the full metadata will be availed to fully define the crs.
-# So we can overcome the above problem by:
+# in sf package needs the use of st_set_crs() whereby projection is assigned. 
+# That is when the full metadata will be availed to define the crs.
+# So we can overcome the above problem by piping (%>%) it to crs or epsg code:
 
-london_geo <- london %>% # Feeding in the above information
-  st_set_crs(4326) # Setting the crs
+london_geo <- london %>% # Feeding in the above london information
+  st_set_crs(4326) # Setting the crs to epsg code 4326 for geographic datum
 
-# To show the whole process in one group of code:
+# To show the whole process in one group of codes:
 
 london_geo <- data.frame(lon = -0.1,
-                         lat = 51.5) %>%
-  st_as_sf(coords = c('lon', 'lat')) %>%
-  st_set_crs(4326)
+                         lat = 51.5) %>% # Gives coordinates of the point
+  st_as_sf(coords = c('lon', 'lat')) %>% # Sets them as coordinates
+  st_set_crs(4326)                       # Projects the values geographically
 
 st_is_longlat(london_geo) # This is now returning TRUE because we have set crs
 
@@ -57,17 +59,25 @@ st_is_longlat(london_geo) # This is now returning TRUE because we have set crs
 # trying to create buffer around the point we created for londin and london_geo
 
 london_buff_nocrs <- st_buffer(london, dist = 1)
-london_buff <-
-  st_buffer(london_geo, dist = 1) # Returns a warning, the warning
+london_buff <- st_buffer(london_geo, dist = 1) # Returns a warning, the warning
 # implies that we should reproject the point to a projected coordinate system not 
 # the longlat geographic datum.
 
-geosphere::distGeo(c(0, 0), c(1, 0)) # Returns distance between two longitudes
+# How to calculate distance in m between any two points on the surface of the 
+# earth given longitude, latitude coordinates at the two points.
+
+geosphere::distGeo(c(0, 0), c(1, 0)) # Returns distance between two longitudes,
+# That is distance along the equator but 1 degree to the east.
 
 geosphere::distGeo(c(-0.1, 51.5), c(0.9, 51.5)) / 1000 # Cool, distance between two
 # meridians in London is slightly below 70kms (69.43998).
 
-# So here we do the reprojection of our london_geo to a projected CRS 
+# Let me check the distance between our door and our gate at home:
+
+geosphere::distGeo(c(35.010717,  -0.237219), c(35.010519, -0.238081)) # Some 97m
+# from certain door to main gate.
+
+# So here we use projected crs for London 
 
 london_proj <- data.frame(x = 530000,
                           y = 180000) %>%
@@ -94,8 +104,8 @@ st_crs(london_proj)# Returns EPSG 4326 which is PROJCRS OSGB 1936
 london_proj_buff <- st_buffer(london_proj, dist = 111319.5)
 str(london_proj_buff)
 
-plot(london_proj_buff, col = 'purple')
-plot(london_proj, col = 'yellow', add = TRUE)
+plot(london_proj_buff, col = 'purple', graticule = TRUE) # Plots buffer
+plot(london_proj, col = 'yellow', cex = 8, pch = 19, add = TRUE)
 
 # I know the distance between Kisumu and Kericho on google map to be 64.89 kms
 
