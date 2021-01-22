@@ -4,7 +4,7 @@
 # +254729371248                         #
 # TASK: Chapter 6 Geocomputation with R #
 # Created on 9th January 2021           #
-# Last modified on 15th January 2021    #
+# Last modified on 21st January 2021    #
 #########################################
 # Chapter Six Reprojecting Geographic Data----
 # Loading the necessary libraries 
@@ -604,19 +604,19 @@ mapview(world, zcol = 'lifeExp', legend = TRUE) # This worked pretty fine
 # Great enough for today, tomorrow it will be Chapter 8.
 
 # Chapter 8: Making maps with R ----
-# This is one of the most loved chapters of the technology
+# This is one of the most loved chapters of the technology, according to me
 # It will also rely on the packages loaded at Chapter Six as well as:
 # Map making - the art of cartography - is an ancient skill that involves 
 # communication, intuition, and an element of creativity.
 # Static maps
 # By large, tmap package will be used in making maps in this section, there 
-# are many others which can be used such as ggplot2.
+# are many others which can be used such as ggplot2 et al.
 
 # Add fill layer to nz shape. nz data is in the spData package
 tm_shape(nz) + 
   tm_fill()   # Gray plot of the map with frame as default
 
-# Add border layer to nz map so we can see some lines around the plot
+# Add border layer to nz map so we can see some lines around the plot.
 
 tm_shape(nz) +
   tm_borders() # Draws the borders of the polygon, These could be districts etc
@@ -625,17 +625,17 @@ tm_shape(nz) +
 # Combine the above two functions tm_fill and tm_borders
 
 tm_shape(nz) +
-  tm_fill() +  # Fills the shape with gray color by default
-  tm_borders() # Adds border lines to the filled plot
+  tm_fill() +  # Fills the shape with gray color by default, which is cool
+  tm_borders() # Adds border lines to the filled plot, quite handy at times
 
 # Apart from tm_fill and tm_borders, there are also others like:
 # tm_polygons, tm_symbols, tm_raster etc, for example:
 
-help('tmap-element') # List of possible elements or functions
+help('tmap-element') # List of possible elements or functions of tmap
 
 tm_shape(nz) +
   tm_polygons() # This achieves the fill and borders in one go. Could be 
-# preferable
+# preferable, almost publication ready map :)
 
 # Rapid one would be to use qtm (quick thematic maps)
 

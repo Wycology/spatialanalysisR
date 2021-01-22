@@ -1,0 +1,24 @@
+---
+title: "Geo_Data_Sci_R"
+author: "Wyclife Agumba Oluoch"
+date: "1/22/2021"
+output: html_document
+---
+
+### Loading Libraries
+
+Loading the necessary packages to use in the codes which will be helpful in 
+analyzing geographic data in R.
+
+```{r packages, include=FALSE}
+library(sf)
+library(tidyverse)
+```
+
+The data which I will use in the current work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted, and saved in the subfolder called *shp* inside the .Rmd file folder.
+
+The next step is to read in the data using `st_read()`.
+
+
+
+
