@@ -13,6 +13,9 @@ analyzing geographic data in R.
 ```{r packages, include=FALSE}
 library(sf)
 library(tidyverse)
+library(extrafont)
+#font_import()
+#loadfonts(device = "win")
 ```
 
 The data which I will use in the current work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted, and saved in the subfolder called *shp* inside the .Rmd file folder.
@@ -117,11 +120,6 @@ Cool, the original link failed and I had t navigate to the source to pick the ne
 
 I will load the necessary etrafont package as I prepare to use ggplot for the plotting of the map.
 
-```{r extrafont, message=FALSE}
-library(extrafont)
-#font_import()
-loadfonts(device = "win")
-```
 Now I can simply go ahead and generate the plot.
 
 ```{r ggplot}
@@ -186,7 +184,6 @@ head(nb_join)
 Now we can go ahead and use dplyr verbs to count per unit/
 
 ```{r}
-
 nb <- nb_join %>% 
   group_by(BDNAME) %>% 
   summarise(n_permits = n())
@@ -204,4 +201,19 @@ ggplot(nb, aes(x = n_permits)) +
 ```
 Majority of the neghborhoods (over 60) had only one permit. The maximum number of permits per neighborhood was 4 which was in less than 10 neighborhoods.
 
+It is possible to color the map by number of permits.
+
+```{r}
+ggplot(nb) +
+  geom_sf(aes(fill = n_permits), color = '#8f98aa') +
+  scale_fill_gradient(low = '#f5f7d9',
+                      high = '#aedd27',
+                      guide = guide_legend(title = 'Permits')) +
+  theme_minimal() +
+  theme(panel.grid.major = element_line('transparent'),
+        axis.text = element_blank(),
+        text = element_text(family = 'Century Gothic')) +
+  ggtitle('Honeybee Permits per \nNeighborhood in Minneapolis')
+  
+```
 
