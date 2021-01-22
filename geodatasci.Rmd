@@ -157,4 +157,51 @@ ggplot() +
 ```
 Great.Nice to see how the different types of hives are distributed across the Minneapolis.
 
+In case I am not happy with the colors, I can assign them manually as:
+
+```{r HiveType_color}
+ggplot() +
+  geom_sf(data = neighborhoods, fill = '#e8eff7', color = '#8f98aa') +
+  geom_sf(data = honeybee_utm, aes(color = HiveType)) +
+  scale_color_manual(values = c('purple', '#50a2e0')) +
+  theme_minimal() +
+  theme(
+    panel.grid.major = element_line('transparent'),
+    axis.text = element_blank(),
+    text = element_text(family = "Century Gothic")
+  ) +
+  ggtitle('Honeybee Permits in Minneapolis')
+```
+Now I am interested in knowing the number of honeybee permits per neighborhood That is, how many points fall within each of the polygons.
+
+### Spatial joins
+
+This is calling for joining the two datasets into one. The type of join to use here is left join which is the default.
+
+```{r join, message=FALSE, warning=FALSE, echo=FALSE}
+nb_join <- st_join(neighborhoods, honeybee_utm)
+head(nb_join)
+```
+
+Now we can go ahead and use dplyr verbs to count per unit/
+
+```{r}
+
+nb <- nb_join %>% 
+  group_by(BDNAME) %>% 
+  summarise(n_permits = n())
+```
+
+We can have a quick look at the distribution
+
+```{r}
+ggplot(nb, aes(x = n_permits)) +
+  geom_histogram(binwidth = 1, color = 'white') +
+  theme_minimal() +
+  ggtitle('Permits per neighborhood') +
+  theme(text = element_text(family = 'Century Gothic')) +
+  labs(x = 'Number of Permits')
+```
+Majority of the neghborhoods (over 60) had only one permit. The maximum number of permits per neighborhood was 4 which was in less than 10 neighborhoods.
+
 
