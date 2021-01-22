@@ -13,6 +13,7 @@ analyzing geographic data in R.
 ```{r packages, include=FALSE}
 library(sf)
 library(tidyverse)
+library(spdep)
 library(extrafont)
 #font_import()
 #loadfonts(device = "win")
@@ -216,4 +217,26 @@ ggplot(nb) +
   ggtitle('Honeybee Permits per \nNeighborhood in Minneapolis')
   
 ```
+Checking the possible existance of spatial autocorrelation in the data. That is, are the points existance related?
 
+```{r autocorrelation}
+neighborhoods_sp <- as(nb, 'Spatial') # Converting the sf to sp
+nb_obj <- poly2nb(neighborhoods_sp)   # Create neighborhood object
+summary(nb_obj)
+```
+
+```{r}
+weights <- nb2listw(nb_obj, style = 'B') # Creates a matrix of binary spatial weights (connected or not connected)
+```
+
+
+```{r}
+moran(neighborhoods_sp$n_permits, weights, n = length(weights$neighbours), S0 = Szero(weights))
+```
+The Moran's I statistic is 0.085, very slight positive autocorrelation. Is this significant or not? We will use Monte Carlo Simulation for this test. This will randomly assign values to the polygons and calculates Moran's I for each iteration. It then compares the observed statistic to the generated distribution.
+
+```{r}
+set.seed(123)
+moran.mc(neighborhoods_sp$n_permits, weights, nsim = 9999) # 10000 simulations
+```
+Being that our observed statistic is 0.085 with a p-value of 0.0675, we would say that our distribution is not different from a randomly distributed. Therefore, we now know that the honeybee permits are randomly distributed in Minneapolis at the neighborhood level. It's important to note this spatial unit, clustering calculations can be very different at different units.
