@@ -71,7 +71,51 @@ sum(st_is_valid(dummy_poly) == TRUE)
 
 Good, the point is now sinking home. Only one polygon is valid. The other two are intersecting with themselves hence invalid as polygon.
 
+Now back to honeybee work. I want to project it to UTM zone 15N for Minnesota. I remember that earlier, while working with geocomputation with R, I developed a function which can help wth knowing the epsg code for any place on earth provided you know long and lat of the place, which I can get from Google Earth search for Minnesota.
 
+```{r epsg}
+lonlat2UTM <- function(lonlat){
+  utm <- (floor((lonlat[1] + 180)/6) %% 60) + 1
+  if(lonlat[2] > 0){
+    utm + 32600
+  } else{
+    utm + 32700
+  }
+}
+```
+
+Cool, the function is created, now I can call it to get the epsg code best suited for Minnesota (lat =  46.729741°, long = -94.685798°)
+
+```{r epsg_minnesota}
+lonlat2UTM(c(-94.685798, 46.729741))
+```
+
+This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the tutorial. Okay, they are using different datums or data :). 26915 is NAD.
+
+Now I can project the honeybee data
+
+```{r projecting}
+honeybee_utm <- st_transform(honeybee, 26915)
+```
+
+We can check the crs of honeybee_utm.
+
+```{r}
+st_crs(honeybee_utm)
+```
+
+Quite clear that the projection has been done successfully.
+
+Now to create a plot of these points, we need at least to have a background map. Otherwise just points on a white background will not make much sense. So I will import some free background map.
+
+```{r backmap}
+neighborhoods <- st_read("https://opendata.arcgis.com/datasets/acbe96220ef9497b9d45f559653b2fb2_48.geojson") %>%
+  st_transform(26915)
+```
+
+Cool, the original link failed and I had t navigate to the source to pick the new link which has then worked fine. Good.
+
+I will load the necessary etrafont package as I prepre to use ggplot for the plotting of the map.
 
 
 
