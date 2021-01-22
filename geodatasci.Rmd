@@ -58,8 +58,18 @@ sum(st_is_valid(dummy) == TRUE)
 
 This seams to be fine even though I kno the lines cut themselves at some point. Let me try this with a poygon. I will create two polygons, one kind of a rectangle and the other a funny shape which cuts itself. I think that the latter should be an invalid polygon. Here we go.
 
+```{r dummy_poly}
+dummy_poly <- st_read('shp/dummy_poly.shp')
 
+```
 
+Now let me check for the validity of the features I have in my dataset of the dummy_poly
+
+```{r dummy_poly_validity}
+sum(st_is_valid(dummy_poly) == TRUE)
+```
+
+Good, the point is now sinking home. Only one polygon is valid. The other two are intersecting with themselves hence invalid as polygon.
 
 
 
