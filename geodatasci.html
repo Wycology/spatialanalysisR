@@ -198,7 +198,37 @@ summary {
 <div id="loading-libraries" class="section level3">
 <h3>Loading Libraries</h3>
 <p>Loading the necessary packages to use in the codes which will be helpful in analyzing geographic data in R.</p>
-<p>The data which I will use in the current work can be <a href="https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip">directly downloaded</a>, extracted, and saved in the same folder as the .Rmd file.</p>
+<p>The data which I will use in the current work can be <a href="https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip">directly downloaded</a>, extracted, and saved in the subfolder called <em>shp</em> inside the .Rmd file folder.</p>
+<p>The next step is to read in the data using <code>st_read()</code>. I will call the created object honeybee</p>
+<pre><code>## Reading layer `HoneyBeePermits2017&#39; from data source `D:\R\SPATIAL\spatialwithR\shp\HoneyBeePermits2017.shp&#39; using driver `ESRI Shapefile&#39;
+## Simple feature collection with 90 features and 3 fields
+## geometry type:  POINT
+## dimension:      XY
+## bbox:           xmin: -93.32817 ymin: 44.89744 xmax: -93.20644 ymax: 45.03776
+## geographic CRS: WGS 84</code></pre>
+<p>There is a lot of information which we get by loading the data. We can extract such information individually, for example:</p>
+<pre class="r"><code>str(honeybee$geometry) </code></pre>
+<pre><code>## sfc_POINT of length 90; first list element:  &#39;XY&#39; num [1:2] -93.3 45</code></pre>
+<p>This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data</p>
+<pre class="r"><code>st_crs(honeybee)</code></pre>
+<pre><code>## Coordinate Reference System:
+##   User input: WGS 84 
+##   wkt:
+## GEOGCRS[&quot;WGS 84&quot;,
+##     DATUM[&quot;World Geodetic System 1984&quot;,
+##         ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,
+##             LENGTHUNIT[&quot;metre&quot;,1]]],
+##     PRIMEM[&quot;Greenwich&quot;,0,
+##         ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],
+##     CS[ellipsoidal,2],
+##         AXIS[&quot;latitude&quot;,north,
+##             ORDER[1],
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],
+##         AXIS[&quot;longitude&quot;,east,
+##             ORDER[2],
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],
+##     ID[&quot;EPSG&quot;,4326]]</code></pre>
+<p>This is returning a super helppful information. We can also have the information within the text as WGS 84, GEOGCRS[“WGS 84”, DATUM[“World Geodetic System 1984”, ELLIPSOID[“WGS 84”,6378137,298.257223563, LENGTHUNIT[“metre”,1]]], PRIMEM[“Greenwich”,0, ANGLEUNIT[“degree”,0.0174532925199433]], CS[ellipsoidal,2], AXIS[“latitude”,north, ORDER[1], ANGLEUNIT[“degree”,0.0174532925199433]], AXIS[“longitude”,east, ORDER[2], ANGLEUNIT[“degree”,0.0174532925199433]], ID[“EPSG”,4326]]. I still have no idea how the output will look like. Let us see.</p>
 </div>
 
 

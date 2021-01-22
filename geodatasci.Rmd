@@ -17,7 +17,29 @@ library(tidyverse)
 
 The data which I will use in the current work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted, and saved in the subfolder called *shp* inside the .Rmd file folder.
 
-The next step is to read in the data using `st_read()`.
+The next step is to read in the data using `st_read()`. I will call the created object honeybee
+
+```{r loading, echo=FALSE, message=FALSE, warning=FALSE}
+honeybee <- st_read('shp/HoneyBeePermits2017.shp')
+
+```
+
+There is a lot of information which we get by loading the data. We can extract such information individually, for example:
+
+```{r geometry}
+str(honeybee$geometry) 
+```
+
+This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data
+
+```{r coordinaes}
+st_crs(honeybee)
+```
+
+This is returning a super helppful information. We can also have the information within the text as `r st_crs(honeybee)`. I still have no idea how the output will look like. Let us see by knitting the markdown. Everything thrown to text.
+
+
+
 
 
 
