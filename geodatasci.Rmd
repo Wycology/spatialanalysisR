@@ -121,9 +121,9 @@ We can check the crs of honeybee_utm.
 st_crs(honeybee_utm)
 ```
 
-Quite clear that the projection has been done successfully.
+Quite clear that the projection has been done successfully. This is now kind of the best representation of the geographic properties of the place (direction, area, and distance).
 
-Now to create a plot of these points, we need at least to have a background map. Otherwise just points on a white background will not make much sense. So I will import some free background map.
+Now to create a plot of these points, we may need to have a background map. Otherwise just points on a white background will not make much sense. So I will import some free background map and assign them same projection as the points.
 
 ```{r backmap}
 neighborhoods <- st_read("https://opendata.arcgis.com/datasets/055ca54e5fcc47329f081c9ef51d038e_0.geojson") %>%
