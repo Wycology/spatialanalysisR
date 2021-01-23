@@ -130,7 +130,7 @@ neighborhoods <- st_read("https://opendata.arcgis.com/datasets/055ca54e5fcc47329
   st_transform(26915)
 ```
 
-Cool, the original link failed and I had t navigate to the source to pick the new link which has then worked fine. Good.
+Cool, the original link (which is shown on the original source) failed and I had t navigate to the source to pick the new link which has then worked fine. Good.
 
 I will load the necessary etrafont package as I prepare to use ggplot for the plotting of the map.
 
