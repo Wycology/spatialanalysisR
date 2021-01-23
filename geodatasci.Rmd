@@ -5,10 +5,9 @@ date: "1/22/2021"
 output: html_document
 ---
 
-### Loading Libraries
+### Loading Libraries to use 
 
-Loading the necessary packages to use in the codes which will be helpful in 
-analyzing geographic data in R.
+Loading the necessary packages to use in the codes which will be helpful in analyzing geographic data in R.
 
 ```{r packages, include=FALSE}
 library(sf)
@@ -19,16 +18,14 @@ library(extrafont)
 #loadfonts(device = "win")
 ```
 
-The data which I will use in the current work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted, and saved in the subfolder called *shp* inside the .Rmd file folder.
+The data which I will use in the current work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted from zipped folder, and saved in the sub-folder called *shp* inside the .Rmd file folder.
 
 The next step is to read in the data using `st_read()`. I will call the created object honeybee
 
 ```{r loading, echo=FALSE, message=FALSE, warning=FALSE}
 honeybee <- st_read('shp/HoneyBeePermits2017.shp')
-
 ```
-
-There is a lot of information which we get by loading the data. We can extract such information individually, for example:
+There is a lot of information which we get by loading the data including path to the dataset being loaded, driver which has been used to load the file, geometry type, dimension, bounding box, and CRS We can extract such information individually, for example:
 
 ```{r geometry}
 str(honeybee$geometry) 
@@ -42,13 +39,13 @@ st_crs(honeybee)
 
 This is returning a super helppful information. We can also have the information within the text as `r st_crs(honeybee)`. I still have no idea how the output will look like. Let us see by knitting the markdown. Everything thrown to text.
 
-Now the next step would be to check for self intersection in our data. 
+Now the next step would be to check for self intersection in our data.
 
 ```{r validity}
 sum(st_is_valid(honeybee) == TRUE)
 ```
 
-We do not have any problem of self-intersection in our dataset. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the object to edit it. I will create  dummy feature with such error in QGIS and load it.
+We do not have any problem of self-intersection in our dataset. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the object to edit it. I will create dummy feature with such error in QGIS and load it.
 
 ```{r dummy}
 dummy <- st_read('shp/dummy.shp')
@@ -88,7 +85,7 @@ lonlat2UTM <- function(lonlat){
 }
 ```
 
-Cool, the function is created, now I can call it to get the epsg code best suited for Minnesota (lat =  46.729741°, long = -94.685798°)
+Cool, the function is created, now I can call it to get the epsg code best suited for Minnesota (lat = 46.729741°, long = -94.685798°)
 
 ```{r epsg_minnesota}
 lonlat2UTM(c(-94.685798, 46.729741))
@@ -133,6 +130,7 @@ ggplot() +
         text = element_text(family = "Century Gothic")) +
   ggtitle('Honeybee Permits in Minneapolis')
 ```
+
 That is a pretty fine map.
 
 We can use the HiveType variable to color the points so that we can visually appreciate the distribution of hives by type within the area.
@@ -140,6 +138,7 @@ We can use the HiveType variable to color the points so that we can visually app
 ```{r names_of_variables}
 colnames(honeybee_utm)
 ```
+
 To use the variable of HiveType to color the points we make slight modification to our earlier plot.
 
 ```{r HiveType}
@@ -154,6 +153,7 @@ ggplot() +
   ) +
   ggtitle('Honeybee Permits in Minneapolis')
 ```
+
 Great.Nice to see how the different types of hives are distributed across the Minneapolis.
 
 In case I am not happy with the colors, I can assign them manually as:
@@ -171,6 +171,7 @@ ggplot() +
   ) +
   ggtitle('Honeybee Permits in Minneapolis')
 ```
+
 Now I am interested in knowing the number of honeybee permits per neighborhood That is, how many points fall within each of the polygons.
 
 ### Spatial joins
@@ -200,6 +201,7 @@ ggplot(nb, aes(x = n_permits)) +
   theme(text = element_text(family = 'Century Gothic')) +
   labs(x = 'Number of Permits')
 ```
+
 Majority of the neghborhoods (over 60) had only one permit. The maximum number of permits per neighborhood was 4 which was in less than 10 neighborhoods.
 
 It is possible to color the map by number of permits.
@@ -217,6 +219,7 @@ ggplot(nb) +
   ggtitle('Honeybee Permits per \nNeighborhood in Minneapolis')
   
 ```
+
 Checking the possible existance of spatial autocorrelation in the data. That is, are the points existance related?
 
 ```{r autocorrelation}
@@ -229,14 +232,15 @@ summary(nb_obj)
 weights <- nb2listw(nb_obj, style = 'B') # Creates a matrix of binary spatial weights (connected or not connected)
 ```
 
-
 ```{r}
 moran(neighborhoods_sp$n_permits, weights, n = length(weights$neighbours), S0 = Szero(weights))
 ```
+
 The Moran's I statistic is 0.085, very slight positive autocorrelation. Is this significant or not? We will use Monte Carlo Simulation for this test. This will randomly assign values to the polygons and calculates Moran's I for each iteration. It then compares the observed statistic to the generated distribution.
 
 ```{r}
 set.seed(123)
 moran.mc(neighborhoods_sp$n_permits, weights, nsim = 9999) # 10000 simulations
 ```
+
 Being that our observed statistic is 0.085 with a p-value of 0.0675, we would say that our distribution is not different from a randomly distributed. Therefore, we now know that the honeybee permits are randomly distributed in Minneapolis at the neighborhood level. It's important to note this spatial unit, clustering calculations can be very different at different units.
