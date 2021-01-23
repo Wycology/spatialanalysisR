@@ -27,11 +27,11 @@ honeybee <- st_read('shp/HoneyBeePermits2017.shp')
 ```
 There is a lot of information which we get by loading the data including path to the data-set being loaded, driver which has been used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example:
 
-```{r geometry}
+```{r structure}
 str(honeybee)
 ```
 
-This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very impportant step before running any analyses on the data as it has effect on the units of measurements.
+This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has effect on the units of measurements.
 
 ```{r coordinaes}
 st_crs(honeybee)
@@ -45,7 +45,7 @@ Now the next step would be to check for self intersection in our data.
 sum(st_is_valid(honeybee) == TRUE)
 ```
 
-We do not have any problem of self-intersection in our dataset. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the object to edit it. I will create dummy feature with such error in QGIS and load it.
+We do not have any problem of self-intersection in our data-set. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the object to edit it. I will create dummy feature with such error in QGIS and load it.
 
 ```{r dummy}
 dummy <- st_read('shp/dummy.shp')
@@ -57,20 +57,36 @@ The dummy feature is read seamlessly. I know the line has crossed itself at some
 sum(st_is_valid(dummy) == TRUE)
 ```
 
-This seams to be fine even though I kno the lines cut themselves at some point. Let me try this with a poygon. I will create two polygons, one kind of a rectangle and the other a funny shape which cuts itself. I think that the latter should be an invalid polygon. Here we go.
+This seams to be fine even though I know pretty well the lines cut themselves at some point(s). Let me try this with a poygon feature. I will create two polygons, one kind of a rectangle and the other a funny shape which cuts itself. I think that the latter should be an invalid polygon. Here we go.
 
 ```{r dummy_poly}
 dummy_poly <- st_read('shp/dummy_poly.shp')
 
 ```
 
-Now let me check for the validity of the features I have in my dataset of the dummy_poly
+Now let me check for the validity of the features I have in my data-set of the dummy_poly
 
 ```{r dummy_poly_validity}
 sum(st_is_valid(dummy_poly) == TRUE)
 ```
 
 Good, the point is now sinking home. Only one polygon is valid. The other two are intersecting with themselves hence invalid as polygon.
+
+Before I proceed to honeybee work, I want to create a point sf with some points having exactly the same coordinates and see whether such as considered intersecting. This can help me with duplicates of occurrence records in species distribution modeling later.
+
+```{r points_duplicate}
+points_sf <- data.frame(lon = c(35.017893, 35.017893,35.010720, 34.587676),
+                        lat = c(-0.231059, -0.231059, -0.237188, -0.412132)) %>%
+  st_as_sf(coords = c('lon', 'lat')) %>% 
+  st_set_crs(4326)
+```
+
+Then I check for validity of the data which I know has four points with one being duplicated.
+
+```{r duplicate_points}
+sum(st_is_valid(points_sf) == TRUE)
+```
+Okay, I conclude that this validity is not helpful in case of duplicate points as all my four points are regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe.
 
 Now back to honeybee work. I want to project it to UTM zone 15N for Minnesota. I remember that earlier, while working with geocomputation with R, I developed a function which can help wth knowing the epsg code for any place on earth provided you know long and lat of the place, which I can get from Google Earth search for Minnesota.
 
