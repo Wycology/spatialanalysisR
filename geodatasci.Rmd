@@ -82,13 +82,13 @@ points_sf <- data.frame(lon = c(35.017893, 35.017893,35.010720, 34.587676),
   st_set_crs(4326)
 ```
 
-Then I check for validity of the data which I know has four points with one being duplicated.
+Then I check for validity of the sf object which I know has four points with one being duplicated.
 
 ```{r duplicate_points}
 sum(st_is_valid(points_sf) == TRUE)
 ```
 
-Okay, I conclude that this validity is not helpful in case of duplicate points as all my four points are regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe.
+Okay, from this I conclude that this validity is not applicable in case of duplicate points as all my four points are regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe.
 
 Now back to honeybee work. I want to project it to UTM zone 15N for Minnesota. I remember that earlier, while working with geocomputation with R, I developed a function which can help with knowing the epsg code for any place on earth provided you know long and lat of the place, which I can get from Google Earth search for Minnesota.
 
@@ -103,13 +103,13 @@ lonlat2UTM <- function(lonlat){
 }
 ```
 
-Cool, the function is created, now I can call it to get the epsg code best suited for Minnesota (lat = 46.729741°, long = -94.685798°)
+Cool, the function is created, now I can call it to get the epsg code best suited for Minnesota (long = -94.685798°, lat = 46.729741°).
 
 ```{r epsg_minnesota}
 lonlat2UTM(c(-94.685798, 46.729741))
 ```
 
-This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the [tutorial](https://www.katiejolly.io/rladies-spatial/). Okay, they are using different datums or data :). 26915 is NAD.
+This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the [tutorial](https://www.katiejolly.io/rladies-spatial/). Okay, they are using different datums or data :). 26915 is for NAD and 32615 is UTM.
 
 Now I can project the honeybee data to my desired epsg code.
 
