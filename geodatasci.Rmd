@@ -46,13 +46,13 @@ Now the next step would be to check for self intersection in our data.
 sum(st_is_valid(honeybee) == TRUE)
 ```
 
-We do not have any problem of self-intersection in our data-set. All the 90 points are considered valid. Behind the scene, there are 90 TRUEs and each TRUE is equated to 1 hence the sum being 90. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the object to edit it. I will create dummy feature with such error in QGIS and load it.
+We do not have any problem of self-intersection in our data-set. All the 90 points are considered valid. Behind the scene, there are 90 TRUEs and each TRUE is equated to 1 hence the sum being 90. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the individual river to edit it. I will create dummy feature with such error in QGIS and load it to check its validity.
 
 ```{r dummy}
 dummy <- st_read('shp/dummy.shp')
 ```
 
-The dummy feature is read seamlessly. I know the line has crossed itself at some point. Let me now check for its validity.
+The dummy object is read seamlessly and having 2 features. In other words, I have two rivers. It is of geometry type LINESTRING. I know one of the two lines has crossed itself at some point. Let me now check for its validity.
 
 ```{r dummy_validity}
 sum(st_is_valid(dummy) == TRUE)
