@@ -5,7 +5,7 @@ date: "1/22/2021"
 output: html_document
 ---
 
-### Loading Libraries to use 
+### Loading Libraries to use in this project
 
 Loading the necessary packages to use in the codes which will be helpful in analyzing geographic data in R.
 
@@ -25,6 +25,7 @@ The next step is to read in the data using `st_read()`. I will call the created 
 ```{r loading, echo=FALSE, message=FALSE, warning=FALSE}
 honeybee <- st_read('shp/HoneyBeePermits2017.shp')
 ```
+
 There is a lot of information which we get by loading the data including path to the data-set being loaded, driver which has been used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example:
 
 ```{r structure}
@@ -86,6 +87,7 @@ Then I check for validity of the data which I know has four points with one bein
 ```{r duplicate_points}
 sum(st_is_valid(points_sf) == TRUE)
 ```
+
 Okay, I conclude that this validity is not helpful in case of duplicate points as all my four points are regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe.
 
 Now back to honeybee work. I want to project it to UTM zone 15N for Minnesota. I remember that earlier, while working with geocomputation with R, I developed a function which can help with knowing the epsg code for any place on earth provided you know long and lat of the place, which I can get from Google Earth search for Minnesota.
@@ -109,7 +111,7 @@ lonlat2UTM(c(-94.685798, 46.729741))
 
 This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the [tutorial](https://www.katiejolly.io/rladies-spatial/). Okay, they are using different datums or data :). 26915 is NAD.
 
-Now I can project the honeybee data to my desired epsg code. 
+Now I can project the honeybee data to my desired epsg code.
 
 ```{r projecting}
 honeybee_utm <- st_transform(honeybee, 26915)
@@ -191,8 +193,8 @@ ggplot() +
 Now I am interested in knowing the number of honeybee permits per neighborhood That is, how many points fall within each of the polygons.
 
 ### Spatial joins
-It is quite unfortunate that I still cannot tell how spatial join works. I need to study the output deeply.
-This is calling for joining the two datasets into one. The type of join to use here is left join which is the default. Loosely speaking, I will say 
+
+It is quite unfortunate that I still cannot tell how spatial join works. I need to study the output deeply. This is calling for joining the two datasets into one. The type of join to use here is left join which is the default. Loosely speaking, I will say
 
 ```{r join, message=FALSE, warning=FALSE, echo=FALSE}
 nb_join <- st_join(neighborhoods, honeybee_utm)
