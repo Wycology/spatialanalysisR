@@ -7,7 +7,7 @@ output: html_document
 
 ### Loading Libraries to use in this project
 
-Loading the necessary packages to use in the codes which will be helpful in analyzing geographic data in R. font_import() helps to make the fonts nrought by `extrafont` available to R for use.
+Loading the necessary packages to use in the codes which will be helpful in analyzing geographic data in R. font_import() helps to make the fonts brought by `extrafont` available to R for use.
 
 ```{r packages, include=FALSE}
 library(sf)
@@ -18,7 +18,7 @@ library(extrafont)
 #loadfonts(device = "win")
 ```
 
-The data which I will use in the current work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted from zipped folder, and saved in the sub-folder called *shp* inside the .Rmd file folder.
+The data that I will use in the current work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted from zipped folder, and saved in the sub-folder called *shp* inside the .Rmd file folder.
 
 The next step is to read in the data using `st_read()`. I will call the created object honeybee
 
@@ -26,7 +26,7 @@ The next step is to read in the data using `st_read()`. I will call the created 
 honeybee <- st_read('shp/HoneyBeePermits2017.shp')
 ```
 
-There is a lot of information which we get by loading the data including path to the data-set being loaded, driver which has been used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example:
+There is a lot of information which we get by loading the data including path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:
 
 ```{r structure}
 str(honeybee)
