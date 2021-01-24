@@ -32,7 +32,7 @@ There is a lot of information which we get by loading the data including path to
 str(honeybee)
 ```
 
-This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has effect on the units of measurements.
+This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others.
 
 ```{r coordinaes}
 st_crs(honeybee)
