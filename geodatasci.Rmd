@@ -38,7 +38,7 @@ This is telling us that we are working with a point feature. Such a cool informa
 st_crs(honeybee)
 ```
 
-This is returning a quite helpful information. We can also have the information within the text as `r st_crs(honeybee)`. I still have no idea how the output will look like. Let us see by knitting the markdown. Everything thrown to text.
+This is returning a quite helpful information. We can also have the information within the text as `r st_crs(honeybee)`. I still can't imagine how the output will look like in the text. Let us see by knitting the markdown. Everything thrown to text :).
 
 Now the next step would be to check for self intersection in our data.
 
@@ -46,7 +46,7 @@ Now the next step would be to check for self intersection in our data.
 sum(st_is_valid(honeybee) == TRUE)
 ```
 
-We do not have any problem of self-intersection in our data-set. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the object to edit it. I will create dummy feature with such error in QGIS and load it.
+We do not have any problem of self-intersection in our data-set. All the 90 points are considered valid. Behind the scene, there are 90 TRUEs and each TRUE is equated to 1 hence the sum being 90. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the object to edit it. I will create dummy feature with such error in QGIS and load it.
 
 ```{r dummy}
 dummy <- st_read('shp/dummy.shp')
