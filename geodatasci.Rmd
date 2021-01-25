@@ -58,11 +58,10 @@ The dummy object is read seamlessly and having 2 features. In other words, I hav
 sum(st_is_valid(dummy) == TRUE)
 ```
 
-This returned TRUEs even though I know pretty sure that one of the lines has cut itself at some point(s). Let me try this with polygon features. I will create three polygons, one kind of a rectangle and the other two having 'funny' shapes which cut themselves. I think that the latter two should be an invalid polygon. Here we go.
+This returned TRUEs even though I know pretty sure that one of the lines has cut itself at some point(s). Let me try this with polygon features. I will create three polygons, one kind of a rectangle and the other two having 'funny' shapes which cut themselves. I think that the latter two should be invalid polygon. Here we go.
 
 ```{r dummy_poly}
 dummy_poly <- st_read('shp/dummy_poly.shp')
-
 ```
 
 Now let me check for the validity of the features I have in my data-set of the dummy_poly. Fingers crossed. I need errors :) seriously.
@@ -70,8 +69,7 @@ Now let me check for the validity of the features I have in my data-set of the d
 ```{r dummy_poly_validity}
 sum(st_is_valid(dummy_poly) == TRUE)
 ```
-
-Good, the point is now well sank home. Only one polygon is valid. The other two are intersecting with themselves hence invalid as polygon.
+Good, the point is now well sank home. Only one polygon is valid. The other two are intersecting with themselves hence considered invalid as polygon features.
 
 Before I proceed to honeybee work, I want to create a point sf with some points having exactly the same coordinates and see whether such are considered invalid. This can help me solve the problem of duplicates of occurrence records in species distribution modeling later.
 
