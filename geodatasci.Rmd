@@ -88,7 +88,7 @@ sum(st_is_valid(points_sf) == TRUE)
 
 Okay, from this I conclude that this validity is not applicable in case of duplicated points as all my four points have been regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe.
 
-Now back to honeybee work. I want to project it to UTM zone 15N for Minnesota. I remember that earlier, while working with [geocomputation with R](https://geocompr.robinlovelace.net/), I developed a function which can help with knowing the epsg code for any place on earth provided you know long and lat of the place, which I can get from Google Earth search for Minnesota.
+Now back to honeybee work. I want to project it to UTM zone 15N for Minnesota. I remember that earlier, while working with [geocomputation with R](https://geocompr.robinlovelace.net/), I developed (with the help of Geocomputation with R book mentioned earlier) a function which can help with knowing the EPSG code for any place on earth provided you know long and lat of the place, which I can get from Google Earth search for Minnesota.
 
 ```{r epsg}
 lonlat2UTM <- function(lonlat){
@@ -107,9 +107,9 @@ Cool, the function is created, now I can call it to get the epsg code best suite
 lonlat2UTM(c(-94.685798, 46.729741))
 ```
 
-This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the [tutorial](https://www.katiejolly.io/rladies-spatial/). Okay, they are using different datums or data :). 26915 is for NAD and 32615 is UTM.
+This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the [tutorial](https://www.katiejolly.io/rladies-spatial/). Okay, they are using different datums or data :). 26915 is for NAD and 32615 is for WGS84. The former is preferred in this case as it represents North America best.
 
-Now I can project the honeybee data to my desired epsg code.
+Now I can project the honeybee data to my desired EPSG code.
 
 ```{r projecting}
 honeybee_utm <- st_transform(honeybee, 26915)
