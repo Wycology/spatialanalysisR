@@ -86,7 +86,7 @@ Then I check for validity of the sf object which I know has four points with one
 sum(st_is_valid(points_sf) == TRUE)
 ```
 
-Okay, from this I conclude that this validity is not applicable in case of duplicate points as all my four points are regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe.
+Okay, from this I conclude that this validity is not applicable in case of duplicated points as all my four points have been regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe.
 
 Now back to honeybee work. I want to project it to UTM zone 15N for Minnesota. I remember that earlier, while working with geocomputation with R, I developed a function which can help with knowing the epsg code for any place on earth provided you know long and lat of the place, which I can get from Google Earth search for Minnesota.
 
