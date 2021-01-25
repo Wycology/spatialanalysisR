@@ -38,7 +38,7 @@ This is telling us that we are working with a point feature. Such a cool informa
 st_crs(honeybee)
 ```
 
-This is returning a quite helpful information. We can also have the information within the text as `r st_crs(honeybee)`. I still can't imagine how the output will look like in the text. Let us see by knitting the markdown. Everything thrown to text :).
+That is returning quite helpful information. We can also have the information within the text as `r st_crs(honeybee)`. I still can't imagine how the output will look like in the text. Let us see by knitting the markdown. Everything thrown to text :).
 
 Now the next step would be to check for self intersection in our data.
 
@@ -58,7 +58,7 @@ The dummy object is read seamlessly and having 2 features. In other words, I hav
 sum(st_is_valid(dummy) == TRUE)
 ```
 
-This seams to be fine even though I know pretty sure that one of the lines has cut itself at some point(s). Let me try this with polygon features. I will create three polygons, one kind of a rectangle and the other two having 'funny' shapes which cut themselves. I think that the latter two should be an invalid polygon. Here we go.
+This returned TRUEs even though I know pretty sure that one of the lines has cut itself at some point(s). Let me try this with polygon features. I will create three polygons, one kind of a rectangle and the other two having 'funny' shapes which cut themselves. I think that the latter two should be an invalid polygon. Here we go.
 
 ```{r dummy_poly}
 dummy_poly <- st_read('shp/dummy_poly.shp')
