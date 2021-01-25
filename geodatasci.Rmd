@@ -125,7 +125,7 @@ st_crs(honeybee_utm)
 
 Quite clear that the projection has been done successfully. This is now kind of the best representation of the geographic properties of the place (direction, area, and distance).
 
-Now to create a plot of these points, we may need to have a background map. Otherwise just points on a white background will not make much sense. So I will import some free background map and assign them same projection as the points.
+Now to plot these points, we may need to have a background map. Otherwise just points on a white background will show scatter plot kind which is not that mappy or map-like. So I will import some free background map and assign it same projection as the honeybee points.
 
 ```{r backmap}
 neighborhoods <- st_read("https://opendata.arcgis.com/datasets/055ca54e5fcc47329f081c9ef51d038e_0.geojson") %>%
@@ -134,9 +134,9 @@ neighborhoods <- st_read("https://opendata.arcgis.com/datasets/055ca54e5fcc47329
 
 Cool, the original link (which is shown on the original source) failed and I had to navigate to the source to pick the new link which has then worked fine. Good.
 
-I will load the necessary extrafont package as I prepare to use ggplot for the plotting of the map and use some unique font in title lable.
+I will load the necessary `extrafont` package as I prepare to use `ggplot2` for the plotting of the map and use some unique font in title label.
 
-Now I can simply go ahead and generate the plot.
+Now I can simply go ahead and generate the plot. Colors can be changed as need may be.
 
 ```{r ggplot}
 ggplot() +
@@ -149,7 +149,7 @@ ggplot() +
   ggtitle('Honeybee Permits in Minneapolis')
 ```
 
-That is a pretty fine map.
+That is a pretty fine map. Though things like North arrow, scale, graticule, border are still missing.
 
 We can use the HiveType variable in the data-set to color the points so that we can visually appreciate the distribution of hives by type within the area. To remind myself of the names of the variables in the sf:
 
@@ -172,9 +172,9 @@ ggplot() +
   ggtitle('Honeybee Permits in Minneapolis')
 ```
 
-Great.Nice to see how the different types of hives are distributed across the Minneapolis.
+Great.Nice to see how the different types of hives are distributed across the Minneapolis region.
 
-In case I am not happy with the colors, I can assign them manually as:
+In case I am not happy with the colors of the points, I can assign them manually as:
 
 ```{r HiveType_color}
 ggplot() +
@@ -190,11 +190,11 @@ ggplot() +
   ggtitle('Honeybee Permits in Minneapolis')
 ```
 
-Now I am interested in knowing the number of honeybee permits per neighborhood That is, how many points fall within each of the polygons.
+Now I am interested in knowing the number of honeybee permits per neighborhood That is, how many points fall within each of the polygons. This is calling for spatial joins concept. 
 
 ### Spatial joins
 
-It is quite unfortunate that I still cannot tell how spatial join works. I need to study the output deeply. This is calling for joining the two datasets into one. The type of join to use here is left join which is the default. Loosely speaking, I will say
+The type of join to use here is left join which is the default. Loosely speaking, I will say.
 
 ```{r join, message=FALSE, warning=FALSE, echo=FALSE}
 nb_join <- st_join(neighborhoods, honeybee_utm)
@@ -209,18 +209,25 @@ nb <- nb_join %>%
   summarise(n_permits = n())
 ```
 
-We can have a quick look at the distribution
+We can then arrange by the number of permits to see which has the highest number of honeybee permits and which has least. 
+
+```{r}
+nb %>% 
+  arrange(-n_permits)
+```
+
+We can have a quick look at the distribution in form of histogram.
 
 ```{r}
 ggplot(nb, aes(x = n_permits)) +
   geom_histogram(binwidth = 1, color = 'white') +
   theme_minimal() +
-  ggtitle('Permits per neighborhood') +
+  ggtitle('Permits per Neighborhood') +
   theme(text = element_text(family = 'Century Gothic')) +
   labs(x = 'Number of Permits')
 ```
 
-Majority of the neghborhoods (over 60) had only one permit. The maximum number of permits per neighborhood was 4 which was in less than 10 neighborhoods.
+Majority of the neighborhoods (over 60) had only one permit. The maximum number of permits per neighborhood was 4 which was in four neighborhoods (Howe, Linden Hills, Seward, ad Whittier).
 
 It is possible to color the map by number of permits.
 
@@ -238,7 +245,7 @@ ggplot(nb) +
   
 ```
 
-Checking the possible existance of spatial autocorrelation in the data. That is, are the points existance related?
+Checking the possible existence of spatial autocorrelation in the data. That is, are the points existence related?
 
 ```{r autocorrelation}
 neighborhoods_sp <- as(nb, 'Spatial') # Converting the sf to sp
@@ -261,4 +268,4 @@ set.seed(123)
 moran.mc(neighborhoods_sp$n_permits, weights, nsim = 9999) # 10000 simulations
 ```
 
-Being that our observed statistic is 0.085 with a p-value of 0.0675, we would say that our distribution is not different from a randomly distributed. Therefore, we now know that the honeybee permits are randomly distributed in Minneapolis at the neighborhood level. It's important to note this spatial unit, clustering calculations can be very different at different units.
+Being that our observed statistic is 0.085 with a p-value of 0.0675, we would say that our distribution is not different from a randomly distributed. Therefore, we now know that the honeybee permits are randomly distributed in Minneapolis at the neighborhood level. It's important to note this spatial unit, clustering calculations can be very different at different units. Meaning if it was conducted throughout the world then for sure some regions would be having more honeybees than other and show statistically significant autocorrelation. For example, the whole of Antarctica might be devoid of honeybee permits.
