@@ -109,7 +109,7 @@ lonlat2UTM(c(-94.685798, 46.729741))
 
 This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the [tutorial](https://www.katiejolly.io/rladies-spatial/). Okay, they are using different datums or data :). 26915 is for NAD and 32615 is for WGS84. The former is preferred in this case as it represents North America best.
 
-Now I can project the honeybee data to my desired EPSG code.
+Now I can project the honeybee data to my desired EPSG code using st_transform function. If this was in GeopandasGeoDataFrame then I would use honeybee.to_crs('EPSG:26915'). The R one looks fine but the Python one seems easier to understand what is going on. Probably why Python is considered simpler than R. No discussion or argument please, stay with your views.
 
 ```{r projecting}
 honeybee_utm <- st_transform(honeybee, 26915)
