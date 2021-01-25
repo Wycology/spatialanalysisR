@@ -2,7 +2,10 @@
 title: "Geo_Data_Sci_R"
 author: "Wyclife Agumba Oluoch"
 date: "1/22/2021"
-output: html_document
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
 ---
 
 ### Loading Libraries to use in this project
@@ -109,7 +112,7 @@ lonlat2UTM(c(-94.685798, 46.729741))
 
 This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the [tutorial](https://www.katiejolly.io/rladies-spatial/). Okay, they are using different datums or data :). 26915 is for NAD and 32615 is for WGS84. The former is preferred in this case as it represents North America best.
 
-Now I can project the honeybee data to my desired EPSG code using st_transform function. If this was in GeopandasGeoDataFrame then I would use honeybee.to_crs('EPSG:26915'). The R one looks fine but the Python one seems easier to understand what is going on. Probably why Python is considered simpler than R. No discussion or argument please, stay with your views.
+Now I can project the honeybee data to my desired EPSG code using st_transform function. If this was in **Python** with `GeopandasGeoDataFrame` then I would use honeybee.to_crs('EPSG:26915'). The R one looks fine but the **Python** one seems easier to understand what is going on. Probably why Python is considered simpler than R. No discussion or argument please, stay with your views.
 
 ```{r projecting}
 honeybee_utm <- st_transform(honeybee, 26915)
@@ -146,8 +149,23 @@ ggplot() +
         text = element_text(family = "Century Gothic")) +
   ggtitle('Honeybee Permits in Minneapolis')
 ```
-
 That is a pretty fine map. Though things like North arrow, scale, graticule, border are still missing.
+
+I want to attempt something. To label the neighborhoods by their names.
+
+```{r}
+ggplot() +
+  geom_sf(data = neighborhoods, fill = '#e8eff7', color = '#8f98aa') +
+  geom_sf_label(data = neighborhoods, aes(label = BDNAME)) +
+  geom_sf(data = honeybee_utm, color = '#efcf2f') +
+  theme_minimal() +
+  theme(panel.grid.major = element_line('transparent'),
+        axis.text = element_blank(),
+        text = element_text(family = "Century Gothic")) +
+  ggtitle('Honeybee Permits in Minneapolis')
+```
+
+Not pleasant at all. Unfortunately.
 
 We can use the HiveType variable in the data-set to color the points so that we can visually appreciate the distribution of hives by type within the area. To remind myself of the names of the variables in the sf:
 
