@@ -18,7 +18,7 @@ library(extrafont)
 #loadfonts(device = "win")
 ```
 
-The data that I will use in the current work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted from zipped folder, and saved in the sub-folder called *shp* inside the .Rmd file folder.
+The data I used work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted from zipped folder, and saved in the sub-folder called *shp* inside the .Rmd file folder.
 
 The next step is to read in the data using `st_read()`. I will call the created object honeybee
 
