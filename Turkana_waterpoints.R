@@ -9,7 +9,10 @@ dams <- data.frame(longitude = c(35.582391, 35.581789,
                                 3.224472, 3.224581,
                                 3.225090, 3.225225,
                                 3.225368),
-                   number = c(1, 2, 3, 4, 5, 6, 7))
+                   listing = c(1:7),
+                   Sub_County = c('Loima', 'Loima', 'Loima', 'Loima',
+                                  'Loima', 'Loima', 'Loima'))
+
 
 leaflet() %>% addTiles() %>% addCircleMarkers(data = dams, lat = ~latitude,
                                                lng = ~longitude, radius = ~3)
