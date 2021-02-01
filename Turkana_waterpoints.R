@@ -14,11 +14,18 @@ dams <- data.frame(longitude = c(35.582391, 35.581789,
                                   'Loima', 'Loima', 'Loima'))
 
 
+
+
+dams <- dams %>% mutate(popup_info = paste('Sub_County: ', Sub_County, "<br/>", 
+                                           'Number: ',listing, "<br/>",
+                                           'Longitude: ', longitude, "<br/>", 
+                                           'Latitude: ', latitude))
+
 leaflet() %>% 
   addTiles() %>% 
   addCircleMarkers(data = dams, 
                    lat = ~latitude,
                    lng = ~longitude, 
-                   radius = ~3)
+                   radius = ~3,
+                   popup = ~popup_info)
 
-dams <- dams %>% 
