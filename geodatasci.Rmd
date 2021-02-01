@@ -236,7 +236,7 @@ We can have a quick look at the distribution in form of histogram.
 
 ```{r}
 ggplot(nb, aes(x = n_permits)) +
-  geom_histogram(binwidth = 1, color = 'white') +
+  geom_histogram(binwidth = 1, color = 'white', fill = 'purple') +
   theme_minimal() +
   ggtitle('Permits per Neighborhood') +
   theme(text = element_text(family = 'Century Gothic')) +
