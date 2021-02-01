@@ -13,10 +13,10 @@ dams <- data.frame(longitude = c(35.582391, 35.581789,
                                 3.225368, 3.148446,
                                 3.144302, 3.144950,
                                 3.110151),
-                   listing = c(1:10),
+                   listing = c(1:11),
                    Sub_County = c('Loima', 'Loima', 'Loima', 'Loima',
                                   'Loima', 'Loima', 'Loima', 'Loima',
-                                  'Loima', 'Loima'))
+                                  'Loima', 'Loima', 'Loima'))
 
 
 
