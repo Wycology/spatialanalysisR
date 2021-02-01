@@ -14,5 +14,11 @@ dams <- data.frame(longitude = c(35.582391, 35.581789,
                                   'Loima', 'Loima', 'Loima'))
 
 
-leaflet() %>% addTiles() %>% addCircleMarkers(data = dams, lat = ~latitude,
-                                               lng = ~longitude, radius = ~3)
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(data = dams, 
+                   lat = ~latitude,
+                   lng = ~longitude, 
+                   radius = ~3)
+
+dams <- dams %>% 
