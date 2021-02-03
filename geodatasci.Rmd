@@ -3,9 +3,9 @@ title: "Geo_Data_Sci_R"
 author: "Wyclife Agumba Oluoch"
 date: "1/22/2021"
 output:
-  word_document: default
   html_document: default
   pdf_document: default
+  word_document: default
 ---
 
 ### Loading Libraries to use in this project
