@@ -14,7 +14,7 @@
 # install.packages("spData")
 # remotes::install_github("Nowosad/spDataLarge")
 
-# 
+# This is then followed by loading the libraries into R
 
 library(sf)         # Working with the sf datasets
 library(raster)     # Manipulating and writing raster data as  
