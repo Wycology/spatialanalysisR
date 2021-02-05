@@ -9,7 +9,12 @@
 # Chapter Six Reprojecting Geographic Data----
 # Loading the necessary libraries 
 
+# Installing some of the packages which are having the data used in the project
 
+# install.packages("spData")
+# remotes::install_github("Nowosad/spDataLarge")
+
+# 
 
 library(sf)         # Working with the sf datasets
 library(raster)     # Manipulating and writing raster data as  
