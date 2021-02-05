@@ -11,8 +11,8 @@
 
 # Installing some of the packages which are having the data used in the project
 
-# install.packages("spData")
 # remotes::install_github("Nowosad/spDataLarge")
+# all othe libraries can be simply installed the normal way.
 
 # This is then followed by loading the libraries into R
 
@@ -27,10 +27,6 @@ library(mapview)    # Rendering html maps
 library(leaflet)    # Rendering html maps too    
 library(grid)       # Did something
 library(cartogram)  # Another map making package
-
-# Install any missing data with the install.packages() function.
-
-# remotes::install_github("Nowosad/spDataLarge") # Took some time, then done
 
 # st_is_longlat is one great function for checking if geographic CRS is in use
 
