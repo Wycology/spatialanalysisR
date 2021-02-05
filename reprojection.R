@@ -4,10 +4,12 @@
 # +254729371248                         #
 # TASK: Chapter 6 Geocomputation with R #
 # Created on 9th January 2021           #
-# Last modified on 21st January 2021    #
+# Last modified on 5th February 2021    #
 #########################################
 # Chapter Six Reprojecting Geographic Data----
 # Loading the necessary libraries 
+
+
 
 library(sf)         # Working with the sf datasets
 library(raster)     # Manipulating and writing raster data as  
