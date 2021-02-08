@@ -166,7 +166,7 @@ ggplot() +
   ggtitle('Honeybee Permits in Minneapolis')
 ```
 
-Not pleasant at all. Unfortunately.
+Not pleasant at all. Unfortunately. Need to have a better presentation of the labels on the plot.
 
 We can use the HiveType variable in the data-set to color the points so that we can visually appreciate the distribution of hives by type within the area. To remind myself of the names of the variables in the sf:
 
