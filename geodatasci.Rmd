@@ -127,7 +127,7 @@ st_crs(honeybee_utm)
 
 Quite clear that the projection has been applied successfully. This is now kind of the best representation of the geographic properties of the place (direction, area, and distance).
 
-Now to plot these points, we may need to have a background map. Otherwise just points on a white background will show scatter plot kind which is not that mappy or map-like. So I will import some free background map and assign it same projection as the honeybee points.
+Now to plot these points, we may, sometimes, need to have a background map. Otherwise just points on a white background will show scatter plot kind which is not that mappy or map-like. So I will import some free background map and assign it same projection as the honeybee points.
 
 ```{r backmap}
 neighborhoods <- st_read("https://opendata.arcgis.com/datasets/055ca54e5fcc47329f081c9ef51d038e_0.geojson") %>%
