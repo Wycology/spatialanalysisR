@@ -17,8 +17,8 @@ library(sf)
 library(tidyverse)
 library(spdep)
 library(extrafont)
-#font_import()
-#loadfonts(device = "win")
+# font_import()
+# loadfonts(device = "win")
 ```
 
 The data I used work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted from zipped folder, and saved in the sub-folder called *shp* inside the .Rmd file folder.
@@ -147,7 +147,7 @@ ggplot() +
   theme_minimal() +
   theme(panel.grid.major = element_line('transparent'),
         axis.text = element_blank(),
-        text = element_text(family = "Century Gothic")) +
+        text = element_text(family = "Century Gothic")) + # Font of the title
   ggtitle('Honeybee Permits in Minneapolis')
 ```
 That is a pretty fine map. Though things like North arrow, scale, graticule, border are still missing.
