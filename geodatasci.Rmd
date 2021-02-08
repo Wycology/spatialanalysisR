@@ -32,7 +32,8 @@ honeybee <- st_read('shp/HoneyBeePermits2017.shp') # Reading in the shapefile
 There is a lot of information which we get by loading the data including path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:
 
 ```{r structure}
-str(honeybee)
+str(honeybee) # str is from base R. We can use glimpse which is from dplyr.
+# glimpse(honeybee)
 ```
 
 This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others. Good to know that most of the functions on sf objects start with **st_**. This will be evident as we progress with the project. Here we start with `st_crs()`.
