@@ -36,7 +36,7 @@ str(honeybee) # str is from base R. We can use glimpse which is from dplyr.
 # glimpse(honeybee)
 ```
 
-This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others. Good to know that most of the functions on sf objects start with **st_**. This will be evident as we progress with the project. Here we start with `st_crs()`.
+This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others. Good to know that most of the functions on sf objects start with **st\_**. This will be evident as we progress with the project. Here we start with `st_crs()`.
 
 ```{r coordinaes}
 st_crs(honeybee) # Checking the crs of the sf
@@ -73,6 +73,7 @@ Now let me check for the validity of the features I have in my data-set of the d
 ```{r dummy_poly_validity}
 sum(st_is_valid(dummy_poly) == TRUE)
 ```
+
 Good, the point is now well sank home. Only one polygon is valid. The other two are intersecting with themselves hence considered invalid as polygon features.
 
 Before I proceed to honeybee work, I want to create a point sf with some points having exactly the same coordinates and see whether such are considered invalid. This can help me solve the problem of duplicates of occurrence records in species distribution modeling later.
@@ -140,6 +141,8 @@ I will load the necessary `extrafont` package as I prepare to use `ggplot2` for 
 
 Now I can simply go ahead and generate the plot. Colors can be changed as need may be.
 
+# Plotting the first map
+
 ```{r ggplot}
 ggplot() +
   geom_sf(data = neighborhoods, fill = '#e8eff7', color = '#8f98aa') +
@@ -150,6 +153,7 @@ ggplot() +
         text = element_text(family = "Century Gothic")) + # Font of the title
   ggtitle('Honeybee Permits in Minneapolis')
 ```
+
 That is a pretty fine map. Though things like North arrow, scale, graticule, border are still missing.
 
 I want to attempt something. To label the neighborhoods by their names.
@@ -207,7 +211,7 @@ ggplot() +
   ggtitle('Honeybee Permits in Minneapolis')
 ```
 
-Now I am interested in knowing the number of honeybee permits per neighborhood That is, how many points fall within each of the polygons. This is calling for spatial joins concept. 
+Now I am interested in knowing the number of honeybee permits per neighborhood That is, how many points fall within each of the polygons. This is calling for spatial joins concept.
 
 ### Spatial joins
 
@@ -226,7 +230,7 @@ nb <- nb_join %>%
   summarise(n_permits = n())
 ```
 
-We can then arrange by the number of permits to see which has the highest number of honeybee permits and which has least. 
+We can then arrange by the number of permits to see which has the highest number of honeybee permits and which has least.
 
 ```{r}
 nb %>% 
