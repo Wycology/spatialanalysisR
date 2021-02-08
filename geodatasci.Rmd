@@ -180,6 +180,8 @@ colnames(honeybee_utm)
 
 To use the variable of HiveType to color the points we make slight modification to our earlier plot.
 
+# Add color of points from attributes
+
 ```{r HiveType}
 ggplot() +
   geom_sf(data = neighborhoods, fill = '#e8eff7', color = '#8f98aa') +
