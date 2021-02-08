@@ -26,7 +26,7 @@ The data I used work can be [directly downloaded](https://opendata.arcgis.com/da
 The next step is to read in the data using `st_read()`. I will call the created object honeybee
 
 ```{r loading, echo=FALSE, message=FALSE, warning=FALSE}
-honeybee <- st_read('shp/HoneyBeePermits2017.shp')
+honeybee <- st_read('shp/HoneyBeePermits2017.shp') # Reading in the shapefile
 ```
 
 There is a lot of information which we get by loading the data including path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:
