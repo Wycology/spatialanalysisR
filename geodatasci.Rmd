@@ -158,7 +158,7 @@ That is a pretty fine map. Though things like North arrow, scale, graticule, bor
 
 I want to attempt something. To label the neighborhoods by their names.
 
-```{r}
+```{r label_points}
 ggplot() +
   geom_sf(data = neighborhoods, fill = '#e8eff7', color = '#8f98aa') +
   geom_sf_label(data = neighborhoods, aes(label = BDNAME)) +
