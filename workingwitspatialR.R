@@ -25,10 +25,10 @@ library(leaflet) # Almost similar functionalities as mapview
 # R         = 4.0.3 "Bunny-Wunnies Freak Out", run the word version 
 # RStudio   = 1.4.1103 (Go to Help ==> About RStudio)
 # raster    = 3.4.5  Run packageVersion("raster")
-# rgdal     = 1.5.18 Run packageVersion("rgdal")
+# rgdal     = 1.5.23 Run packageVersion("rgdal")
 # tidyverse = 1.3.0  Run packageVersion("tidyverse")
 # maps      = 3.3.0  Run packageVersion("maps")
-# spocc     = 1.1.0  Run packageVersion("spocc")
+# spocc     = 1.2.0  Run packageVersion("spocc")
 
 # Loading the dsm (digital surface model) data - heights of top physical points.
 # The data were captured by lidar flyover in Harvard NEON site.
@@ -39,7 +39,7 @@ library(leaflet) # Almost similar functionalities as mapview
 
 dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif") # Reads the raster data.
 
-# Have a quick visual appeal of the loaded raster data.
+# Have a quick visual appeal of the loaded raster data by plotting it.
 
 raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot().
 
