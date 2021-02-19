@@ -13,7 +13,7 @@
 
 # Here are a bunch of necessary libraries.
 
-library(raster) # Reading and wrangling raster data files (e.g. dsm and dtm)
+library(raster) # Working with raster data files (e.g. dsm and dtm)
 library(rgdal)  # Reading and manipulating vector data (points, lines, polygons)
 library(maps) # Loading required maps as SpatialDataframe
 library(spocc) # Gathering species records from gbif (https://www.gbif.org/)
