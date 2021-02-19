@@ -48,7 +48,7 @@ raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot().
 dsm_harvard # Displays the key attributes or metadata of the raster dsm
 ncol(dsm_harvard)
 
-# Looking at the 'source' indicates that it is a .tif file.
+# Looking at the 'source' indicates that it is a .tif data file.
 # The resolution is 1 by 1 meaning 1m by 1m, very high spatial resolution!!
 # Am sure the unit is m because it is indicated under the crs:....+units=m.
 # Convert the dsm raster (GeoTiff) to dataframe to plot using ggplot2 package
