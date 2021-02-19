@@ -10,10 +10,8 @@
 ########################################
 
 # Calculating plant canopy heights across NEON sites in Harvard using dsm & dtm.
-# The following libraries need to be loaded first to aid the work:
 
-# In case none of them is already installed then use install.packages() function
-# to do so. 
+# Here are a bunch of necessary libraries.
 
 library(raster) # Reading and wrangling raster data files (e.g. dsm and dtm)
 library(rgdal)  # Reading and manipulating vector data (points, lines, polygons)
