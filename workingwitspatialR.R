@@ -23,7 +23,7 @@ library(leaflet) # Almost similar functionalities as mapview
 # Versions of packages Rstudio and R used in this project:
 
 # R         = 4.0.3 "Bunny-Wunnies Freak Out", run the word version 
-# RStudio   = 1.3.1093 (Go to Help ==> About RStudio)
+# RStudio   = 1.4.1103 (Go to Help ==> About RStudio)
 # raster    = 3.4.5  Run packageVersion("raster")
 # rgdal     = 1.5.18 Run packageVersion("rgdal")
 # tidyverse = 1.3.0  Run packageVersion("tidyverse")
