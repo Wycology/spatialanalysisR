@@ -46,7 +46,7 @@ raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot().
 # Check the metadata of the dsm. Done by running the raster object itself.
 
 dsm_harvard # Displays the key attributes or metadata of the raster dsm
-ncol(dsm_harvard)
+ncol(dsm_harvard) # Checking the number of columns in the data.frame.
 
 # Looking at the 'source' indicates that it is a .tif data file.
 # The resolution is 1 by 1 meaning 1m by 1m, very high spatial resolution!!
