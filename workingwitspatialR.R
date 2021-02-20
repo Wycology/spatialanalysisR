@@ -64,7 +64,7 @@ dsm_harvard_df <- as.data.frame(dsm_harvard,
 # Check the head of the data.frame created to confirm the data is well created.
 
 head(dsm_harvard_df) # Indeed the coordinates are also stored in the newly 
-# created dataframe.
+# created data.frame.
 
 # We can create another one with xy set to FALSE, just for fun.
 
@@ -76,15 +76,17 @@ dsm_harvard_df %>% # pick the dataset, and then.
   dplyr::select(y) %>% # pick the column called y, and then
   nrow() # Give the number of rows here. This can also be x or HARV_dsmCrop if
 # they are accordingly included in the select() too.
+
 View(dsm_harvard_df)
+
 # This (2319799) is the same value as ncell shown by:
 
 dsm_harvard # We are now sure about how long (number of rows) the dataset is.
 # @ symbol can be used to extract only specific attribute of the layer e.g
-dsm_harvard@crs # coordinate reference system
-dsm_harvard@extent # extent of the layer
-dsm_harvard@ncols
-dsm_harvard@nrows
+dsm_harvard@crs # coordinate reference system of the dsm raster
+dsm_harvard@extent # extent of the dsm layer
+dsm_harvard@ncols # number of columns in the raster
+dsm_harvard@nrows # number of rows in the raster layer
 
 # However, for the number of cells, I use:
 
