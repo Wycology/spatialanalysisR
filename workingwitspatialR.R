@@ -96,8 +96,8 @@ dsm_harvard@ncols * dsm_harvard@nrows # Multiplying columns by rows
 
 # Create the ggplot; "HARV_dsmCrop" is the name of the column with cell values.
 
-ggplot(data = dsm_harvard_df, 
-       aes(x = x, y = y,
+ggplot(dsm_harvard_df, 
+       aes(x, y,
            fill = HARV_dsmCrop))+ # fill takes the extracted cell values.
   geom_raster() + # This use of geom_raster() is important to note.
   labs(x = "Longitude (m)", 
