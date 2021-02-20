@@ -59,9 +59,9 @@ ncol(dsm_harvard) # Checking the number of columns in the data.frame.
 dsm_harvard_df <- as.data.frame(dsm_harvard, 
                                 xy = TRUE) # xy = TRUE ensures that coordinates
                                            # are also stored in the created 
-                                           # dataframe.
+                                           # data.frame.
 
-# Check the head of the dataframe created to confirm the data is as expected.
+# Check the head of the data.frame created to confirm the data is well created.
 
 head(dsm_harvard_df) # Indeed the coordinates are also stored in the newly 
 # created dataframe.
