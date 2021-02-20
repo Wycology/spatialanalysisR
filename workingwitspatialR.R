@@ -90,6 +90,9 @@ dsm_harvard@nrows # number of rows in the raster layer
 
 # However, for the number of cells, I use:
 
+ncell(dsm_harvard) # Returning the number of cells in the raster dataset. Same as
+
+dsm_harvard@ncols * dsm_harvard@nrows # Multiplying columns by rows
 
 # Create the ggplot; "HARV_dsmCrop" is the name of the column with cell values.
 
