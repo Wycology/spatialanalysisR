@@ -20,15 +20,17 @@ library(spocc) # Gathering species records from gbif (https://www.gbif.org/)
 library(tidyverse) # Wrangling and visualizing especially tabular data
 library(mapview) # Viewing interactve map with a range of background layers
 library(leaflet) # Almost similar functionalities as mapview
+library(leaflet.extras2) 
 # Versions of packages Rstudio and R used in this project:
 
-# R         = 4.0.3 "Bunny-Wunnies Freak Out", run the word version 
-# RStudio   = 1.4.1103 (Go to Help ==> About RStudio)
-# raster    = 3.4.5  Run packageVersion("raster")
-# rgdal     = 1.5.23 Run packageVersion("rgdal")
-# tidyverse = 1.3.0  Run packageVersion("tidyverse")
-# maps      = 3.3.0  Run packageVersion("maps")
-# spocc     = 1.2.0  Run packageVersion("spocc")
+# R               = 4.0.3 "Bunny-Wunnies Freak Out", run the word version 
+# RStudio         = 1.4.1103 (Go to Help ==> About RStudio)
+# raster          = 3.4.5  Run packageVersion("raster")
+# rgdal           = 1.5.23 Run packageVersion("rgdal")
+# tidyverse       = 1.3.0  Run packageVersion("tidyverse")
+# maps            = 3.3.0  Run packageVersion("maps")
+# spocc           = 1.2.0  Run packageVersion("spocc")
+# leaflet.extras2 = 1.1.0  Run packageVersion('leaflet.extras2')
 
 # Loading the dsm (digital surface model) data - heights of top physical points.
 # The data were captured by lidar flyover in Harvard NEON site.
@@ -233,8 +235,6 @@ dsm_harvard_latlong <- projectRaster(dsm_harvard, crs = 4326)
 
 m <- mapview(dsm_harvard_latlong) 
 m1 <- mapview(plots_harvard)
-install.packages('leaflet.extras2')
-library(leaflet.extras2)
 m | m1
 
 # I must get this up and running before sleeping tonight.
