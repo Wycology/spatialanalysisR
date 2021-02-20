@@ -35,7 +35,7 @@ library(leaflet) # Almost similar functionalities as mapview
 # Typically trees but could be anything else projecting above the surface.
 # When I checked the study area using Google Earth (42.536910°, -72.17265°) 
 # (https://www.neonscience.org/field-sites/harv), it is a forested site 
-# and the NEON sensor pylon is clearly visible at the site!!!
+# and even the NEON sensor pylon is clearly visible at the site!!!
 
 dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif") # Reads the raster data.
 
