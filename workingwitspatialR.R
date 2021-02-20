@@ -113,8 +113,8 @@ dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif") # Note the difference in
 # Subtracting dtm from dsm to get the true canopy height. Difference in the 
 # heights of the two layers. It is dtm being subtracted FROM dsm.
 
-# However, before subtration is done, we shall check whether the two rasters
-# are of same extent, resolution and projection
+# However, before subtraction is done, we shall check whether the two rasters
+# are of same extent, resolution, and projection
 
 compareRaster(dtm_harvard, dsm_harvard) # This has returned TRUE, meaning they
 # are of the same extent, resolution and projection. Otherwise it would return
@@ -123,11 +123,11 @@ compareRaster(dtm_harvard, dsm_harvard) # This has returned TRUE, meaning they
 canopy_height_harvard <- dsm_harvard - dtm_harvard # Simple raster subtraction.
 
 # The subtraction is being done cell by cell hence ease of subtraction.
-# Convert canopy height raster to dataframe for plotting.
+# Convert canopy height raster to data.frame for plotting.
 
 canopy_height_harvard_df <- as.data.frame(canopy_height_harvard, 
                                           xy = TRUE) # Again returning xy.
-# Checking the head of the canopy dataframe.
+# Checking the head of the canopy data.frame.
 
 head(canopy_height_harvard_df) # x, y, and layer well displayed. Layer here 
 # indicates the values of the heights (m) of the trees within Harvard.
@@ -135,7 +135,7 @@ head(canopy_height_harvard_df) # x, y, and layer well displayed. Layer here
 
 # Generating the plot of the canopy data.
 
-summary(canopy_height_harvard_df)
+summary(canopy_height_harvard_df) # Just the normal summary of a base R.
 
 newcanopy <- canopy_height_harvard_df %>% 
   mutate(heights = case_when(layer == 0 ~ 'Bare',
