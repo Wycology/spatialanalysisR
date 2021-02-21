@@ -181,7 +181,7 @@ canopy_height_harvard_df %>% # Picks the dataframe, and then.
 # and dtm have same value. Being a forested area, we can say these are flat zones
 # which may need planting of trees.The question is, how many cells are "bare"?
 
-canopy_height_harvard_df %>% # Picking the dataframe with canopy heights, and then.
+canopy_height_harvard_df %>% # Picking the data.frame with canopy heights & then.
   dplyr::select(layer) %>%  # Picking the layer column, and then.
   filter(layer == 0) %>%  # Selecting those cells which are 0 m, and then,
   nrow() # Counting their row numbers, actually the number of cells.
