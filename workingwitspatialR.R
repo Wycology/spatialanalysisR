@@ -193,7 +193,7 @@ canopy_height_harvard_df %>% # Picking the data.frame with canopy heights & then
 # On average, we can estimate the mean canopy height at the site;
 
 canopy_height_harvard_df %>% # Picks the dataframe, and then.
-  dplyr::select(layer) %>%  # Picks the layer column to check values from, and then.
+  dplyr::select(layer) %>%  # Picks the layer column to check values from & then.
   summarize(average = mean(layer, na.rm = TRUE)) # Returns the mean canopy height.
 
 # Still we can get the median height of the trees;
@@ -205,7 +205,7 @@ canopy_height_harvard_df %>% # Picks the dataframe & then.
 # To calculate quantiles of the dataframe: Better summary with named rows;
 
 canopy_height_harvard_df %>% # Picks the dataframe, and then.
-  dplyr::select(layer) %>%  # Picks the layer column to check values from, and then.
+  dplyr::select(layer) %>%  # Picks the layer column to check values from & then.
   summarize(quantiles = quantile(layer, na.rm = TRUE)) %>% 
   `row.names<-`(c("min", "lower quartile", "median", "upper quartile", "max"))
 
