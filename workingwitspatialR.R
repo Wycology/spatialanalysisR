@@ -45,7 +45,7 @@ dsm_harvard <- raster("NEON-airborne/HARV_dsmCrop.tif") # Reads the dsm data.
 
 raster::plot(dsm_harvard) # Specifying raster:: helps to pick the right plot().
 
-# Check the metadata of the dsm. Done by running the raster object itself.
+# Metadata of the dsm. Accessed by running the raster object itself.
 
 dsm_harvard # Displays the attributes or metadata of the raster dsm
 ncol(dsm_harvard) # Checking the number of columns in the data.frame.
