@@ -34,7 +34,7 @@ library(leaflet.extras2)
 
 # Loading the dsm (digital surface model) data - heights of top physical points.
 # The data were captured by lidar flyover in Harvard NEON site.
-# Typically trees but could be anything else projecting above the surface.
+# Typically trees but could be anything else projecting above earth surface.
 # When I checked the study area using Google Earth (42.536910°, -72.17265°) 
 # (https://www.neonscience.org/field-sites/harv), it is a forested site 
 # and even the NEON sensor pylon is clearly visible at the site!!!
