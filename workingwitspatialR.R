@@ -198,8 +198,8 @@ canopy_height_harvard_df %>% # Picks the dataframe, and then.
 
 # Still we can get the median height of the trees;
 
-canopy_height_harvard_df %>% # Picks the dataframe, and then.
-  dplyr::select(layer) %>%  # Picks the layer column to check values from, and then.
+canopy_height_harvard_df %>% # Picks the dataframe & then.
+  dplyr::select(layer) %>%  # Picks the layer column to check values from & then.
   summarize(median = median(layer, na.rm = TRUE)) # Returns the median value.
 
 # To calculate quantiles of the dataframe: Better summary with named rows;
