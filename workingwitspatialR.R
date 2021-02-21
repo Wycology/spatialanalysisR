@@ -79,7 +79,7 @@ dsm_harvard_df %>% # pick the data-set, and then.
   nrow() # Give the number of rows here. This can also be x or HARV_dsmCrop if
 # they are accordingly included in the select() too.
 
-View(dsm_harvard_df)
+View(dsm_harvard_df) # To have a look at the whole data.frame.
 
 # This (2319799) is the same value as ncell shown by:
 
