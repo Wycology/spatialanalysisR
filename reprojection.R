@@ -9,7 +9,7 @@
 # Chapter Six Reprojecting Geographic Data----
 # Loading the necessary libraries for the project today
 
-# Installing some of the packages which are having the data used in the project
+# Installing some of the packages which are having the data for the project
 
 # remotes::install_github("Nowosad/spDataLarge")
 # all othe libraries can be simply installed the normal way.
