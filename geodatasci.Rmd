@@ -176,6 +176,7 @@ We can use the HiveType variable in the data-set to color the points so that we 
 
 ```{r names_of_variables}
 colnames(honeybee_utm)
+rownames(honeybee_utm)
 ```
 
 To use the variable of HiveType to color the points we make slight modification to our earlier plot.
@@ -238,13 +239,12 @@ We can then arrange by the number of permits to see which has the highest number
 nb %>% 
   arrange(-n_permits)
 ```
-
 We can have a quick look at the distribution in form of histogram.
 
 ```{r}
 ggplot(nb, aes(x = n_permits)) +
   geom_histogram(binwidth = 1, color = 'white', fill = 'purple') +
-  theme_minimal() +
+  theme_classic() +
   ggtitle('Permits per Neighborhood') +
   theme(text = element_text(family = 'Century Gothic')) +
   labs(x = 'Number of Permits')
