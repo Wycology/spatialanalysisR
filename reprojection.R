@@ -7,7 +7,7 @@
 # Last modified on 5th March 2021       #
 #########################################
 # Chapter Six Reprojecting Geographic Data----
-# Loading the necessary libraries for the 
+# Loading the necessary libraries for the project
 
 # Installing some of the packages which are having the data used in the project
 
