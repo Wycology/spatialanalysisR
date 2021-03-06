@@ -6,7 +6,7 @@
 # Created on 9th January 2021           #
 # Last modified on 6th March 2021       #
 #########################################
-# Chapter Six Reprojecting Geographic Data----
+# Chapter Six Reprojecting Geographic Data in R----
 # Loading the necessary libraries for the project today
 
 # Installing some of the packages which are having the data for the project
