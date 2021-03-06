@@ -44,7 +44,7 @@ st_is_longlat(london) # Returns NA because it is not yet set to any projection
 # variables and set them as coordinates and that is enough. Setting coordinates
 # in sf package needs the use of st_set_crs() whereby projection is assigned. 
 # That is when the full metadata will be availed to define the crs.
-# So we can overcome the above problem by piping (%>%) it to crs or epsg code:
+# So we can overcome the above problem by piping (%>%) it to crs or EPSG code:
 
 london_geo <- london %>% # Feeding in the above london information
   st_set_crs(4326) # Setting the crs to epsg code 4326 for geographic datum
