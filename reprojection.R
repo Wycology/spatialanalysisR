@@ -73,7 +73,7 @@ geosphere::distGeo(c(0, 0), c(1, 0)) # Returns distance between two longitudes,
 # That is distance along the equator but 1 degree to the east.
 
 geosphere::distGeo(c(-0.1, 51.5), c(0.9, 51.5)) / 1000 # Cool, distance between two
-# meridians in London is slightly below 70kms (69.43998).
+# meridians in London is slightly below 70 kms (69.43998).
 
 # Let me check the distance between our door and our gate at home:
 
