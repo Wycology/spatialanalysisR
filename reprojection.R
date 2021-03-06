@@ -12,7 +12,7 @@
 # Installing some of the packages which are having the data for the project
 
 # remotes::install_github("Nowosad/spDataLarge")
-# all othe libraries can be simply installed the normal way.
+# all of the libraries can be simply installed the normal way.
 
 # This is then followed by loading the necessary libraries into R
 
