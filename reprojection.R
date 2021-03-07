@@ -157,8 +157,8 @@ st_distance(north2, south) # Cool 31.37634 m, so close to what I got (30.86 m)
 
 31.37634 - 30.86
 
-# Worried about EPSG code associated with any point on the planet, here is a tailor
-# made function:
+# Worried about EPSG code associated with any point on the planet, here is a 
+# tailor made function:
 
 lonlat2UTM <- function(lonlat){
   utm <- (floor((lonlat[1] + 180)/6) %% 60) + 1
