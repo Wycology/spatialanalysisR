@@ -131,6 +131,7 @@ st_distance(london_geo,london_proj) # Very informative error, both objects have
 # Let me transform the one in GEOCRS to PROJCRS
 
 london2 <- st_transform(london_geo, 27700)
+
 # Now this is cool, let me try calculating the distance again
 
 st_distance(london2, london_proj) # Good, the two are about 2 kms apart.
@@ -218,7 +219,8 @@ st_crs(cycle_hire_osm_projected)$epsg
 # Cool, even just printing the spatial object in the console alone is enough to
 # reveal the crs.
 
-print(cycle_hire_osm_projected) # Projected CRS: OSGB 1936 / Britich National Grid
+print(cycle_hire_osm_projected) # Projected CRS: OSGB 1936 / Britich National 
+# Grid
 
 world_mollweide <- st_transform(world, crs = '+proj=moll') # Leaving space on
 # either sides of equal sign will throw an error.
