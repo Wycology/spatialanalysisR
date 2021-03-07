@@ -303,8 +303,8 @@ cat_raster_wgs84       # Checking the new raster attributes
 cat_raster_wgs84_init <-
   projectRaster(cat_raster, crs = '+init=epsg:4326',
                 method = 'ngb')
-cat_raster_wgs84_init # Running this raster returns attributes of the raster quite
-# similar to those of cat_raster_wgs84
+cat_raster_wgs84_init # Running this raster returns attributes of the raster 
+# quite similar to those of cat_raster_wgs84
 
 # To compare the two rasters we can use compareRaster function as follows
 
