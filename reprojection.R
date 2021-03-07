@@ -34,7 +34,7 @@ library(cartogram)  # Another map making package
 
 london <- data.frame(lon = -0.1,
                      lat = 51.5) %>% # Creating a data.frame, and then
-  st_as_sf(coords = c('lon', 'lat')) # Setting the variables lon and lat as coords
+  st_as_sf(coords = c('lon', 'lat')) # Setting variables lon and lat as coords
 
 london # Running this confirms that CRS is NA. An sf object without crs
 
@@ -63,7 +63,7 @@ st_is_longlat(london_geo) # This is now returning TRUE because we have set crs
 
 london_buff_nocrs <- st_buffer(london, dist = 1)
 london_buff <- st_buffer(london_geo, dist = 1) # Returns a warning, the warning
-# implies that we should reproject the point to a projected coordinate system not 
+# implies that we should re-project the point to a projected coordinate system not 
 # the longlat geographic datum.
 
 # How to calculate distance in m between any two points on the surface of the 
