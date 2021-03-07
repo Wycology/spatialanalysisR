@@ -173,13 +173,19 @@ lonlat2UTM <- function(lonlat){
 # Nairobi, TRI, and Lodwar among many other places you may need
 
 epsg_utm_aukland <- lonlat2UTM(c(174.7, -36.9)) # Returns 32760
+epsg_utm_aukland
 epsg_utm_london <- lonlat2UTM(c(st_coordinates(london))) # Returns 32630
+epsg_utm_london
 epsg_utm_Nairobi <- lonlat2UTM(c(36.822004,  -1.293444)) # Returns 32737
+epsg_utm_Nairobi
 epsg_utm_tri <- lonlat2UTM(c(35.348981, -0.372091)) # Returns 32736
+epsg_utm_tri
 epsg_utm_lodwar <- lonlat2UTM(c(35.597457, 3.118125)) # Returns 32636
+epsg_utm_lodwar
 epsg_utm_tannenbusch <- lonlat2UTM(c(7.043103, 50.749732)) # Returns 32632
+epsg_utm_tannenbusch
 epsg_utm_honduras <- lonlat2UTM(c(-86.241367, 15.200515)) # Returns 32616
-
+epsg_utm_honduras
 # Now, to know the zones associated with the above, it is simple just extract it
 # with $ accessor symbol
 
