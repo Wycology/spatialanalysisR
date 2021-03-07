@@ -152,7 +152,7 @@ st_distance(north, south) # Error, the two have different crs, EPSG 4326 and
                           # EPSG 32736
 
 north2 <- st_transform(north, 32736) # setting the GEOCRS to PROJCRS
-st_distance(north2, south) # Super cool 31.37634 m, so close to what I got (30.86 m)
+st_distance(north2, south) # Cool 31.37634 m, so close to what I got (30.86 m)
 # I actually missed by half a meter.
 
 31.37634 - 30.86
