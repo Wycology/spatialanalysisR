@@ -108,7 +108,7 @@ london_proj_buff <- st_buffer(london_proj, dist = 111319.5)
 str(london_proj_buff)
 
 plot(london_proj_buff, col = 'purple', graticule = TRUE) # Plots buffer
-plot(london_proj, col = 'yellow', cex = 8, pch = 19, add = TRUE) # Adds the point
+plot(london_proj, col = 'yellow', cex = 8, pch = 19, add = TRUE) # Adds point
 
 # I know the distance between Kisumu and Kericho on google map to be 64.89 kms
 
