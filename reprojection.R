@@ -33,7 +33,7 @@ library(cartogram)  # Another map making package
 # Here we start by a dummy dataframe and check for crs using the function
 
 london <- data.frame(lon = -0.1,
-                     lat = 51.5) %>% # Creating a data.frame
+                     lat = 51.5) %>% # Creating a data.frame, and then
   st_as_sf(coords = c('lon', 'lat')) # Setting the variables lon and lat as coords
 
 london # Running this confirms that CRS is NA. An sf object without crs
