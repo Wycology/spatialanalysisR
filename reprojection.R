@@ -8,7 +8,8 @@
 #########################################
 
 # Chapter Six Re-projecting Geographic Data in R----
-# Loading the necessary libraries for the project today
+
+# Loading the necessary libraries for the project 
 
 # Installing some of the packages which are having the data for the project
 
