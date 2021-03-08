@@ -18,7 +18,7 @@
 
 # This is then followed by loading the necessary libraries into R
 
-library(sf)         # Working with the sf data-sets
+library(sf)         # Working with the sf data-sets...version 0.9.7
 library(raster)     # Manipulating and writing raster data as  
 library(tmap)       # Generating good maps using st_functions
 library(tidyverse)  # Wrangling data 
