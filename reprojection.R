@@ -51,7 +51,7 @@ st_is_longlat(london) # Returns NA because it is not yet set to any projection
 london_geo <- london %>% # Feeding in the above london information
   st_set_crs(4326) # Setting the crs to epsg code 4326 for geographic datum
 
-# To show the whole process in one group of codes:
+# To show the whole process in one simple group of codes:
 
 london_geo <- data.frame(lon = -0.1,
                          lat = 51.5) %>% # Gives coordinates of the point
