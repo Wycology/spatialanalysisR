@@ -26,7 +26,7 @@ library(shiny)      # Will generate cool shiny app map (webmap)..version 1.6.0
 library(spData)     # Has data for use in this document analysis..version 0.3.8
 library(spDataLarge)# Has larger data than spData above..version 0.5.1
 library(mapview)    # Rendering html maps..version 2.9.0
-library(leaflet)    # Rendering html maps too    
+library(leaflet)    # Rendering html maps too..version 2.0.4.1    
 library(grid)       # Did something
 library(cartogram)  # Another map making package
 
