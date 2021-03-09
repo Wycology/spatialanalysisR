@@ -1,3 +1,6 @@
+# Created by Wyclife Agumba Oluoch
+# As a response to an email on 8th March 2021
+
 # Clipping your occurrence records and predictor variables with your study area
 # boundary
 
