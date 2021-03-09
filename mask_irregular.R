@@ -93,11 +93,12 @@ crs(clim_masked_projected)
 occurrence_kenya = st_intersection(occurrence_projected, kenya_sf_projected)
 
 plot(clim_masked_projected[[1]]) # Just within the study area
+plot(kenya_sf_projected, add = T)# Kenya shapefile, study area
 plot(occurrence_kenya,add =T)    # Only points within the study area
 
 # Now, our two data-sets which are within our study area are:
 
-# 1. clim_masked .... for the predictors
+# 1. clim_masked_projected .... for the predictors
 # 2. occurrence_kenya ... for the occurrence records.
 
 # I hope this helps!
