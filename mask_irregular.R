@@ -35,7 +35,7 @@ clim_cropped <- crop(worldclim, kenya)
 
 plot(clim_cropped[[1]]) # This is using the rectangular extent 
 
-# Now we need to mask it
+# Now we need to mask the cropped layer using the study area boundary
 
 clim_masked <- mask(clim_cropped, kenya)
 
