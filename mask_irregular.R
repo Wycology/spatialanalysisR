@@ -51,7 +51,7 @@ occurrence <- gbif('Salvadora', 'persica', download = T, ntries = 5, sp = T)
 
 # Lets see distribution of occurrence globally
 plot(worldclim[[1]])
-plot(occurrence, add = T) # A lot of points largely in Africa
+plot(occurrence, add = T) # A lot of points largely in Africa but also Arabia
 
 # Cropping occurrence records
 
