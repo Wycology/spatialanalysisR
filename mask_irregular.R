@@ -6,7 +6,7 @@
 # boundary
 
 # Libraries for the project
-# R         version 4.0.4 "Lost Library Book"
+# R         version 4.0.4 nicknamed "Lost Library Book"
 # RStudio   version 1.4.1103
 
 library(dismo)   # version 1.3.3
