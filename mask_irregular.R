@@ -31,7 +31,7 @@ crs(kenya)     # CRS arguments: +proj=longlat +datum=WGS84 +no_defs
 
 clim_cropped <- crop(worldclim, kenya)
 
-# Plot the cropped 
+# Plot the cropped raster, one of the stacked layers
 
 plot(clim_cropped[[1]]) # This is using the rectangular extent 
 
