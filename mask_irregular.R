@@ -19,7 +19,7 @@ worldclim <- getData('worldclim', var = 'tmin', res = 10)
 
 # study area boundary I get from GADM 
 
-kenya <- getData('GADM', country='KEN', level=0)
+kenya <- getData('GADM', country = 'KEN', level = 0)
 
 # Check crs of your raster and polygon, they should be the same. If not, check
 # on how to reproject either to the other.
