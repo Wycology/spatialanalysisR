@@ -15,8 +15,6 @@ library(sf)      # version 0.9.7
 
 # Environmental data from worldclim----
 
-# worldclim data
-
 worldclim <- getData('worldclim', var = 'tmin', res = 10)
 
 # study area shapefile 
