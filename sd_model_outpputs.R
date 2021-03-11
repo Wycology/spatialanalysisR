@@ -1,9 +1,10 @@
-# Created on 11th March, 2021
+# Created on 11th March 2021
+# Last edited 11th March 2021
 # Created by Wyclife Agumba Oluoch
 # Task: Calculating standard deviation on sdm model outputs
+# Relevance: This is super helpful with appreciating uncertainty around model
+# outputs...like where do the models disagree most and where to they agree more
 
-# Here I am going to show how to run standard deviation on model outputs. 
-# This can help reveal the regions of maximum uncertainty within the study area
 
 # In running predict function, we generated several layers and stored as .img 
 # files as specified in the finename = "blabla.img".
