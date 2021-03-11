@@ -8,7 +8,8 @@
 # In running predict function, we generated several layers and stored as .img 
 # files as specified in the finename = "blabla.img".
 
-# Here we can also save the same image as .tif so that we can easily postanalyze it
+# Here we can also save the same image as .tif so that we can easily postanalyze 
+# them in any other QGIS programme. 
 
 predicted_layers <- predict(model, predictors, 
                             filename = 'predicted_bands.tif') # Note the .tif
