@@ -1,5 +1,5 @@
 # Created on 11th March, 2021
-# Created by 
+# Created by Wyclife Agumba Oluoch
 
 
 # Here I am going to show how to run standard deviation on model outputs. 
