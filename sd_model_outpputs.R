@@ -16,14 +16,14 @@
 predicted_layers <- predict(model, predictors, 
                             filename = 'predicted_bands.tif') # Note the .tif
 
-# This is saved as a single layer with several bands. Each band represent model id
-# (methods*replications*reps). So number 1 can be SVM under bootsrapping for 
+# This is saved as a single layer with several bands. Each band represent model 
+# id (methods*replications*reps). So number 1 can be SVM under bootsrapping for 
 # first rep.
 
 # To read this into R, use stack function in R
 
-stacked_layers <- stack('predicted_bands.tif') #Reads all the bands. If you use raster,
-# only one band will be read at a time.
+stacked_layers <- stack('predicted_bands.tif') #Reads all the bands. If you use 
+# raster, only one band will be read at a time.
 
 stacked_layers # This shows that nlayers are 30 (equal to my model outputs)
 
@@ -36,4 +36,5 @@ stacked_sd <- calc(stacked_layers, fun = sd)
 plot(stacked_sd)
 
 # Great...
-# Remember, since I saved them as tif, other beautification can be done in QGIS et al.
+# Remember, since I saved them as tif, other beautification can be done in QGIS 
+# et al.
