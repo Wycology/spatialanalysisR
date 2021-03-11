@@ -1,6 +1,6 @@
 # Created on 11th March, 2021
 # Created by Wyclife Agumba Oluoch
-
+# Task: Calculating standard deviation on sdm model outputs
 
 # Here I am going to show how to run standard deviation on model outputs. 
 # This can help reveal the regions of maximum uncertainty within the study area
