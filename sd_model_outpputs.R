@@ -5,7 +5,6 @@
 # Relevance: This is super helpful with appreciating uncertainty around model
 # outputs...like where do the models disagree most and where to they agree more
 
-
 # In running predict function, we generated several layers and stored as .img 
 # files as specified in the finename = "blabla.img".
 
