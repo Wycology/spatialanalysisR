@@ -5,7 +5,10 @@
 
 getData('CMIP5', var='tmin', res=10, rcp=85, model='AC', year=70)
 
-# A more complete one will look 
+# A more complete one will look like:
+
+
+
 function (var, model, rcp, year, res, lon, lat, path, download = TRUE)
   
 # 'model' should be one of "AC", "BC", "CC", "CE", "CN", "GF", "GD", "GS", 
