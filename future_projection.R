@@ -15,8 +15,8 @@ getData(name = 'CMIP5', # others would be worldclim, GADM, alt, SRTM(plus lon,la
         res = 10,       # others 2.5 and 5
         lon = 35,       # as need be
         lat = -0.23,    # as need be
-        download = T, 
-        path = 'D:/JUNK')
+        download = T,   # in case you want to download
+        path = 'D:/JUNK') # where to store downloads, default is working directory
 
 function (var, model, rcp, year, res, lon, lat, path, download = TRUE)
   
