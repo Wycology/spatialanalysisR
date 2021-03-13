@@ -1,4 +1,4 @@
-# Working with
+# Working with bathymetry
 
 library(sdmpredictors) # Loading the library
 library(leaflet)
