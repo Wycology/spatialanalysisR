@@ -1,4 +1,4 @@
-# Working 
+# Working with
 
 library(sdmpredictors) # Loading the library
 library(leaflet)
