@@ -1,4 +1,4 @@
-# Working with bathymetry data to predict marine species 
+# Working with bathymetry data to predict marine species distribution
 
 library(sdmpredictors) # Loading the library
 library(leaflet)
