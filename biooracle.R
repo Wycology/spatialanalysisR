@@ -1,4 +1,4 @@
-# Created by Wyclife Agumba
+# Created by Wyclife Agumba Oluoch
 
 # Working with bathymetry data to predict marine species distribution
 
