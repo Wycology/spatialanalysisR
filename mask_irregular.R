@@ -17,7 +17,7 @@ library(sf)      # version 0.9.7
 
 worldclim <- getData('worldclim', var = 'tmin', res = 10)
 
-# study area boundary I get from GADM 
+# study area boundary I get from GADM database
 
 kenya <- getData('GADM', country = 'KEN', level = 0)
 
