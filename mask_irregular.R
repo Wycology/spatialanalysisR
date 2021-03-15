@@ -5,7 +5,7 @@
 # Clipping your occurrence records and predictor variables with your study area
 # boundary
 
-# Libraries for the project
+# Libraries for the project at hand
 # R         version 4.0.4 nicknamed "Lost Library Book"
 # RStudio   version 1.4.1103
 
