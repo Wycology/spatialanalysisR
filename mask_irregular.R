@@ -27,11 +27,11 @@ kenya <- getData('GADM', country = 'KEN', level = 0)
 crs(worldclim) # CRS arguments: +proj=longlat +datum=WGS84 +no_defs 
 crs(kenya)     # CRS arguments: +proj=longlat +datum=WGS84 +no_defs 
 
-# Cropping and masking worldclim using the polygon
+# Cropping and masking worldclim using the polygon 
 
 clim_cropped <- crop(worldclim, kenya)
 
-# Plot the cropped raster, one of the stacked layers
+# Plot the cropped raster, that is one of the stacked layers
 
 plot(clim_cropped[[1]]) # This is using the rectangular extent 
 
