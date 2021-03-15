@@ -100,4 +100,4 @@ plot(occurrence_kenya,add = T)    # Only points within the study area
 # 1. clim_masked_projected .... for the predictors
 # 2. occurrence_kenya ... for the occurrence records.
 
-# I hope this helps!
+# I hope this helps, all the best!
