@@ -58,7 +58,7 @@ plot(occurrence, add = T) # A lot of points largely in Africa but also Arabia
 
 occurrence_cropped <- crop(occurrence, kenya) # Only occurrence within kenya extent
 
-# Plot the cropped occurrence on the kenyan masked worldclim
+# Plot the cropped occurrence on the Kenyan masked worldclim
 
 plot(clim_masked[[1]])
 plot(occurrence_cropped, add = T) # Yes cropped, but with kenyan extent.
