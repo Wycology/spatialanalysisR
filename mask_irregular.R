@@ -27,7 +27,7 @@ kenya <- getData('GADM', country = 'KEN', level = 0)
 crs(worldclim) # CRS arguments: +proj=longlat +datum=WGS84 +no_defs 
 crs(kenya)     # CRS arguments: +proj=longlat +datum=WGS84 +no_defs 
 
-# Cropping and masking worldclim using the polygon 
+# Cropping and masking worldclim using the polygon boundary 
 
 clim_cropped <- crop(worldclim, kenya)
 
