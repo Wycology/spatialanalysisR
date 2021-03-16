@@ -41,7 +41,8 @@ clim_masked <- mask(clim_cropped, kenya)
 
 # Plot the cropped and now masked raster
 
-plot(clim_masked[[1]]) # This now takes the irregular shape of your polygon
+plot(clim_masked[[1]]) # This now takes the irregular shape of your polygon and 
+# covers only the cropped region
 
 # Occurrence records---- 
 # I will download from gbif. Replace with your species of interest.
