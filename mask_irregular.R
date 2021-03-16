@@ -2,7 +2,7 @@
 # As a response to an email on 8th March 2021
 # Last edited on 16th March 2021
 
-# Clipping occurrence records and predictor variables with your study area
+# Clipping occurrence records data and predictor variables with your study area
 # boundary
 
 # Libraries for the project at hand
