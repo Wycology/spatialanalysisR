@@ -33,7 +33,7 @@ clim_cropped <- crop(worldclim, kenya)
 
 # Plot the cropped raster, that is one of the stacked layers
 
-plot(clim_cropped[[1]]) # This is using the rectangular extent 
+plot(clim_cropped[[1]]) # This is using the rectangular extent of the polygon 
 
 # Now we need to mask the cropped layer using the study area boundary
 
