@@ -1,5 +1,5 @@
 # Created on 11th March 2021
-# Last edited 11th March 2021
+# Last edited 17th March 2021
 # Created by Wyclife Agumba Oluoch
 # Task: Calculating standard deviation on sdm model outputs
 # Relevance: This is super helpful with appreciating uncertainty around model
