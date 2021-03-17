@@ -1,6 +1,7 @@
 # Created by Wyclife Agumba Oluoch
 # Created on 
 # Last edited on 17th March 2021
+# Task: Mapping open water points in 
 
 
 library(leaflet)
