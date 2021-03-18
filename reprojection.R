@@ -58,7 +58,7 @@ london_geo <- data.frame(lon = -0.1,
   st_as_sf(coords = c('lon', 'lat')) %>% # Sets them as coordinates
   st_set_crs(4326)                       # Projects the values geographically
 
-st_is_longlat(london_geo) # This is now returning TRUE because we have set crs
+st_is_longlat(london_geo) # This is returning TRUE because we have set crs
 
 # If a dataset has no crs, a number of issues can arise. Let us see this when 
 # trying to create buffer around the point we created for londin and london_geo
