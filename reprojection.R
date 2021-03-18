@@ -42,8 +42,8 @@ london # Running this confirms that CRS is NA. An sf object without crs set
 
 st_is_longlat(london) # Returns NA because it is not yet set to any projection
 
-# Knowledge gained is that one cannot just pick some
-# variables and set them as coordinates and that is enough. Setting coordinates
+# Knowledge gained is that one cannot just pick some variables and set them as
+# coordinates and that is enough. Setting coordinates
 # in sf package needs the use of st_set_crs() whereby projection is assigned. 
 # That is when the full metadata will be availed to define the crs.
 # So we can overcome the above problem by piping (%>%) it to crs or EPSG code:
