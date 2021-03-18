@@ -32,7 +32,7 @@ library(cartogram)  # Another map making package..version 0.2.2
 
 # st_is_longlat is one great function for checking if geographic CRS is in use
 
-# Here we start by a dummy dataframe and check for crs using the function
+# Here we start by a dummy dataframe and check for crs
 
 london <- data.frame(lon = -0.1,
                      lat = 51.5) %>% # Creating a data.frame, and then
