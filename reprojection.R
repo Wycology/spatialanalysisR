@@ -29,7 +29,7 @@ library(mapview)    # Rendering html maps..version 2.9.0
 library(leaflet)    # Rendering html maps too..version 2.0.4.1    
 library(grid)       # Did something..version 4.0.4
 library(cartogram)  # Another map making package..version 0.2.2
-
+library()
 # st_is_longlat is one great function for checking if geographic CRS is in use
 
 # Here we start by a dummy dataframe and check for crs
