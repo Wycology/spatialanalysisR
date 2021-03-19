@@ -20,4 +20,4 @@ getData(name = 'CMIP5',   # others would be worldclim, GADM, alt, SRTM(plus lon,
         download = T,     # in case you want to download
         path = 'D:/JUNK') # where to store downloads, default is working directory
 
-# The training data should be in 
+# The training data should be in dataframe
