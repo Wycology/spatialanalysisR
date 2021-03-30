@@ -24,7 +24,7 @@ For the `R` code, .rmd, datasets, and html files behind this article visit my [*
 
 Foresters may need to know the distribution of different vegetation life-forms and/or area of bare land at given forest stands or sites. Such information could help in forest classification and/or management such as planting of more trees or herbivores population control among others. Remote sensing technologies have aided such assessments a great deal. In this short article I used digital surface model (DSM) and digital terrain model (DTM), captured by light detection and ranging (LIDAR) platform, to demonstrate vegetation life-form and bare land extent assessment at NEON Harvard site. 
 
-# Introduction to 
+# Introduction
 
 I used two raster layers from [NEON](https://www.neonscience.org/field-sites/harv), which I accessed from [Biodiversity Data Science](https://www.youtube.com/channel/UCAxw75f8aIKi-ciS5PM_qmg) YouTube channel. The layers are digital surface model (DSM) which contains elevation of the 
 top of physical points above the surface of the earth, basically top of trees in this case and digital terrain model (DTM) which is the elevation values at the surface of the earth. Now the difference between these two heights can tell us the heights of trees, and the units are in meters (m).
