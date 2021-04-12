@@ -4,4 +4,4 @@
 library(sp)
 library(geosphere)
 
-destPoint(p = c(35, 3), b = 60, d = 125, a = WGS84, )
+destPoint(p = c(35, 3), b = 60, d = 125, a = WGS84,)
