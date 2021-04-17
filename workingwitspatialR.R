@@ -21,7 +21,7 @@ library(tidyverse) # Wrangling and visualizing especially tabular data
 library(mapview) # Viewing interactve map with a range of background layers
 library(leaflet) # Almost similar functionalities as mapview
 library(leaflet.extras2) 
-# Versions of packages Rstudio and R used in this project:
+# Versions of packages, Rstudio and R used in this project:
 
 # R               = 4.0.5 "Shake and Throw", run the word version 
 # RStudio         = 1.4.1103 (Go to Help ==> About RStudio)
