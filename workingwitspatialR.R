@@ -20,7 +20,7 @@ library(spocc) # Gathering species records from gbif (https://www.gbif.org/)
 library(tidyverse) # Wrangling and visualizing especially tabular data
 library(mapview) # Viewing interactve map with a range of background layers
 library(leaflet) # Almost similar functionalities as mapview
-library(leaflet.extras2) # 
+library(leaflet.extras2) # For 
 # Versions of packages, Rstudio and R used in this project:
 
 # R               = 4.0.5 "Shake and Throw", run the word version 
