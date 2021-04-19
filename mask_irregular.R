@@ -1,6 +1,6 @@
 # Created by Wyclife Agumba Oluoch
 # As a response to an email on 8th March 2021
-# Last edited on 1th arch 2021
+# Last edited on 19th arch 2021
 
 # Clipping occurrence records data and predictor variables with our study area
 # boundary
