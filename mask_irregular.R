@@ -3,7 +3,7 @@
 # Last edited on 19th April 2021 while at Ashanzi Lodwar
 
 # Clipping occurrence records data and predictor variables with our study area
-# boundary
+# boundary:
 
 # Libraries for the project 
 # R         version 4.0.4 a.k.a "Lost Library Book"
