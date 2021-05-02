@@ -6,3 +6,11 @@ mySHP <- file.choose()
 myFILE <- readOGR(mySHP)
 
 mode(myFILE)
+length(myFILE)
+
+library(ggplot2)
+
+myDF <- fortify(myFILE)
+
+class(myDF)
+
