@@ -24,6 +24,6 @@ summary(myDF)
 library(tidyverse)
 glimpse(myDF)
 
-ggplot(myDF, aes(group, long)) +
-  geom_boxplot()
+ggplot(myDF, aes(lat, long)) +
+  geom_point()
 
