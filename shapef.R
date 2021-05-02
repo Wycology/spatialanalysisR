@@ -24,6 +24,6 @@ summary(myDF)
 library(tidyverse)
 glimpse(myDF)
 
-ggplot(myDF, aes(lat, long)) +
-  geom_point()
+ggplot(myDF, aes(long, lat, group = group)) +
+  geom_path()
 
