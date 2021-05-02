@@ -16,3 +16,8 @@ class(myDF)
 
 head(myDF)
 nrow(myDF)
+
+myDF
+
+summary(myDF)
+
