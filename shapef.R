@@ -14,3 +14,5 @@ myDF <- fortify(myFILE)
 
 class(myDF)
 
+head(myDF)
+
