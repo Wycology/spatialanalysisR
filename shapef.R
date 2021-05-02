@@ -25,5 +25,23 @@ library(tidyverse)
 glimpse(myDF)
 
 ggplot(myDF, aes(long, lat, group = group)) +
+  coord_map('mercator') +
   geom_path()
+# sinusoidal, cylequalarea, cylindrical, rectangular, gall, mollweide, gilbert,
+# azequidistant, gnomonic, perspective, orthographic, stereographic, laue, fisheye,
+# newyorker, conic, simpleconic, lambert, albers, bonne, polyconic, aitoff, lagrange,
+# bicentric, elliptic, globular, vandergrinten, eisenlohr, guyou, square, tetra,
+# harrison, trapezoidal, lune, mecca, homing, sp\_mercator, sp\_albers
+
+
+
+
+
+
+
+
+
+
+
+
 
