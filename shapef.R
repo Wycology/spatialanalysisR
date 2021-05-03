@@ -14,7 +14,8 @@ myDF <- fortify(myFILE) # Running the fortify function on the object to create d
 
 class(myDF) # Confirming the class of the dataframe
 
-head(myDF)
+head(myDF) # the first few rows of the dataframe
+
 nrow(myDF)
 
 myDF
