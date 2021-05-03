@@ -16,7 +16,7 @@ class(myDF) # Confirming the class of the dataframe
 
 head(myDF) # the first few rows of the dataframe
 
-nrow(myDF)
+nrow(myDF) # checking the number of rows
 
 myDF
 
