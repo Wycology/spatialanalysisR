@@ -12,7 +12,7 @@ library(ggplot2) # Loading the package with fortify function
 
 myDF <- fortify(myFILE) # Running the fortify function on the object to create dataframe
 
-class(myDF)
+class(myDF) # Confirming the class of the dataframe
 
 head(myDF)
 nrow(myDF)
