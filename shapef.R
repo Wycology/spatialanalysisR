@@ -18,9 +18,7 @@ head(myDF) # the first few rows of the dataframe
 
 nrow(myDF) # checking the number of rows
 
-myDF
-
-summary(myDF)
+summary(myDF) # Unnecessary summary of the dataframe
 
 library(tidyverse)
 glimpse(myDF)
