@@ -1,7 +1,7 @@
 # Working with shapefile in R as df
 library(rgdal) # library for working with shapefile in R
 
-mySHP <- file.choose()
+mySHP <- file.choose() # Choosing the shapefile from directory    
 
 myFILE <- readOGR(mySHP)
 
