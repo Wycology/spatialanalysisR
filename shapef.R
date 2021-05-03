@@ -1,5 +1,5 @@
 # Working with shapefile in R as df
-library(rgdal)
+library(rgdal) # library for working with shapefile in R
 
 mySHP <- file.choose()
 
@@ -32,16 +32,3 @@ ggplot(myDF, aes(long, lat, group = group)) +
 # newyorker, conic, simpleconic, lambert, albers, bonne, polyconic, aitoff, lagrange,
 # bicentric, elliptic, globular, vandergrinten, eisenlohr, guyou, square, tetra,
 # harrison, trapezoidal, lune, mecca, homing, sp\_mercator, sp\_albers
-
-
-
-
-
-
-
-
-
-
-
-
-
