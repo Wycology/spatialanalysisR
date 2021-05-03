@@ -6,7 +6,7 @@ mySHP <- file.choose() # Choosing the shapefile from directory
 myFILE <- readOGR(mySHP) # Reading the file into R
 
 mode(myFILE) # Checking the mode of the file
-length(myFILE)
+length(myFILE) # Checking the number of features in the file
 
 library(ggplot2)
 
