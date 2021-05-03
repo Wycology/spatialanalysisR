@@ -10,7 +10,7 @@ length(myFILE) # Checking the number of features in the file
 
 library(ggplot2) # Loading the package with fortify function
 
-myDF <- fortify(myFILE)
+myDF <- fortify(myFILE) # Running the fortify function on the object to create dataframe
 
 class(myDF)
 
