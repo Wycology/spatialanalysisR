@@ -8,7 +8,7 @@ myFILE <- readOGR(mySHP) # Reading the file into R
 mode(myFILE) # Checking the mode of the file
 length(myFILE) # Checking the number of features in the file
 
-library(ggplot2)
+library(ggplot2) # Loading the package with fortify function
 
 myDF <- fortify(myFILE)
 
