@@ -8,7 +8,10 @@ nc_raw <- st_read(system.file("shape/nc.shp", package = 'sf'), quiet = TRUE)
 
 nc <- st_transform(nc_raw, 'EPSG:3857')
 
-nc_osm <- get_tiles(nc, crop = TRUE)
+nc_osm <- get_tiles(nc,provider = 'Stamen.Terrain', crop = TRUE)
+
+# Other providers
+
 
 # -8595797, 4333842
 
