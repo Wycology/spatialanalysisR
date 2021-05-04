@@ -30,7 +30,7 @@ plot_tiles(nc_osm)
 
 plot(st_geometry(nc), col = NA, add = TRUE, axes = TRUE)
 
-mtext(text = get_credit('OpenStreetMap'),
+mtext(text = get_credit('CartoDB.Positron'),
       side = 1, 
       line = -1,
       adj = 0.2,
