@@ -12,6 +12,16 @@ nc_osm <- get_tiles(nc,provider = 'Stamen.Terrain', crop = TRUE)
 
 # Other providers
 
+# "OpenStreetMap.MapnikBW", "OpenStreetMap", "OpenStreetMap.DE", "OpenStreetMap.France", "OpenStreetMap.HOT", 
+# "Stamen.Toner", "Stamen.TonerBackground", "Stamen.TonerHybrid", "Stamen.TonerLines", "Stamen.TonerLabels", "Stamen.TonerLite", "Stamen.Watercolor", "Stamen.Terrain", "Stamen.TerrainBackground", "Stamen.TerrainLabels",
+# "Esri.WorldStreetMap", "Esri.DeLorme", "Esri.WorldTopoMap", "Esri.WorldImagery", "Esri.WorldTerrain", "Esri.WorldShadedRelief", "Esri.OceanBasemap", "Esri.NatGeoWorldMap", "Esri.WorldGrayCanvas",
+# "CartoDB.Positron", "CartoDB.PositronNoLabels", "CartoDB.PositronOnlyLabels", "CartoDB.DarkMatter", "CartoDB.DarkMatterNoLabels", "CartoDB.DarkMatterOnlyLabels", "CartoDB.Voyager", "CartoDB.VoyagerNoLabels", "CartoDB.VoyagerOnlyLabels",
+# "Thunderforest.OpenCycleMap", "Thunderforest.Transport", "Thunderforest.TransportDark", "Thunderforest.SpinalMap", "Thunderforest.Landscape", "Thunderforest.Outdoors", "Thunderforest.Pioneer", "Thunderforest.MobileAtlas", "Thunderforest.Neighbourhood",
+# "OpenTopoMap",
+# "HikeBike", 
+# "Wikimedia",
+
+
 
 # -8595797, 4333842
 
@@ -35,8 +45,8 @@ osmnolbl <- list(src = 'osmnolabel',
                  sub = c('a','b', 'c'), 
                  cit = '© OpenStreetMap contributors.')
 
-nc_osmnolbl <- get_tiles(x = nc, provider = osmnolbl, crop = TRUE, 
-                         cachedir = tempdir(), verbose = TRUE)
+# nc_osmnolbl <- get_tiles(x = nc, provider = osmnolbl, crop = TRUE, 
+#                        cachedir = tempdir(), verbose = TRUE)
 
 plot_tiles(nc_osmnolbl)
 mtext(text = osmnolbl$cit, side = 1, line = -1, 
