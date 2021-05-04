@@ -25,3 +25,6 @@ mtext(text = get_credit('OpenStreetMap'),
       font = 3,
       at = c(-8595797, 4333842))
 
+# define the tile server parameters
+
+
