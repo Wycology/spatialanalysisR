@@ -49,6 +49,7 @@ mtext(text = get_credit('CartoDB.Positron'),
 # nc_osmnolbl <- get_tiles(x = nc, provider = osmnolbl, crop = TRUE, 
 #                        cachedir = tempdir(), verbose = TRUE)
 
-plot_tiles(nc_osmnolbl)
+plot_tiles(nc_osmnolbl) # plotting the tile
+
 mtext(text = osmnolbl$cit, side = 1, line = -1, 
       adj = 1, cex = .9, font = 3)
