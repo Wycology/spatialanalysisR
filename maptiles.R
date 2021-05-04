@@ -8,7 +8,7 @@ nc_raw <- st_read(system.file("shape/nc.shp", package = 'sf'), quiet = TRUE)
 
 nc <- st_transform(nc_raw, 'EPSG:3857')
 
-nc_osm <- get_tiles(nc,provider = 'Stamen.Terrain', crop = TRUE)
+nc_osm <- get_tiles(nc,provider = 'CartoDB.Positron', crop = TRUE)
 
 # Other providers
 
@@ -27,6 +27,7 @@ nc_osm <- get_tiles(nc,provider = 'Stamen.Terrain', crop = TRUE)
 
 plot_tiles(nc_osm)
 
+
 plot(st_geometry(nc), col = NA, add = TRUE, axes = TRUE)
 
 mtext(text = get_credit('OpenStreetMap'),
@@ -40,10 +41,10 @@ mtext(text = get_credit('OpenStreetMap'),
 
 # define the tile server parameters
 
-osmnolbl <- list(src = 'osmnolabel',
-                 q = 'https://{s}.tiles.wmflabs.org/osm-no-labels/{z}/{x}/{y}.png',
-                 sub = c('a','b', 'c'), 
-                 cit = '© OpenStreetMap contributors.')
+# osmnolbl <- list(src = 'osmnolabel',
+                 # q = 'https://{s}.tiles.wmflabs.org/osm-no-labels/{z}/{x}/{y}.png',
+                 # sub = c('a','b', 'c'), 
+                 # cit = '© OpenStreetMap contributors.')
 
 # nc_osmnolbl <- get_tiles(x = nc, provider = osmnolbl, crop = TRUE, 
 #                        cachedir = tempdir(), verbose = TRUE)
