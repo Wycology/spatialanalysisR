@@ -52,14 +52,3 @@ mtext(text = get_credit('CartoDB.Positron'),
 plot_tiles(nc_osmnolbl)
 mtext(text = osmnolbl$cit, side = 1, line = -1, 
       adj = 1, cex = .9, font = 3)
-
-
-
-
-
-
-
-
-
-
-
