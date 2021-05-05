@@ -49,5 +49,24 @@ mf_scale(size = 5)
 
 mf_credits(txt = 'T. Giraud, 2021')
 
+mf_theme('default', mar = c(0, 0, 0, 0))
+
+mf_map(mtq)
+
+mf_inset_on(fig = c(0, 0.25, 0, 0.25))
+
+mf_map(mtq[9, ])
+
+box()
+
+mf_inset_off()
+
+# world map inset
+
+
+
+
+
+
 
 
