@@ -35,3 +35,19 @@ mf_shadow(mtq_target, add = TRUE)
 
 mf_map(mtq_target, add = TRUE, col = 'tomato')
 
+mf_title('Saint-Anne', pos = 'left', tab = TRUE, cex = .9, line = 1, inner = TRUE)
+
+mf_scale(size = 2)
+
+box()
+
+mf_inset_off()
+
+mf_title('Martinique Municipalities')
+
+mf_scale(size = 5)
+
+mf_credits(txt = 'T. Giraud, 2021')
+
+
+
