@@ -104,6 +104,73 @@ mf_title('Wealth in Martinique, 2015', pos = 'left')
 mf_scale(5)
 mf_credits(paste0('Sources: Insee and IGN, 2018\n', 'mapsf ', packageVersion('mapsf')))
 
+# Exporting map
 
+mtq <- mf_get_mtq()
 
+mf_export(x = mtq, filename = 'fixed_width.png', width = 500)
 
+mf_map(mtq, add = TRUE)
+
+mf_title(txt = 'PNG export: width = 500px, height = 605px (deducted)')
+dev.off()
+
+mf_export(x = mtq, filename = 'fixed_width_theme.png',
+          width = 500, theme = 'dark')
+mf_map(mtq, add = TRUE)
+
+mf_title(txt = 'PNG export: width = 500px, height = 611px (deducted)')
+dev.off()
+
+# Export with extra space
+
+mf_export(x = mtq, filename = 'fixed_width_expand.png',
+          width = 500, expandBB = c(0, 0, 0, .5), theme = 'default')
+
+mf_map(mtq, add = TRUE)
+
+mf_title(txt = 'PNG export: width=500px, height = 427px (deducted)')
+dev.off()
+
+# Center the map on a specific area
+
+target <- mtq[5, ]
+mf_export(x = target, filename = 'fixed_height_centered.png', height = 600)
+
+mf_map(mtq, add = TRUE)
+
+mf_shadow(target, add = TRUE)
+
+mf_map(target, add = TRUE)
+
+mf_title(txt = 'PNG export: height = 600px, width = 433px (deducted)')
+
+mf_scale(1, pos = 'bottomleft')
+dev.off()
+
+# Other parameters
+
+mf_export(x = mtq, export = 'svg', filename = 'fixed_width.svg',
+          width = 5, theme = 'nevermind', bg = 'black')
+
+mf_map(mtq, add = TRUE)
+
+mf_title(txt = "SVG export: bg = 'black'")
+dev.off()
+
+mf_theme('agolalight')
+
+mf_export(x = mtq, filename = 'theme_before.png', width = 200)
+mf_map(mtq, add = TRUE)
+
+mf_title(txt = 'agolalight')
+dev.off()
+
+mf_export(x = mtq, filename = 'theme_within.png', width = 200,
+          theme = 'darkula')
+mf_map(mtq, add = TRUE)
+mf_title(txt = 'darkula')
+dev.off()
+
+mf_map(mtq)
+mf_title("Still 'darkula'")
