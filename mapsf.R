@@ -16,13 +16,22 @@ mf_map(mtq_target, add = FALSE, col = 'tomato')
 
 mf_inset_off()
 
-# 
+# set theme
 
+mf_theme('dark')
 
+mtq_target <- mtq[c(26),]
 
+mf_map(mtq)
+mf_map(mtq_target, add = TRUE, col = 'tomato')
 
+mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
 
+mf_init(mtq_target)
 
+mf_map(mtq, add = TRUE)
 
+mf_shadow(mtq_target, add = TRUE)
 
+mf_map(mtq_target, add = TRUE, col = 'tomato')
 
