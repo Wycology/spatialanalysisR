@@ -6,8 +6,8 @@ mf_theme('default', mar = c(0, 0, 0, 0)) # Creating theme
 
 mtq <- mf_get_mtq() # Loading data to the R environment
 mtq # Looking at the head of the data   
-mtq_target <- mtq[c(26), ]
-mf_map(mtq)
+mtq_target <- mtq[c(26), ] # Plotting single polygon
+mf_map(mtq) 
 
 mf_map(mtq_target, add = TRUE, col = 'tomato')
 
