@@ -2,7 +2,8 @@
 
 library(mapsf) # Creating maps with simple features (sf)
 
-mf_theme('default', mar = c(0, 0, 0, 0))
+mf_theme('default', mar = c(0, 0, 0, 0)) # Creating theme 
+
 mtq <- mf_get_mtq()
 mtq
 mtq_target <- mtq[c(26), ]
