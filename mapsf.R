@@ -6,7 +6,7 @@ mf_theme('default', mar = c(0, 0, 0, 0)) # Creating theme
 
 mtq <- mf_get_mtq() # Loading data to the R environment
 mtq # Looking at the data   
-mtq_target <- mtq[c(26), ] # Subsetting single polygon
+mtq_target <- mtq[c(26), ] # Subsetting single polygon and storing to object
 mf_map(mtq) 
 
 mf_map(mtq_target, add = TRUE, col = 'tomato')
