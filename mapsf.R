@@ -22,7 +22,7 @@ mf_inset_off()
 
 mf_theme('dark') # picking the dark theme
 
-mtq_target <- mtq[c(26),]
+mtq_target <- mtq[c(26),] # picking the right map to plot
 
 mf_map(mtq)
 mf_map(mtq_target, add = TRUE, col = 'tomato')
