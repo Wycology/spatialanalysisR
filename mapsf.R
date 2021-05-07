@@ -24,7 +24,7 @@ mf_theme('dark') # picking the dark theme of mapsf
 
 mtq_target <- mtq[c(26),] # picking the right map to plot
 
-mf_map(mtq)
+mf_map(mtq) # mapping the sf object
 mf_map(mtq_target, add = TRUE, col = 'tomato')
 
 mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
