@@ -16,7 +16,7 @@ mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
 
 mf_map(mtq_target, add = FALSE, col = 'tomato')
 
-mf_inset_off()
+mf_inset_off() # stopping the inset function
 
 # set theme
 
