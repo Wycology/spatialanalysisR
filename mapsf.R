@@ -20,7 +20,7 @@ mf_inset_off()
 
 # set theme
 
-mf_theme('dark')
+mf_theme('dark') # picking the dark theme
 
 mtq_target <- mtq[c(26),]
 
