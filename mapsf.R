@@ -20,7 +20,7 @@ mf_inset_off() # stopping the inset function
 
 # set theme
 
-mf_theme('dark') # picking the dark theme
+mf_theme('dark') # picking the dark theme of mapsf
 
 mtq_target <- mtq[c(26),] # picking the right map to plot
 
