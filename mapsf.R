@@ -34,7 +34,7 @@ mf_init(mtq_target) # initializing the map building
 
 mf_map(mtq, add = TRUE) # Adding more maps
 
-mf_shadow(mtq_target, add = TRUE)
+mf_shadow(mtq_target, add = TRUE) # adding map shadow 
 
 mf_map(mtq_target, add = TRUE, col = 'tomato')
 
