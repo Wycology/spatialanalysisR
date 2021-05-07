@@ -32,7 +32,7 @@ mf_inset_on(x = mtq_target, pos = 'topright', cex = .4) # location of the inset
 
 mf_init(mtq_target) # initializing the map building
 
-mf_map(mtq, add = TRUE)
+mf_map(mtq, add = TRUE) # Adding more maps
 
 mf_shadow(mtq_target, add = TRUE)
 
