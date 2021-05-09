@@ -18,7 +18,7 @@ mf_map(mtq_target, add = FALSE, col = 'tomato')
 
 mf_inset_off() # stopping the inset function from running
 
-# set theme
+# set theme for the project
 
 mf_theme('dark') # picking the dark theme of mapsf to do the mapping
 
