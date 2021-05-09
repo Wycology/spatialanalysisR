@@ -174,7 +174,7 @@ mf_export(x = mtq, filename = 'theme_within.png', width = 200,
 
 mf_map(mtq, add = TRUE) # adding another layer to the map
 
-mf_title(txt = 'darkula')
+mf_title(txt = 'darkula') # assigning title to the map
 
 dev.off()
 
