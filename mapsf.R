@@ -176,7 +176,8 @@ mf_map(mtq, add = TRUE) # adding another layer to the map
 
 mf_title(txt = 'darkula') # assigning title to the map
 
-dev.off()
+dev.off() # stopping the inset
 
 mf_map(mtq)
+
 mf_title("Still 'darkula'")
