@@ -26,7 +26,7 @@ mtq_target <- mtq[c(26),] # picking the right map to plot out
 
 mf_map(mtq) # mapping the sf object to the plots window
 
-mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color
+mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color, fun
 
 mf_inset_on(x = mtq_target, pos = 'topright', cex = .4) # location of the inset
 
