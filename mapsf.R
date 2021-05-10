@@ -24,15 +24,15 @@ mtq_target <- mtq[c(26), ] # Sub-setting single polygon and storing to object
 
 mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
 
-colnames(mtq) # column names of the dataset
+colnames(mtq) # column names of the data-set
 
 mf_map(mtq) # Displaying the map of the mtq object
 
-mf_map(mtq_target, add = TRUE, col = 'tomato') # Awesome tomato color
+mf_map(mtq_target, add = TRUE, col = 'yellow') # Awesome tomato color
 
 mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
 
-mf_map(mtq_target, add = FALSE, col = 'tomato')
+mf_map(mtq_target, add = FALSE, col = 'tomato') # mapping the inset
 
 mf_inset_off() # stopping the inset function from running
 
