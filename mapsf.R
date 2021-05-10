@@ -1,5 +1,6 @@
 # Task: Creating inset maps
 # Author: Wyclife Agumba Oluoch
+# Contact: https://github.com/Wycology
 
 
 library(mapsf) # Creating maps with simple features (sf)
