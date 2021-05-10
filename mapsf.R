@@ -24,7 +24,7 @@ mtq_target <- mtq[c(26), ] # Sub-setting single polygon and storing to object
 
 mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
 
-colnames(mtq)
+colnames(mtq) # column names of the dataset
 
 mf_map(mtq) # Displaying the map of the mtq object
 
