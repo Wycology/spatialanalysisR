@@ -22,6 +22,10 @@ mtq$geom # Looking at the geometry column of the data
 
 mtq_target <- mtq[c(26), ] # Sub-setting single polygon and storing to object
 
+mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
+
+colnames(mtq)
+
 mf_map(mtq) # Displaying the map of the mtq object
 
 mf_map(mtq_target, add = TRUE, col = 'tomato') # Awesome tomato color
