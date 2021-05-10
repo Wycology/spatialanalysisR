@@ -17,8 +17,10 @@ mf_theme(x = 'candy',
          ) # Creating theme 
 
 mtq <- mf_get_mtq() # Loading data to the R environment
+
 mtq$geom # Looking at the geometry column of the data   
-mtq_target <- mtq[c(26), ] # Subsetting single polygon and storing to object
+
+mtq_target <- mtq[c(26), ] # Sub-setting single polygon and storing to object
 
 mf_map(mtq) # Displaying the map of the mtq object
 
