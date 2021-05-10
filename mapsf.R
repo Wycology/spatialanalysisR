@@ -32,6 +32,13 @@ mf_map(mtq_target, add = TRUE, col = 'yellow') # Awesome tomato color
 
 mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
 
+mf_scale(size = 2, 
+         pos = c(x = 702229, y = 1598119), 
+         lwd = 2, 
+         cex = 1.2, 
+         col = 'red', 
+         unit = 'km')
+
 mf_map(mtq_target, add = FALSE, col = 'tomato') # mapping the inset
 
 mf_inset_off() # stopping the inset function from running
