@@ -3,7 +3,7 @@
 # Contact: https://github.com/Wycology
 
 
-library(mapsf) # Creating maps with simple features (sf)
+library(mapsf) # Loading the mapsf library
 
 mf_theme('default', mar = c(0, 0, 0, 0)) # Creating theme 
 
