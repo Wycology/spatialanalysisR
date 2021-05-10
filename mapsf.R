@@ -5,7 +5,18 @@
 
 library(mapsf) # Loading the mapsf library
 
-mf_theme('default', mar = c(0, 0, 0, 0)) # Creating theme 
+mf_theme(x = 'candy',
+         bg = 'purple',
+         fg = 'purple',
+         pos = 'center',
+         inner = TRUE,
+         line = 2,
+         cex = 3,
+         font = 16,
+         mar = c(0, 0, 0, 0),
+         ) # Creating theme 
+
+?mf_theme
 
 mtq <- mf_get_mtq() # Loading data to the R environment
 mtq # Looking at the data   
