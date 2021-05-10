@@ -1,4 +1,6 @@
 # Task: Creating inset maps
+# Author: Wyclife Agumba Oluoch
+
 
 library(mapsf) # Creating maps with simple features (sf)
 
