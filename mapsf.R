@@ -17,7 +17,7 @@ mf_theme(x = 'candy',
 
 mtq <- mf_get_mtq() # Loading Martinique sf data to the R environment
 
-mtq$geom # Looking at the geometry column of the data   
+mtq$geom # Looking at the geometry column of the data. Projected coords   
 
 mtq_target <- mtq[c(26), ] # Sub-setting single polygon and storing to object
 
