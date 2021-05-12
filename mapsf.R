@@ -1,4 +1,4 @@
-# Task: Creating inset maps
+# Task: Creating maps and inset maps
 # Author: Wyclife Agumba Oluoch
 # Contact: https://github.com/Wycology
 
