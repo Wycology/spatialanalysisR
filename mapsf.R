@@ -74,7 +74,7 @@ mf_title('Martinique Municipalities') # Adding title to the map
 
 mf_scale(size = 5) # Adding map scale
 
-mf_credits(txt = 'T. Giraud, 2021')
+mf_credits(txt = 'T. Giraud, 2021') # Accreditation to the authors
 
 mf_theme('default', mar = c(0, 0, 0, 0))
 
