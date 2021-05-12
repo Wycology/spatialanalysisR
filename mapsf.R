@@ -13,7 +13,7 @@ mf_theme(x = 'candy',
          cex = 3,
          font = 16,
          mar = c(0, 0, 0, 0),
-         ) # Creating theme 
+         ) # Creating theme for plotting the map
 
 mtq <- mf_get_mtq() # Loading data to the R environment
 
