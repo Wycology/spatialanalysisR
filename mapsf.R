@@ -2,8 +2,7 @@
 # Author: Wyclife Agumba Oluoch
 # Contact: https://github.com/Wycology
 
-
-library(mapsf) # Loading the mapsf library
+library(mapsf) # Loading the mapsf library for mapping
 
 mf_theme(x = 'candy',
          bg = 'purple',
