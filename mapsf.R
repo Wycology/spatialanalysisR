@@ -78,7 +78,7 @@ mf_credits(txt = 'T. Giraud, 2021') # Accreditation to the authors
 
 mf_theme('default', mar = c(0, 0, 0, 0))
 
-mf_map(mtq)
+mf_map(mtq) # Mapping the whole map
 
 mf_inset_on(fig = c(0, 0.25, 0, 0.25))
 
