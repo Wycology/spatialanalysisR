@@ -72,7 +72,7 @@ mf_inset_off() # removing the inset mapping mode
 
 mf_title('Martinique Municipalities') # Adding title to the map
 
-mf_scale(size = 5)
+mf_scale(size = 5) # Adding map scale
 
 mf_credits(txt = 'T. Giraud, 2021')
 
