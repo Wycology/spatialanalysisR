@@ -6,7 +6,7 @@
 # This is super simple, the beginning is to download the future climate scenario
 # Here is a sample code for downloading the future scenario 
 
-library(raster)
+library(raster) # Loading the necessary library for the task
 
 getData('CMIP5', var='tmin', res=10, rcp=85, model='AC', year=70)
 
