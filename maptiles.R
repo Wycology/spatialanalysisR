@@ -1,6 +1,6 @@
 # remotes::install_github('riatelab/maptiles')
 library(maptiles) # For loading the tiles
-library(sf)
+library(sf) # for simple features handling
 
 nc_raw <- st_read(system.file("shape/nc.shp", package = 'sf'), quiet = TRUE)
 
