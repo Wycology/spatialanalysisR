@@ -6,7 +6,7 @@ nc_raw <- st_read(system.file("shape/nc.shp", package = 'sf'), quiet = TRUE)
 
 # re-project to EPSG:3857
 
-nc <- st_transform(nc_raw, 'EPSG:3857')
+nc <- st_transform(nc_raw, 'EPSG:3857') # picking a more appropriate crs
 
 nc_osm <- get_tiles(nc,provider = 'CartoDB.Positron', crop = TRUE)
 
