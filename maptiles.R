@@ -1,5 +1,5 @@
 # remotes::install_github('riatelab/maptiles')
-library(maptiles)
+library(maptiles) # For loading the tiles
 library(sf)
 
 nc_raw <- st_read(system.file("shape/nc.shp", package = 'sf'), quiet = TRUE)
@@ -53,3 +53,4 @@ plot_tiles(nc_osmnolbl) # plotting the tile
 
 mtext(text = osmnolbl$cit, side = 1, line = -1, 
       adj = 1, cex = .9, font = 3)
+
