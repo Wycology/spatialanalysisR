@@ -4,7 +4,7 @@ library(sf) # for simple features handling
 
 nc_raw <- st_read(system.file("shape/nc.shp", package = 'sf'), quiet = TRUE)
 
-# reproject to EPSG:3857
+# re-project to EPSG:3857
 
 nc <- st_transform(nc_raw, 'EPSG:3857')
 
