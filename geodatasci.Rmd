@@ -1,7 +1,7 @@
 ---
 title: "Geo_Data_Sci_R"
 author: "Wyclife Agumba Oluoch"
-date: "1/22/2021"
+date: "`r Sys.time()`"
 output:
   html_document: default
   pdf_document: default
