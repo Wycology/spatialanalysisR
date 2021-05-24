@@ -8,7 +8,7 @@ output:
   word_document: default
 ---
 
-### Loading Libraries to use in this project
+### Loading Libraries
 
 Loading the necessary packages to use in the codes which will be helpful in analyzing geographic data in R. font_import() helps to make the fonts brought by `extrafont` available to R for use.
 
@@ -27,6 +27,13 @@ The next step is to read in the data using `st_read()`. I will call the created 
 
 ```{r loading, echo=FALSE, message=FALSE, warning=FALSE}
 honeybee <- st_read('shp/HoneyBeePermits2017.shp') # Reading in the shapefile
+```
+
+We can check the class and even head of the loaded data as follows:
+
+```{r head_honeybee}
+class(honeybee) # sf
+head(honeybee) # Checking head of the sf object
 ```
 
 There is a lot of information which we get by loading the data including path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:
