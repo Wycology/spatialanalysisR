@@ -166,13 +166,13 @@ pre code {
 
 <h1 class="title toc-ignore">Geo_Data_Sci_R</h1>
 <h4 class="author">Wyclife Agumba Oluoch</h4>
-<h4 class="date">2021-05-24 10:55:36</h4>
+<h4 class="date">2021-05-24 11:26:01</h4>
 
 </div>
 
 
-<div id="loading-libraries-to-use-in-this-project" class="section level3">
-<h3>Loading Libraries to use in this project</h3>
+<div id="loading-libraries" class="section level3">
+<h3>Loading Libraries</h3>
 <p>Loading the necessary packages to use in the codes which will be helpful in analyzing geographic data in R. font_import() helps to make the fonts brought by <code>extrafont</code> available to R for use.</p>
 <p>The data I used work can be <a href="https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip">directly downloaded</a>, extracted from zipped folder, and saved in the sub-folder called <em>shp</em> inside the .Rmd file folder.</p>
 <p>The next step is to read in the data using <code>st_read()</code>. I will call the created object honeybee</p>
@@ -182,6 +182,22 @@ pre code {
 ## Dimension:     XY
 ## Bounding box:  xmin: -93.32817 ymin: 44.89744 xmax: -93.20644 ymax: 45.03776
 ## Geodetic CRS:  WGS 84</code></pre>
+<p>We can check the class and even head of the loaded data as follows:</p>
+<pre class="r"><code>class(honeybee) # sf</code></pre>
+<pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>head(honeybee) # Checking head of the sf object</code></pre>
+<pre><code>## Simple feature collection with 6 features and 3 fields
+## Geometry type: POINT
+## Dimension:     XY
+## Bounding box:  xmin: -93.31722 ymin: 44.96755 xmax: -93.23974 ymax: 45.00483
+## Geodetic CRS:  WGS 84
+##   FID              Address HiveType                   geometry
+## 1   1 1023 MOUNT CURVE AVE   GROUND POINT (-93.29262 44.96755)
+## 2   2      1108 25TH AVE N   GROUND  POINT (-93.2943 45.00483)
+## 3   3  1235 WASHBURN AVE N   GROUND POINT (-93.31722 44.99067)
+## 4   4    1300 NICOLLET AVE  ROOFTOP   POINT (-93.27722 44.971)
+## 5   5    1317 MONROE ST NE  ROOFTOP POINT (-93.25243 45.00117)
+## 6   6  1338 BUCHANAN ST NE   GROUND   POINT (-93.23974 45.001)</code></pre>
 <p>There is a lot of information which we get by loading the data including path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:</p>
 <pre class="r"><code>str(honeybee) # str is from base R. We can use glimpse which is from dplyr.</code></pre>
 <pre><code>## Classes &#39;sf&#39; and &#39;data.frame&#39;:   90 obs. of  4 variables:
@@ -224,7 +240,17 @@ pre code {
 ## Dimension:     XY
 ## Bounding box:  xmin: 35.40398 ymin: 3.36293 xmax: 35.49257 ymax: 3.399832
 ## Geodetic CRS:  WGS 84</code></pre>
-<p>The dummy object is read seamlessly and having 2 features. In other words, I have two rivers. It is of geometry type LINESTRING. I know one of the two lines has crossed itself at some point. Let me now check for its validity.</p>
+<p>The dummy object is read seamlessly and having 2 features. In other words, I have two rivers. It is of geometry type LINESTRING. Can even check the head of the data:</p>
+<pre class="r"><code>head(dummy)</code></pre>
+<pre><code>## Simple feature collection with 2 features and 1 field
+## Geometry type: LINESTRING
+## Dimension:     XY
+## Bounding box:  xmin: 35.40398 ymin: 3.36293 xmax: 35.49257 ymax: 3.399832
+## Geodetic CRS:  WGS 84
+##   id                       geometry
+## 1 NA LINESTRING (35.40398 3.3890...
+## 2 NA LINESTRING (35.41613 3.3681...</code></pre>
+<p>I know one of the two lines has crossed itself at some point. Let me now check for its validity.</p>
 <pre class="r"><code>sum(st_is_valid(dummy) == TRUE)</code></pre>
 <pre><code>## [1] 2</code></pre>
 <p>This returned TRUEs even though I know pretty sure that one of the lines has cut itself at some point(s). Let me try this with polygon features. I will create three polygons, one kind of a rectangle and the other two having ‘funny’ shapes which cut themselves. I think that the latter two should be invalid polygon. Here we go.</p>
