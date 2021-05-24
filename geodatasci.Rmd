@@ -17,19 +17,23 @@ library(sf)
 library(tidyverse)
 library(spdep)
 library(extrafont)
-# font_import()
-# loadfonts(device = "win")
+font_import()
+loadfonts(device = "win")
 ```
 
 ### Accessing data used in the project
 
 The data I used in this work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted from zipped folder, and saved in a sub-folder, here called *shp*, the same directory as the .Rmd file folder.
 
+### Reading the data into R
+
 The next step is to read in the data using `st_read()`. I will call the created object honeybee.
 
 ```{r loading, echo=FALSE, message=FALSE, warning=FALSE}
 honeybee <- st_read('shp/HoneyBeePermits2017.shp') # Reading in the shapefile
 ```
+
+### Checking class and head of the loaded data
 
 We can check the class and even head of the loaded data as follows:
 
@@ -40,6 +44,8 @@ head(honeybee) # Checking head of the sf object
 
 There is a lot of information which we get by loading the data including path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:
 
+### Checking the structure of the data
+
 ```{r structure}
 str(honeybee) # str is from base R. We can use glimpse which is from dplyr.
 # glimpse(honeybee)
@@ -47,11 +53,15 @@ str(honeybee) # str is from base R. We can use glimpse which is from dplyr.
 
 This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others. Good to know that most of the functions on sf objects start with **st\_**. This will be evident as we progress with the project. Here we start with `st_crs()`.
 
+### Checking the CRS of the data
+
 ```{r coordinaes}
 st_crs(honeybee) # Checking the crs of the sf
 ```
 
 That is returning quite helpful information. We can also have the information within the text as `r st_crs(honeybee)`. I still can't imagine how the output will look like in the text. Let us see by knitting the markdown. Everything thrown to text :).
+
+### Checkig for validity of the data
 
 Now the next step would be to check for self intersection in our data.
 
@@ -60,6 +70,8 @@ sum(st_is_valid(honeybee) == TRUE)
 ```
 
 We do not have any problem of self-intersection in our data-set. All the 90 points are considered valid. Behind the scene, there are 90 TRUEs and each TRUE is equated to 1 hence the sum being 90. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the individual river to edit it. I will create dummy feature with such error in QGIS and load it to check its validity.
+
+### Loading dummy point layer
 
 ```{r dummy}
 dummy <- st_read('shp/dummy.shp')
@@ -79,6 +91,8 @@ sum(st_is_valid(dummy) == TRUE)
 ```
 
 This returned TRUEs even though I know pretty sure that one of the lines has cut itself at some point(s). Let me try this with polygon features. I will create three polygons, one kind of a rectangle and the other two having 'funny' shapes which cut themselves. I think that the latter two should be invalid polygon. Here we go.
+
+### Loading dummy polygon layer
 
 ```{r dummy_poly}
 dummy_poly <- st_read('shp/dummy_poly.shp')
@@ -107,9 +121,11 @@ Then I check for validity of the sf object which I know has four points with one
 sum(st_is_valid(points_sf) == TRUE)
 ```
 
-Okay, from this I conclude that this validity is not applicable in case of duplicated points as all my four points have been regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe. An insteresting point to note.
+Okay, from this I conclude that this validity is not applicable in case of duplicated points as all my four points have been regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe. An interesting point to note.
 
 Now back to honeybee work. I want to project it to UTM zone 15N for Minnesota. I remember that earlier, while working with [geocomputation with R](https://geocompr.robinlovelace.net/), I developed (with the help of Geocomputation with R book mentioned earlier) a function which can help with knowing the EPSG code for any place on earth provided you know long and lat of the place, which I can get from Google Earth search for Minnesota.
+
+### Function for checking EPSG Code using lon lat values
 
 ```{r epsg}
 lonlat2UTM <- function(lonlat){
@@ -128,9 +144,11 @@ Cool, the function is created, now I can call it to get the epsg code best suite
 lonlat2UTM(c(-94.685798, 46.729741))
 ```
 
-This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the [tutorial](https://www.katiejolly.io/rladies-spatial/). Okay, they are using different datums or data :). 26915 is for NAD and 32615 is for WGS84. The former is preferred in this case as it represents North America best.
+This is returning `r lonlat2UTM(c(-94.685798, 46.729741))` which is different from 26915 which has been used in the [tutorial](https://www.katiejolly.io/rladies-spatial/). Okay, they are using different datums or data :). 26915 is for NAD and 32615 is for WGS84. The former is preferred in this case as it represents North America better.
 
 Now I can project the honeybee data to my desired EPSG code using st_transform function. If this was in **Python** with `GeopandasGeoDataFrame` then I would use honeybee.to_crs('EPSG:26915'). The R one looks fine but the **Python** one seems easier to understand what is going on. Probably why Python is considered simpler than R. No discussion or argument please, stay with your views.
+
+### Transforming the layer to a different projection
 
 ```{r projecting}
 honeybee_utm <- st_transform(honeybee, 26915)
@@ -142,7 +160,7 @@ We can check the crs of honeybee_utm.
 st_crs(honeybee_utm)
 ```
 
-Quite clear that the projection has been applied successfully. This is now kind of the best representation of the geographic properties of the place (direction, area, and distance).
+Quite clear that the projection has been applied successfully. This is now kind of the best representation of the geographic properties of the place (direction, area, and distance). Of course there is no best projection since they are all abstraction of reality.
 
 Now to plot these points, we may, sometimes, need to have a background map. Otherwise just points on a white background will show scatter plot kind which is not that mappy or map-like. So I will import some free background map and assign it same projection as the honeybee points.
 

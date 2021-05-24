@@ -166,7 +166,7 @@ pre code {
 
 <h1 class="title toc-ignore">Geo_Data_Sci_R</h1>
 <h4 class="author">Wyclife Agumba Oluoch</h4>
-<h4 class="date">2021-05-24 11:26:01</h4>
+<h4 class="date">2021-05-24 12:20:39</h4>
 
 </div>
 
@@ -174,14 +174,23 @@ pre code {
 <div id="loading-libraries" class="section level3">
 <h3>Loading Libraries</h3>
 <p>Loading the necessary packages to use in the codes which will be helpful in analyzing geographic data in R. font_import() helps to make the fonts brought by <code>extrafont</code> available to R for use.</p>
-<p>The data I used work can be <a href="https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip">directly downloaded</a>, extracted from zipped folder, and saved in the sub-folder called <em>shp</em> inside the .Rmd file folder.</p>
-<p>The next step is to read in the data using <code>st_read()</code>. I will call the created object honeybee</p>
+</div>
+<div id="accessing-data-used-in-the-project" class="section level3">
+<h3>Accessing data used in the project</h3>
+<p>The data I used in this work can be <a href="https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip">directly downloaded</a>, extracted from zipped folder, and saved in a sub-folder, here called <em>shp</em>, the same directory as the .Rmd file folder.</p>
+</div>
+<div id="reading-the-data-into-r" class="section level3">
+<h3>Reading the data into R</h3>
+<p>The next step is to read in the data using <code>st_read()</code>. I will call the created object honeybee.</p>
 <pre><code>## Reading layer `HoneyBeePermits2017&#39; from data source `D:\R\SPATIAL\spatialwithR\shp\HoneyBeePermits2017.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 90 features and 3 fields
 ## Geometry type: POINT
 ## Dimension:     XY
 ## Bounding box:  xmin: -93.32817 ymin: 44.89744 xmax: -93.20644 ymax: 45.03776
 ## Geodetic CRS:  WGS 84</code></pre>
+</div>
+<div id="checking-class-and-head-of-the-loaded-data" class="section level3">
+<h3>Checking class and head of the loaded data</h3>
 <p>We can check the class and even head of the loaded data as follows:</p>
 <pre class="r"><code>class(honeybee) # sf</code></pre>
 <pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;</code></pre>
@@ -199,6 +208,9 @@ pre code {
 ## 5   5    1317 MONROE ST NE  ROOFTOP POINT (-93.25243 45.00117)
 ## 6   6  1338 BUCHANAN ST NE   GROUND   POINT (-93.23974 45.001)</code></pre>
 <p>There is a lot of information which we get by loading the data including path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:</p>
+</div>
+<div id="checking-the-structure-of-the-data" class="section level3">
+<h3>Checking the structure of the data</h3>
 <pre class="r"><code>str(honeybee) # str is from base R. We can use glimpse which is from dplyr.</code></pre>
 <pre><code>## Classes &#39;sf&#39; and &#39;data.frame&#39;:   90 obs. of  4 variables:
 ##  $ FID     : int  1 2 3 4 5 6 7 8 9 10 ...
@@ -210,6 +222,9 @@ pre code {
 ##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;FID&quot; &quot;Address&quot; &quot;HiveType&quot;</code></pre>
 <pre class="r"><code># glimpse(honeybee)</code></pre>
 <p>This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others. Good to know that most of the functions on sf objects start with <strong>st_</strong>. This will be evident as we progress with the project. Here we start with <code>st_crs()</code>.</p>
+</div>
+<div id="checking-the-crs-of-the-data" class="section level3">
+<h3>Checking the CRS of the data</h3>
 <pre class="r"><code>st_crs(honeybee) # Checking the crs of the sf</code></pre>
 <pre><code>## Coordinate Reference System:
 ##   User input: WGS 84 
@@ -229,10 +244,16 @@ pre code {
 ##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],
 ##     ID[&quot;EPSG&quot;,4326]]</code></pre>
 <p>That is returning quite helpful information. We can also have the information within the text as WGS 84, GEOGCRS[“WGS 84”, DATUM[“World Geodetic System 1984”, ELLIPSOID[“WGS 84”,6378137,298.257223563, LENGTHUNIT[“metre”,1]]], PRIMEM[“Greenwich”,0, ANGLEUNIT[“degree”,0.0174532925199433]], CS[ellipsoidal,2], AXIS[“latitude”,north, ORDER[1], ANGLEUNIT[“degree”,0.0174532925199433]], AXIS[“longitude”,east, ORDER[2], ANGLEUNIT[“degree”,0.0174532925199433]], ID[“EPSG”,4326]]. I still can’t imagine how the output will look like in the text. Let us see by knitting the markdown. Everything thrown to text :).</p>
+</div>
+<div id="checkig-for-validity-of-the-data" class="section level3">
+<h3>Checkig for validity of the data</h3>
 <p>Now the next step would be to check for self intersection in our data.</p>
 <pre class="r"><code>sum(st_is_valid(honeybee) == TRUE)</code></pre>
 <pre><code>## [1] 90</code></pre>
 <p>We do not have any problem of self-intersection in our data-set. All the 90 points are considered valid. Behind the scene, there are 90 TRUEs and each TRUE is equated to 1 hence the sum being 90. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally criss-crossed same line feature while digitizing rivers and I could not trace the individual river to edit it. I will create dummy feature with such error in QGIS and load it to check its validity.</p>
+</div>
+<div id="loading-dummy-point-layer" class="section level3">
+<h3>Loading dummy point layer</h3>
 <pre class="r"><code>dummy &lt;- st_read(&#39;shp/dummy.shp&#39;)</code></pre>
 <pre><code>## Reading layer `dummy&#39; from data source `D:\R\SPATIAL\spatialwithR\shp\dummy.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 2 features and 1 field
@@ -254,6 +275,9 @@ pre code {
 <pre class="r"><code>sum(st_is_valid(dummy) == TRUE)</code></pre>
 <pre><code>## [1] 2</code></pre>
 <p>This returned TRUEs even though I know pretty sure that one of the lines has cut itself at some point(s). Let me try this with polygon features. I will create three polygons, one kind of a rectangle and the other two having ‘funny’ shapes which cut themselves. I think that the latter two should be invalid polygon. Here we go.</p>
+</div>
+<div id="loading-dummy-polygon-layer" class="section level3">
+<h3>Loading dummy polygon layer</h3>
 <pre class="r"><code>dummy_poly &lt;- st_read(&#39;shp/dummy_poly.shp&#39;)</code></pre>
 <pre><code>## Reading layer `dummy_poly&#39; from data source `D:\R\SPATIAL\spatialwithR\shp\dummy_poly.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 3 features and 1 field
@@ -273,8 +297,11 @@ pre code {
 <p>Then I check for validity of the sf object which I know has four points with one being duplicated.</p>
 <pre class="r"><code>sum(st_is_valid(points_sf) == TRUE)</code></pre>
 <pre><code>## [1] 4</code></pre>
-<p>Okay, from this I conclude that this validity is not applicable in case of duplicated points as all my four points have been regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe.</p>
+<p>Okay, from this I conclude that this validity is not applicable in case of duplicated points as all my four points have been regarded valid. So, I may be right to say that duplicate points are not intersecting features, maybe. An interesting point to note.</p>
 <p>Now back to honeybee work. I want to project it to UTM zone 15N for Minnesota. I remember that earlier, while working with <a href="https://geocompr.robinlovelace.net/">geocomputation with R</a>, I developed (with the help of Geocomputation with R book mentioned earlier) a function which can help with knowing the EPSG code for any place on earth provided you know long and lat of the place, which I can get from Google Earth search for Minnesota.</p>
+</div>
+<div id="function-for-checking-epsg-code-using-lon-lat-values" class="section level3">
+<h3>Function for checking EPSG Code using lon lat values</h3>
 <pre class="r"><code>lonlat2UTM &lt;- function(lonlat){
   utm &lt;- (floor((lonlat[1] + 180)/6) %% 60) + 1
   if(lonlat[2] &gt; 0){
@@ -286,8 +313,11 @@ pre code {
 <p>Cool, the function is created, now I can call it to get the epsg code best suited for Minnesota (long = -94.685798°, lat = 46.729741°).</p>
 <pre class="r"><code>lonlat2UTM(c(-94.685798, 46.729741))</code></pre>
 <pre><code>## [1] 32615</code></pre>
-<p>This is returning 3.2615^{4} which is different from 26915 which has been used in the <a href="https://www.katiejolly.io/rladies-spatial/">tutorial</a>. Okay, they are using different datums or data :). 26915 is for NAD and 32615 is for WGS84. The former is preferred in this case as it represents North America best.</p>
+<p>This is returning 3.2615^{4} which is different from 26915 which has been used in the <a href="https://www.katiejolly.io/rladies-spatial/">tutorial</a>. Okay, they are using different datums or data :). 26915 is for NAD and 32615 is for WGS84. The former is preferred in this case as it represents North America better.</p>
 <p>Now I can project the honeybee data to my desired EPSG code using st_transform function. If this was in <strong>Python</strong> with <code>GeopandasGeoDataFrame</code> then I would use honeybee.to_crs(‘EPSG:26915’). The R one looks fine but the <strong>Python</strong> one seems easier to understand what is going on. Probably why Python is considered simpler than R. No discussion or argument please, stay with your views.</p>
+</div>
+<div id="transforming-the-layer-to-a-different-projection" class="section level3">
+<h3>Transforming the layer to a different projection</h3>
 <pre class="r"><code>honeybee_utm &lt;- st_transform(honeybee, 26915)</code></pre>
 <p>We can check the crs of honeybee_utm.</p>
 <pre><code>## Coordinate Reference System:
@@ -331,7 +361,7 @@ pre code {
 ##         AREA[&quot;North America - between 96Â°W and 90Â°W - onshore and offshore. Canada - Manitoba; Nunavut; Ontario. United States (USA) - Arkansas; Illinois; Iowa; Kansas; Louisiana; Michigan; Minnesota; Mississippi; Missouri; Nebraska; Oklahoma; Tennessee; Texas; Wisconsin.&quot;],
 ##         BBOX[25.61,-96,84,-90]],
 ##     ID[&quot;EPSG&quot;,26915]]</code></pre>
-<p>Quite clear that the projection has been applied successfully. This is now kind of the best representation of the geographic properties of the place (direction, area, and distance).</p>
+<p>Quite clear that the projection has been applied successfully. This is now kind of the best representation of the geographic properties of the place (direction, area, and distance). Of course there is no best projection since they are all abstraction of reality.</p>
 <p>Now to plot these points, we may, sometimes, need to have a background map. Otherwise just points on a white background will show scatter plot kind which is not that mappy or map-like. So I will import some free background map and assign it same projection as the honeybee points.</p>
 <pre class="r"><code>neighborhoods &lt;- st_read(&quot;https://opendata.arcgis.com/datasets/055ca54e5fcc47329f081c9ef51d038e_0.geojson&quot;) %&gt;%
   st_transform(26915)</code></pre>
