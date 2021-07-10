@@ -7,8 +7,8 @@
 # boundary:
 
 # Libraries for the project 
-# R         version 4.0.4 a.k.a "Lost Library Book"
-# RStudio   version 1.4.1103
+# R         version 4.1.0 a.k.a "Camp Pontanezen"
+# RStudio   version 1.4.1717
 
 library(dismo)   # version 1.3.3
 library(raster)  # version 3.4.5
