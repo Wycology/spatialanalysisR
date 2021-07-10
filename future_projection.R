@@ -1,8 +1,10 @@
-# Created on 13th May 2021
-# Author: Wyclife Agumba Oluoch
-# Last edited by the author on 24th May 2021
+##############################################
+# Created on 13th May 2021                   #
+# Author: Wyclife Agumba Oluoch              #
+# Last edited by the author on 24th May 2021 #
+# Projection into the future                 #
+##############################################
 
-# Making a projection into the future, how to download the worldclim
 
 # This is super simple, the beginning is to download the future climate scenario
 # Here is a sample code for downloading the future scenario 
