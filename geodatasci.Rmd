@@ -3,9 +3,7 @@ title: "Geo_Data_Sci_R"
 author: "Wyclife Agumba Oluoch"
 date: "`r Sys.time()`"
 output:
-  html_document: default
-  pdf_document: default
-  word_document: default
+  html_notebook: default
 ---
 
 ### Loading Libraries
