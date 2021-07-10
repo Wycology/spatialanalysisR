@@ -21,12 +21,9 @@ nc_osm <- get_tiles(nc,provider = 'CartoDB.Positron', crop = TRUE)
 # "HikeBike", 
 # "Wikimedia",
 
-
-
 # -8595797, 4333842
 
 plot_tiles(nc_osm)
-
 
 plot(st_geometry(nc), col = NA, add = TRUE, axes = TRUE)
 
@@ -53,4 +50,3 @@ plot_tiles(nc_osmnolbl) # plotting the tile
 
 mtext(text = osmnolbl$cit, side = 1, line = -1, 
       adj = 1, cex = .9, font = 3)
-
