@@ -1,7 +1,8 @@
-# Created by Wyclife Agumba Oluoch
-# Date 22nd Apr 2021
-
-# Working with bathymetry data to predict marine species distribution
+#######################################################################
+# Created by Wyclife Agumba Oluoch                                    #
+# Date 22nd Apr 2021                                                  #
+# Working with bathymetry data to predict marine species distribution #
+#######################################################################
 
 library(sdmpredictors) # Loading the library
 library(leaflet)
@@ -70,4 +71,3 @@ sites_tibble <- as_tibble(my.sites.environment)
 sites_tibble %>% 
   ggplot(aes(BO2_tempmax_bdmean, BO2_salinitymin_bdmean)) +
   geom_point()
-
