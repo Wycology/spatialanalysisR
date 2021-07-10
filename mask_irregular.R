@@ -11,8 +11,8 @@
 # RStudio   version 1.4.1717
 
 library(dismo)   # version 1.3.3
-library(raster)  # version 3.4.5
-library(sf)      # version 0.9.7
+library(raster)  # version 3.4.13
+library(sf)      # version 1.0.1
 
 # Downloading environmental data from worldclim----
 
