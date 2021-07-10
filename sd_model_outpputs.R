@@ -1,10 +1,9 @@
-# Created on 11th March 2021
-# Last edited on 17th March 2021
-# Created by Wyclife Agumba Oluoch
-# Task: Calculating standard deviation on sdm model outputs
-# Relevance: This is super helpful with appreciating uncertainty around model
-# outputs...like where do the models disagree most and where to they agree more
-
+#############################################################
+# Created on 11th March 2021                                #
+# Last edited on 10th July 2021                             #
+# Created by Wyclife Agumba Oluoch                          #
+# Task: Calculating standard deviation on sdm model outputs #
+#############################################################
 # This script is not standalone it continues from prediction stage of sdm
 
 # In running predict function, we generated several layers and stored as .img 
