@@ -4,19 +4,12 @@
 # +254729371248                         #
 # TASK: Chapter 6 Geocomputation with R #
 # Created on 9th January 2021           #
-# Last modified on 22nd Apr 2021        #
+# Last modified on 10th July 2021       #
 #########################################
 
 # Chapter Six Re-projecting Geographic Data in R----
 
-# Loading the necessary libraries for the project 
-
-# Installing some of the packages which are having the data for the project
-
 # remotes::install_github("Nowosad/spDataLarge")
-# all of the libraries can be simply installed the normal way.
-
-# This is then followed by loading the necessary libraries into R
 
 library(sf)         # Working with the sf data-sets...version 0.9.7
 library(raster)     # Manipulating and writing raster data as..version 3.4.5   
