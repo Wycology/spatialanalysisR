@@ -1,7 +1,9 @@
-# Created by Wyclife Agumba Oluoch
-# Created on 
-# Last edited on 22nd April 2021
-# Task: Mapping open water points in Turkana County
+####################################################
+# Created by Wyclife Agumba Oluoch                 #     
+# Created on 22nd April 2021                       #
+# Last edited on 10th July 2021                    #
+# Task: Mapping open water points in Turkana County#
+####################################################
 
 
 library(leaflet)
@@ -87,4 +89,4 @@ dams <- dams %>% mutate(popup_info = paste('County: ', County, "<br/>",
 
 leaflet() %>% addTiles() %>% 
   addCircleMarkers(data = dams, lat = ~latitude, lng = ~longitude, 
-                   radius = ~4, popup = ~popup_info)
+                   radius = ~2, popup = ~popup_info)
