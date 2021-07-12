@@ -6,7 +6,7 @@
 # +254729371248                        #
 # TASK: Working with spatial data in R #
 # Created on 28th Dec 2020 4.24 pm     #
-# Last modified on 12th Apr 2021       #
+# Last modified on 12th Jul 2021       #
 ########################################
 
 # Calculating plant canopy heights across NEON sites in Harvard using dsm & dtm.
