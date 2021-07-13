@@ -5,7 +5,7 @@
 # Projection into the future                 #
 ##############################################
 
-# Here ia sample code for downloading the future scenario 
+# Here a sample code for downloading the future scenario 
 
 library(raster)
 
