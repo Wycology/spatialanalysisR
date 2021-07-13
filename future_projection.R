@@ -5,7 +5,7 @@
 # Projection into the future                 #
 ##############################################
 
-# Herea sample code for downloading the future scenario 
+# Hera sample code for downloading the future scenario 
 
 library(raster)
 
