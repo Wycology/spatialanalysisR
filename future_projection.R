@@ -5,7 +5,7 @@
 # Projection into the future                 #
 ##############################################
 
-# Herample code for downloading the future scenario 
+# ample code for downloading the future scenario 
 
 library(raster)
 
