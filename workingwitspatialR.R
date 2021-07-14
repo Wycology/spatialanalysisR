@@ -18,7 +18,7 @@ library(rgdal)  # Reading and manipulating vector data (points, lines, polygons)
 library(maps) # Loading required maps as SpatialDataframe
 library(spocc) # Gathering species records from gbif (https://www.gbif.org/)
 library(tidyverse) # Wrangling and visualizing especially tabular data
-library(mapview) # Viewing interactve map with a range of background layers
+library(mapview) # Viewing interactive map with a range of background layers
 library(leaflet) # Almost similar functionalities as mapview
 library(leaflet.extras2) # For leaflet functionalities in R
 # Versions of packages, Rstudio and R used in this project:
