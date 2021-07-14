@@ -68,7 +68,7 @@ dsm_harvard_df <- as.data.frame(dsm_harvard,
 head(dsm_harvard_df) # Indeed the coordinates are also stored in the newly 
 # created data.frame.
 
-# We can create another one with xy set to FALSE, just for fun.
+# We can create another one with xy set to FALSE, for fun.
 
 no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
 
