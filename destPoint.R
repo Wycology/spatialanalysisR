@@ -7,7 +7,7 @@
 # Task: Calculating the coordinates of the destination point given the starting 
 # point in degrees, bearing in degrees, and distance in metres
 
-library(geosphere) # The package 
+library(geosphere) # The packagefor the analyses
 
 destPoint(p = c(35, 3), b = 60, d = 125)
 
