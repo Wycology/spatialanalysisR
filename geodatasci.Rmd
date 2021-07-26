@@ -4,6 +4,8 @@ author: "Wyclife Agumba Oluoch"
 date: "`r Sys.time()`"
 output:
   html_notebook: default
+  html_document:
+    df_print: paged
 ---
 
 ### Loading Libraries
