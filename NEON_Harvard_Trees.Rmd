@@ -1,11 +1,13 @@
 ---
 title: <center><h1>__DSM and DTM for vegetation canopy at NEON Harvard site__</h1></center>
 author: <center>_Wyclife Agumba Oluoch_</center>
-date: <center>`r Sys.Date()`<center>
+date: <center>`r Sys.time()`<center>
 output:
   html_document:
     toc: true
     number_sections: true
+bibliography: packages.bib
+nocite: '@*'
 ---
 
 <style>
@@ -16,6 +18,27 @@ text-align: justify}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE)
+```
+
+```{r libs, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+packages <- c("raster",
+              'dplyr',
+              'ggplot2',
+              'knitr',
+              'base')
+
+installed_packages <- packages %in% rownames(installed.packages())
+if(any(installed_packages == FALSE)){
+  install.packages(packages[!installed_packages])
+}
+lapply(packages, library, character.only = TRUE) |> 
+  invisible()
+```
+
+```{r write_bib, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+knitr::write_bib(c(
+  .packages(), packages
+), 'packages.bib')
 ```
 
 For the `R` code, .rmd, datasets, and html files behind this article visit my [**GitHub**](https://github.com/Wycology/spatialanalysisR) account repository.
@@ -42,11 +65,6 @@ I used `raster` and `tidyverse` libraries. One can use `install.packages('')` to
 b. `RStudio`   = 1.3.1093 (Go to Help ==> About RStudio)
 c. `raster`    = 3.4.5  Run packageVersion("raster")
 d. `tidyverse` = 1.3.0  Run packageVersion("tidyverse")
-
-```{r libraries, message=FALSE, echo=FALSE}
-library(raster) # Reading and wrangling raster data files (e.g. dsm and dtm).
-library(tidyverse) # Wrangling and visualizing especially tabular data.
-```
 
 # Loading dsm and dtm datasets into `R`
 
@@ -224,3 +242,5 @@ just scratched the top two powerful packages; `raster` and `tidyverse` in `R`. M
 
 >**Note**: _Only convert raster to dataframe if it has manageable number of cells, otherwise you might end up with hundreds of millions of rows. For example, I am currently working on a site with four Sentinel layers each with about 394 million cells; I can't think of having that as a dataframe in my machine even though R can handle up to `r 2^31 - 1` rows. My classification of vegetation life-forms using quartiles is very far from reality. Anyway, mine was to present some basic idea. Once the classes are clear, the same
 concept can be applied by simple modification. One can even think of rate of change of heights of storey buildings in a city. Sinking of some land or rising of a volcanic mountain are other areas where the idea could be useful. Warm regards! Me`RR`y Ch`R`istmas %>% \nP`R`ospe`R`ous New Yea`R`!_
+
+# References
