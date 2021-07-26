@@ -4,7 +4,7 @@
 # +254729371248                         #
 # TASK: Chapter 6 Geocomputation with R #
 # Created on 9th January 2021           #
-# Last modified on 12th July 2021       #
+# Last modified on 26th July 2021       #
 #########################################
 
 # Chapter Six Re-projecting Geographic Data in R----
