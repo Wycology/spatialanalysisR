@@ -14,7 +14,7 @@ geosphere::destPoint(p = c(35, 3), b = 60, d = 125) # Gives the coords of a poin
 
 the_mat <- base::data.frame(lon = c(35, 35.2, 35.6),
                       lat = c(3, 3.2, 3.6))
-the_matrix <- as.matrix(the_mat)
+the_matrix <- base::as.matrix(the_mat)
 
 destPoint(p = the_matrix, b = abs(rnorm(3, 100, 30)), d = rnorm(3, 150, 25))
 # The end
