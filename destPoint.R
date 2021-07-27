@@ -16,5 +16,5 @@ the_mat <- base::data.frame(lon = c(35, 35.2, 35.6),
                       lat = c(3, 3.2, 3.6))
 the_matrix <- base::as.matrix(the_mat)
 
-destPoint(p = the_matrix, b = abs(rnorm(3, 100, 30)), d = rnorm(3, 150, 25))
+geosphere::destPoint(p = the_matrix, b = base::abs(stats::rnorm(3, 100, 30)), d = stats::rnorm(3, 150, 25))
 # The end
