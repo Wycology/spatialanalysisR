@@ -12,7 +12,7 @@ library(geosphere) # The packagefor the analyses
 geosphere::destPoint(p = c(35, 3), b = 60, d = 125) # Gives the coords of a point which is 
                                         # bearing and distance
 
-the_mat <- data.frame(lon = c(35, 35.2, 35.6),
+the_mat <- base::data.frame(lon = c(35, 35.2, 35.6),
                       lat = c(3, 3.2, 3.6))
 the_matrix <- as.matrix(the_mat)
 
