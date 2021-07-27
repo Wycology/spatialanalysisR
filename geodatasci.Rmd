@@ -59,7 +59,7 @@ This is telling us that we are working with a point feature. Such a cool informa
 st_crs(honeybee) # Checking the crs of the sf
 ```
 
-That is returning quite helpful information. We can also have the information within the text as `r st_crs(honeybee)`. I still can't imagine how the output will look like in the text. Let us see by knitting the markdown. Everything thrown to text :).
+That is returning quite helpful information. We can also have the information within the text as `r sf::st_crs(honeybee)`. I still can't imagine how the output will look like in the text. Let us see by knitting the markdown. Everything thrown to text :).
 
 ### Checkig for validity of the data
 
