@@ -3,7 +3,7 @@ library(rgdal) # library for working with shapefile in R
 
 mySHP <- base::file.choose() # Choosing the shapefile from directory    
 
-myFILE <- readOGR(mySHP) # Reading the file into R
+myFILE <- rgdal::readOGR(mySHP) # Reading the file into R
 
 mode(myFILE) # Checking the mode of the file
 length(myFILE) # Checking the number of features in the file
