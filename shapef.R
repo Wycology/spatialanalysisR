@@ -20,7 +20,7 @@ base::nrow(myDF) # checking the number of rows
 
 base::summary(myDF) # Unnecessary summary of the dataframe
 
-library(tidyverse)
+base::library(tidyverse)
 tibble::glimpse(myDF)
 
 ggplot(myDF, aes(long, lat, group = group)) +
