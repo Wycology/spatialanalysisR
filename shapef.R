@@ -18,7 +18,7 @@ utils::head(myDF) # the first few rows of the dataframe
 
 base::nrow(myDF) # checking the number of rows
 
-summary(myDF) # Unnecessary summary of the dataframe
+base::summary(myDF) # Unnecessary summary of the dataframe
 
 library(tidyverse)
 tibble::glimpse(myDF)
