@@ -23,7 +23,7 @@ base::summary(myDF) # Unnecessary summary of the dataframe
 base::library(tidyverse)
 tibble::glimpse(myDF)
 
-ggplot(myDF, aes(long, lat, group = group)) +
+ggplot2::ggplot(myDF, aes(long, lat, group = group)) +
   coord_map('mercator') +
   geom_path()
 # sinusoidal, cylequalarea, cylindrical, rectangular, gall, mollweide, gilbert,
