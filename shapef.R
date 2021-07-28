@@ -16,7 +16,7 @@ base::class(myDF) # Confirming the class of the dataframe
 
 utils::head(myDF) # the first few rows of the dataframe
 
-nrow(myDF) # checking the number of rows
+base::nrow(myDF) # checking the number of rows
 
 summary(myDF) # Unnecessary summary of the dataframe
 
