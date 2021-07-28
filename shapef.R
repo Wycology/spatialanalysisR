@@ -21,7 +21,7 @@ nrow(myDF) # checking the number of rows
 summary(myDF) # Unnecessary summary of the dataframe
 
 library(tidyverse)
-glimpse(myDF)
+tibble::glimpse(myDF)
 
 ggplot(myDF, aes(long, lat, group = group)) +
   coord_map('mercator') +
