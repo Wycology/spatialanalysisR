@@ -2,7 +2,7 @@
 base::library(maptiles) # For loading the tiles
 base::library(sf) # for simple features handling
 
-nc_raw <- st_read(system.file("shape/nc.shp", package = 'sf'), quiet = TRUE)
+nc_raw <- sf::st_read(base::system.file("shape/nc.shp", package = 'sf'), quiet = TRUE)
 
 # re-project to EPSG:3857
 
