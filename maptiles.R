@@ -8,7 +8,7 @@ nc_raw <- sf::st_read(base::system.file("shape/nc.shp", package = 'sf'), quiet =
 
 nc <- sf::st_transform(nc_raw, 'EPSG:3857') # picking a more appropriate crs
 
-nc_osm <- get_tiles(nc,provider = 'CartoDB.Positron', crop = TRUE)
+nc_osm <- maptiles::get_tiles(nc,provider = 'CartoDB.Positron', crop = TRUE)
 
 # Other providers
 
@@ -23,11 +23,11 @@ nc_osm <- get_tiles(nc,provider = 'CartoDB.Positron', crop = TRUE)
 
 # -8595797, 4333842
 
-plot_tiles(nc_osm)
+maptiles::plot_tiles(nc_osm)
 
-plot(st_geometry(nc), col = NA, add = TRUE, axes = TRUE)
+base::plot(sf::st_geometry(nc), col = NA, add = TRUE, axes = TRUE)
 
-mtext(text = get_credit('CartoDB.Positron'),
+graphics::mtext(text = maptiles::get_credit('CartoDB.Positron'),
       side = 1, 
       line = -1,
       adj = 0.2,
