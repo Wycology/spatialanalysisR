@@ -38,15 +38,15 @@ graphics::mtext(text = maptiles::get_credit('CartoDB.Positron'),
 
 # define the tile server parameters
 
-# osmnolbl <- list(src = 'osmnolabel',
-                 # q = 'https://{s}.tiles.wmflabs.org/osm-no-labels/{z}/{x}/{y}.png',
-                 # sub = c('a','b', 'c'), 
-                 # cit = '© OpenStreetMap contributors.')
+osmnolbl <- list(src = 'osmnolabel',
+                  q = 'https://{s}.tiles.wmflabs.org/osm-no-labels/{z}/{x}/{y}.png',
+                  sub = c('a','b', 'c'), 
+                  cit = '© OpenStreetMap contributors.')
 
-# nc_osmnolbl <- get_tiles(x = nc, provider = osmnolbl, crop = TRUE, 
-#                        cachedir = tempdir(), verbose = TRUE)
+nc_osmnolbl <- maptiles::get_tiles(x = nc, provider = osmnolbl, crop = TRUE, 
+                      cachedir = tempdir(), verbose = TRUE)
 
-plot_tiles(nc_osmnolbl) # plotting the tile
+maptiles::plot_tiles(nc_osmnolbl) # plotting the tile
 
-mtext(text = osmnolbl$cit, side = 1, line = -1, 
+graphics::mtext(text = osmnolbl$cit, side = 1, line = -1, 
       adj = 1, cex = .9, font = 3)
