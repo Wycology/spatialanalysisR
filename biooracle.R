@@ -5,9 +5,9 @@
 # Last edited 30th July 2021                                          #
 #######################################################################
 
-library(sdmpredictors) # Loading the library
-library(leaflet)
-library(tidyverse)
+base::library(sdmpredictors) # Loading the library
+base::library(leaflet)
+base::library(tidyverse)
 
 list_datasets() # Listing the datasets
 list_layers() # Explore layers in a dataset
