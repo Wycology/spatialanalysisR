@@ -1,5 +1,5 @@
 # Working with shapefile in R as df
-library(rgdal) # library for working with shapefile in R
+base::library(rgdal) # library for working with shapefile in R
 
 mySHP <- base::file.choose() # Choosing the shapefile from directory    
 
