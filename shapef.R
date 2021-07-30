@@ -26,6 +26,8 @@ tibble::glimpse(myDF)
 ggplot2::ggplot(myDF, ggplot2::aes(long, lat, group = group)) +
   ggplot2::coord_map('mercator') +
   ggplot2::geom_path()
+
+# All done
 # sinusoidal, cylequalarea, cylindrical, rectangular, gall, mollweide, gilbert,
 # azequidistant, gnomonic, perspective, orthographic, stereographic, laue, fisheye,
 # newyorker, conic, simpleconic, lambert, albers, bonne, polyconic, aitoff, lagrange,
