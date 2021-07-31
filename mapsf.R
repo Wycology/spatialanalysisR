@@ -46,7 +46,7 @@ mapsf::mf_inset_off() # stopping the inset function from running
 
 mapsf::mf_theme('dark') # picking the dark theme of mapsf to do the mapping
 
-mtq_target <- mtq[c(26),] # picking the right map to plot out
+mtq_target <- mtq[base::c(26),] # picking the right map to plot out
 
 mf_map(mtq) # mapping the sf object to the plots window
 
