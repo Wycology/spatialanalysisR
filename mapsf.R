@@ -25,7 +25,7 @@ mapsf::mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
 
 mapsf::colnames(mtq) # column names of the data-set
 
-mf_map(mtq) # Displaying the map of the mtq object
+mapsf::mf_map(mtq) # Displaying the map of the mtq object
 
 mf_map(mtq_target, add = TRUE, col = 'yellow') # Awesome tomato color
 
