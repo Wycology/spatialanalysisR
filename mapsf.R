@@ -15,7 +15,7 @@ mapsf::mf_theme(x = 'candy',
          mar = c(0, 0, 0, 0),
          ) # Creating theme for plotting the map
 
-mtq <- mf_get_mtq() # Loading Martinique sf data to the R environment
+mtq <- mapsf::mf_get_mtq() # Loading Martinique sf data to the R environment
 
 mtq$geom # Looking at the geometry column of the data. Projected coords   
 
