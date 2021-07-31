@@ -19,7 +19,7 @@ mtq <- mapsf::mf_get_mtq() # Loading Martinique sf data to the R environment
 
 mtq$geom # Looking at the geometry column of the data. Projected coords   
 
-mtq_target <- mtq[c(26), ] # Sub-setting single polygon and storing to object
+mtq_target <- mtq[base::c(26), ] # Sub-setting single polygon and storing to object
 
 mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
 
