@@ -31,7 +31,7 @@ mapsf::mf_map(mtq_target, add = TRUE, col = 'yellow') # Awesome tomato color
 
 mapsf::mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
 
-mf_scale(size = 2, 
+mapsf::mf_scale(size = 2, 
          pos = c(x = 702229, y = 1598119), 
          lwd = 2, 
          cex = 1.2, 
