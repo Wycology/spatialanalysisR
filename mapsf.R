@@ -27,7 +27,7 @@ mapsf::colnames(mtq) # column names of the data-set
 
 mapsf::mf_map(mtq) # Displaying the map of the mtq object
 
-mf_map(mtq_target, add = TRUE, col = 'yellow') # Awesome tomato color
+mapsf::mf_map(mtq_target, add = TRUE, col = 'yellow') # Awesome tomato color
 
 mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
 
