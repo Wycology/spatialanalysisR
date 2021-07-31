@@ -9,14 +9,14 @@ base::library(sdmpredictors) # Loading the library
 base::library(leaflet)
 base::library(tidyverse)
 
-list_datasets() # Listing the datasets
-list_layers() # Explore layers in a dataset
+sdmpredictors::list_datasets() # Listing the datasets
+sdmpredictors::list_layers() # Explore layers in a dataset
 
-bathy <- load_layers(c("BO_bathymin", "BO_bathymean", "BO_bathymax"))
+bathy <- sdmpredictors::load_layers(c("BO_bathymin", "BO_bathymean", "BO_bathymax"))
 
-layer_stats()
+sdmpredictors::layer_stats()
 
-layers_correlation()
+sdmpredictors::layers_correlation()
 
 # Easy download of raster file (Maximum Temperature at the sea bottom)
 temp.max.bottom <- load_layers("BO2_tempmax_bdmax")
