@@ -40,7 +40,7 @@ mapsf::mf_scale(size = 2,
 
 mapsf::mf_map(mtq_target, add = FALSE, col = 'tomato') # mapping the inset
 
-mf_inset_off() # stopping the inset function from running
+mapsf::mf_inset_off() # stopping the inset function from running
 
 # set theme for the project
 
