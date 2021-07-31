@@ -38,7 +38,7 @@ mapsf::mf_scale(size = 2,
          col = 'red', 
          unit = 'km')
 
-mf_map(mtq_target, add = FALSE, col = 'tomato') # mapping the inset
+mapsf::mf_map(mtq_target, add = FALSE, col = 'tomato') # mapping the inset
 
 mf_inset_off() # stopping the inset function from running
 
