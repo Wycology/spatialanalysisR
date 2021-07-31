@@ -4,7 +4,7 @@
 
 library(mapsf) # Loading the mapsf library for mapping
 
-mf_theme(x = 'candy',
+mapsf::mf_theme(x = 'candy',
          bg = 'purple',
          fg = 'purple',
          pos = 'center',
