@@ -21,7 +21,7 @@ mtq$geom # Looking at the geometry column of the data. Projected coords
 
 mtq_target <- mtq[base::c(26), ] # Sub-setting single polygon and storing to object
 
-mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
+mapsf::mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
 
 colnames(mtq) # column names of the data-set
 
