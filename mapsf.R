@@ -61,7 +61,7 @@ mapsf::mf_shadow(mtq_target, add = TRUE) # adding map shadow
 
 mapsf::mf_map(mtq_target, add = TRUE, col = 'tomato')
 
-mf_title('Saint-Anne', pos = 'left', tab = TRUE, cex = .9, line = 1, inner = TRUE)
+mapsf::mf_title('Saint-Anne', pos = 'left', tab = TRUE, cex = .9, line = 1, inner = TRUE)
 
 mf_scale(size = 2) # Scale is changeable
 
