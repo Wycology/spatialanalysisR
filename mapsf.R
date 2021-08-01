@@ -57,7 +57,7 @@ mapsf::mf_init(mtq_target) # initializing the map building
 
 mapsf::mf_map(mtq, add = TRUE) # Adding more maps
 
-mf_shadow(mtq_target, add = TRUE) # adding map shadow 
+mapsf::mf_shadow(mtq_target, add = TRUE) # adding map shadow 
 
 mf_map(mtq_target, add = TRUE, col = 'tomato')
 
