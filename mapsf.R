@@ -67,7 +67,7 @@ mapsf::mf_scale(size = 2) # Scale is changeable
 
 box()
 
-mf_inset_off() # removing the inset mapping mode
+mapsf::mf_inset_off() # removing the inset mapping mode
 
 mf_title('Martinique Municipalities') # Adding title to the map
 
