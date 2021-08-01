@@ -51,7 +51,7 @@ mapsf::mf_map(mtq) # mapping the sf object to the plots window
 
 mapsf::mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color, fun
 
-mf_inset_on(x = mtq_target, pos = 'topright', cex = .4) # location of the inset
+mapsf::mf_inset_on(x = mtq_target, pos = 'topright', cex = .4) # location of the inset
 
 mf_init(mtq_target) # initializing the map building
 
