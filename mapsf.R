@@ -49,7 +49,7 @@ mapsf::mf_theme('dark') # picking the dark theme of mapsf to do the mapping
 mtq_target <- mtq[base::c(26),] # picking the right map to plot out
 mapsf::mf_map(mtq) # mapping the sf object to the plots window
 
-mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color, fun
+mapsf::mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color, fun
 
 mf_inset_on(x = mtq_target, pos = 'topright', cex = .4) # location of the inset
 
