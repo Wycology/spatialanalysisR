@@ -87,6 +87,6 @@ dams <- dams %>% dplyr::mutate(popup_info = base::paste('County: ', County, "<br
                                            'Longitude: ', longitude, "<br/>", 
                                            'Latitude: ', latitude))
 
-leaflet::leaflet() %>% addTiles() %>% 
+leaflet::leaflet() %>% leaflet::addTiles() %>% 
   addCircleMarkers(data = dams, lat = ~latitude, lng = ~longitude, 
                    radius = ~2, popup = ~popup_info)
