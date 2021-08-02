@@ -7,7 +7,7 @@
 
 
 base::library(leaflet)
-library(dplyr)
+base::library(dplyr)
 
 dams <- data.frame(
   longitude = c(35.582391, 35.581789, 35.579651, 35.579189, 35.577966, 35.577676, 
