@@ -80,7 +80,7 @@ dams <- base::data.frame(
                3.690201, 3.698859, 3.755449, 3.794025, 3.754583, 3.735440,
                3.604281, 3.673417, 3.708468, 3.705983, 3.752190, 3.755705,
                3.833779, 3.862294, 3.852390, 4.538475, 4.296907, 3.124854),
-  listing = base::c(1:210), County = rep('Turkana', 210))
+  listing = base::c(1:210), County = base::rep('Turkana', 210))
 
 dams <- dams %>% mutate(popup_info = paste('County: ', County, "<br/>", 
                                            'Number: ',listing, "<br/>",
