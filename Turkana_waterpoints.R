@@ -6,7 +6,7 @@
 ####################################################
 
 
-library(leaflet)
+base::library(leaflet)
 library(dplyr)
 
 dams <- data.frame(
