@@ -82,7 +82,7 @@ dams <- base::data.frame(
                3.833779, 3.862294, 3.852390, 4.538475, 4.296907, 3.124854),
   listing = base::c(1:210), County = base::rep('Turkana', 210))
 
-dams <- dams %>% dplyr::mutate(popup_info = paste('County: ', County, "<br/>", 
+dams <- dams %>% dplyr::mutate(popup_info = base::paste('County: ', County, "<br/>", 
                                            'Number: ',listing, "<br/>",
                                            'Longitude: ', longitude, "<br/>", 
                                            'Latitude: ', latitude))
