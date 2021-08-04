@@ -11,18 +11,18 @@
 
 # remotes::install_github("Nowosad/spDataLarge")
 
-base::library(sf)         # Working with the sf data-sets...version 0.9.7
-base::library(raster)     # Manipulating and writing raster data as..version 3.4.5   
-base::library(tmap)       # Generating good maps using st_functions..version 3.3
-base::library(tidyverse)  # Wrangling data..version 1.3.0
-base::library(shiny)      # Will generate cool shiny app map (webmap)..version 1.6.0 
-base::library(spData)     # Has data for use in this document analysis..version 0.3.8
-base::library(spDataLarge)# Has larger data than spData above..version 0.5.1
-base::library(mapview)    # Rendering html maps..version 2.9.0
-base::library(leaflet)    # Rendering html maps too..version 2.0.4.1    
-base::library(grid)       # Did something..version 4.0.4
-base::library(cartogram)  # Another map making package..version 0.2.2
-library(geosphere)  # For calculating distance between coordinates
+base::library(sf)         # Working with the sf data-sets.................version 1.0.2
+base::library(raster)     # Manipulating and writing raster data as.......version 3.4.13   
+base::library(tmap)       # Generating good maps using st_functions.......version 3.3.2
+base::library(tidyverse)  # Wrangling data................................version 1.3.1
+base::library(shiny)      # Will generate cool shiny app map (webmap).....version 1.6.0 
+base::library(spData)     # Has data for use in this document analysis....version 0.3.10
+base::library(spDataLarge)# Has larger data than spData above.............version 0.5.1
+base::library(mapview)    # Rendering html maps...........................version 2.10.0
+base::library(leaflet)    # Rendering html maps too.......................version 2.0.4.1    
+base::library(grid)       # Did something.................................version 4.1.0
+base::library(cartogram)  # Another map making package....................version 0.2.2
+base::library(geosphere)  # For calculating distance between coordinates..version 1.5.10
 
 # st_is_longlat is one great function for checking if geographic CRS is in use
 
