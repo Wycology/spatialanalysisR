@@ -20,7 +20,7 @@ base::library(spData)     # Has data for use in this document analysis..version 
 base::library(spDataLarge)# Has larger data than spData above..version 0.5.1
 base::library(mapview)    # Rendering html maps..version 2.9.0
 base::library(leaflet)    # Rendering html maps too..version 2.0.4.1    
-library(grid)       # Did something..version 4.0.4
+base::library(grid)       # Did something..version 4.0.4
 library(cartogram)  # Another map making package..version 0.2.2
 library(geosphere)  # For calculating distance between coordinates
 
