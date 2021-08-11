@@ -990,9 +990,9 @@ tm_shape(us_states2163_dorling) +
 # These include QGIS, GRASS and SAGA
 base::library(sf)
 base::library(raster)
-library(RSAGA)
-library(rgrass7)
-library(RQGIS3) # This failed to work. I don't need help now, I will just read 
+base::library(RSAGA)
+base::library(rgrass7)
+base::library(RQGIS3) # This failed to work. I don't need help now, I will just read 
 # the book and move on with other possibilities, I don't think it is an 
 # emergency
 
