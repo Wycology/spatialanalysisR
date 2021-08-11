@@ -36,16 +36,8 @@ london # Running this confirms that CRS is NA. An sf object without crs set
 
 sf::st_is_longlat(london) # Returns NA because it is not yet set to any projection
 
-# Knowledge gained is that one cannot just pick some variables and set them as
-# coordinates and that is enough. Setting coordinates
-# in sf package needs the use of st_set_crs() whereby projection is assigned. 
-# That is when the full metadata will be availed to define the crs.
-# So we can overcome the above problem by piping (%>%) it to crs or EPSG code:
-
 london_geo <- london %>% # Feeding in the above london information
-  st_set_crs(4326) # Setting the crs to epsg code 4326 for geographic datum
-
-# To show the whole process in one simple group of codes, run:
+  st_set_crs(4326) # Setting the crs to EPSG code 4326 for geographic datum
 
 london_geo <- data.frame(lon = -0.1,
                          lat = 51.5) %>% # Gives coordinates of the point
@@ -55,18 +47,14 @@ london_geo <- data.frame(lon = -0.1,
 st_is_longlat(london_geo) # This is returning TRUE because we have set crs
 
 # If a dataset has no crs, a number of issues can arise. Let us see this when 
-# trying to create buffer around the point we created for londin and london_geo
+# trying to create buffer around the point we created for london and london_geo
 
 london_buff_nocrs <- st_buffer(london, dist = 1)
-london_buff <- st_buffer(london_geo, dist = 1) # Returns a warning, the warning
-# implies that we should re-project the point to a projected coordinate system not 
-# the longlat geographic datum.
+london_buff <- st_buffer(london_geo, dist = 1) 
 
-# How to calculate distance in m between any two points on the surface of the 
-# earth given longitude, latitude coordinates at the two points.
+# Calculating distance between two points
 
-geosphere::distGeo(c(0, 0), c(1, 0)) # Returns distance between two longitudes,
-# That is distance along the equator but 1 degree to the east.
+geosphere::distGeo(c(0, 0), c(1, 0))
 
 geosphere::distGeo(c(-0.1, 51.5), c(0.9, 51.5)) / 1000 # Cool, distance between two
 # meridians in London is slightly below 70 kms (69.43998).
@@ -1000,7 +988,7 @@ tm_shape(us_states2163_dorling) +
 # Chapter 9 Bridges to GIS Software ----
 # This is a chapter which is linking other GIS software with R
 # These include QGIS, GRASS and SAGA
-library(sf)
+base::library(sf)
 library(raster)
 library(RSAGA)
 library(rgrass7)
@@ -1079,3 +1067,4 @@ ep = run_qgis(alg = "saga:sagawetnessindex",
 
 ep = stack(c(dem, ndvi, ep))
 names(ep) = c("dem", "ndvi", "carea", "cslope") # ERRRROOOORRRRRRSSSSSSSSS!!
+
