@@ -1,4 +1,7 @@
 # Working with shapefile in R as df
+# Created on
+# Last edited on 30th August 2021 by the author
+
 base::library(rgdal) # library for working with shapefile in R
 
 mySHP <- base::file.choose() # Choosing the shapefile from directory    
