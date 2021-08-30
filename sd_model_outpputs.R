@@ -1,6 +1,6 @@
 #############################################################
 # Created on 11th March 2021                                #
-# Last edited on 14th July 2021                             #
+# Last edited on 30th August 2021                           #
 # Created by Wyclife Agumba Oluoch                          #
 # Task: Calculating standard deviation on sdm model outputs #
 #############################################################
