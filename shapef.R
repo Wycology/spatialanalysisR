@@ -4,7 +4,7 @@
 
 base::library(rgdal) # library for working with shapefile in R
 
-mySHP <- base::file.choose() # Choosing the shapefile from directory    
+mySHP <- base::file.choose() # Choosing the shapefile from a directory    
 
 myFILE <- rgdal::readOGR(mySHP) # Reading the file into R
 
