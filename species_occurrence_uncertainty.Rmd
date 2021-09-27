@@ -1,0 +1,101 @@
+---
+title: "<center>**Species occurrence uncertainty in R**</center>"
+author: "<center>Wyclife Agumba Oluoch (wyclifeoluoch@gmail.com) </center>"
+date: "<center>`r Sys.time()`</center>"
+bibliography: 
+  - bib/packages.bib
+nocite: '@*'
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r libs, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+packages <- c("base",
+              'knitr',
+              'rmarkdown',
+              'tidyverse',
+              'raster',
+              'rgeos')
+installed_packages <- packages %in% rownames(installed.packages())
+if(any(installed_packages == FALSE)){
+  install.packages(packages[!installed_packages])
+}
+lapply(packages, library, character.only = TRUE) |> invisible()
+```
+
+```{r write_bib, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+knitr::write_bib(c(
+  .packages(), packages
+), 'bib/packages.bib')
+```
+
+# Introduction
+
+In this short article I demonstrate how to assess species occurrence records that are 'likely' to be outside the species' range. Most likely outliers or imprecisely georeferenced occurrence points. Such records are quite common in big data like from [GBIF](https://www.gbif.org/) and other citizen science sources.
+
+# Loading data
+
+I will start by downloading climate data from [worldclim](https://www.worldclim.org/), Kenya boundary shapefile from [GADM](https://gadm.org/) and a few occurrence records within Kenya and convert them to `spatialPointsDataframe`.
+
+```{r}
+clim <- getData('worldclim', var = 'bio', res = 10)
+KEN <- getData('GADM', country = 'KEN', level = 0)
+df <- data.frame(longitude = c(40.029948,  39.031136, 35.587305),
+                 latitude = c(2.627751,  -1.269534, 1.072451),
+                 sampling_sites = c('Wajir', 'Bura Tana', 'Chesoi'))
+df_spatial <- df
+coordinates(df_spatial) <- ~longitude+latitude
+```
+
+# Cropping data to study area
+
+The next thing is to crop and mask climate data with boundary of Kenya.
+
+```{r}
+clim_mask <- mask(crop(clim, KEN), KEN)
+plot(clim_mask[[4]])
+plot(KEN, border = 'purple', lwd = 5, add = T)
+```
+
+# Generating buffer zone around points
+
+The next phase is to create buffer of one map unit around the occurrence points and extract raster values that fall within the created buffers.
+
+```{r}
+set_buff <- gBuffer(df_spatial, width = 0.5, 
+                   byid = T, 
+                   id = df_spatial@data$sampling_sites)
+values_within_buffer <- raster::extract(clim_mask, set_buff, df = T)
+plot(clim_mask[[4]])
+plot(KEN, border = 'purple', lwd = 5, add = T)
+plot(set_buff, add = T)
+plot(df_spatial, add = T)
+```
+
+# Plotting the pixel values within buffer 
+
+Lastly, we plot the values on boxplot to show points whose extracted values are clearly different from the other values. This could be an occurrence point(s) that has/have been wrongly recorded and may be excluded when running sdm.
+
+```{r}
+values_within_buffer |> mutate(group = case_when(ID == 1 ~ "Wajir",
+                              ID == 2 ~ "Bura Tana",
+                              ID == 3 ~ "Chesoi")) |> 
+  ggplot(aes(x = group, y = bio4, fill = group)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1)
+```
+
+# Conclusion
+
+In this case, Chesoi site appears to differ from the other two sites with regard to bio4. In case bio4 is one of the most important factors in determining the distribution of the species then we might decide to leave out Chesoi occurrence record from the model procedure and only use those for Bura Tana and Wajir. There is possibility of running probabilistic/Bayesian models to evaluate whether Chesoi is 'really' outside the range of the species. Frequentist approaches like anova with some p-values can also be used to test whether the mean of bio4 values around those occurrence records are statistically different. Happy sdm-ing!.
+
+# References
+ 
