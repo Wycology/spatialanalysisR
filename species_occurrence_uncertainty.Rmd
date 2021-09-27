@@ -95,7 +95,7 @@ values_within_buffer |> mutate(group = case_when(ID == 1 ~ "Wajir",
 
 # Conclusion
 
-In this case, Chesoi site appears to differ from the other two sites with regard to bio4. In case bio4 is one of the most important factors in determining the distribution of the species then we might decide to leave out Chesoi occurrence record from the model procedure and only use those for Bura Tana and Wajir. There is possibility of running probabilistic/Bayesian models to evaluate whether Chesoi is 'really' outside the range of the species. Frequentist approaches like anova with some p-values can also be used to test whether the mean of bio4 values around those occurrence records are statistically different. Code generating this html file Happy sdm-ing!.
+In this case, Chesoi site appears to differ from the other two sites with regard to bio4. In case bio4 is one of the most important factors in determining the distribution of the species then we might decide to leave out Chesoi occurrence record from the model procedure and only use those for Bura Tana and Wajir. There is possibility of running probabilistic/Bayesian models to evaluate whether Chesoi is 'really' outside the range of the species. Frequentist approaches like anova with some p-values can also be used to test whether the mean of bio4 values around those occurrence records are statistically different. Code generating this html file can be sourced from  Happy sdm-ing!.
 
 # References
  
