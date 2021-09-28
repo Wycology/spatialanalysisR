@@ -39,7 +39,7 @@ knitr::write_bib(c(
 
 # Introduction
 
-In this short article I demonstrate how to assess species occurrence records that are 'likely' to be outside the species' range. Most likely 'outliers' or imprecisely georeferenced occurrence points. Such records are q common in big data like from [GBIF](https://www.gbif.org/) and other citizen science sources.
+In this short article I demonstrate how to assess species occurrence records that are 'likely' to be outside the species' range. Most likely 'outliers' or imprecisely georeferenced occurrence points. Such records are  common in big data like from [GBIF](https://www.gbif.org/) and other citizen science sources.
 
 # Loading data
 
