@@ -3,7 +3,7 @@
 # Contact: https://github.com/Wycology
 # Last edited 30th September 2021
 
-library(mapsf) # Loading the mapsf library for mapping
+library(mapsf) # Loading the mapsf 
 
 mapsf::mf_theme(x = 'candy',
          bg = 'purple',
