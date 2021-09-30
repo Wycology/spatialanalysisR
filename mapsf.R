@@ -14,7 +14,7 @@ mapsf::mf_theme(x = 'candy',
          cex = 3,
          font = 16,
          mar = c(0, 0, 0, 0),
-         ) # Creating theme for plotting the map
+         ) # Creating theme for plotting
 
 mtq <- mapsf::mf_get_mtq() # Loading Martinique sf data to the R environment
 
