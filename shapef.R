@@ -13,7 +13,7 @@ base::length(myFILE)
 
 library(ggplot2) 
 
-myDF <- ggplot2::fortify(myFILE) # Running the fortify function on the object to create dataframe
+myDF <- ggplot2::fortify(myFILE) 
 
 base::class(myDF) # Confirming the class of the dataframe
 
