@@ -21,7 +21,7 @@ utils::head(myDF)
 
 base::nrow(myDF)
 
-base::summary(myDF) # Unnecessary summary of the dataframe
+base::summary(myDF)
 
 base::library(tidyverse)
 tibble::glimpse(myDF)
