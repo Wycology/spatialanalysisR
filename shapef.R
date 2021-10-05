@@ -19,7 +19,7 @@ base::class(myDF)
 
 utils::head(myDF) 
 
-base::nrow(myDF) # checking the number of rows
+base::nrow(myDF)
 
 base::summary(myDF) # Unnecessary summary of the dataframe
 
