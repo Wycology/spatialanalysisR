@@ -6,7 +6,7 @@ base::library(rgdal)
 
 mySHP <- base::file.choose()    
 
-myFILE <- rgdal::readOGR(mySHP) # Reading the file into R
+myFILE <- rgdal::readOGR(mySHP) 
 
 base::mode(myFILE) # Checking the mode of the file
 base::length(myFILE) # Checking the number of features in the file
