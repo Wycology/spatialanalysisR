@@ -17,7 +17,7 @@ myDF <- ggplot2::fortify(myFILE)
 
 base::class(myDF) 
 
-utils::head(myDF) # the first few rows of the dataframe
+utils::head(myDF) 
 
 base::nrow(myDF) # checking the number of rows
 
