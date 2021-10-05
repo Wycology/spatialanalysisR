@@ -9,7 +9,7 @@ mySHP <- base::file.choose()
 myFILE <- rgdal::readOGR(mySHP) 
 
 base::mode(myFILE) 
-base::length(myFILE) # Checking the number of features in the file
+base::length(myFILE) 
 
 library(ggplot2) # Loading the package with fortify function
 
