@@ -15,7 +15,7 @@ library(ggplot2)
 
 myDF <- ggplot2::fortify(myFILE) 
 
-base::class(myDF) # Confirming the class of the dataframe
+base::class(myDF) 
 
 utils::head(myDF) # the first few rows of the dataframe
 
