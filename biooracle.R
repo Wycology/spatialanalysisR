@@ -5,7 +5,7 @@
 # Last edited 30th Aug 2021                                           #
 #######################################################################
 
-base::library(sdmpredictors) # Loading the library
+base::library(sdmpredictors) # Loading the libra
 base::library(leaflet)
 base::library(tidyverse)
 
