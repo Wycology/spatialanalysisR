@@ -5,7 +5,7 @@
 # Last edited 30th Aug 2021                                           #
 #######################################################################
 
-base::library(sdmpredictors) # Loadi
+base::library(sdmpredictors) # Loa
 base::library(leaflet)
 base::library(tidyverse)
 
