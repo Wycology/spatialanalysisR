@@ -4,7 +4,7 @@
 # Created by Wyclife Agumba Oluoch                          #
 # Task: Calculating standard deviation on sdm model outputs #
 #############################################################
-# This script is not standalone it continues from prediction 
+# This script is not standalone it continues from predic
 
 # In running predict function, we generated several layers and stored as .img 
 # files as specified in the finename = "blabla.img".
