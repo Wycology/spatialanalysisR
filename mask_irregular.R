@@ -10,9 +10,9 @@
 # R         version 4.1.0 a.k.a "Camp Pontanezen"
 # RStudio   version 1.4.1717
 
-library(dismo)   # version 1.3.3
-library(raster)  # version 3.4.13
-library(sf)      # version 1.0.1
+library(dismo)   # version 1.3.5
+library(raster)  # version 3.5.2
+library(sf)      # version 1.0.3
 
 # Downloading environmental data from worldclim----
 
