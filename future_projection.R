@@ -24,4 +24,4 @@ getData(name = 'CMIP5',   # others would be worldclim, GADM, alt, SRTM(plus lon,
         path = 'D:/JUNK') # where to store downloads, default is current working directory
 
 # The training data should be in dataframe and contain lon, lat, sp1,... spn, 
-# pred1, ... predn in order to leave the formula blank and run both
+# pred1, ... predn in order to leave the formu
