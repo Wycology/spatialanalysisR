@@ -25,4 +25,4 @@ getData(name = 'CMIP5',   # others would be worldclim, GADM, alt, SRTM(plus lon,
 
 # The training data should be in dataframe and contain lon, lat, sp1,... spn, 
 # pred1, ... predn in order to leave the formula blank and run both sdmData and
-# sdm() smoothly.
+# sdm() sm
