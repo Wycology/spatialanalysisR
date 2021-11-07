@@ -10,7 +10,7 @@ library(raster)
 
 getData('CMIP5', var='tmin', res=10, rcp=85, model='AC', year=70)
 
-# A more complete one wi
+# A more complete one
 
 getData(name = 'CMIP5',   # others would be worldclim, GADM, alt, SRTM(plus lon,lat)
         var = 'tmin',     # others include tmax, prec, and bio
