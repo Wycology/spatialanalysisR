@@ -10,8 +10,6 @@ library(raster)
 
 getData('CMIP5', var='tmin', res=10, rcp=85, model='AC', year=70)
 
-# A mor
-
 getData(name = 'CMIP5',   # others would be worldclim, GADM, alt, SRTM(plus lon,lat)
         var = 'tmin',     # others include tmax, prec, and bio
         model = 'AC',     # others "BC", "CC", "CE", "CN", "GF", "GD", "GS", "HD", "HG", "HE", "IN", "IP", "MI", "MR", "MC", "MP", "MG", or "NO"
