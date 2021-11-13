@@ -77,7 +77,7 @@ occurrence_cropped_sf_geo <- st_set_crs(occurrence_cropped_sf, 4326)
 
 crs(occurrence_cropped_sf_geo) # WGS84
 crs(clim_masked)               # WGS84
-crs(kenya_sf)                     # WGS84
+crs(kenya_sf)                  # WGS84
 
 # Transformed to projected crs 32636
 
