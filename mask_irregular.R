@@ -6,7 +6,7 @@
 # Clipping occurrence records data and predictor variables with our study area
 # boundary:
 
-# Libraries for the pr
+# Libraries for the
 # R         version 4.1.0 a.k.a "Camp Pontanezen"
 # RStudio   version 1.4.1717
 
