@@ -7,7 +7,7 @@
 # boundary:
 
 # Libraries
-# R         version 4.1.2 a.k.a "Camp Pontanezen"
+# R         version 4.1.2 a.k.a "Bird Hippie"
 # RStudio   version 1.4.1717
 
 library(dismo)   # version 1.3.5
