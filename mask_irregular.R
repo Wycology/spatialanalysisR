@@ -8,7 +8,7 @@
 
 # Libraries
 # R         version 4.1.2 a.k.a "Bird Hippie"
-# RStudio   version 1.4.1717
+# RStudio   version RStudio 2021.09.1+372 "Ghost Orchid"
 
 library(dismo)   # version 1.3.5
 library(raster)  # version 3.5.2
