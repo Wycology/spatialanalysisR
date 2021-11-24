@@ -64,7 +64,7 @@ occurrence_cropped <- crop(occurrence, kenya) # Only occurrence within kenya ext
 plot(clim_masked[[1]])
 plot(occurrence_cropped, add = T) # Yes cropped, but with kenyan extent.
 
-# Do the 'masking' of occurrence data
+# Do the 'masking' of occurrence
 
 # Start by converting occurrence_cropped to sf object, since my kenya is an sf
 # object
