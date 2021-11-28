@@ -23,7 +23,7 @@ worldclim <- getData('worldclim', var = 'tmin', res = 10)
 kenya <- getData('GADM', country = 'KEN', level = 0)
 
 # Check CRS of your raster and polygon, they should be the same. If not, check
-# on how to re-project either
+# on how to re-project eith
 
 crs(worldclim) # CRS arguments: +proj=longlat +datum=WGS84 +no_defs 
 crs(kenya)     # CRS arguments: +proj=longlat +datum=WGS84 +no_defs 
