@@ -12,7 +12,7 @@
 
 library(dismo)   # version 1.3.5
 library(raster)  # version 3.5.2
-library(sf)      # version 1.0.3
+library(sf)      # version 1.0.
 
 # Downloading environmental data from worldclim----
 
