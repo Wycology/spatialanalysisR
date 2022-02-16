@@ -14,7 +14,7 @@ library(dismo)   # version 1.3.5
 library(raster)  # version 3.5.2
 library(sf)      # version 1.0.4
 
-# Downloading environment data
+# Downloading environm data
 
 worldclim <- getData('worldclim', var = 'tmin', res = 10)
 
