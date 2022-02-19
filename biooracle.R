@@ -2,7 +2,7 @@
 # Created by Wyclife Agumba Oluoch                                    #
 # Date 22nd Apr 2021                                                  #
 # Working with bathymetry data to predict marine species distribution #
-# Last edited 19th  2022                                           #
+# Last edited 19th February 2022                                           #
 #######################################################################
 
 base::library(sdmpredictors) 
