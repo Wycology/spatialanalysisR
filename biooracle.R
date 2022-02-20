@@ -24,7 +24,6 @@ ne.atlantic.ext <- extent(-100, 45, 30.75, 72.5)
 madagascar.ext <- extent(42.5, 50.8, -26, -11)
 temp.max.bottom.crop <- crop(temp.max.bottom, madagascar.ext)
 
-# Generate a nice color ramp and plot the map
 my.colors = colorRampPalette(c("#5E85B8","#EDF0C0","#C13127"))
 plot(temp.max.bottom.crop,col=my.colors(1000),axes=FALSE, box=FALSE)
 title(cex.sub = 1.5, sub = "Maximum temperature at the sea bottom (ºC)")
