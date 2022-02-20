@@ -55,7 +55,8 @@ my.sites <- data.frame(Name=c("Faro, Portugal, NE Atlantic" ,
 my.sites
 
 
-# Visualise sites of interest in google maps
+# VisualiZe sites of interest in google maps
+
 m <- leaflet()
 m <- addTiles(m)
 m <- addMarkers(m, lng=my.sites$Lon, lat=my.sites$Lat, popup=my.sites$Name)
