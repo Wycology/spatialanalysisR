@@ -18,7 +18,6 @@ sdmpredictors::layer_stats()
 
 sdmpredictors::layers_correlation()
 
-# Easy download of raster file (Maximum Temperature at the sea bottom)
 temp.max.bottom <- load_layers("BO2_tempmax_bdmax")
 
 # Crop raster to fit the North Atlantic
