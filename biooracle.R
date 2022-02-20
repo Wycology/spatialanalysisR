@@ -54,7 +54,6 @@ my.sites <- data.frame(Name=c("Faro, Portugal, NE Atlantic" ,
                        Lat=c(37.047, 27.794,15.957,23.040 ) )
 my.sites
 
-
 # Visualize sites of interest in Google maps
 
 m <- leaflet()
@@ -63,8 +62,8 @@ m <- addMarkers(m, lng=my.sites$Lon, lat=my.sites$Lat, popup=my.sites$Name)
 m
 
 # Extract environmental values from layers
-my.sites.environment <- data.frame(Name=my.sites$Name , 
-                                   depth=raster::extract(bathymetry,my.sites[,2:3]) , 
+my.sites.environment <- data.frame(Name = my.sites$Name , 
+                                   depth = raster::extract(bathymetry,my.sites[,2:3]) , 
                                    raster::extract(environment.bottom,my.sites[,2:3]))
 my.sites.environment
 
