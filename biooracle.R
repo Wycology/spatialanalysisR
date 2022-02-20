@@ -31,7 +31,6 @@ title(cex.sub = 1.5, sub = "Maximum temperature at the sea bottom (ºC)")
 layers.bio2 <- list_layers(datasets="Bio-ORACLE")
 layers.bio2
 
-# Download environmental data layers (Max. Temperature, Min. Salinity and Min. Nitrates at the sea bottom)
 environment.bottom <- load_layers( layercodes = c("BO2_tempmax_bdmean" , 
                                                   "BO2_salinitymin_bdmean", 
                                                   "BO2_nitratemin_bdmean") , 
