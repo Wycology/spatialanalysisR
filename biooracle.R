@@ -20,7 +20,6 @@ sdmpredictors::layers_correlation()
 
 temp.max.bottom <- load_layers("BO2_tempmax_bdmax")
 
-# Crop raster to fit the North Atlantic
 ne.atlantic.ext <- extent(-100, 45, 30.75, 72.5)
 madagascar.ext <- extent(42.5, 50.8, -26, -11)
 temp.max.bottom.crop <- crop(temp.max.bottom, madagascar.ext)
