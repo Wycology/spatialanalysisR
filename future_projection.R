@@ -16,6 +16,3 @@ getData(name = 'CMIP5',   # others would be worldclim, GADM, alt, SRTM(plus lon,
         rcp = 45,         # others 26, 60 and 85
         year = 50,        # other 70
         res = 2.5,        # others 2.5 and 5
-        lon = 35,         # as need be
-        lat = -0.23,      # as need be
-        download = T,     # in case you want to download
