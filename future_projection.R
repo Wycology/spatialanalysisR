@@ -10,6 +10,3 @@ library(raster)
 
 getData('CMIP5', var='tmin', res=10, rcp=85, model='AC', year=70)
 
-
-
-
