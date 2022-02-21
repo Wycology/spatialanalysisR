@@ -14,5 +14,4 @@ getData(name = 'CMIP5',   # others would be worldclim, GADM, alt, SRTM(plus lon,
         var = 'tmin',     # others include tmax, prec, and bio
         model = 'AC',     # others "BC", "CC", "CE", "CN", "GF", "GD", "GS", "HD", "HG", "HE", "IN", "IP", "MI", "MR", "MC", "MP", "MG", or "NO"
         rcp = 45,         # others 26, 60 and 85
-        year = 50,        # other 70
-        res = 2.5,        # others 2.5 and 5
+
