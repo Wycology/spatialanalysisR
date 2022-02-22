@@ -1,7 +1,7 @@
 ####################################
 # Created by Wyclife Agumba Oluoch    
 # Created on: 19th Apr 2021
-# Last edited on 30th Fe 2022
+# Last edited on 30th Feb 2022
 ####################################
 
 # Task: Calculating the coordinates of the destination point given the starting 
