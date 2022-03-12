@@ -10,7 +10,7 @@ base::library(leaflet)
 base::library(tidyverse)
 
 sdmpredictors::list_datasets() 
-sdmpredictors::list_layers() # Explore layers in 
+sdmpredictors::list_layers() # Explore layers i
 
 bathy <- sdmpredictors::load_layers(c("BO_bathymin", "BO_bathymean", "BO_bathymax"))
 
