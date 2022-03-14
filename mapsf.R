@@ -98,7 +98,7 @@ mf_worldmap(mtq)
 
 mf_inset_off()
 
-# Non-geographic insets,  histograms
+# Non-geographic insets, for histograms
 
 bks <- mf_get_breaks(x = mtq$MED, nbreaks = 5, breaks = 'quantile')
 bks <- round(bks, digits = -2)
