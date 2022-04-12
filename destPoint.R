@@ -9,7 +9,7 @@
 
 library(geosphere) # Loading the library
 
-geosphere::destPoint(p = c(35, 3), b = 60, d = 125) # Gives t coords of a point which is 
+geosphere::destPoint(p = c(35, 3), b = 60, d = 125) # Gives coords of a point which is 
                                         # bearing and distance
 
 the_mat <- base::data.frame(lon = c(35, 35.2, 35.6),
