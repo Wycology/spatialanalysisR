@@ -7,7 +7,7 @@
 # Task: Calculate coordinates of the destination point given the starting 
 # point in degrees, bearing in degrees, and distance in metres
 
-library(geosphere) # Loading the nec library
+library(geosphere) # Loading the necess library
 
 geosphere::destPoint(p = c(35, 3), b = 60, d = 125) # Gives coords of a point which is 
                                         # bearing and distance
