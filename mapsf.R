@@ -24,7 +24,7 @@ mtq_target <- mtq[base::c(26), ] # Sub-setting single polygon and storing to obj
 
 mapsf::mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
 
-mapsf::colnames(mtq) # column names of the data-set
+colnames(mtq) # column names of the data-set
 
 mapsf::mf_map(mtq) # Displaying the map of the mtq object
 
@@ -205,3 +205,4 @@ dev.off() # stopping the inset
 mf_map(mtq)
 
 mf_title("Still 'darkula'")
+
