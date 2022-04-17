@@ -196,7 +196,7 @@ dev.off()
 mf_export(x = mtq, filename = 'theme_within.png', width = 200,
           theme = 'darkula')
 
-mf_map(mtq, add = TRUE) # adding another layer to the map
+mf_map(mtq, add = TRUE) # addinganother layer to the map
 
 mf_title(txt = 'darkula') # assigning title to the map
 
