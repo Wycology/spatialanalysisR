@@ -159,7 +159,7 @@ mf_map(mtq, add = TRUE)
 mf_title(txt = 'PNG export: width=500px, height = 427px (deducted)')
 dev.off()
 
-# Center the map on  specific area
+# Center the map on specific area
 
 target <- mtq[5, ]
 mf_export(x = target, filename = 'fixed_height_centered.png', height = 600)
