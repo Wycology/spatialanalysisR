@@ -5,7 +5,7 @@
 #####################################
 
 # Task: Calculate coordinates of destination point given the starting 
-# point coor in degrees, bearing in degrees, and distance in metres
+# point coordi in degrees, bearing in degrees, and distance in metres
 
 library(geosphere) # Loading the necessary library
 
