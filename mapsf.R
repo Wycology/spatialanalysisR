@@ -200,7 +200,7 @@ mf_map(mtq, add = TRUE) # Add another layer to the map
 
 mf_title(txt = 'darkula') # Assigning title to the map
 
-dev.off() # topping the inset
+dev.off() # Stopping the inset
 
 mf_map(mtq)
 
