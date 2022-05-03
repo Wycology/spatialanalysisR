@@ -41,12 +41,12 @@ environment.bottom <- load_layers( layercodes = c("BO2_tempmax_bdmean" ,
 bathymetry <- load_layers("BO_bathymean")
 
 # Generate a data.frame with the sites of interest
-my.sites <- data.frame(Name=c("Faro, Portugal, NE Atlantic" , 
+my.sites <- data.frame(Name = c("Faro, Portugal, NE Atlantic" , 
                               "Maspalomas, Spain, NE Atlantic" , 
                               "Guadeloupe, France, Caribbean Sea" , 
                               "Havana, Cuba, Caribbean Sea") , 
-                       Lon=c(-7.873,-15.539,-61.208,-82.537) , 
-                       Lat=c(37.047, 27.794,15.957,23.040 ) )
+                       Lon = c(-7.873,-15.539,-61.208,-82.537) , 
+                       Lat = c(37.047, 27.794,15.957,23.040 ) )
 my.sites
 
 # Visualize in Google map
