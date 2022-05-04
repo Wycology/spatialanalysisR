@@ -54,7 +54,7 @@ my.sites
 
 m <- leaflet()
 m <- addTiles(m)
-m <- addMarkers(m, lng=my.sites$Lon, lat=my.sites$Lat, popup=my.sites$Name)
+m <- addMarkers(m, lng = my.sites$Lon, lat = my.sites$Lat, popup = my.sites$Name)
 m
 
 # Extract environmental values from layers
@@ -68,3 +68,19 @@ sites_tibble <- as_tibble(my.sites.environment)
 sites_tibble %>% 
   ggplot(aes(BO2_tempmax_bdmean, BO2_salinitymin_bdmean)) +
   geom_point()
+
+
+my.countries <- data.frame(Name = c("Kenya_Home", "Uganda_Moroto", "Egypt_Cairo" , 
+                                "Tanzania_Dar_Es_Salaam", "Germany_Tannenbusch_Mitte", 
+                                "Belgium_Brussels", "France_Paris", 
+                                "Netherlands_Enschede"), 
+                       Lon = c(35.010684, 34.656301, 31.405672, 39.208862, 7.043222, 4.341395, 2.444176, 6.885655) , 
+                       Lat = c(-0.237274, 2.527216, 30.108552, -6.872027, 50.749639, 50.894881, 48.967121, 52.223587))
+my.countries
+
+# Visualize on Google map
+
+m <- leaflet()
+m <- addTiles(m)
+m <- addMarkers(m, lng = my.countries$Lon, lat = my.countries$Lat, popup = my.countries$Name)
+m
