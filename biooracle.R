@@ -8,6 +8,7 @@
 base::library(sdmpredictors) 
 base::library(leaflet)
 base::library(tidyverse)
+library(raster)
 
 sdmpredictors::list_datasets() 
 sdmpredictors::list_layers() 
