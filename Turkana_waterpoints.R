@@ -1,7 +1,7 @@
 ####################################################
 # Created by Wyclife Agumba Oluoch                 #     
 # Created on 22nd April 2021                       #
-# Last edited on 30th August 202                  #
+# Last edited on 30th August 2022                  #
 # Task: Mapping open water points in Turkana County#
 ####################################################
 
