@@ -16,7 +16,7 @@ mapsf::mf_theme(x = 'candy',
          mar = c(0, 0, 0, 0),
          )
 
-mtq <- mapsf::mf_get_mtq() # Load data
+mtq <- mapsf::mf_get_mtq() # Load the default data coming with the package
 
 mtq$geom # Looking at the geometry column of the data. Projected coords   
 
