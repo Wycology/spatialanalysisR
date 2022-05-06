@@ -5,7 +5,7 @@
 
 library(mapsf) # The main mapping package
 
-mapsf::mf_theme(x = 'candy',
+mf_theme(x = 'candy',
          bg = 'purple',
          fg = 'purple',
          pos = 'center',
@@ -169,7 +169,8 @@ dev.off()
 target <- mtq[5, ]
 mf_export(x = target, filename = 'fixed_height_centered.png', height = 600)
 
-mf_map(mtq, add = TRUE)
+mf_init(mtq, theme = 'candy')
+mf_map(mtq, add = T)
 
 mf_shadow(target, add = TRUE)
 
