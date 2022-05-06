@@ -211,3 +211,5 @@ dev.off() # Stopping the inset
 mf_map(mtq)
 
 mf_title("Still 'darkula'")
+
+# When nothing plots then you may need to run dev.off() several times...
