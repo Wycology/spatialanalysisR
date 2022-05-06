@@ -16,61 +16,61 @@ mapsf::mf_theme(x = 'candy',
          mar = c(0, 0, 0, 0),
          )
 
-mtq <- mapsf::mf_get_mtq() # Load the default data coming with the package
+mtq <- mf_get_mtq() # Load the default data coming with the package
 
 mtq$geom # Looking at the geometry column of the data. Projected coords   
 
 mtq_target <- mtq[26, ] # Sub-setting single polygon and storing to object
 
-mote <- mtq |> dplyr::filter(LIBGEO == 'Sainte-Anne') # This is also giving the same result
+mtq_target <- mtq |> dplyr::filter(LIBGEO == 'Sainte-Anne') # This is also giving the same result
 
-mapsf::mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
+mf_choro(mtq, var = 'POP', nbreaks = 5) # Plotting POP data variable
 
-colnames(mtq) # column names of the data-set
+colnames(mtq) # Prints column names of the data-set...not easy to know what they mean
 
-mapsf::mf_map(mtq) # Displaying the map of the mtq object
+mf_map(mtq) # Displaying the map of the mtq object
 
-mapsf::mf_map(mtq_target, add = TRUE, col = 'yellow') # Awesome tomato color
+mf_map(mtq_target, add = TRUE, col = 'cyan') # Awesome cyan color
 
-mapsf::mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
+mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
 
-mapsf::mf_scale(size = 2, 
+mf_scale(size = 2, 
          pos = c(x = 702229, y = 1598119), 
          lwd = 2, 
          cex = 1.2, 
          col = 'red', 
          unit = 'km')
 
-mapsf::mf_map(mtq_target, add = FALSE, col = 'tomato') # mapping the inset
+mf_map(mtq_target, add = FALSE, col = 'tomato') # mapping the inset
 
-mapsf::mf_inset_off() # stopping the inset function from running
+mf_inset_off() # stopping the inset function from running
 
 # set theme for project
 
-mapsf::mf_theme('dark') # picking the dark theme of mapsf to do the mapping
+mf_theme('dark') # picking the dark theme of mapsf to do the mapping
 
-mtq_target <- mtq[base::c(26),] # picking the right map to plot out
-mapsf::mf_map(mtq) # mapping the sf object to the plots window
+mtq_target <- mtq[26,] # picking the right map to plot out
+mf_map(mtq) # mapping the sf object to the plots window
 
-mapsf::mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color, fun
+mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color, fun
 
-mapsf::mf_inset_on(x = mtq_target, pos = 'topright', cex = .4) # location of the inset
+mf_inset_on(x = mtq_target, pos = 'topright', cex = .4) # location of the inset
 
-mapsf::mf_init(mtq_target) # initializing the map building
+mf_init(mtq_target) # initializing the map building
 
-mapsf::mf_map(mtq, add = TRUE) # Adding more maps
+mf_map(mtq, add = TRUE) # Adding more maps
 
-mapsf::mf_shadow(mtq_target, add = TRUE) # adding map shadow 
+mf_shadow(mtq_target, add = TRUE) # adding map shadow 
 
-mapsf::mf_map(mtq_target, add = TRUE, col = 'tomato')
+mf_map(mtq_target, add = TRUE, col = 'tomato')
 
-mapsf::mf_title('Saint-Anne', pos = 'left', tab = TRUE, cex = .9, line = 1, inner = TRUE)
+mf_title('Saint-Anne', pos = 'left', tab = TRUE, cex = .9, line = 1, inner = TRUE)
 
-mapsf::mf_scale(size = 2) # Scale is changeable
+mf_scale(size = 2) # Scale is changeable
 
-box()
+box() # Adding bounding box around the inset map
 
-mapsf::mf_inset_off() # removing the inset mapping mode
+mf_inset_off() # removing the inset mapping mode
 
 mf_title('Martinique Municipalities') # Adding title to the map
 
