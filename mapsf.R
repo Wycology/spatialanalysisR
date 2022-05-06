@@ -20,7 +20,7 @@ mtq <- mapsf::mf_get_mtq() # Load the default data coming with the package
 
 mtq$geom # Looking at the geometry column of the data. Projected coords   
 
-mtq_target <- mtq[base::c(26), ] # Sub-setting single polygon and storing to object
+mtq_target <- mtq[26, ] # Sub-setting single polygon and storing to object
 
 mapsf::mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
 
