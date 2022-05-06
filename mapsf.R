@@ -128,6 +128,7 @@ axis(side = 1, at = bks, las = 2, tick = FALSE, line = -.9,
 
 title('Median Income\nin euros', cex.main = .8, col.main = fg,
       font.main = 1, adj = 0)
+box()
 
 mf_inset_off()
 
