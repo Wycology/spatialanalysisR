@@ -22,6 +22,8 @@ mtq$geom # Looking at the geometry column of the data. Projected coords
 
 mtq_target <- mtq[26, ] # Sub-setting single polygon and storing to object
 
+mote <- mtq |> dplyr::filter(LIBGEO == 'Sainte-Anne') # This is also giving the same result
+
 mapsf::mf_choro(mtq, var = 'POP', nbreaks = 5) # plotting pop data
 
 colnames(mtq) # column names of the data-set
