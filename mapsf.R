@@ -84,7 +84,7 @@ mf_map(mtq) # Mapping the whole map
 
 mf_inset_on(fig = c(0, 0.25, 0, 0.25))
 
-mf_map(mtq[9, ])
+mf_map(mtq[9, ], col = 'blue')
 
 box()
 
@@ -97,6 +97,8 @@ mf_map(mtq)
 mf_inset_on(x = 'worldmap')
 
 mf_worldmap(mtq)
+
+box() # Adding bounding box around worldmap
 
 mf_inset_off()
 
