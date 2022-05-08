@@ -9,7 +9,13 @@
 
 library(geosphere) # Loading the necessary library
 
-geosphere::destPoint(p = c(35, 3), b = 60, d = 125) # Gives coordinates of a point.
+start_longitude <- 35
+start_latitude <- 3
+bearing_to_destination <- 60
+distance_to_destination <- 125
+
+geosphere::destPoint(p = c(start_longitude, start_latitude), b = bearing_to_destination, 
+                     d = distance_to_destination) # Gives coordinates of a destination point.
 
 the_mat <- base::data.frame(lon = c(35, 35.2, 35.6),
                       lat = c(3, 3.2, 3.6))
