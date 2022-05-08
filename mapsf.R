@@ -1,7 +1,7 @@
 # Task: Creating maps and inset maps
 # Author: Wyclife Agumba Oluoch
 # Contact: https://github.com/Wycology
-# Last edited 2nd May 2022
+# Last edited 8th May 2022
 
 library(mapsf) # The main mapping package
 
@@ -68,7 +68,7 @@ mf_title('Saint-Anne', pos = 'left', tab = TRUE, cex = .9, line = 1, inner = TRU
 
 mf_scale(size = 2) # Scale is changeable
 
-box() # Adding bounding box around the inset map
+box(col = 'maroon', lwd = 3, lty = 2) # Adding bounding box around the inset map
 
 mf_inset_off() # removing the inset mapping mode
 
