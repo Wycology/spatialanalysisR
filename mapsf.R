@@ -90,7 +90,7 @@ box()
 
 mf_inset_off()
 
-# World map inset
+# World map as an inset
 
 mf_map(mtq)
 
