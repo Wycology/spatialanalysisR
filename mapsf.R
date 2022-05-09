@@ -154,7 +154,7 @@ mf_map(mtq, add = TRUE)
 mf_title(txt = 'PNG export: width = 500px, height = 611px (deducted)')
 dev.off()
 
-# Export with extra space
+# Export with extra space around the map
 
 mf_export(x = mtq, filename = 'fixed_width_expand.png',
           width = 500, expandBB = c(0, 0, 0, .5), theme = 'default')
