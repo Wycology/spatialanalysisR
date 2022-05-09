@@ -98,7 +98,7 @@ mf_inset_on(x = 'worldmap')
 
 mf_worldmap(mtq)
 
-box() # Adding bounding box around worldmap
+box() # Adding bounding box around world map inset
 
 mf_inset_off()
 
