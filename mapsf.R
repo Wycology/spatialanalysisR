@@ -205,7 +205,7 @@ mf_export(x = mtq, filename = 'theme_within.png', width = 200,
 mf_init(mtq)
 mf_map(mtq, add = TRUE) # Add another layer to the map
 
-mf_title(txt = 'darkula') # Assigning title to the map
+mf_title(txt = 'darkula') # Assigning title to the plotted map
 
 dev.off() # Stopping the inset
 
