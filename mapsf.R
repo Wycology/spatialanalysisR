@@ -140,7 +140,7 @@ mf_credits(paste0('Sources: Insee and IGN, 2018\n', 'mapsf ', packageVersion('ma
 
 mtq <- mf_get_mtq()
 
-mf_export(x = mtq, filename = 'fixed_width.png', width = 500)
+mf_export(x = mtq, filename = 'fixed_width.png', width = 500) # The code for export
 
 mf_map(mtq, add = TRUE)
 
