@@ -209,7 +209,7 @@ mf_title(txt = 'darkula') # Assigning title to the plotted map
 
 dev.off() # Terminating the inset
 
-mf_map(mtq) # Starting the map again.
+mf_map(mtq) # Starting  map again.
 
 mf_title("Still 'darkula'")
 
