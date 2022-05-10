@@ -142,7 +142,7 @@ mtq <- mf_get_mtq()
 
 mf_export(x = mtq, filename = 'fixed_width.png', width = 500) # The code for export
 
-mf_map(mtq, add = TRUE)
+mf_map(mtq, add = TRUE) # Adding the map
 
 mf_title(txt = 'PNG export: width = 500px, height = 605px (deducted)')
 dev.off()
