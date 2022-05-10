@@ -203,7 +203,7 @@ mf_export(x = mtq, filename = 'theme_within.png', width = 200,
           theme = 'darkula')
 
 mf_init(mtq)
-mf_map(mtq, add = TRUE) # Add another layer to the map
+mf_map(mtq, add = TRUE) # Add another layer to the map.
 
 mf_title(txt = 'darkula') # Assigning title to the plotted map
 
