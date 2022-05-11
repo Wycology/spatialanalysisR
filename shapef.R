@@ -25,6 +25,11 @@ glimpse(my_tibble)
 
 # Making a simple map
 
+# Plotting without considering coordinates
+my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
+  geom_path()
+
+# Taking into consideration the spatial nature of the data
 my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   coord_map('mercator') +
   geom_path()
