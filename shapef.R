@@ -6,12 +6,12 @@ library(rgdal)        # Package version 1.5.31
 library(tidyverse)    # Package version 1.3.1
 library(broom)        # Package version 0.8.0
 
-myFILE <- readOGR('shp/dummy.shp')
+my_shapefile <- readOGR('shp/dummy.shp')
 
-mode(myFILE) 
-length(myFILE) 
+mode(my_shapefile)     # This is an S4 object, typical of GIS files
+length(my_shapefile)   # Reveals the number of features in the layer...like two roads
 
-myDF <- broom::tidy(myFILE)
+my_tibble <- tidy(my_shapefile)
 
 class(myDF) 
 
