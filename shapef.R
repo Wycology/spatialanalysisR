@@ -10,7 +10,6 @@ myFILE <- readOGR('shp/dummy.shp')
 mode(myFILE) 
 length(myFILE) 
 
-
 myDF <- fortify(myFILE) 
 
 class(myDF) 
@@ -23,7 +22,8 @@ summary(myDF)
 
 glimpse(myDF)
 
-ggplot(myDF, aes(long, lat, group = group, col = group)) +
+# Making a simple map
+myDF |> ggplot(aes(long, lat, group = group, col = group)) +
   coord_map('mercator') +
   geom_path()
 
