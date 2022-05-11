@@ -13,19 +13,19 @@ length(my_shapefile)   # Reveals the number of features in the layer...like two 
 
 my_tibble <- tidy(my_shapefile)
 
-class(myDF) 
+class(my_tibble) 
 
-head(myDF) 
+head(my_tibble) 
 
-nrow(myDF)
+nrow(my_tibble)
 
-summary(myDF)
+summary(my_tibble)
 
-glimpse(myDF)
+glimpse(my_tibble)
 
 # Making a simple map
 
-myDF |> ggplot(aes(long, lat, group = group, col = group)) +
+my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   coord_map('mercator') +
   geom_path()
 
