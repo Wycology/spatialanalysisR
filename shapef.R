@@ -1,16 +1,17 @@
-# Working with shapefile in R as df
+# Working with shapefile in R as data frame
 # Created on 30th August 2021
 # Last edited on 11th May 2022 by the author
 
 library(rgdal)        # Package version 1.5.31
 library(tidyverse)    # Package version 1.3.1
+library(broom)        # For converting the shapefile to tibble
 
 myFILE <- readOGR('shp/dummy.shp') 
 
 mode(myFILE) 
 length(myFILE) 
 
-myDF <- fortify(myFILE) 
+my_broom <- broom::tidy(myFILE)
 
 class(myDF) 
 
@@ -23,6 +24,7 @@ summary(myDF)
 glimpse(myDF)
 
 # Making a simple map
+
 myDF |> ggplot(aes(long, lat, group = group, col = group)) +
   coord_map('mercator') +
   geom_path()
