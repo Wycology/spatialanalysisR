@@ -4,8 +4,7 @@
 
 library(rgdal)        # Package version 1.5.31
 library(tidyverse)    # Package version 1.3.1
-library(broom)        # For converting the shapefile to tibble
-
+library(broom)        # Package version 0.8.0
 myFILE <- readOGR('shp/dummy.shp') 
 
 mode(myFILE) 
