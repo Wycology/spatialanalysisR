@@ -1,34 +1,31 @@
 # Working with shapefile in R as df
 # Created on 30th August 2021
-# Last edited on 30th August 2021 by the author
+# Last edited on 11th May 2022 by the author
 
-base::library(rgdal) 
+library(rgdal) 
+library(tidyverse)
 
-mySHP <- base::file.choose()    
+myFILE <- readOGR('shp/dummy.shp') 
 
-myFILE <- rgdal::readOGR(mySHP) 
+mode(myFILE) 
+length(myFILE) 
 
-base::mode(myFILE) 
-base::length(myFILE) 
 
-library(ggplot2) 
+myDF <- fortify(myFILE) 
 
-myDF <- ggplot2::fortify(myFILE) 
+class(myDF) 
 
-base::class(myDF) 
+head(myDF) 
 
-utils::head(myDF) 
+nrow(myDF)
 
-base::nrow(myDF)
+summary(myDF)
 
-base::summary(myDF)
+glimpse(myDF)
 
-base::library(tidyverse)
-tibble::glimpse(myDF)
-
-ggplot2::ggplot(myDF, ggplot2::aes(long, lat, group = group)) +
-  ggplot2::coord_map('mercator') +
-  ggplot2::geom_path()
+ggplot(myDF, aes(long, lat, group = group, col = group)) +
+  coord_map('mercator') +
+  geom_path()
 
 # All done
 # sinusoidal, cylequalarea, cylindrical, rectangular, gall, mollweide, gilbert,
