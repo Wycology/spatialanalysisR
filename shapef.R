@@ -2,8 +2,8 @@
 # Created on 30th August 2021
 # Last edited on 11th May 2022 by the author
 
-library(rgdal) 
-library(tidyverse)
+library(rgdal)        # Package version 1.5.31
+library(tidyverse)    # Package version 1.3.1
 
 myFILE <- readOGR('shp/dummy.shp') 
 
