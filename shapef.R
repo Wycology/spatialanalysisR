@@ -5,12 +5,13 @@
 library(rgdal)        # Package version 1.5.31
 library(tidyverse)    # Package version 1.3.1
 library(broom)        # Package version 0.8.0
-myFILE <- readOGR('shp/dummy.shp') 
+
+myFILE <- readOGR('shp/dummy.shp')
 
 mode(myFILE) 
 length(myFILE) 
 
-my_broom <- broom::tidy(myFILE)
+myDF <- broom::tidy(myFILE)
 
 class(myDF) 
 
