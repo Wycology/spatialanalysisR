@@ -5,9 +5,9 @@
 # Last edited 19th May 2022                                            #
 #######################################################################
 
-base::library(sdmpredictors) 
-base::library(leaflet)
-base::library(tidyverse)
+library(sdmpredictors) 
+library(leaflet)
+library(tidyverse)
 library(raster)
 
 sdmpredictors::list_datasets() 
