@@ -38,7 +38,7 @@ environment.bottom <- load_layers( layercodes = c("BO2_tempmax_bdmean" ,
                                    equalarea=FALSE, rasterstack=TRUE)
 
 
-# Download bathymetry data
+# Download mean bathymetry data
 bathymetry <- load_layers("BO_bathymean")
 
 # Generate data.frame with the sites of interest
