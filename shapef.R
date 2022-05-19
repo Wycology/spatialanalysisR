@@ -5,6 +5,7 @@
 library(rgdal)        # Package version 1.5.31
 library(tidyverse)    # Package version 1.3.1
 library(broom)        # Package version 0.8.0
+library(patchwork)
 
 my_shapefile <- readOGR('shp/dummy.shp')
 
@@ -25,14 +26,24 @@ glimpse(my_tibble)
 
 # Making a simple map
 
-# Plotting without considering coordinates
 my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   geom_path()
-
-# Taking into consideration the spatial nature of the data
 my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   coord_map('mercator') +
   geom_path()
+
+
+
+# Plotting without considering coordinates
+a <- my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
+  geom_path()
+
+# Taking into consideration the spatial nature of the data
+b <- my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
+  coord_map('mercator') +
+  geom_path()
+
+b / a
 
 # All done
 # sinusoidal, cylequalarea, cylindrical, rectangular, gall, mollweide, gilbert,
