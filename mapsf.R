@@ -28,7 +28,7 @@ mf_choro(mtq, var = 'POP', nbreaks = 5) # Plotting POP data variable
 
 colnames(mtq) # Prints column names of the data-set...not easy to know what they mean
 
-mf_map(mtq) # Displaying the map of the mtq object
+mf_map(mtq) # Displaying the map of the mtq object.
 
 mf_map(mtq_target, add = TRUE, col = 'cyan') # Awesome cyan color
 
