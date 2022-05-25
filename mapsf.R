@@ -32,7 +32,7 @@ mf_map(mtq) # Displaying the map of the mtq object
 
 mf_map(mtq_target, add = TRUE, col = 'cyan') # Awesome cyan color
 
-mf_inset_on(x = mtq_target, pos = 'topright', cex = .4)
+mf_inset_on(x = mtq_target, pos = 'topright', cex = 0.4)
 
 mf_scale(size = 2, 
          pos = c(x = 702229, y = 1598119), 
