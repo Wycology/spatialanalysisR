@@ -167,6 +167,7 @@ mf_export(x = mtq, filename = 'fixed_width_expand.png',
 mf_map(mtq, add = TRUE)
 
 mf_title(txt = 'PNG export: width=500px, height = 427px (deducted)')
+
 dev.off()
 
 # Center the map on specific area
