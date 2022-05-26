@@ -198,6 +198,7 @@ mf_export(x = mtq, export = 'svg', filename = 'fixed_width.svg',
 mf_map(mtq, add = TRUE)
 
 mf_title(txt = "SVG export: bg = 'black'")
+
 dev.off()
 
 mf_theme('agolalight')
