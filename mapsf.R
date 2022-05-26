@@ -177,6 +177,7 @@ target <- mtq[5, ]
 mf_export(x = target, filename = 'fixed_height_centered.png', height = 600)
 
 mf_init(mtq, theme = 'candy')
+
 mf_map(mtq, add = T)
 
 mf_shadow(target, add = TRUE)
