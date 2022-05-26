@@ -136,6 +136,7 @@ mf_inset_off()
 mf_title('Wealth in Martinique, 2015', pos = 'left')
 
 mf_scale(5)
+
 mf_credits(paste0('Sources: Insee and IGN, 2018\n', 'mapsf ', packageVersion('mapsf')))
 
 # Exporting map for publication
