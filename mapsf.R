@@ -187,6 +187,7 @@ mf_map(target, add = TRUE)
 mf_title(txt = 'PNG export: height = 600px, width = 433px (deducted)')
 
 mf_scale(1, pos = 'bottomleft')
+
 dev.off()
 
 # Other parameters
