@@ -50,6 +50,7 @@ mf_inset_off() # stopping the inset function from running
 mf_theme('dark') # picking the dark theme of mapsf to do the mapping
 
 mtq_target <- mtq[26,] # picking the right map to plot out
+
 mf_map(mtq) # mapping the sf object to the plots window
 
 mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color, fun
