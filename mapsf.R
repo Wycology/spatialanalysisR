@@ -148,6 +148,7 @@ mf_export(x = mtq, filename = 'fixed_width.png', width = 500) # The code for exp
 mf_map(mtq, add = TRUE) # Adding the map
 
 mf_title(txt = 'PNG export: width = 500px, height = 605px (deducted)')
+
 dev.off()
 
 mf_export(x = mtq, filename = 'fixed_width_theme.png',
