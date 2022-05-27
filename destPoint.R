@@ -17,7 +17,7 @@ bearing_to_destination <- 60
 
 distance_to_destination <- 125
 
-geosphere::destPoint(p = c(start_longitude, start_latitude), b = bearing_to_destination, 
+destPoint(p = c(start_longitude, start_latitude), b = bearing_to_destination, 
                      d = distance_to_destination) # Gives coordinates of a destination point.
 
 the_mat <- data.frame(lon = c(35, 35.2, 35.6),
