@@ -12,6 +12,7 @@ library(geosphere) # Loading the geosphere library
 start_longitude <- 35
 
 start_latitude <- 3
+
 bearing_to_destination <- 60
 distance_to_destination <- 125
 
