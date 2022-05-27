@@ -14,6 +14,7 @@ start_longitude <- 35
 start_latitude <- 3
 
 bearing_to_destination <- 60
+
 distance_to_destination <- 125
 
 geosphere::destPoint(p = c(start_longitude, start_latitude), b = bearing_to_destination, 
