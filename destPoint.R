@@ -1,10 +1,10 @@
 #####################################
 # Created by Wyclife Agumba Oluoch  #  
 # Created on: 19th Apr 2021         #
-# Last edited on 2th May 2022       #
+# Last edited on 28th May 2022       #
 #####################################
 
-# Task: Calculate the coordinates of destination point given the starting 
+# Task: Calculate the coordinates of destination poin given the starting 
 # point coordinates in degrees, bearing in degrees, and distance in meters
 
 library(geosphere) # Loading the geosphere library
