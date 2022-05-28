@@ -4,7 +4,7 @@
 # Last edited on 28th May 2022       #
 #####################################
 
-# Task: Calculate the coordinates of destination po given the starting 
+# Task: Calculate the coordinates of destination p given the starting 
 # point coordinates in degrees, bearing in degrees, and distance in meters
 
 library(geosphere) # Loading the geosphere library
