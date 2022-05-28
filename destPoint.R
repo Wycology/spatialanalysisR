@@ -7,7 +7,7 @@
 # Task: Calculate the coordinates of destination given the starting 
 # point coordinates in degrees, bearing in degrees, while distance in meters
 
-library(geosphere) # Loading the geosphere 
+library(geosphere) # Loading the geosphere package
 
 start_longitude <- 35
 
