@@ -7,7 +7,7 @@
 
 library(sdmpredictors)  # version 
 library(leaflet)        # version 
-library(tidyverse)
+library(tidyverse)      # version 
 library(raster)
 
 sdmpredictors::list_datasets() 
