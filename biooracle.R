@@ -5,7 +5,7 @@
 # Last edited 29th May 2022                                            #
 #######################################################################
 
-library(sdmpredictors)  # version 
+library(sdmpredictors)  # version 0.2.12
 library(leaflet)        # version 
 library(tidyverse)      # version 
 library(raster)         # version 
