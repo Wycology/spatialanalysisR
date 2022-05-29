@@ -6,7 +6,7 @@
 #######################################################################
 
 library(sdmpredictors)  # version 0.2.12
-library(leaflet)        # version 
+library(leaflet)        # version 2.1.1
 library(tidyverse)      # version 
 library(raster)         # version 
 
