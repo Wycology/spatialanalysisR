@@ -16,7 +16,6 @@ head(df)
 
 d <- sdmData(pa ~ min_temp, train = df)
 m <- sdm(pa ~ min_temp, data = d, methods = 'rf', replica = 'boot', n = 4)
-m  
 
 coordinates(df) <- ~x+y
 gridded(df) <- TRUE
