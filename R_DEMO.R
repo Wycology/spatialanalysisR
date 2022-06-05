@@ -21,6 +21,6 @@ m
 coordinates(df) <- ~x+y
 gridded(df) <- TRUE
 rea <- raster(df) 
-plot(rea)
 ens <- predict(m, rea, overwrite = T)
+plot(rea)
 plot(ens)
