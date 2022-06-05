@@ -1,0 +1,26 @@
+library(raster)
+library(dplyr)
+library(sdm)
+
+set.seed(2014)
+r <- raster(nrow = 10, ncol = 10)
+r[] <- rnorm(1:ncell(r))
+
+names(r) <- "min_temp"
+df <- data.frame(r = as.data.frame(r), coordinates(r))|> dplyr::arrange(min_temp)
+
+df <- df |> mutate(pa = case_when(min_temp <= -1 ~ 1,
+                                  min_temp > -1 ~ 0,
+                                  TRUE ~ 2))
+head(df)
+
+d <- sdmData(pa ~ min_temp, train = df)
+m <- sdm(pa ~ min_temp, data = d, methods = 'rf', replica = 'boot', n = 4)
+m  
+
+coordinates(df) <- ~x+y
+gridded(df) <- TRUE
+rea <- raster(df) 
+plot(rea)
+ens <- predict(m, rea, overwrite = T)
+plot(ens)
