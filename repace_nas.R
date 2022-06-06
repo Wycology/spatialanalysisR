@@ -13,5 +13,4 @@ my_df
 
 
 
-
 my_df |>mutate(across(where(is.numeric), ~ replace_na(., median(., na.rm = TRUE))))
