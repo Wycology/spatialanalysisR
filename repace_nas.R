@@ -3,7 +3,7 @@ library(tidyr)
 
 column1 <- c(4, 9, 10, NA, 5, 12, NA, 7, 11, 8)
 column2 <- c(rep(NA, 10))
-column3 <- c(4, 9, NA, NA, 5, 12, 6, 7, 11, 8)
+column3 <- c(rep(NA, 8), 11, 8)
 column4 <- c(NA, 9, 10, 12, 5, 12, NA, 7, 11, 8)
 column5 <- c(NA, NA, NA, NA, NA, NA, NA, NA, 0, -9999)
 
