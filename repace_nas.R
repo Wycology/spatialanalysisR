@@ -12,5 +12,4 @@ my_df <- data.frame(column1, column2, column3, column4, column5)
 my_df
 
 
-
-my_df |>mutate(across(where(is.numeric), ~ replace_na(., median(., na.rm = TRUE))))
+my_df |> mutate(across(where(is.numeric), ~ replace_na(., median(., na.rm = TRUE))))
