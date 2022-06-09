@@ -12,7 +12,7 @@ df <- data.frame(r = as.data.frame(r), coordinates(r))|> dplyr::arrange(min_temp
 df <- df |> mutate(pa = case_when(min_temp <= -1 ~ 1,
                                   min_temp > -1 ~ 0,
                                   TRUE ~ 2)) # Adding classed column to the dataframe
-head(df)
+head(df) # Checking first few rows
 
 d <- sdmData(pa ~ min_temp, train = df)
 m <- sdm(pa ~ min_temp, data = d, methods = 'rf', replica = 'boot', n = 4)
