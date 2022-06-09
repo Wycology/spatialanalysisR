@@ -3,7 +3,7 @@ library(dplyr)
 library(sdm)
 
 set.seed(2014) # For reproducibility reasons
-r <- raster(nrow = 10, ncol = 10)
+r <- raster(nrow = 10, ncol = 10) # Creating raster of 100 cells
 r[] <- rnorm(1:ncell(r))
 
 names(r) <- "min_temp"
