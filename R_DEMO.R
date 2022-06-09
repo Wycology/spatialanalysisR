@@ -7,8 +7,8 @@ r <- raster(nrow = 10, ncol = 10) # Creating raster of 100 cells
 r[] <- rnorm(1:ncell(r)) # Filling the raster with random values
 
 names(r) <- "min_temp" # Re-naming the raster layer
-df <- data.frame(r = as.data.frame(r), coordinates(r))|> dplyr::arrange(min_temp)
-
+df <- data.frame(r = as.data.frame(r), coordinates(r))|> dplyr::arrange(min_temp) # Dataframe the raster 
+ 
 df <- df |> mutate(pa = case_when(min_temp <= -1 ~ 1,
                                   min_temp > -1 ~ 0,
                                   TRUE ~ 2))
