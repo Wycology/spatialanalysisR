@@ -2,7 +2,7 @@ library(raster)
 library(dplyr)
 library(sdm)
 
-set.seed(2014)
+set.seed(2014) # For reproducibility
 r <- raster(nrow = 10, ncol = 10)
 r[] <- rnorm(1:ncell(r))
 
