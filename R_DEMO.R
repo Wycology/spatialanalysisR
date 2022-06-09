@@ -11,7 +11,7 @@ df <- data.frame(r = as.data.frame(r), coordinates(r))|> dplyr::arrange(min_temp
  
 df <- df |> mutate(pa = case_when(min_temp <= -1 ~ 1,
                                   min_temp > -1 ~ 0,
-                                  TRUE ~ 2))
+                                  TRUE ~ 2)) # Adding classed column to the dataframe
 head(df)
 
 d <- sdmData(pa ~ min_temp, train = df)
