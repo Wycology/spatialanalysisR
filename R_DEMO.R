@@ -14,7 +14,7 @@ df <- df |> mutate(pa = case_when(min_temp <= -1 ~ 1,
                                   TRUE ~ 2)) # Adding classed column to the dataframe
 head(df) # Checking first few rows
 
-d <- sdmData(pa ~ min_temp, train = df)
+d <- sdmData(pa ~ min_temp, train = df) # Building sdm data object
 m <- sdm(pa ~ min_temp, data = d, methods = 'rf', replica = 'boot', n = 4)
 
 coordinates(df) <- ~x+y
