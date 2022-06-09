@@ -4,7 +4,7 @@ library(sdm)
 
 set.seed(2014) # For reproducibility reasons
 r <- raster(nrow = 10, ncol = 10) # Creating raster of 100 cells
-r[] <- rnorm(1:ncell(r))
+r[] <- rnorm(1:ncell(r)) # Filling the raster with random values
 
 names(r) <- "min_temp"
 df <- data.frame(r = as.data.frame(r), coordinates(r))|> dplyr::arrange(min_temp)
