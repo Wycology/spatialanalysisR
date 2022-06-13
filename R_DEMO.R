@@ -2,7 +2,7 @@ library(raster)
 library(dplyr)
 library(sdm)
 
-set.seed(2014) # Sor reproducibility reasons
+set.seed(2014) # Seor reproducibility reasons
 r <- raster(nrow = 10, ncol = 10) # Creating raster of 100 cells
 r[] <- rnorm(1:ncell(r)) # Filling the raster with random values
 
