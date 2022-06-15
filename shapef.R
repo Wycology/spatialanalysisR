@@ -1,4 +1,4 @@
-# Working with shapefile in R as data frame
+# Working with shapefile in R as data a frame
 # Created on 30th August 2021
 # Last edited on 11th May 2022 by the author
 
@@ -31,8 +31,6 @@ my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
 my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   coord_map('mercator') +
   geom_path()
-
-
 
 # Plotting without considering coordinates
 a <- my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
