@@ -32,7 +32,7 @@ The data I used in this work can be [directly downloaded](https://opendata.arcgi
 The next step is to read in the data using `st_read()`. I will call the created object honeybee.
 
 ```{r loading, echo=FALSE, message=FALSE, warning=FALSE}
-honeybee <- st_read('shp/HoneyBeePermits2017.shp') # Reading in the shapefile
+honeybee <- st_read('shp/HoneyBeePermits2017.shp') # Reading in the shapefile.
 ```
 
 ### Checking class and head of the loaded data
