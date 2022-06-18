@@ -58,7 +58,6 @@ This is telling us that we are working with a point feature. Such a cool informa
 glimpse(honeybee)
 ```
 
-
 ### Checking the CRS of the data
 
 ```{r coordinaes}
