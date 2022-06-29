@@ -30,7 +30,7 @@ colnames(mtq) # Prints column names of the data-set...not easy to know what they
 
 mf_map(mtq) # Displaying map of the mtq object.
 
-mf_map(mtq_target, add = TRUE, col = 'cyan') # Awesome cyan color
+mf_map(mtq_target, add = TRUE, col = 'cyan') # Awesome cyan color!
 
 mf_inset_on(x = mtq_target, pos = 'topright', cex = 0.4)
 
@@ -43,7 +43,7 @@ mf_scale(size = 2,
 
 mf_map(mtq_target, add = FALSE, col = 'tomato') # mapping the inset
 
-mf_inset_off() # stopping the inset function from running
+mf_inset_off() # Stopping the inset function from running
 
 # Set theme for project
 
