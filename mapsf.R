@@ -5,9 +5,9 @@
 
 library(mapsf) # Loads the main mapping package.
 
-mf_theme(x = 'candy',
-         bg = 'purple',
-         fg = 'purple',
+mf_theme(x = 'candy', # This is one of the themes
+         bg = 'purple', # Sets the color of the background
+         fg = 'purple', 
          pos = 'center',
          inner = TRUE,
          line = 2,
