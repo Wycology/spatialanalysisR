@@ -1,5 +1,5 @@
 library(raster) # version 3.5.21
-library(dplyr)
+library(dplyr)  # version 
 library(sdm)
 
 set.seed(2014) # Setting for reproducibility reasons.
