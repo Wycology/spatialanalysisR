@@ -6,7 +6,7 @@ set.seed(2014) # Setting seed for reproducibility reasons.
 r <- raster(nrow = 10, ncol = 10) # Creating raster of 100 (10 rows and 10 columns) cells.
 r[] <- rnorm(1:ncell(r)) # Filling the raster cells with random values of length equal to cell numbers.
 
-names(r) <- "min_temp" # Re-naming the raster layer
+names(r) <- "min_temp" # Re-naming the raster layer as min_temp
 df <- data.frame(r = as.data.frame(r), coordinates(r)) |> dplyr::arrange(min_temp) # Dataframe the raster 
  
 df <- df |> mutate(pa = case_when(min_temp <= -1 ~ 1,
