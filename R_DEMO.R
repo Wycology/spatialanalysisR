@@ -1,4 +1,4 @@
-library(raster)
+library(raster) # version 3.5.21
 library(dplyr)
 library(sdm)
 
