@@ -2,7 +2,7 @@ library(raster) # version 3.5.21
 library(dplyr)  # version 1.0.9
 library(sdm)    # version 1.1.8
 
-set.seed(2014) # Setting for reproducibility reasons.
+set.seed(2014) # Setting seed for reproducibility reasons.
 r <- raster(nrow = 10, ncol = 10) # Creating raster of 100 (10 rows and 10 columns) cells
 r[] <- rnorm(1:ncell(r)) # Filling the raster with random values of length equal to
 
