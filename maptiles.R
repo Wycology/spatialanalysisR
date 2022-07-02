@@ -2,13 +2,14 @@
 library(maptiles) # For loading the tiles
 library(sf) 
 
-nc_raw <- sf::st_read(base::system.file("shape/nc.shp", package = 'sf'), quiet = TRUE)
+nc_raw <- st_read(system.file("shape/nc.shp", package = 'sf'), 
+                      quiet = TRUE)
 
 # re-project to EPSG:3857
 
-nc <- sf::st_transform(nc_raw, 'EPSG:3857') # picking a more appropriate crs
+nc <- st_transform(nc_raw, 'EPSG:3857') # picking a more appropriate crs
 
-nc_osm <- maptiles::get_tiles(nc,provider = 'CartoDB.Positron', crop = TRUE)
+nc_osm <- get_tiles(nc, provider = 'CartoDB.Positron', crop = TRUE)
 
 # Other providers
 
@@ -23,11 +24,11 @@ nc_osm <- maptiles::get_tiles(nc,provider = 'CartoDB.Positron', crop = TRUE)
 
 # -8595797, 4333842
 
-maptiles::plot_tiles(nc_osm)
+plot_tiles(nc_osm)
 
-base::plot(sf::st_geometry(nc), col = NA, add = TRUE, axes = TRUE)
+plot(st_geometry(nc), col = NA, add = TRUE, axes = TRUE)
 
-graphics::mtext(text = maptiles::get_credit('CartoDB.Positron'),
+mtext(text = get_credit('CartoDB.Positron'),
       side = 1, 
       line = -1,
       adj = 0.2,
@@ -43,10 +44,10 @@ osmnolbl <- list(src = 'osmnolabel',
                   sub = c('a','b', 'c'), 
                   cit = '© OpenStreetMap contributors.')
 
-nc_osmnolbl <- maptiles::get_tiles(x = nc, provider = osmnolbl, crop = TRUE, 
+nc_osmnolbl <- get_tiles(x = nc, provider = osmnolbl, crop = TRUE, 
                       cachedir = tempdir(), verbose = TRUE)
 
-maptiles::plot_tiles(nc_osmnolbl) # plotting the tile
+plot_tiles(nc_osmnolbl) # plotting the tile
 
-graphics::mtext(text = osmnolbl$cit, side = 1, line = -1, 
+mtext(text = osmnolbl$cit, side = 1, line = -1, 
       adj = 1, cex = .9, font = 3)
