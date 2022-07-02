@@ -22,4 +22,10 @@ leaflet() %>%
                    lat = ~latitude, 
                    lng = ~longitude,
                    radius = ~1.8, 
-                   popup = ~popup_info)
+                   popup = ~popup_info, 
+                   color = 'blue',
+                   weight = 14, 
+                   opacity = 0.2,
+                   fillColor = 'red',
+                   fill = TRUE,
+                   fillOpacity = 0.2)
