@@ -1,7 +1,7 @@
 ####################################################
 # Created by Wyclife Agumba Oluoch                 #     
 # Created on 22nd April 2021                       #
-# Last edited on th June 2022                    #
+# Last edited on 2nd July 2022                     #
 # Task: Mapping open water points in Turkana County#
 ####################################################
 
@@ -10,10 +10,11 @@ library(dplyr)
 
 dams <- read.csv('data/dams.csv')
 
-dams <- dams %>% dplyr::mutate(popup_info = base::paste('County: ', County, "<br/>", 
-                                           'Number: ',listing, "<br/>",
-                                           'Longitude: ', longitude, "<br/>", 
-                                           'Latitude: ', latitude))
+dams <- dams %>% 
+  mutate(popup_info = paste('County: ', County, "<br/>",
+                            'Number: ',listing, "<br/>",
+                            'Longitude: ', longitude, "<br/>",
+                            'Latitude: ', latitude))
 
 leaflet() %>%
   addTiles() %>%
