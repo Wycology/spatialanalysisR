@@ -29,7 +29,7 @@ my.colors = colorRampPalette(c("#5E85B8","#EDF0C0","#C13127"))
 plot(temp.max.bottom.crop,col=my.colors(1000),axes=FALSE, box=FALSE)
 title(cex.sub = 1.5, sub = "Maximum temperature at the sea bottom (ºC)")
 
-layers.bio2 <- list_layers(datasets="Bio-ORACLE")
+layers.bio2 <- list_layers(datasets = "Bio-ORACLE")
 layers.bio2
 
 environment.bottom <- load_layers( layercodes = c("BO2_tempmax_bdmean" , 
