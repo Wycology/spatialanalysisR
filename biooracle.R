@@ -8,7 +8,7 @@
 library(sdmpredictors)  # version 0.2.12
 library(leaflet)        # version 2.1.1
 library(tidyverse)      # version 1.3.1
-library(raster)         # version 3.5.15
+library(raster)         # version 3.5.21
 
 sdmpredictors::list_datasets() 
 sdmpredictors::list_layers() 
