@@ -2,7 +2,7 @@
 # Created by Wyclife Agumba Oluoch                                    #
 # Date 22nd Apr 2021                                                  #
 # Working with bathymetry data to predict marine species distribution #
-# Last edited 1st July 2022                                           #
+# Last edited 14th July 2022                                          #
 #######################################################################
 
 library(sdmpredictors)  # version 0.2.12
@@ -10,8 +10,8 @@ library(leaflet)        # version 2.1.1
 library(tidyverse)      # version 1.3.1
 library(raster)         # version 3.5.21
 
-sdmpredictors::list_datasets() 
-sdmpredictors::list_layers() 
+list_datasets() 
+list_layers() 
 
 bathy <- sdmpredictors::load_layers(c("BO_bathymin", "BO_bathymean", "BO_bathymax"))
 
@@ -61,8 +61,8 @@ m
 
 # Extract environmental values from layers
 my.sites.environment <- data.frame(Name = my.sites$Name , 
-                                   depth = raster::extract(bathymetry,my.sites[,2:3]) , 
-                                   raster::extract(environment.bottom,my.sites[,2:3]))
+                                   depth = raster::extract(bathymetry, my.sites[,2:3]) , 
+                                   raster::extract(environment.bottom, my.sites[,2:3]))
 my.sites.environment
 
 sites_tibble <- as_tibble(my.sites.environment)
