@@ -35,7 +35,7 @@ layers.bio2
 environment.bottom <- load_layers( layercodes = c("BO2_tempmax_bdmean" , 
                                                   "BO2_salinitymin_bdmean", 
                                                   "BO2_nitratemin_bdmean") , 
-                                   equalarea=FALSE, rasterstack=TRUE)
+                                   equalarea = FALSE, rasterstack=TRUE)
 
 
 # Download mean bathymetry data
