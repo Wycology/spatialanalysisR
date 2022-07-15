@@ -1,4 +1,4 @@
-# Replacing the NAs with Median values per 
+# Replacing the NAs with Median values per column
 
 library(dplyr)
 library(tidyr)
