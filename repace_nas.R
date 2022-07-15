@@ -1,4 +1,4 @@
-# Replacing the NAs with
+# Replacing the NAs with Median
 
 library(dplyr)
 library(tidyr)
