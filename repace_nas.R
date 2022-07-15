@@ -1,7 +1,7 @@
 # Replacing the NAs with Median values per column
 
-library(dplyr)
-library(tidyr)
+library(dplyr) # Version 1.0.9
+library(tidyr) # Version 1.2.0
 
 column1 <- c(4, 9, 10, NA, 5, 12, NA, 7, 11, 8)
 column2 <- c(rep(NA, 10))
