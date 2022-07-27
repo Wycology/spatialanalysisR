@@ -1,6 +1,6 @@
 # remotes::install_github('riatelab/maptiles')
 library(maptiles) # For loading the tiles
-library(sf) # For wrangling the spatial 
+library(sf) # For wrangling the spatial data
 
 nc_raw <- st_read(system.file("shape/nc.shp", package = 'sf'), 
                       quiet = TRUE)
