@@ -16,7 +16,7 @@ mf_theme(x = 'candy', # This is one of the themes
          mar = c(0, 0, 0, 0),
          )
 
-mtq <- mf_get_mtq() # Loading the default data coming with the package
+mtq <- mf_get_mtq() # Loadi the default data coming with the package
 
 mtq$geom # Looking at the geometry column of the data. Projected coords   
 
