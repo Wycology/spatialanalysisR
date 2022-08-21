@@ -26,7 +26,7 @@ mtq_target <- mtq |> dplyr::filter(LIBGEO == 'Sainte-Anne') # This is also givin
 
 mf_choro(mtq, var = 'POP', nbreaks = 5) # Plotting POP data variable
 
-colnames(mtq) # Prints column names of the data-set...not easy to know what they 
+colnames(mtq) # Prints column names of the data-set...not easy to know what the
 
 mf_map(mtq) # Displaying map of the mtq object.
 
