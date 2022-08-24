@@ -43,7 +43,7 @@ mf_scale(size = 2,
 
 mf_map(mtq_target, add = FALSE, col = 'tomato') # mapping the inset
 
-mf_inset_off() # Stoppin the inset function from running
+mf_inset_off() # Stoppi the inset function from running
 
 # Set theme for project
 
