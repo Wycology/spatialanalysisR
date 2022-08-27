@@ -47,11 +47,11 @@ mf_inset_off() # Stop the inset function
 
 # Set theme for project
 
-mf_theme('dark') # Picking dark theme of tdo the mapping
+mf_theme('dark') # Picking dark theme do the mapping
 
 mtq_target <- mtq[26,] # picking the right map to plot out
 
-mf_map(mtq) # Mapping the sf object to the plots window
+mf_map(mtq) # Maping the sf object to the plots window
 
 mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color, fun
 
