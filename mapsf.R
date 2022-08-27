@@ -51,7 +51,7 @@ mf_theme('dark') # Picking dark theme do the mapping
 
 mtq_target <- mtq[26,] # picking the right map to plot out
 
-mf_map(mtq) # ing the sf object to the plots window
+mf_map(mtq) # Ping the sf object to the plots window
 
 mf_map(mtq_target, add = TRUE, col = 'tomato') # tomato is the color, fun
 
