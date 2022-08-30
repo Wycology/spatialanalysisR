@@ -49,7 +49,7 @@ mf_inset_off() # Stop the inset function
 
 mf_theme('dark') # Picking dark theme do the mapping
 
-mtq_target <- mtq[26,] # Pick the right map to plot ou
+mtq_target <- mtq[26,] # Pick the right map to plot o
 
 mf_map(mtq) # Plotting the sf object to the plots wind
 
