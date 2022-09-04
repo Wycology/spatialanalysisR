@@ -3,7 +3,7 @@
 # Last edited on 17th July 2022 by the author
 
 library(rgdal)        # Package version 1.5.32
-library(tidyverse)    # Package version 1.3.1
+library(tidyverse)    # Package version 1.3.
 library(broom)        # Package version 1.0.0
 library(patchwork)    # Package version 1.1.1
 
