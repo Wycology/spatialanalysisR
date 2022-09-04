@@ -5,7 +5,7 @@
 library(rgdal)        # Package version 1.5.32
 library(tidyverse)    # Package version 1.3.2
 library(broom)        # Package version 1.0.1
-library(patchwork)    # Package version 1.1.1
+library(patchwork)    # Package version 1.1.
 
 my_shapefile <- readOGR('shp/dummy.shp')
 
