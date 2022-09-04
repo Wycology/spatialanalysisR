@@ -12,7 +12,7 @@ my_shapefile <- readOGR('shp/dummy.shp')
 mode(my_shapefile)     # This is an S4 object.
 length(my_shapefile)   # Number of features in the layer...like two roads
 
-my_tibble <- tidy(my_shapefile)
+my_tibble <- tidy(my_shapefile) # Tidy the shapefile
 
 class(my_tibble) 
 
