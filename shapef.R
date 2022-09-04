@@ -10,7 +10,7 @@ library(patchwork)    # Package version 1.1.2
 my_shapefile <- readOGR('shp/dummy.shp')
 
 mode(my_shapefile)     # This is an S4 object.
-length(my_shapefile)   # Reveals the number of features in the layer...like two roads
+length(my_shapefile)   # Number of features in the layer...like two roads
 
 my_tibble <- tidy(my_shapefile)
 
