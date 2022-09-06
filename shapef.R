@@ -32,7 +32,7 @@ my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   coord_map('mercator') +
   geom_path()
 
-# Plotting without consid coordinates
+# Plotting without cons coordinates
 a <- my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   geom_path()
 
