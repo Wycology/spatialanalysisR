@@ -32,7 +32,7 @@ my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   coord_map('mercator') +
   geom_path()
 
-# Plotting w coordinates
+# Plotting  coordinates
 a <- my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   geom_path()
 
