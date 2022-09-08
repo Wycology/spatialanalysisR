@@ -24,7 +24,7 @@ summary(my_tibble)
 
 glimpse(my_tibble)
 
-# Making simpl map
+# Making simp map
 
 my_tibble |> ggplot(aes(long, lat, group = group, col = group)) +
   geom_path()
