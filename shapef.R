@@ -2,10 +2,10 @@
 # Created on 30th August 2021                      #
 # Last edited on 8th September 2022 by the author  #
 
-library(rgdal)        # Package version 1.5.32
-library(tidyverse)    # Package version 1.3.2
-library(broom)        # Package version 1.0.1
-library(patchwork)    # Package version 1.1.2
+library(rgdal)        # Version 1.5.32
+library(tidyverse)    # Version 1.3.2
+library(broom)        # Version 1.0.1
+library(patchwork)    # Version 1.1.2
 
 my_shapefile <- readOGR('shp/dummy.shp')
 
@@ -20,7 +20,7 @@ head(my_tibble)
 
 nrow(my_tibble)
 
-summary(my_tibble)
+summary(my_tibbl
 
 glimpse(my_tibble)
 
