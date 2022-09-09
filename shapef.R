@@ -20,7 +20,7 @@ head(my_tibble)
 
 nrow(my_tibble)
 
-summar
+summa
 
 glimpse(my_tibble)
 
