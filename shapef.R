@@ -1,6 +1,6 @@
 # Working with shapefile in R as data a frame      #
 # Created on 30th August 2021                      #
-# Last edited on th September 2022 by the author  #
+# Last edited on 1th September 2022 by the author  #
 
 library(rgdal)        # Version 1.5.32
 library(tidyverse)    # Version 1.3.2
