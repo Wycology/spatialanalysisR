@@ -4,7 +4,7 @@
 # Last edited on 4th September 2022 #
 #####################################
 
-# Task: Calculate tcoordinates of destination given the starting 
+# Task: Calculate coordinates of destination given the starting 
 # point coordinates in degrees, bearing in degrees, while distance in meters
 
 library(geosphere) # Loading the geosphere package
