@@ -53,7 +53,7 @@ mtq_target <- mtq[26,] # Pick the right map to plot.
 
 mf_map(mtq) # Plotting the sf object to the plots wind
 
-mf_map(mtq_target, add = TRUE, col = 'tomato') # Tomato is the color, ge fun
+mf_map(mtq_target, add = TRUE, col = 'tomato') # Tomato is the color, get fun
 
 mf_inset_on(x = mtq_target, pos = 'topright', cex = .4) # location of the inset
 
