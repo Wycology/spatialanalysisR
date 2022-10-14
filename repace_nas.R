@@ -1,4 +1,4 @@
-# Replacing t NA values with Median values in every column in R
+# Replacing  NA values with Median values in every column in R
 
 library(dplyr) # Version 1.0.10
 library(tidyr) # Version 1.2.1
