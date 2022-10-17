@@ -52,7 +52,7 @@ my.sites <- data.frame(Name = c("Faro, Portugal, NE Atlantic" ,
                        Lat = c(37.047, 27.794,15.957,23.040 ) )
 my.sites
 
-# Visualize on Gol map
+# Visualize on Gl map
 
 m <- leaflet()
 m <- addTiles(m)
