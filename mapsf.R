@@ -71,7 +71,7 @@ mf_scale(size = 2) # Scale is changeable
 
 box(col = 'maroon', lwd = 3, lty = 2) # Add bounding box around inset map
 
-mf_inset_off() # removing the inset mapping mode
+mf_inset_off() # emoving the inset mapping mode
 
 mf_title('Martinique Municipalities') # Adding title to the map
 
