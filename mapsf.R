@@ -103,7 +103,7 @@ box() # Adding bounding box around world map inset
 
 mf_inset_off()
 
-# Non-geographic insets, for example histograms of the data presented
+# Non-geographic insets, such as histograms of the data presented
 
 bks <- mf_get_breaks(x = mtq$MED, nbreaks = 5, breaks = 'quantile')
 bks <- round(bks, digits = -2)
