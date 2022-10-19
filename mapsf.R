@@ -69,7 +69,7 @@ mf_title('Saint-Anne', pos = 'left', tab = TRUE, cex = .9, line = 1, inner = TRU
 
 mf_scale(size = 2) # Scale is changeable
 
-box(col = 'maroon', lwd = 3, lty = 2) # Add bounding box around t inset map
+box(col = 'maroon', lwd = 3, lty = 2) # Add bounding box around tinset map
 
 mf_inset_off() # removing the inset mapping mode
 
