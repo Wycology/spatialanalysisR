@@ -4,6 +4,8 @@ library(dplyr) # Version 1.0.10
 library(tidyr) # Version 1.2.1
 library(tibble) # Version 3.1.8
 
+pkgs  <- c("dplyr", "tidyr", "tibble")
+
 my_tibble <- tibble(column1 = c(4, 9, 10, NA, 5, 12, NA, 7, 11, 8), 
                     column2 = c(2, 1, 4, 5, 6, 7, 4, 3, 8, 12), 
                     column3 = c(NA, NA, NA, NA, NA, NA, NA, NA, NA, NA),
