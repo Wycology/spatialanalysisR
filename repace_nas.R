@@ -15,7 +15,7 @@ my_tibble <- tibble(column1 = c(4, 9, 10, NA, 5, 12, NA, 7, 11, 8),
                     column3 = c(NA, NA, NA, NA, NA, NA, NA, NA, NA, NA),
                     column4 = c(NA, NA, NA, NA, NA, NA, NA, NA, 11, 8), 
                     column5 = c(NA, NA, NA, NA, NA, NA, NA, NA, 11, 8), 
-                    column6 = c(NA, 9, 10, 12, 5, 12, NA, 7, 11, 8),
+                    column6 = c(NA, 9, 10, , 5, 12, NA, 7, 11, 8),
                     column7 = c(NA, NA, NA, NA, NA, NA, NA, NA, 0, -9999))
 
 my_tibble |> mutate(across(where(is.numeric), ~ replace_na(., median(., na.rm = TRUE))))
