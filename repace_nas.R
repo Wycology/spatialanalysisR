@@ -1,14 +1,15 @@
 # Replacing NA values with Median values in every column in R
 
-library(dplyr)    # Version 1.0.10
-library(tidyr)    # Version 1.2.1
-library(tibble)   # Version 3.1.8
-library(foreach)  # Version 1.5.2
+library(dplyr)      # Version 1.0.10
+library(tidyr)      # Version 1.2.1
+library(tibble)     # Version 3.1.8
+library(foreach)    # Version 1.5.2
+library(doParallel) # Version 1.0.17
 
-pkgs  <- c("dplyr", "tidyr", "tibble", "foreach")
+pkgs  <- c("dplyr", "tidyr", "tibble", "foreach", "doParallel")
 
-for (i in pkgs) {
-  print(packageVersion(i))
+foreach (i = pkgs) %do% {
+  packageVersion(i)
 }
 
 my_tibble <- tibble(column1 = c(4, 9, 10, NA, 5, 12, NA, 7, 11, 8), 
