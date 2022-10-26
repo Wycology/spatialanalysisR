@@ -1,10 +1,11 @@
 # Replacing NA values with Median values in every column in R
 
-library(dplyr) # Version 1.0.10
-library(tidyr) # Version 1.2.1
-library(tibble) # Version 3.1.8
+library(dplyr)    # Version 1.0.10
+library(tidyr)    # Version 1.2.1
+library(tibble)   # Version 3.1.8
+library(foreach)  # Version 1.5.2
 
-pkgs  <- c("dplyr", "tidyr", "tibble")
+pkgs  <- c("dplyr", "tidyr", "tibble", "foreach")
 
 for (i in pkgs) {
   print(packageVersion(i))
