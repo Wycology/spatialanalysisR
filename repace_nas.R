@@ -8,9 +8,7 @@ library(doParallel) # Version 1.0.17
 
 pkgs  <- c("dplyr", "tidyr", "tibble", "foreach", "doParallel")
 
-foreach (i = pkgs) %do% {
-  packageVersion(i)
-}
+foreach(i = pkgs, .combine = c) %do% {packageVersion(i)}
 
 my_tibble <- tibble(column1 = c(4, 9, 10, NA, 5, 12, NA, 7, 11, 8), 
                     column2 = c(2, 1, 4, 5, 6, 7, 4, 3, 8, 12), 
