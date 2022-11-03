@@ -278,7 +278,7 @@ mf_export(
 )
 
 mf_init(mtq)
-mf_map(mtq, add = TRUE) # Add another layer to the map.
+mf_map(mtq, add = TRUE) # Add another layer oto the map.
 
 mf_title(txt = 'darkula') # Assigning title to the plotted map
 
