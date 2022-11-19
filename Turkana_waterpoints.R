@@ -2,7 +2,7 @@
 # Created by Wyclife Agumba Oluoch                 #     
 # Created on 22nd April 2021                       #
 # Last edited on 19th November 2022                #
-# Task: Mapping open well points in Turkana County #
+# Task: Mapping W points in Turkana County #
 ####################################################
 
 library(leaflet)
