@@ -3,7 +3,7 @@
 # Contact: https://github.com/Wycology
 # Last edited 26th November 2022 
 
-library(mapsf) # Load the main mapping package.
+library(mapsf) # Loadi the main mapping package.
 
 mf_theme(
   x = 'candy',
