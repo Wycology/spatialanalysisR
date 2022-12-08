@@ -3,7 +3,6 @@
 # Contact: https://github.com/Wycology
 # Last edited: 8th December 2022
 
-
 library(sf)
 library(sfdep)
 library(tidyverse)
