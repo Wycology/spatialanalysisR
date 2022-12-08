@@ -66,7 +66,6 @@ nb[1:3]
 wt <- st_weights(nb)
 wt[1:3]
 
-
 kenya_bound <- kenya %>% left_join(maize, by = "COUNTY")
 
 x <- kenya_bound$yield_2016
