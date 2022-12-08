@@ -1,5 +1,6 @@
 # Task: Spatial lag in R
 # Author: Wyclife Agumba Oluoch
+# Contact: https://github.com/Wycology
 
 
 library(sf)
