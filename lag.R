@@ -4,7 +4,7 @@
 # Last edited: 8th December 2022
 
 library(sf)
-library(sfdep)
+library(sfdep) # Installed from github using devtools
 library(tidyverse)
 
 data(guerry, package = "sfdep")
