@@ -6,6 +6,13 @@
 library(sf)
 library(sfdep) # Installed from github using devtools
 library(tidyverse)
+library(patchwork)
+
+pkgs <- c("sf", "sfdep", "tidyverse", "patchwork")
+
+for (pkg in pkgs) {
+  print(paste0(pkg, " ", packageVersion(pkg)))
+}
 
 data(guerry, package = "sfdep")
 head(guerry)
@@ -48,7 +55,7 @@ gg_crime_lag <- ggplot(crime_lags, aes(fill = crime_lag)) +
   scale_fill_viridis_c(limits = range(guerry$crime_pers)) +
   theme_void() 
 
-patchwork::wrap_plots(gg_crime_obs, gg_crime_lag)
+wrap_plots(gg_crime_obs, gg_crime_lag)
 
 # Kenya data -------------------------------------------------------------------------------------
 
@@ -95,4 +102,4 @@ gg_crime_lag <- ggplot(crime_lags, aes(fill = crime_lag)) +
   scale_fill_viridis_c(limits = range(kenya_bound$yield_2016)) +
   theme_void() 
 
-patchwork::wrap_plots(gg_crime_obs, gg_crime_lag)
+wrap_plots(gg_crime_obs, gg_crime_lag)
