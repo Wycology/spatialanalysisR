@@ -1,7 +1,7 @@
 # Task: Spatial lag in R
 # Author: Wyclife Agumba Oluoch
 # Contact: https://github.com/Wycology
-# Last edited: th December 2022
+# Last edited: 1th December 2022
 
 library(sf)
 library(sfdep) # Installed from github using devtools
