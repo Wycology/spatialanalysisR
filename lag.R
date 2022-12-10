@@ -3,7 +3,7 @@
 # Contact: https://github.com/Wycology
 # Last edited: 10th December 2022
 
-library(sf)
+library(sf) # Version 
 library(sfdep) # Installed from github using devtools
 library(tidyverse)
 library(patchwork)
