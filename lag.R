@@ -5,7 +5,7 @@
 
 library(sf) # Version 
 library(sfdep) # Installed from github using devtools
-library(tidyverse)
+library(tidyverse) # Version 
 library(patchwork)
 
 pkgs <- c("sf", "sfdep", "tidyverse", "patchwork")
