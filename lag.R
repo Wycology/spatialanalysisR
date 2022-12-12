@@ -1,4 +1,4 @@
-# Task: Calcul patial lag in R
+# Task: Calcula patial lag in R
 # Author: Wyclife Agumba Oluoch
 # Contact: https://github.com/Wycology
 # Last edited: 1th December 2022
