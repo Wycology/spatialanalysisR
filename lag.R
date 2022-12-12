@@ -1,7 +1,7 @@
 # Task: Spatial lag in R
 # Author: Wyclife Agumba Oluoch
 # Contact: https://github.com/Wycology
-# Last edited: 10th December 2022
+# Last edited: 1th December 2022
 
 library(sf) # Version 
 library(sfdep) # Installed from github using devtools
@@ -103,3 +103,55 @@ gg_crime_lag <- ggplot(crime_lags, aes(fill = crime_lag)) +
   theme_void() 
 
 wrap_plots(gg_crime_obs, gg_crime_lag)
+
+
+
+
+
+
+library(tidyverse)
+
+CPCOLS <- c("#010305", "#33A02C", "#D5E61C")
+
+ggplot(iris, aes(Petal.Length, Petal.Width)) + 
+  geom_point(aes(color = Species), size = 3) + 
+  scale_color_manual(values = CPCOLS)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
