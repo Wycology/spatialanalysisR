@@ -13,7 +13,7 @@
 
 library(cartogram)  # Another map making package....................version 0.2.2
 library(geosphere)  # For calculating distance between coordinates..version 1.5.18
-library(grid)       # Did something.................................version 4.1.0
+library(grid)       # Did something.................................version 4.2.2
 library(leaflet)    # Rendering html maps too.......................version 2.0.4.1    
 library(mapview)    # Rendering html maps...........................version 2.10.0
 library(raster)     # Manipulating and writing raster data as.......version 3.4.13   
