@@ -4,7 +4,7 @@
 # +254729371248                         #
 # TASK: Chapter 6 Geocomputation with R #
 # Created on 9th January 2021           #
-# Last modified on 30th August 2021     #
+# Last modified on th August 2021     #
 #########################################
 
 # Chapter Six Re-projecting Geographic Data in R----
@@ -23,6 +23,8 @@ base::library(leaflet)    # Rendering html maps too.......................versio
 base::library(grid)       # Did something.................................version 4.1.0
 base::library(cartogram)  # Another map making package....................version 0.2.2
 base::library(geosphere)  # For calculating distance between coordinates..version 1.5.10
+
+
 
 # st_is_longlat is one great function for checking if geographic CRS is in use
 
