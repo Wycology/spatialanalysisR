@@ -12,7 +12,7 @@
 # remotes::install_github("Nowosad/spDataLarge")
 
 library(cartogram)  # Another map making package....................version 0.2.2
-library(geosphere)  # For calculating distance between coordinates..version 1.5.10
+library(geosphere)  # For calculating distance between coordinates..version 1.5.18
 library(grid)       # Did something.................................version 4.1.0
 library(leaflet)    # Rendering html maps too.......................version 2.0.4.1    
 library(mapview)    # Rendering html maps...........................version 2.10.0
@@ -27,7 +27,9 @@ library(tmap)       # Generating good maps using st_functions.......version 3.3.
 pkgs <- c("cartogram", "geosphere", "grid", "leaflet", "mapview", "raster",
           "sf", "shiny", "spData", "spDataLarge", "tidyverse", "tmap") 
 
-
+for (pkg in pkgs) {
+  print(paste0(pkg, " ", packageVersion(pkg)))
+}
 
 # st_is_longlat is one great function for checking if geographic CRS is in use
 
