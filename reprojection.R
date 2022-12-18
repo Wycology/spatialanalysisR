@@ -11,7 +11,7 @@
 
 # remotes::install_github("Nowosad/spDataLarge")
 
-library(sf)               # Working with the sf data-sets.................version 1.0.2
+library(sf)         # Working with the sf data-sets.................version 1.0.2
 library(raster)     # Manipulating and writing raster data as.......version 3.4.13   
 library(tmap)       # Generating good maps using st_functions.......version 3.3.2
 library(tidyverse)  # Wrangling data................................version 1.3.1
