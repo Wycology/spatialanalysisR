@@ -11,18 +11,21 @@
 
 # remotes::install_github("Nowosad/spDataLarge")
 
-library(sf)         # Working with the sf data-sets.................version 1.0.2
+library(cartogram)  # Another map making package....................version 0.2.2
+library(geosphere)  # For calculating distance between coordinates..version 1.5.10
+library(grid)       # Did something.................................version 4.1.0
+library(leaflet)    # Rendering html maps too.......................version 2.0.4.1    
+library(mapview)    # Rendering html maps...........................version 2.10.0
 library(raster)     # Manipulating and writing raster data as.......version 3.4.13   
-library(tmap)       # Generating good maps using st_functions.......version 3.3.2
-library(tidyverse)  # Wrangling data................................version 1.3.1
+library(sf)         # Working with the sf data-sets.................version 1.0.2
 library(shiny)      # Will generate cool shiny app map (webmap).....version 1.6.0 
 library(spData)     # Has data for use in this document analysis....version 0.3.10
 library(spDataLarge)# Has larger data than spData above.............version 0.5.1
-library(mapview)    # Rendering html maps...........................version 2.10.0
-library(leaflet)    # Rendering html maps too.......................version 2.0.4.1    
-library(grid)       # Did something.................................version 4.1.0
-library(cartogram)  # Another map making package....................version 0.2.2
-library(geosphere)  # For calculating distance between coordinates..version 1.5.10
+library(tidyverse)  # Wrangling data................................version 1.3.1
+library(tmap)       # Generating good maps using st_functions.......version 3.3.2
+
+pkgs <- c("cartogram", "geosphere", "grid", "leaflet", "mapview", "raster",
+          "sf", "shiny", "spData", "spDataLarge", "tidyverse", "tmap") 
 
 
 
