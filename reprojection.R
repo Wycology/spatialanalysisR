@@ -33,7 +33,7 @@ for (pkg in pkgs) {
 
 # st_is_longlat is a function for checking if geographic CRS is in use
 
-# Here we start by a dummy dataframe and check for crs
+# We start by a dummy dataframe and check for crs
 
 london <- data.frame(lon = -0.1,
                      lat = 51.5) %>% # Creating a data.frame, and then
