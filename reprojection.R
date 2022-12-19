@@ -35,7 +35,7 @@ for (pkg in pkgs) {
 
 # Here we start by a dummy dataframe and check for crs
 
-london <- base::data.frame(lon = -0.1,
+london <- data.frame(lon = -0.1,
                      lat = 51.5) %>% # Creating a data.frame, and then
   sf::st_as_sf(coords = base::c('lon', 'lat')) # Setting variables lon and lat as coords
 
