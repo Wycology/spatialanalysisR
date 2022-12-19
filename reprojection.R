@@ -31,7 +31,7 @@ for (pkg in pkgs) {
   print(paste0(pkg, " ", packageVersion(pkg)))
 }
 
-# st_is_longlat is one grea function for checking if geographic CRS is in use
+# st_is_longlat is a function for checking if geographic CRS is in use
 
 # Here we start by a dummy dataframe and check for crs
 
