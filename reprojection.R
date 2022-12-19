@@ -61,7 +61,7 @@ london_buff <- st_buffer(london_geo, dist = 1)
 
 # Calculating distance between two points
 
-geosphere::distGeo(c(0, 0), c(1, 0))
+distGeo(c(0, 0), c(1, 0))
 
 geosphere::distGeo(c(-0.1, 51.5), c(0.9, 51.5)) / 1000 # Cool, distance between two
 # meridians in London is slightly below 70 kms (69.43998).
