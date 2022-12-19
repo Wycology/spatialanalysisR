@@ -68,7 +68,7 @@ distGeo(c(-0.1, 51.5), c(0.9, 51.5)) / 1000 # Cool, distance between two
 
 # Let me check the distance between our door and our gate at home:
 
-geosphere::distGeo(c(35.010717,  -0.237219), c(35.010519, -0.238081)) # Some 97m
+distGeo(c(35.010717,  -0.237219), c(35.010519, -0.238081)) # Some 97m
 # from certain door to main gate.
 
 # So here we use projected crs for London 
