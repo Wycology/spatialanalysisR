@@ -41,7 +41,7 @@ london <- data.frame(lon = -0.1,
 
 london # Running this confirms that CRS is NA. An sf object without crs set
 
-sf::st_is_longlat(london) # Returns NA because it is not yet set to any projection
+st_is_longlat(london) # Returns NA because it is not yet set to any projection
 
 london_geo <- london %>% # Feeding in the above london information
   st_set_crs(4326) # Setting the crs to EPSG code 4326 for geographic datum
