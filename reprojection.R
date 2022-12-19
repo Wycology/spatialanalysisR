@@ -37,7 +37,7 @@ for (pkg in pkgs) {
 
 london <- data.frame(lon = -0.1,
                      lat = 51.5) %>% # Creating a data.frame, and then
-  sf::st_as_sf(coords = base::c('lon', 'lat')) # Setting variables lon and lat as coords
+  sf::st_as_sf(coords = c('lon', 'lat')) # Setting variables lon and lat as coords
 
 london # Running this confirms that CRS is NA. An sf object without crs set
 
