@@ -113,7 +113,3 @@ ggplot(iris, aes(Petal.Length, Petal.Width)) +
   geom_point(aes(color = Species), size = 3) + 
   scale_color_manual(values = CPCOLS)
 
-
-
-
-
