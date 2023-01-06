@@ -106,7 +106,6 @@ wrap_plots(gg_crime_obs, gg_crime_lag)
 
 
 
-
 library(tidyverse)
 
 CPCOLS <- c("#010305", "#33A02C", "#D5E61C")
