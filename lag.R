@@ -44,8 +44,7 @@ gg_crime_obs <- ggplot(guerry, aes(fill = crime_pers)) +
 
 crime_lags <- guerry %>% 
   mutate(
-    nb = st_contiguity(geometry),
-    wt = st_weights(nb),
+    nb = st_contiguity(geometry), wt = st_weights(nb),
     crime_lag = st_lag(crime_pers, nb, wt)
   )
 
