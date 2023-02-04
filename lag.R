@@ -3,10 +3,10 @@
 # See: https://github.com/Wycology
 # Last edited: 4rd February 2023
 
-library(sf) # Version 
-library(sfdep) # Installed from github using devtools
-library(tidyverse) # Version 
-library(patchwork) # Version 
+library(sf)           # Version 
+library(sfdep)        # Installed from github using devtools
+library(tidyverse)    # Version 
+library(patchwork)    # Version 
 
 pkgs <- c("sf", "sfdep", "tidyverse", "patchwork")
 
