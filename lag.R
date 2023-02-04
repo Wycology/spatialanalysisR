@@ -59,7 +59,7 @@ wrap_plots(gg_crime_obs, gg_crime_lag)
 
 # Kenya data -------------------------------------------------------------------------------------
 
-kenya <- st_read("D:/FROM HP/DATA/DATABASE/Kenya_admin_2016_WGS84.shp")
+kenya <- st_read("D:/FROM HP/DATA/DATABASE/Kenya_admin_2014_WGS84.shp")
 head(kenya)
 # maize <- readxl::read_xlsx("C:/Users/ZEF/Downloads/kenya-maize-production-by-counties.xlsx")
 
