@@ -4,9 +4,9 @@
 # Last edited: 4rd February 2023
 
 library(sf)           # Version 1.0.9
-library(sfdep)        # Version 
-library(tidyverse)    # Version 
-library(patchwork)    # Version 
+library(sfdep)        # Version 0.2.3
+library(tidyverse)    # Version 1.3.2
+library(patchwork)    # Version 1.1.2
 
 pkgs <- c("sf", "sfdep", "tidyverse", "patchwork")
 
