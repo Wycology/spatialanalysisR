@@ -1,7 +1,7 @@
 ####################################################
 # Created by Wyclife Agumba Oluoch                 #     
-# Created on 22n April 2021                       #
-# Last edited on 19th November 2022                #
+# Created on 22nd April 2021                       #
+# Last edited on 19t November 2022                #
 # Task: Mapping Watering points in Turkana County  #
 ####################################################
 
