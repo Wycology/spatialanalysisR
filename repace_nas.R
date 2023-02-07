@@ -1,6 +1,6 @@
 # Replacing NA values with median values in every column of a tibble object in R
 
-library(dplyr)      # Version 1.0.10
+library(dplyr)      # Version 1.1.0
 library(tidyr)      # Version 1.2.1
 library(tibble)     # Version 3.1.8
 library(foreach)    # Version 1.5.2
