@@ -5,7 +5,7 @@
 # Task: Mapping Watering points in Turkana County  #
 ####################################################
 
-library(leaflet) # Vers
+library(leaflet) # Versio
 library(dplyr)
 
 dams <- read.csv('data/dams.csv')
