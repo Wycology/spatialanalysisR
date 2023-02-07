@@ -6,7 +6,7 @@
 ####################################################
 
 library(leaflet) # Version 
-library(dplyr)   # Vers 
+library(dplyr)   # Version  
 
 dams <- read.csv('data/dams.csv')
 
