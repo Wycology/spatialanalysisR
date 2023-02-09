@@ -21,7 +21,6 @@ for (pkg in pkgs) {
 }
 
 data(guerry, package = "sfdep")
-head(guerry)
 
 st_geometry(guerry) %>% plot()
 
