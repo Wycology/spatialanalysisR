@@ -16,7 +16,8 @@ library(patchwork)    # Version 1.1.2
 pkgs <- c("sf", "sfdep", "tidyverse", "patchwork")
 
 for (pkg in pkgs) {
-  print(paste0(pkg, " ", packageVersion(pkg)))
+  print(paste0(pkg, " ", 
+               packageVersion(pkg)))
 }
 
 data(guerry, package = "sfdep")
