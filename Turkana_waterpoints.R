@@ -15,7 +15,6 @@ dams <- dams %>%
                             'Number: ',listing, "<br/>",
                             'Longitude: ', longitude, "<br/>",
                             'Latitude: ', latitude))
-
 leaflet() %>%
   addTiles() %>%
   addCircleMarkers(data = dams,
