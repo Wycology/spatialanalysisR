@@ -7,7 +7,6 @@
 
 library(sf)           # Version 1.0.9
 library(sfdep)        # Version 0.2.3
-
 library(tidyverse)    # Version 1.3.2
 
 library(patchwork)    # Version 1.1.2
