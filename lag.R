@@ -38,7 +38,8 @@ xij <- x[ij]
 xij * wij
 sum(xij * wij)
 
-gg_crime_obs <- ggplot(guerry, aes(fill = crime_pers)) +
+gg_crime_obs <- ggplot(guerry, 
+                       aes(fill = crime_pers)) +
   geom_sf(color = "black", lwd = 0.15) +
   scale_fill_viridis_c(limits = range(guerry$crime_pers)) +
   theme_void()
