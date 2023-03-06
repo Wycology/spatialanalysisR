@@ -116,5 +116,6 @@ wrap_plots(gg_crime_obs, gg_crime_lag)
 CPCOLS <- c("#010305", "#33A02C", "#D5E61C")
 
 ggplot(iris, aes(Petal.Length, Petal.Width)) + 
-  geom_point(aes(color = Species), size = 3) + 
+  geom_point(aes(color = Species), 
+             size = 3) + 
   scale_color_manual(values = CPCOLS)
