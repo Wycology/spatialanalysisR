@@ -105,7 +105,8 @@ crime_lags <- kenya_bound %>%
   )
 
 gg_crime_lag <- ggplot(crime_lags, aes(fill = crime_lag)) +
-  geom_sf(color = "black", lwd = 0.15) +
+  geom_sf(color = "black", 
+          lwd = 0.15) +
   scale_fill_viridis_c(limits = range(kenya_bound$yield_2016)) +
   theme_void() 
 
