@@ -111,7 +111,8 @@ gg_crime_lag <- ggplot(crime_lags,
   scale_fill_viridis_c(limits = range(kenya_bound$yield_2016)) +
   theme_void() 
 
-wrap_plots(gg_crime_obs, gg_crime_lag)
+wrap_plots(gg_crime_obs, 
+           gg_crime_lag)
 
 CPCOLS <- c("#010305", "#33A02C", "#D5E61C")
 
