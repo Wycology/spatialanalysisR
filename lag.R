@@ -94,7 +94,8 @@ xij <- x[ij]
 xij * wij
 sum(xij * wij)
 
-gg_crime_obs <- ggplot(kenya_bound, aes(fill = rand)) +
+gg_crime_obs <- ggplot(kenya_bound, 
+                       aes(fill = rand)) +
   geom_sf(color = "black", 
           lwd = 0.15) +
   scale_fill_viridis_c(limits = range(kenya_bound$yield_2016)) +
