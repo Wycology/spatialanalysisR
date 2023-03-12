@@ -103,7 +103,8 @@ gg_crime_obs <- ggplot(kenya_bound,
 
 crime_lags <- kenya_bound %>% 
   mutate(
-    nb = st_contiguity(geometry), wt = st_weights(nb),
+    nb = st_contiguity(geometry), 
+    wt = st_weights(nb),
     crime_lag = st_lag(yield_2016, nb, wt)
   )
 
