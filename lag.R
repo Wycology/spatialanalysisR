@@ -18,7 +18,8 @@ for (pkg in pkgs) {
 
 data(guerry, package = "sfdep")
 
-st_geometry(guerry) %>% plot()
+st_geometry(guerry) %>% 
+  plot()
 
 nb <- st_contiguity(guerry)
 attributes(nb)
