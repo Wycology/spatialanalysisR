@@ -2,7 +2,7 @@
 # Task: Calculating spatial lag in R #
 # Author: Wyclife Agumba Oluoch      #
 # See: https://github.com/Wycology   #
-# Last edited: 12th March 2023       #
+# Last edited: 1th March 2023       #
 ######################################
 
 library(sf)           # Version 1.0.10
