@@ -5,7 +5,7 @@
 # Last edited: 12th March 2023       #
 ######################################
 
-library(sf)           # Version 1.0.9
+library(sf)           # Version 1.0.
 library(sfdep)        # Version 0.2.3
 library(tidyverse)    # Version 2.0.0
 library(patchwork)    # Version 1.1.2
