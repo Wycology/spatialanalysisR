@@ -48,7 +48,7 @@ xij * wij
 
 sum(xij * wij)
 
-gg_crime_obs <- ggplot(guerry, 
+gg_crime_obs <- ggplot(daguerry, 
                        aes(fill = crime_pers)) +
   geom_sf(color = "black", 
           lwd = 0.15) +
