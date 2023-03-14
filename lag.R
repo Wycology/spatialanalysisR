@@ -32,6 +32,7 @@ attributes(nb)
 nb[1:3]
 
 wt <- st_weights(nb)
+
 wt[1:3]
 
 x <- guerry$crime_pers
