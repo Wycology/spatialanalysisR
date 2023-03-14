@@ -26,6 +26,7 @@ st_geometry(guerry) %>%
   plot()
 
 nb <- st_contiguity(guerry)
+
 attributes(nb)
 
 nb[1:3]
