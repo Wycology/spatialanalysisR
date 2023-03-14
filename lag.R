@@ -94,7 +94,8 @@ kenya_bound <- kenya %>%
 x <- kenya_bound$yield_2016
 
 st_lag(x, 
-       nb, wt)
+       nb, 
+       wt)
 
 ij <- nb[[1]]
 wij <- wt[[1]]
