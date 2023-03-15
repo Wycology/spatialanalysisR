@@ -98,7 +98,9 @@ wt <- st_weights(nb)
 
 wt[1:3]
 
-maize <- data.frame(COUNTY = kenya$COUNTY, yield_2016 = sample(2000:2560, 47, replace = T))
+maize <- data.frame(COUNTY = kenya$COUNTY, 
+                    yield_2016 = sample(2000:2560, 47, replace = T),
+                    rand = sample(2000:2560, 47, replace = T))
 
 kenya_bound <- kenya %>% 
   left_join(maize, 
