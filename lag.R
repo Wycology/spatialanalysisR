@@ -152,8 +152,6 @@ CPCOLS <- c("#010305",
                      "#33A02C", 
                      "#D5E61C")
 
-ggplot(iris, aes(Petal.Length, 
-                 Petal.Width)) + 
-  geom_point(aes(color = Species), 
-             size = 3) + 
+ggplot(iris, aes(Petal.Length, Petal.Width)) + 
+  geom_point(aes(color = Species), size = 3) + 
   scale_color_manual(values = CPCOLS)
