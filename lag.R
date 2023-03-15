@@ -46,6 +46,7 @@ st_lag(x,
 ij <- nb[[1]]
 
 wij <- wt[[1]]
+
 xij <- x[ij]
 xij * wij
 
