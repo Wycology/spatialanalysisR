@@ -2,7 +2,7 @@
 # Task: Calculating spatial lag in R #
 # Author: Wyclife Agumba Oluoch      #
 # See: https://github.com/Wycology   #
-# Last edited: 14th March 2023       #
+# Last edited: 15th March 2023       #
 ######################################
 
 library(sf)           # Version 1.0.10
@@ -48,7 +48,7 @@ xij * wij
 
 sum(xij * wij)
 
-gg_crime_obs <- ggplot(daguerry, 
+gg_crime_obs <- ggplot(data = guerry, 
                        aes(fill = crime_pers)) +
   geom_sf(color = "black", 
           lwd = 0.15) +
