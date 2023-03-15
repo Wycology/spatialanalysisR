@@ -117,6 +117,7 @@ wij <- wt[[1]]
 xij <- x[ij]
 
 xij * wij
+
 sum(xij * wij)
 
 gg_crime_obs <- ggplot(kenya_bound, 
