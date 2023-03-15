@@ -20,10 +20,12 @@ for (pkg in pkgs) {
 }
 
 data(guerry, 
-     package = "sfdep")
+     package = "sfdep")>
 
 st_geometry(guerry) %>% 
   plot()
+
+class(guerry)
 
 nb <- st_contiguity(guerry)
 
