@@ -48,6 +48,7 @@ ij <- nb[[1]]
 wij <- wt[[1]]
 
 xij <- x[ij]
+
 xij * wij
 
 sum(xij * wij)
@@ -94,6 +95,7 @@ attributes(nb)
 nb[1:3]
 
 wt <- st_weights(nb)
+
 wt[1:3]
 
 kenya_bound <- kenya %>% 
