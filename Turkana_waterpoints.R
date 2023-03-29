@@ -20,7 +20,7 @@ leaflet() %>%
   addCircleMarkers(data = dams,
                    lat = ~latitude, 
                    lng = ~longitude,
-                   radius = ~1.8, 
+                   radius = ~ 1.8, 
                    popup = ~popup_info, 
                    color = 'blue',
                    weight = 14, 
