@@ -2,7 +2,7 @@
 # Created by Wyclife Agumba Oluoch                 #     
 # Created on 22nd April 2021                       #
 # Last edited on 30th March 2023                   #
-# Task: MaWatering points in Turkana County  #
+# Task: MWatering points in Turkana County  #
 ####################################################
 
 library(leaflet) # Version 2.1.1
