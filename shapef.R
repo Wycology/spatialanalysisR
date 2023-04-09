@@ -16,8 +16,9 @@ head(my_shapefile)
 
 nrow(my_shapefile)
 
-# Making map -------------------------------------------------------------------------------------
 
-my_shapefile |> ggplot() +
+# Making map --------------------------------------------------------------
+
+st_read("D:/FRANCO/Turkana County.shp") |> ggplot() +
   geom_sf()
 
