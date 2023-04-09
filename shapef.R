@@ -6,7 +6,6 @@
 
 library(sf)           # Version 1.0.12
 library(ggplot2)      # Version 3.4.2
-library(broom)        # Version 1.0.4
 
 my_shapefile <- st_read('shp/dummy.shp')
 
