@@ -4,9 +4,9 @@
 # Last edited on 8th April 2023 by the author      #
 ####################################################
 
-library(sf)           # Version 1.5.32
-library(tidyverse)    # Version 1.3.2
-library(broom)        # Version 1.0.1
+library(sf)           # Version 1.0.12
+library(tidyverse)    # Version 2.0.0
+library(broom)        # Version 1.0.4
 library(patchwork)    # Version 1.1.2
 
 my_shapefile <- st_read('shp/dummy.shp')
