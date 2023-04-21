@@ -35,9 +35,7 @@ wt[1:3]
 
 x <- guerry$crime_pers
 
-st_lag(x, 
-       nb, 
-       wt)
+st_lag(x, nb, wt)
 
 ij <- nb[[1]]
 
