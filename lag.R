@@ -16,8 +16,7 @@ for (pkg in pkgs) {
   print(paste0(pkg, " ", packageVersion(pkg)))
 }
 
-data(guerry, 
-     package = "sfdep")>
+data(guerry, package = "sfdep")>
 
 st_geometry(guerry) %>% 
   plot()
