@@ -69,8 +69,7 @@ gg_crime_lag <- ggplot(crime_lags,
   scale_fill_viridis_c(limits = range(guerry$crime_pers)) +
   theme_void() 
 
-wrap_plots(gg_crime_obs, 
-           gg_crime_lag)
+wrap_plots(gg_crime_obs, gg_crime_lag)
 
 # Kenya data -------------------------------------------------------------------------------------
 
@@ -100,9 +99,7 @@ kenya_bound <- kenya %>%
 
 x <- kenya_bound$yield_2016
 
-st_lag(x, 
-       nb, 
-       wt)
+st_lag(x, nb, wt)
 
 ij <- nb[[1]]
 
