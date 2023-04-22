@@ -73,7 +73,7 @@ kenya <- st_read("D:/FROM HP/DATA/DATABASE/Kenya_admin_2014_WGS84.shp")
 head(kenya)
 # maize <- readxl::read_xlsx("C:/Users/ZEF/Downloads/kenya-maize-production-by-counties.xlsx")
 
-st_geometry(kenya) %>%plot()
+st_geometry(kenya) %>% plot()
 
 nb <- st_contiguity(kenya)
 attributes(nb)
