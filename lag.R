@@ -89,8 +89,7 @@ maize <- data.frame(COUNTY = kenya$COUNTY,
                     rand = sample(2000:2560, 47, replace = T))
 
 kenya_bound <- kenya %>% 
-  left_join(maize, 
-            by = "COUNTY")
+  left_join(maize, by = "COUNTY")
 
 x <- kenya_bound$yield_2016
 
