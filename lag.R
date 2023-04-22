@@ -74,7 +74,7 @@ head(kenya)
 # maize <- readxl::read_xlsx("C:/Users/ZEF/Downloads/kenya-maize-production-by-counties.xlsx")
 
 st_geometry(kenya) %>% 
-  plot()
+plot()
 
 nb <- st_contiguity(kenya)
 attributes(nb)
