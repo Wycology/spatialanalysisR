@@ -61,7 +61,7 @@ crime_lags <- guerry %>%
   )
 
 gg_crime_lag <- ggplot(crime_lags, aes(fill = crime_lag)) +
-  geom_sf(color = "black",lwd = 0.15) +
+  geom_sf(color = "black", lwd = 0.15) +
   scale_fill_viridis_c(limits = range(guerry$crime_pers)) +
   theme_void() 
 
