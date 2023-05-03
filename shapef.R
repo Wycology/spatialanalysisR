@@ -23,3 +23,6 @@ my_shapefile |> ggplot() +
   geom_sf()
 
 # Just learnt of creating gridded hexagon using sf
+
+# Let start by creating a polygon 
+
