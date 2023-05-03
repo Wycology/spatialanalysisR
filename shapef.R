@@ -31,3 +31,5 @@ plot(poly)
 hex_grid <- st_make_grid(poly, cellsize = 0.05, square = FALSE) 
 
 plot(hex_grid, add = TRUE)
+
+plot(st_intersection(poly, hex_grid))
