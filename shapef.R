@@ -32,4 +32,5 @@ hex_grid <- st_make_grid(poly, cellsize = 0.05, square = FALSE)
 
 plot(hex_grid, add = TRUE)
 
+# This is plotting only the intesection of the two layers
 plot(st_intersection(poly, hex_grid))
