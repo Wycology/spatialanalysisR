@@ -28,6 +28,6 @@ my_shapefile |> ggplot() +
 
 poly <- st_sfc(st_polygon(list(rbind(c(0, 0), c(1, 0), c(1, 1), c(0, 0)))))
 
-hex_grid <- st_make_grid(poly, cellsize = 0.01, square = FALSE) 
+hex_grid <- st_make_grid(poly, cellsize = 0.05, square = FALSE) 
 
 plot(hex_grid, add = TRUE)
