@@ -30,4 +30,4 @@ poly <- st_sfc(st_polygon(list(rbind(c(0, 0), c(1, 0), c(1, 1), c(0, 0)))))
 
 hex_grid <- st_make_grid(poly, cellsize = 0.01, square = FALSE) 
 
-plot()
+plot(hex_grid, add )
