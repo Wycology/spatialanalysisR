@@ -27,7 +27,7 @@ my_shapefile |> ggplot() +
 # Let start by creating a polygon 
 
 poly <- st_sfc(st_polygon(list(rbind(c(0, 0), c(1, 0), c(1, 1), c(0, 0)))))
-
+plot(poly)
 hex_grid <- st_make_grid(poly, cellsize = 0.05, square = FALSE) 
 
 plot(hex_grid, add = TRUE)
