@@ -22,4 +22,6 @@ plot(doughnut)
 pseudo_absence <- st_sample(doughnut, size = 500)
 
 plot(pseudo_absence, add = T)
-head(pseudo_absence)
+
+pseudo_absence |> 
+  st_coordinates() |> as.data.frame()
