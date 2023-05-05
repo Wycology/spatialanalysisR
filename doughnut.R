@@ -17,8 +17,9 @@ plot(small_buffer, add = T)
 
 doughnut <- st_difference(large_buffer, small_buffer)
 
-plot(doughnut, add = T)
+plot(doughnut)
 
-pseudo_absence <- st_sample(doughnut, size = 10000)
+pseudo_absence <- st_sample(doughnut, size = 500)
 
 plot(pseudo_absence, add = T)
+head(pseudo_absence)
