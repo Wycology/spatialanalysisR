@@ -1,2 +1,2 @@
-# Extracting pseudoabsence from donought buffer around presence points
+# Extracting pseudo-absence from doughnut buffer around presence points
 
