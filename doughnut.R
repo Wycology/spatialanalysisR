@@ -26,4 +26,5 @@ plot(pseudo_absence, add = T)
 pseudo_absence |> 
   st_coordinates() |> 
   as.data.frame() |> 
-  dplyr::select(lon = X, lat = Y)
+  dplyr::select(lon = X, lat = Y) |> 
+  nrow()
