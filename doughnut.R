@@ -1,6 +1,6 @@
 # Extracting pseudo-absence from doughnut buffer around presence points
 
-library(sf) # For wrangling simple 
+library(sf) # For wrangling simple features
 library(tidyverse)
 library(charlatan)
 
