@@ -1,6 +1,6 @@
 # Extracting pseudo-absence from doughnut buffer around presence points
 
-library(sf)
+library(sf) # For 
 library(tidyverse)
 library(charlatan)
 
