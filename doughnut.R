@@ -2,7 +2,7 @@
 
 library(sf) # For wrangling simple features
 library(tidyverse) # Manipulating data frames or tibbles
-library(charlatan)
+library(charlatan) # For generating 
 
 presence <- data.frame(lon = ch_lon(n = 20), lat = ch_lat(n = 20)) |> 
   st_as_sf(coords = c("lon", "lat"))
