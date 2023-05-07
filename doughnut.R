@@ -1,6 +1,6 @@
 # Extracting pseudo-absence from doughnut buffer around presence points
 
-library(sf) # For wrangling simple features o
+library(sf) # For wrangling simple features ob
 library(tidyverse) # Manipulating data frames or tibbles
 library(charlatan) # For generating random points
 
