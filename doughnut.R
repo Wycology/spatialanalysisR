@@ -1,7 +1,7 @@
 # Extracting pseudo-absence from doughnut buffer around presence points
 
 library(sf) # For wrangling simple features object
-library(tidyverse) # Manipulating data frames or tibbl
+library(tidyverse) # Manipulating data frames or tib
 library(charlatan) # For generating random points
 
 presence <- data.frame(lon = ch_lon(n = 20), lat = ch_lat(n = 20)) |> 
