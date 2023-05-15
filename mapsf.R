@@ -3,7 +3,7 @@
 # Contact: https://github.com/Wycology
 # Last edited 15th May 2023 
 
-library(mapsf) # Loading the main map creation package
+pacman::p_load(mapsf) # Load the main map creation package
 
 mf_theme(
   x = 'candy',
