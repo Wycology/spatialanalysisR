@@ -17,7 +17,7 @@ mf_theme(
   mar = c(0, 0, 0, 0),
 )
 
-mtq <- mf_get_mtq() # Get
+mtq <- mf_get_mtq() # Get t
 
 mtq$geom 
 
