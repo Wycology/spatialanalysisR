@@ -48,7 +48,7 @@ plot(clim_masked[[1]]) # This now takes the irregular shape of your polygon and
 
 occurrence <- gbif('Salvadora', 'persica', download = T, ntries = 5, sp = T)
 
-# Let's see distribution of occurrence globally
+# Let's see the distribution of occurrence globally
 plot(worldclim[[1]])
 plot(occurrence, add = T) # A lot of points largely in Africa but also Arabia
 
