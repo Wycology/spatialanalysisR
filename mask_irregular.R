@@ -62,7 +62,7 @@ plot(clim_masked[[1]])
 plot(occurrence_cropped, add = T) # Yes cropped, but with kenyan extent.
 
 
-# Start by converting occurrence_cropped to sf object, since my kenya is an sf
+# Start by converting occurrence_cropped to sf object, since my Kenya is an sf
 # object
 
 occurrence_cropped_sf <- st_as_sf(occurrence_cropped)
