@@ -43,7 +43,7 @@ plot(clim_masked[[1]]) # This now takes the irregular shape of your polygon and
 # covers only the cropped region
 
 # Occurrence records---- 
-# I will download from gbif. Replace with your species of interest.
+# I will download it from gbif. Replace with your species of interest.
 # You can also add other parameters within gbif function like ext.
 
 occurrence <- gbif('Salvadora', 'persica', download = T, ntries = 5, sp = T)
