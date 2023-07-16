@@ -41,7 +41,7 @@ We can check the class and even head of the loaded data as follows:
 
 ```{r head_honeybee}
 class(honeybee) # sf
-head(honeybee) # Checking head of the sf object
+head(honeybee) # Checking the head of the sf object
 ```
 
 There is a lot of information that we get by loading the data including path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:
