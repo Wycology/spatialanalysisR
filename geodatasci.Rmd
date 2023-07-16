@@ -44,7 +44,7 @@ class(honeybee) # sf
 head(honeybee) # Checking the head of the sf object
 ```
 
-There is a lot of information that we get by loading the data including the path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:
+There is a lot of information that we get by loading the data including the path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example, we can simply check the structure by:
 
 ### Checking the structure of the data
 
