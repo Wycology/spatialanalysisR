@@ -52,7 +52,7 @@ There is a lot of information that we get by loading the data including the path
 str(honeybee) # str is from base R. We can use glimpse which is from dplyr.
 ```
 
-This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others. Good to know that most of the functions on sf objects start with **st\_**. This will be evident as we progress with the project. Here we start with `st_crs()`.
+This is telling us that we are working with a point feature. Such a piece of cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others. Good to know that most of the functions on sf objects start with **st\_**. This will be evident as we progress with the project. Here we start with `st_crs()`.
 
 ```{r}
 glimpse(honeybee)
