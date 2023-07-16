@@ -37,7 +37,7 @@ honeybee <- st_read('shp/HoneyBeePermits2017.shp') # Reading in the shapefile.
 
 ### Checking class and head of the loaded data
 
-We can check the class and even head of the loaded data as follows:
+We can check the class and even the head of the loaded data as follows:
 
 ```{r head_honeybee}
 class(honeybee) # sf
