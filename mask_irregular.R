@@ -1,7 +1,7 @@
 ############################################################
 # Created by Wyclife Agumba Oluoch                         #
 # As a response to an email on 8th March 2021              #
-# Last edited on 1th November 2021 while at Ashanzi Lodwar #
+# Last edited on 18th November 2021 while at Ashanzi Lodwar #
 ############################################################
 # Clipping occurrence records data and predictor variables with our study area
 # boundary:
