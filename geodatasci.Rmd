@@ -25,7 +25,7 @@ loadfonts(device = "win")
 
 ### Accessing data used in the project
 
-The data I used in this work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted f, and saved in a sub-folder, here called *shp*, the same directory as where the .Rmd file folder is located.
+The data I used in this work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted, and saved in a sub-folder, here called *shp*, the same directory as where the .Rmd file folder is located.
 
 ### Reading the data into R
 
