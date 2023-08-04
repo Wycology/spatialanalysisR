@@ -2,7 +2,7 @@
 # Author: Wyclife Agumba Oluoch
 # Contact: https://github.com/Wycology
 # Last edited 16th May 2023 
-# Last edited 4th Ju 2023 
+# Last edited 4th  2023 
 
 pacman::p_load(mapsf) # Load the main map creation package
 
