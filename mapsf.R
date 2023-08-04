@@ -1,11 +1,8 @@
 # Task: Creating maps and inset maps
 # Author: Wyclife Agumba Oluoch
 # Contact: https://github.com/Wycology
-<<<<<<< HEAD
-# Last edited th May 2023 
-=======
+# Last edited 16th May 2023 
 # Last edited 28th July 2023 
->>>>>>> 0498b6e27ca0556fcd26da8db6a6da6085366533
 
 pacman::p_load(mapsf) # Load the main map creation package
 
