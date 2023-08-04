@@ -25,7 +25,7 @@ loadfonts(device = "win")
 
 ### Accessing data used in the project
 
-The data I used in this work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted from zipped folder, and saved in a sub-folder, here called *shp*, the same directory as where the .Rmd file folder is located.
+The data I used in this work can be [directly downloaded](https://opendata.arcgis.com/datasets/f99ce43936d74f718e92a37a560ad875_0.zip), extracted, and saved in a sub-folder, here called *shp*, the same directory as where the .Rmd file folder is located.
 
 ### Reading the data into R
 
@@ -37,14 +37,14 @@ honeybee <- st_read('shp/HoneyBeePermits2017.shp') # Reading in the shapefile.
 
 ### Checking class and head of the loaded data
 
-We can check the class and even head of the loaded data as follows:
+We can check the class and even the head of the loaded data as follows:
 
 ```{r head_honeybee}
 class(honeybee) # sf
-head(honeybee) # Checking head of the sf object
+head(honeybee) # Checking the head of the sf object
 ```
 
-There is a lot of information which we get by loading the data including path to the data-set being loaded, driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with normal data-frame or tibble, for example we can simply check the structure by:
+There is a lot of information that we get by loading the data including the path to the data-set being loaded, the driver used to load the file, geometry type, dimension, bounding box, and CRS. We can get information about the sf object just like with a normal data-frame or tibble, for example, we can simply check the structure by:
 
 ### Checking the structure of the data
 
@@ -52,7 +52,7 @@ There is a lot of information which we get by loading the data including path to
 str(honeybee) # str is from base R. We can use glimpse which is from dplyr.
 ```
 
-This is telling us that we are working with a point feature. Such a cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others. Good to know that most of the functions on sf objects start with **st\_**. This will be evident as we progress with the project. Here we start with `st_crs()`.
+This is telling us that we are working with a point feature. Such a piece of cool information to have. Now we may need to know the coordinate reference system of our data. This is a very important step before running any analyses on the data as it has significant effect on the units of measurements, for example length, area, among others. Good to know that most of the functions on sf objects start with **st\_**. This will be evident as we progress with the project. Here we start with `st_crs()`.
 
 ```{r}
 glimpse(honeybee)
@@ -64,7 +64,7 @@ glimpse(honeybee)
 st_crs(honeybee) # Checking the crs of the sf
 ```
 
-That is returning quite helpful information. We can also have the information within the text as `r sf::st_crs(honeybee)`. I still can't imagine how the output will look like in the text. Let us see by knitting the markdown. Everything thrown to text :).
+That is returning quite helpful information. We can also have the information within the text as `r sf::st_crs(honeybee)`. I still can't imagine how the output will look like in the text. Let us see by knitting the markdown. Everything is thrown to text :).
 
 ### Checkig for validity of the data
 

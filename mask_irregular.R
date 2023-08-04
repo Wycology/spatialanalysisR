@@ -1,7 +1,7 @@
 ############################################################
 # Created by Wyclife Agumba Oluoch                         #
 # As a response to an email on 8th March 2021              #
-# Last edited on 6th November 2021 while at Ashanzi Lodwar #
+# Last edited on 18th July 2023 while at Ashanzi Lodwar #
 ############################################################
 # Clipping occurrence records data and predictor variables with our study area
 # boundary:
@@ -18,7 +18,7 @@ library(sf)      # version 1.0.4
 
 worldclim <- getData('worldclim', var = 'tmin', res = 10)
 
-# study area boundary  from GADM database
+# Study area boundary  from the GADM database
 
 kenya <- getData('GADM', country = 'KEN', level = 0)
 
@@ -29,7 +29,7 @@ crs(kenya)     # CRS arguments: +proj=longlat +datum=WGS84 +no_defs
 
 clim_cropped <- crop(worldclim, kenya)
 
-# Plot the cropped raster, that is one of the stacked layers
+# Plot the cropped raster, which is one of the stacked layers
 
 plot(clim_cropped[[1]]) # This is using the rectangular extent of the polygon 
 
@@ -43,12 +43,12 @@ plot(clim_masked[[1]]) # This now takes the irregular shape of your polygon and
 # covers only the cropped region
 
 # Occurrence records---- 
-# I will download from gbif. Replace with your species of interest.
+# I will download it from the gbif. Replace with your species of interest.
 # You can also add other parameters within gbif function like ext.
 
 occurrence <- gbif('Salvadora', 'persica', download = T, ntries = 5, sp = T)
 
-# Lets see distribution of occurrence globally
+# Let's see the distribution of occurrence globally
 plot(worldclim[[1]])
 plot(occurrence, add = T) # A lot of points largely in Africa but also Arabia
 
@@ -62,7 +62,7 @@ plot(clim_masked[[1]])
 plot(occurrence_cropped, add = T) # Yes cropped, but with kenyan extent.
 
 
-# Start by converting occurrence_cropped to sf object, since my kenya is an sf
+# Start by converting occurrence_cropped to sf object, since my Kenya is an sf
 # object
 
 occurrence_cropped_sf <- st_as_sf(occurrence_cropped)
@@ -75,7 +75,7 @@ crs(occurrence_cropped_sf_geo) # WGS84
 crs(clim_masked)               # WGS84
 crs(kenya_sf)                  # WGS84
 
-# Transformed to projected crs 32636
+# Transformed to projected CRS 32636
 
 occurrence_projected <- st_transform(occurrence_cropped_sf_geo, 32636)
 kenya_sf_projected <- st_transform(kenya_sf, 32636)
