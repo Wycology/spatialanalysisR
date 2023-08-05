@@ -6,8 +6,7 @@
 
 pacman::p_load(mapsf) # Load the main map creation package
 
-mf_theme(x = 'candy', bg = 'cyan',
-  fg = 'purple',
+mf_theme(x = 'candy', bg = 'cyan', fg = 'purple',
   pos = 'center',
   inner = TRUE,
   line = 2,
