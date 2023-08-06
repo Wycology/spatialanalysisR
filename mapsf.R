@@ -55,8 +55,7 @@ mf_shadow(mtq_target, add = TRUE)
 
 mf_map(mtq_target, add = TRUE, col = 'tomato')
 
-mf_title(
-  'Saint-Anne',
+mf_title('Saint-Anne',
   pos = 'left',
   tab = TRUE,
   cex = .9,
