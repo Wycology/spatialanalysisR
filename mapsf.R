@@ -18,7 +18,7 @@ mtq$geom
 mtq_target <- mtq[26,] 
 
 mtq_target <-
-  mtq |> dplyr::filter(LIBGEO == 'Sainte-Anne') 
+mtq |> dplyr::filter(LIBGEO == 'Sainte-Anne') 
 
 mf_choro(mtq, var = 'POP', nbreaks = 5)
 
