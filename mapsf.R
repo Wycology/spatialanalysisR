@@ -16,7 +16,7 @@ mtq <- mf_get_mtq() # Get the dataset
 mtq$geom 
 
 mtq_target <-
-  mtq[26,] 
+mtq[26,] 
 
 mtq_target <-
   mtq |> dplyr::filter(LIBGEO == 'Sainte-Anne') 
@@ -29,9 +29,7 @@ mf_map(mtq_target, add = TRUE, col = 'maroon')
 
 mf_inset_on(x = mtq_target, pos = 'topright', cex = 0.4)
 
-mf_scale(
-  size = 0.1,
-  pos = c(x = 702229, y = 1598119),
+mf_scale(size = 0.1, pos = c(x = 702229, y = 1598119),
   lwd = 2,
   cex = 1.2,
   col = 'red',
