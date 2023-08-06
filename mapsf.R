@@ -15,7 +15,7 @@ mtq <- mf_get_mtq() # Get the dataset
 
 mtq$geom 
 
-mtq_target <-mtq[26,] 
+mtq_target <- mtq[26,] 
 
 mtq_target <-
   mtq |> dplyr::filter(LIBGEO == 'Sainte-Anne') 
