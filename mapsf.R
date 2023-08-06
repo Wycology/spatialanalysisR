@@ -29,8 +29,7 @@ mf_map(mtq_target, add = TRUE, col = 'maroon')
 mf_inset_on(x = mtq_target, pos = 'topright', cex = 0.4)
 
 mf_scale(size = 0.1, pos = c(x = 702229, y = 1598119),
-  lwd = 2,
-  cex = 1.2,
+  lwd = 2, cex = 1.2,
   col = 'red',
   unit = 'km'
 )
