@@ -295,7 +295,7 @@ plot(st_geometry(ma),
 
 df <- data.frame(id = c( 1052,1036, 1104),
                  area = c(5, 6, 18),
-                 name = c("Oscar", "Magige", "Nyadundo"))
+                 name = c("Home_1", "Magige", "Nyadundo"))
 
 me <- left_join(ma, df, by = "id")
 
