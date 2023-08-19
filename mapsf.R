@@ -37,7 +37,7 @@ mf_map(mtq_target, add = FALSE, col = 'tomato')
 
 mf_inset_off()
 
-# Setting map theme ------------------------------------------------------------------------------
+# Setting map theme ------------------------------------------------------------
 
 mf_theme('dark')
 
@@ -75,7 +75,7 @@ mf_scale(size = 5) # Adding a map scale
 
 mf_credits(txt = 'T. Giraud, 2021') # Accreditation to the authors
 
-# Inset on lower left ----------------------------------------------------------------------------
+# Inset on lower left ----------------------------------------------------------
 
 mf_theme('default', mar = c(0, 0, 0, 0))
 
@@ -89,7 +89,7 @@ box(col = "green", lwd = 3, lty = 3)
 
 mf_inset_off()
 
-# World map as inset -----------------------------------------------------------------------------
+# World map as inset -----------------------------------------------------------
 
 mf_map(mtq)
 
@@ -101,7 +101,7 @@ box(col = "gray", lwd = 3, lty = 4) # Adding bounding box around world map inset
 
 mf_inset_off()
 
-# Graphs as inset --------------------------------------------------------------------------------
+# Graphs as inset --------------------------------------------------------------
 
 bks <- mf_get_breaks(x = mtq$MED,
                      nbreaks = 5,
@@ -170,7 +170,7 @@ mf_credits(paste0(
   packageVersion('mapsf')
 ))
 
-# Exporting map for publication ------------------------------------------------------------------
+# Exporting map for publication ------------------------------------------------
 
 mtq <- mf_get_mtq()
 
@@ -203,7 +203,7 @@ mf_export(
   theme = 'default'
 )
 
-# Export with space around the bounds ------------------------------------------------------------
+# Export with space around the bounds ------------------------------------------
 
 mf_map(mtq, add = TRUE)
 
@@ -212,7 +212,7 @@ mf_title(txt = 'PNG export: width=500px, height = 427px (deducted)')
 dev.off()
 target <- mtq[5,]
 
-# Center map at specific region ------------------------------------------------------------------
+# Center map at specific region ------------------------------------------------
 
 mf_export(x = target,
           filename = 'fixed_height_centered.png',
@@ -240,7 +240,7 @@ mf_export(
   bg = 'black'
 )
 
-# Additional parameters --------------------------------------------------------------------------
+# Additional parameters --------------------------------------------------------
 
 mf_map(mtq, add = TRUE)
 
@@ -277,3 +277,27 @@ mf_map(mtq) # Starting a map again.
 mf_title("Still 'darkula'")
 
 # When nothing plots then you may need to run dev.off() several times.
+
+library(sf)
+library(tidyverse)
+library(mapedit)
+
+# Joining sf object with a dataframe --------------------------------------
+
+ma <- mapedit::drawFeatures()
+names(ma) <- c("id", "feature_type", "geometry")
+plot(st_geometry(ma), 
+     axes = T,
+     xlab = "Longitude",
+     ylab = "Latitude",
+     main = "A couple of houses in Awasi",
+     arrow = TRUE)
+
+df <- data.frame(id = c( 1052,1036, 1104),
+                 area = c(5, 6, 18),
+                 name = c("Oscar", "Magige", "Nyadundo"))
+
+me <- left_join(ma, df, by = "id")
+
+library(leaflet)
+leaflet() |> addTiles() |> addPolygons(data = me)
