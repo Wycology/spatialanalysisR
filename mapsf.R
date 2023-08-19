@@ -4,7 +4,7 @@
 # Last edited 16th May 2023 
 # Last edited 4th August 2023 
 
-pacman::p_load(mapsf) # Load the main map creation package
+pacman::p_load(mapsf, mapedit, tidyverse, sf) # Load the main map creation package
 
 mf_theme(x = 'candy', bg = 'cyan', fg = 'purple',
   pos = 'center', inner = TRUE, line = 2,
@@ -278,14 +278,12 @@ mf_title("Still 'darkula'")
 
 # When nothing plots then you may need to run dev.off() several times.
 
-library(sf)
-library(tidyverse)
-library(mapedit)
-
 # Joining sf object with a dataframe --------------------------------------
 
 ma <- mapedit::drawFeatures()
+
 names(ma) <- c("id", "feature_type", "geometry")
+
 plot(st_geometry(ma), 
      axes = TRUE,
      xlab = "Longitude",
