@@ -287,7 +287,7 @@ library(mapedit)
 ma <- mapedit::drawFeatures()
 names(ma) <- c("id", "feature_type", "geometry")
 plot(st_geometry(ma), 
-     axes = T,
+     axes = TR,
      xlab = "Longitude",
      ylab = "Latitude",
      main = "A couple of houses in Awasi",
