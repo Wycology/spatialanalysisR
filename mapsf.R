@@ -123,8 +123,7 @@ mf_inset_on(fig = c(0.75, .95, .84, .99))
 par(mar = c(0, 0, 1.7, 0))
 
 hist(mtq$MED, breaks = bks, col = pal, border = fg,
-  axes = F, labels = '', xlab = '', ylab = '',
-  main = ''
+  axes = F, labels = '', xlab = '', ylab = '', main = ''
 )
 
 axis(
