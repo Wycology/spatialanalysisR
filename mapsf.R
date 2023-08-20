@@ -115,8 +115,7 @@ mf_theme('candy')
 fg <- mf_theme()$fg
 
 mf_map(x = mtq, var = 'MED', type = 'choro',
-  pal = pal,
-  breaks = bks,
+  pal = pal, breaks = bks,
   leg_pos = NA
 )
 
