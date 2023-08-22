@@ -68,7 +68,7 @@ That is returning quite helpful information. We can also have the information wi
 
 ### Checkig for validity of the data
 
-Now the next step would be to check for self intersection in our data.
+Now the next step would be to check for self-intersection in our data.
 
 ```{r validity}
 sum(st_is_valid(honeybee) == TRUE)
