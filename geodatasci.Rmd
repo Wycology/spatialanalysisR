@@ -82,7 +82,7 @@ We do not have any problem with self-intersection in our data set. All 90 points
 dummy <- st_read('shp/dummy.shp')
 ```
 
-The dummy object is read seamlessly and having 2 features. In other words, I have two rivers. It is of geometry type LINESTRING. 
+The dummy object is read seamlessly and has 2 features. In other words, I have two rivers. It is of geometry type LINESTRING. 
 Can even check the head of the data:
 
 ```{r head_dummy}
