@@ -74,7 +74,7 @@ Now the next step would be to check for self-intersection in our data.
 sum(st_is_valid(honeybee) == TRUE)
 ```
 
-We do not have any problem with self-intersection in our data set. All 90 points are considered valid. Behind the scene, there are 90 TRUEs and each TRUE is equated to 1 hence the sum being 90. Okay this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally crisscrossed same line feature while digitizing rivers and I could not trace the individual river to edit it. I will create dummy feature with such error in QGIS and load it to check its validity.
+We do not have any problem with self-intersection in our data set. All 90 points are considered valid. Behind the scene, there are 90 TRUEs and each TRUE is equated to 1 hence the sum being 90. Okay, this is reminding me of something I was working on and worried how to solve it in QGIS without much success. That is I accidentally crisscrossed same line feature while digitizing rivers and I could not trace the individual river to edit it. I will create dummy feature with such error in QGIS and load it to check its validity.
 
 ### Loading dummy point layer
 
