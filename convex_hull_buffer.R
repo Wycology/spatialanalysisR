@@ -1,5 +1,5 @@
 # Library ----------------------------------------------------
-pacman::p_load(sf) # For spatial, versio
+pacman::p_load(sf) # For spatial, version
 
 # Occurrence records -----------------------------------------
 species <-
