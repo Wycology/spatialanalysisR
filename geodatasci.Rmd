@@ -211,7 +211,7 @@ ggplot() +
 
 Not pleasant at all. Unfortunately. Need to have a better presentation of the labels on the plot.
 
-We can also con using the HiveType variable in the data-set to color the points so that we can visually appreciate the distribution of hives by type within the area. To remind myself of the names of the variables in the sf:
+We can also consi using the HiveType variable in the data-set to color the points so that we can visually appreciate the distribution of hives by type within the area. To remind myself of the names of the variables in the sf:
 
 ```{r names_of_variables}
 colnames(honeybee_utm)
