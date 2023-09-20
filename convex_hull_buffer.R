@@ -34,7 +34,7 @@ bg_points <- st_sample(x = hull_ext, size = 100)
 # Plotting ----------------------------------------------------
 plot(st_geometry(hull_ext), axes = TRUE)
 plot(convex_hull, add = TRUE, col = "#33a02c")
-plot(st_geometry(species), col = "blue", pch = 19, add = TRU)
+plot(st_geometry(species), col = "blue", pch = 19, add = TRUE)
 plot(st_geometry(bg_points), col = "#e31a1c", pch = 16, add = T)
 plot(st_geometry(centroid), col = "yellow", pch = 16, cex = 4, add = T)
 
