@@ -22,7 +22,7 @@ knitr::opts_chunk$set(cache = FALSE)
 
 ```{r libs, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
 packages <- c("raster", 'dplyr', 'ggplot2',
-          'knitr',
+        'knitr',
               'base')
 
 installed_packages <- packages %in% rownames(installed.packages())
