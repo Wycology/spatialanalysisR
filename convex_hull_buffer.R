@@ -25,7 +25,7 @@ centroid <- st_centroid(convex_hull)
 # Distances from the centroid to each of the vertices -------------
 distances <- st_distance(centroid, convex_verts) 
 
-# Beyond maxi distance by 10% ----------------------------------
+# Beyond maxim distance by 10% ----------------------------------
 hull_ext <- st_buffer(x = convex_hull, 
                       dist = max(distances) * 0.1) 
 # Background points--------------------------------------------
