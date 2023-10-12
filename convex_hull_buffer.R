@@ -9,7 +9,7 @@ species <-
 # Subsetting for presences only -------------------------------
 species <- species[species$Occurrence == 1,] 
 
-# Building convext hull around the points ---------------------
+# Building convex hull around the points ---------------------
 convex_hull <- st_convex_hull(st_union(species)) 
 
 # Getting the coordinates of the hull vertices ----------------
