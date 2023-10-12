@@ -22,7 +22,7 @@ convex_verts <- st_as_sf(
 # Centroid coordinates of the convex hull----------------------
 centroid <- st_centroid(convex_hull) 
 
-# Distances from thcentroid to each of the vertices -------------
+# Distances from thecentroid to each of the vertices -------------
 distances <- st_distance(centroid, convex_verts) 
 
 # Beyond max distance by 10% ----------------------------------
