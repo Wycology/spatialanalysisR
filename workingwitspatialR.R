@@ -119,7 +119,7 @@ dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif") # Note the difference in
 # are of the same extent, resolution, and projection
 
 compareRaster(dtm_harvard, dsm_harvard) # This has returned TRUE, meaning they
-# are of the same extent, resolution and projection. Otherwise it would return
+# are of the same extent, resolution and projection. Otherwise, it would return
 # a self-explanatory error message.
 
 canopy_height_harvard <- dsm_harvard - dtm_harvard # Simple raster subtraction.
