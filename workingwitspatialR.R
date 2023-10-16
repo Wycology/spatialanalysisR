@@ -116,7 +116,7 @@ dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif") # Note the difference in
 # heights of the two layers. It is dtm being subtracted FROM dsm.
 
 # However, before subtraction is done, we shall check whether the two rasters
-# are of same extent, resolution, and projection
+# are of the same extent, resolution, and projection
 
 compareRaster(dtm_harvard, dsm_harvard) # This has returned TRUE, meaning they
 # are of the same extent, resolution and projection. Otherwise it would return
