@@ -74,7 +74,7 @@ no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
 
 head(no_xy_df) # This is only giving back the dsm values without xy coordinates.
 
-dsm_harvard_df %>% # pick the data-set, and then.
+dsm_harvard_df %>% # Pick the data-set, and then.
   dplyr::select(y) %>% # pick the column called y, and then
   nrow() # Give the number of rows here. This can also be x or HARV_dsmCrop if
 # they are accordingly included in the select() too.
