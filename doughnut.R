@@ -2,7 +2,7 @@
 
 library(sf) # For wrangling the simple features object
 library(tidyverse) # Wrangling data frames
-library(charlatan) # For generating thrandom points
+library(charlatan) # For generating therandom points
 
 presence <- data.frame(lon = ch_lon(n = 20), lat = ch_lat(n = 20)) |> 
   st_as_sf(coords = c("lon", "lat"))
