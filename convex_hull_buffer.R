@@ -6,7 +6,7 @@ species <-
   st_read(system.file("external/species.shp", 
                       package = "sdm")) 
 
-# Subset for presences only -------------------------------
+# Subset for presences only ----------------------------------
 species <- species[species$Occurrence == 1,] 
 
 # Building convex hull around the points ---------------------
