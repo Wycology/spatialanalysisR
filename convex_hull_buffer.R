@@ -1,5 +1,5 @@
 # Library ----------------------------------------------------
-pacman::p_load(sf) # For spatial, Version 1.0.14
+pacman::p_load(sf) # For spatial analysis, Version 1.0.14
 
 # Occurrence records -----------------------------------------
 species <-
@@ -9,7 +9,7 @@ species <-
 # Subset for presences only -------------------------------
 species <- species[species$Occurrence == 1,] 
 
-# Building convext hull around the points ---------------------
+# Building convex hull around the points ---------------------
 convex_hull <- st_convex_hull(st_union(species)) 
 
 # Getting the coordinates of the hull vertices ----------------
@@ -22,10 +22,10 @@ convex_verts <- st_as_sf(
 # Centroid coordinates of the convex hull----------------------
 centroid <- st_centroid(convex_hull) 
 
-# Distances from centroid to each of the vertices -------------
+# Distances from the centroid to each of the vertices -------------
 distances <- st_distance(centroid, convex_verts) 
 
-# Beyond max distance by 10% ----------------------------------
+# Beyond the maximum distance by 10% ----------------------------------
 hull_ext <- st_buffer(x = convex_hull, 
                       dist = max(distances) * 0.1) 
 # Background points--------------------------------------------
@@ -34,7 +34,7 @@ bg_points <- st_sample(x = hull_ext, size = 100)
 # Plotting ----------------------------------------------------
 plot(st_geometry(hull_ext), axes = TRUE)
 plot(convex_hull, add = TRUE, col = "#33a02c")
-plot(st_geometry(species), col = "blue", pch = 19, add = T)
-plot(st_geometry(bg_points), col = "#e31a1c", pch = 16, add = T)
-plot(st_geometry(centroid), col = "yellow", pch = 16, cex = 4, add = T)
+plot(st_geometry(species), col = "blue", pch = 19, add = TRUE)
+plot(st_geometry(bg_points), col = "#e31a1c", pch = 16, add = TRUE)
+plot(st_geometry(centroid), col = "yellow", pch = 16, cex = 4, add = TRUE)
 

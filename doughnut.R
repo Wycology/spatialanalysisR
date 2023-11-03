@@ -1,7 +1,7 @@
 # Extracting pseudo-absence from doughnut buffer around presence points
 
-library(sf) # For wrangling simple features object
-library(tidyverse) # Wrangling data frames
+library(sf) # For wrangling the simple features object
+library(tidyverse) # Wrangling the data frame
 library(charlatan) # For generating random points
 
 presence <- data.frame(lon = ch_lon(n = 20), lat = ch_lat(n = 20)) |> 
@@ -10,7 +10,7 @@ presence <- data.frame(lon = ch_lon(n = 20), lat = ch_lat(n = 20)) |>
 plot(presence)
 
 large_buffer <- st_union(st_buffer(presence, 20))
-plot(large_buffer, add = T)
+plot(large_buffer, add = TRUE)
 
 small_buffer <- st_union(st_buffer(presence, 9))
 plot(small_buffer, add = T)

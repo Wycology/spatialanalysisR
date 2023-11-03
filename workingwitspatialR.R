@@ -6,7 +6,7 @@
 # +254729371248                        #
 # TASK: Working with spatial data in R #
 # Created on 28th Dec 2020 4.24 pm     #
-# Last modified on 30th Aug 2021       #
+# Last modified on 15th Oct 2023       #
 ########################################
 
 # Calculating plant canopy heights across NEON sites in Harvard using dsm & dtm.
@@ -34,7 +34,7 @@ library(leaflet.extras2) # For leaflet functionalities in R
 
 # Loading the dsm (digital surface model) data - heights of top physical points.
 # The data were captured by lidar flyover in Harvard NEON site.
-# Typically trees but could be anything else projecting above earth surface.
+# Typically trees but could be anything else projecting above earth's surface.
 # When I checked the study area using Google Earth (42.536910°, -72.17265°) 
 # (https://www.neonscience.org/field-sites/harv), it is a forested site 
 # and even the NEON sensor pylon is clearly visible at the site!!!
@@ -74,7 +74,7 @@ no_xy_df <- as.data.frame(dsm_harvard, xy = FALSE)
 
 head(no_xy_df) # This is only giving back the dsm values without xy coordinates.
 
-dsm_harvard_df %>% # pick the data-set, and then.
+dsm_harvard_df %>% # Pick the data-set, and then.
   dplyr::select(y) %>% # pick the column called y, and then
   nrow() # Give the number of rows here. This can also be x or HARV_dsmCrop if
 # they are accordingly included in the select() too.
@@ -116,10 +116,10 @@ dtm_harvard <- raster("NEON-airborne/HARV_dtmCrop.tif") # Note the difference in
 # heights of the two layers. It is dtm being subtracted FROM dsm.
 
 # However, before subtraction is done, we shall check whether the two rasters
-# are of same extent, resolution, and projection
+# are of the same extent, resolution, and projection
 
 compareRaster(dtm_harvard, dsm_harvard) # This has returned TRUE, meaning they
-# are of the same extent, resolution and projection. Otherwise it would return
+# are of the same extent, resolution and projection. Otherwise, it would return
 # a self-explanatory error message.
 
 canopy_height_harvard <- dsm_harvard - dtm_harvard # Simple raster subtraction.
