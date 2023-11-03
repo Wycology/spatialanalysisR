@@ -32,7 +32,7 @@ hull_ext <- st_buffer(x = convex_hull,
 set.seed(248) # The number can be between -2147483648 & 2147483647
 bg_points <- st_sample(x = hull_ext, size = 100)
 
-# Plotting ----------------------------------------------------
+# Visualizing ----------------------------------------------------
 plot(st_geometry(hull_ext), axes = TRUE)
 plot(convex_hull, add = TRUE, col = "#33a02c")
 plot(st_geometry(species), col = "blue", pch = 19, add = TRUE)
