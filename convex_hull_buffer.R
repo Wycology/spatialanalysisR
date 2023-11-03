@@ -29,7 +29,7 @@ distances <- st_distance(centroid, convex_verts)
 hull_ext <- st_buffer(x = convex_hull, 
                       dist = max(distances) * 0.1) 
 # Background points--------------------------------------------
-set.seed
+set.seed(248)
 bg_points <- st_sample(x = hull_ext, size = 100)
 
 # Plotting ----------------------------------------------------
