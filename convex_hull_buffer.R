@@ -39,3 +39,68 @@ plot(st_geometry(species), col = "blue", pch = 19, add = TRUE)
 plot(st_geometry(bg_points), col = "#e31a1c", pch = 16, add = TRUE)
 plot(st_geometry(centroid), col = "yellow", pch = 16, cex = 4, add = TRUE)
 
+
+
+# Write a function --------------------------------------------------------
+
+for (i in 1:20) {
+
+conv_calc <- function(species) {
+  convex_hull <- st_convex_hull(st_union(species))
+  convex_verts <- st_as_sf(
+    as.data.frame(st_coordinates(convex_hull)),
+    coords = c("X", "Y"),
+    crs = st_crs(convex_hull)
+  )
+  centroid <- st_centroid(convex_hull)
+  distances <- st_distance(centroid, convex_verts)
+  hull_ext <- st_buffer(x = convex_hull,
+                        dist = max(distances) * 0.1)
+  bg_points <- st_sample(x = hull_ext, size = 10000)
+  outs <- list(
+               hull_ex = hull_ext,
+               hull = convex_hull,
+               cent = centroid, 
+               spp = species, 
+               bgs = bg_points)
+  return(outs)
+}
+
+outed <- conv_calc(species)
+
+plot(st_geometry(outed$hull_ex), axes = TRUE)
+plot(st_geometry(outed$hull), add = T, col = "#33a02c")
+plot(st_geometry(outed$cent), pch = 16, col = "red", cex = 3, add = T)
+plot(st_geometry(outed$bgs), pch = 16, col = "blue", add = T)
+plot(st_geometry(outed$spp), pch = 16, add = T)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
