@@ -83,29 +83,6 @@ pilot <- function(outs) {
   plot(st_geometry(new_outs$bgs), pch = 16, col = "blue", add = T)
   plot(st_geometry(new_outs$spp), pch = 16, col = "red", add = T)
   plot(st_geometry(new_outs$cent), pch = 16, col = "yellow", cex = 3, add = T)
-  
 }
 
 pilot(outs = new_outs)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
