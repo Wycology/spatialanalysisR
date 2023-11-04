@@ -56,7 +56,7 @@ conv_calc <- function(species) {
   distances <- st_distance(centroid, convex_verts)
   hull_ext <- st_buffer(x = convex_hull,
                         dist = max(distances) * 0.1)
-  bg_points <- st_sample(x = hull_ext, size = 10000)
+  bg_points <- st_sample(x = hull_ext, size = 1000)
   outs <- list(
                hull_ex = hull_ext,
                hull = convex_hull,
@@ -76,12 +76,25 @@ plot(st_geometry(outed$spp), pch = 16, add = T)
 }
 
 
+new_sf <- st_as_sf(data.frame(lon = rnorm(n = 300, mean = 33, sd = 5.263),
+                              lat = rnorm(n = 300, mean = 0, sd = 5.263)),
+                   coords = c("lon", "lat"),
+                   crs = 4326)
 
 
+new_outs <- conv_calc(species = new_sf)
 
 
+pilot <- function(outs) {
+  plot(st_geometry(new_outs$hull_ex), axes = TRUE, lwd = 6,)
+  plot(st_geometry(new_outs$hull), col = "#33a02c", lwd = 3, add = T)
+  plot(st_geometry(new_outs$bgs), pch = 16, col = "blue", add = T)
+  plot(st_geometry(new_outs$spp), pch = 16, col = "red", add = T)
+  plot(st_geometry(new_outs$cent), pch = 16, col = "yellow", cex = 3, add = T)
+  
+}
 
-
+pilot(outs = new_outs)
 
 
 
