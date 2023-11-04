@@ -41,7 +41,6 @@ plot(st_geometry(centroid), col = "yellow", pch = 16, cex = 4, add = TRUE)
 
 # Write a function --------------------------------------------------------
 
-
 conv_calc <- function(species) {
   convex_hull <- st_convex_hull(st_union(species))
   convex_verts <- st_as_sf(
