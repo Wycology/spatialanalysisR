@@ -40,7 +40,6 @@ plot(st_geometry(bg_points), col = "#e31a1c", pch = 16, add = TRUE)
 plot(st_geometry(centroid), col = "yellow", pch = 16, cex = 4, add = TRUE)
 
 
-
 # Write a function --------------------------------------------------------
 
 for (i in 1:20) {
