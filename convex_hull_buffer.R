@@ -81,7 +81,6 @@ new_sf <- st_as_sf(data.frame(lon = rnorm(n = 300, mean = 33, sd = 5.263),
                    coords = c("lon", "lat"),
                    crs = 4326)
 
-
 new_outs <- conv_calc(species = new_sf)
 
 pilot <- function(outs) {
