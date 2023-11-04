@@ -70,7 +70,6 @@ plot(st_geometry(outed$cent), pch = 16, col = "red", cex = 3, add = T)
 plot(st_geometry(outed$bgs), pch = 16, col = "blue", add = T)
 plot(st_geometry(outed$spp), pch = 16, add = T)
 
-
 new_sf <- st_as_sf(data.frame(lon = rnorm(n = 300, mean = 33, sd = 5.263),
                               lat = rnorm(n = 300, mean = 0, sd = 5.263)),
                    coords = c("lon", "lat"),
