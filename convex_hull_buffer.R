@@ -84,7 +84,6 @@ new_sf <- st_as_sf(data.frame(lon = rnorm(n = 300, mean = 33, sd = 5.263),
 
 new_outs <- conv_calc(species = new_sf)
 
-
 pilot <- function(outs) {
   plot(st_geometry(new_outs$hull_ex), axes = TRUE, lwd = 6,)
   plot(st_geometry(new_outs$hull), col = "#33a02c", lwd = 3, add = T)
