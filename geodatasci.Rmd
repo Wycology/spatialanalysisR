@@ -15,7 +15,7 @@ editor_options:
 Loading the necessary packages to use in the codes which will be helpful in analyzing geographic data in R. font_import() helps to make the fonts brought by `extrafont` available to R for use.
 
 ```{r packages, include=FALSE}
-pacman::sf)
+pacman::p_load(sf)
 library(tidyverse)
 library(spdep)
 library(extrafont)
