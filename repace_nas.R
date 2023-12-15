@@ -2,7 +2,7 @@
 
 library(dplyr)      # Version 1.1.4
 library(tidyr)      # Version 1.3.0
-library(tibble)     # Version 3..1
+library(tibble)     # Version 3.2.1
 library(foreach)    # Version 1.5.2
 library(doParallel) # Version 1.0.17
 
