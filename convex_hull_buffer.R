@@ -52,7 +52,7 @@ conv_calc <- function(species) {
   distances <- st_distance(centroid, convex_verts)
   hull_ext <- st_buffer(x = convex_hull,
                         dist = max(distances) * 0.1)
-  bg_points <- st_sample(x = hull_ext, size = 1000)
+  bg_points <- st_sample(x = hull_ext, size = 10000)
   outs <- list(
                hull_ex = hull_ext,
                hull = convex_hull,
